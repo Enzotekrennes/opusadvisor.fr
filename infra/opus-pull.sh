@@ -6,7 +6,7 @@ set -euo pipefail
 
 WEBROOT="/var/www/opusadvisor"
 SRC="$WEBROOT/src"
-# Dépôt privé : lu avec la clé de déploiement en lecture seule (alias SSH github-opusadvisor, voir infra/README.md).
+# Dépôt lu avec la clé de déploiement en lecture seule, public ou privé (alias SSH github-opusadvisor, voir infra/README.md).
 REPO_URL="git@github-opusadvisor:Enzotekrennes/opusadvisor.fr.git"
 
 if [ ! -d "$SRC/.git" ]; then

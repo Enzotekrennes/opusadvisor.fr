@@ -5,7 +5,7 @@
 set -euo pipefail
 
 DIR="/opt/opus-lead-api"
-# Dépôt privé : lu avec la clé de déploiement en lecture seule (alias SSH github-opusadvisor, voir infra/README.md).
+# Dépôt lu avec la clé de déploiement en lecture seule, public ou privé (alias SSH github-opusadvisor, voir infra/README.md).
 REPO_URL="git@github-opusadvisor:Enzotekrennes/opusadvisor.fr.git"
 PATHS=(services/lead-api lib/einvoice)
 
