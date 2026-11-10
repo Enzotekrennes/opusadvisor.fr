@@ -118,6 +118,8 @@ Chaque dossier porte désormais un mode de paiement, et ce champ décide du dest
 - dates d'envoi du certificat et de la facture ;
 - échéance et date d'encaissement.
 
+Rangez aussi l'accord de l'OPCO dans le dossier de la session, avec la convention. L'auditeur peut demander ces deux pièces pour une session réalisée depuis l'audit précédent, [lors de la surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/).
+
 Le remboursement de l'entreprise ne prouve pas votre paiement. Atlas accepte une facture non acquittée. Akto aussi, sauf indication contraire de l'accord, notamment sur les cofinancements. Nous en déduisons que chez eux, l'entreprise peut être remboursée avant de vous avoir payé, et rien de publié n'indique que vous en êtes prévenu. L'Opcommerce et OPCO Mobilités parlent de « frais réglés », sans préciser si la facture doit être acquittée. Chez les autres, ce point n'est pas publié. Seul votre relevé bancaire dit si la facture est réglée.
 
 Quand la facture est au nom de l'entreprise, c'est elle que vous relancez, pas l'OPCO. À « j'attends mon remboursement », vous pouvez répondre, si vos conditions le prévoient, que la facture est due à l'échéance et que le remboursement se joue entre l'entreprise et l'OPCO.

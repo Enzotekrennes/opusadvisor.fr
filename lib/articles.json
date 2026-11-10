@@ -1,5 +1,21 @@
 [
     {
+        "id": 22,
+        "slug": "audit-de-surveillance-qualiopi",
+        "title": "Audit de surveillance Qualiopi : indicateurs, durée et preuves",
+        "description": "Audit de surveillance Qualiopi : indicateurs vérifiés, durée selon votre chiffre d'affaires, cas sur site et preuves à retrouver depuis novembre 2026.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-09",
+        "category": "Réglementation",
+        "seoTitle": "Audit de surveillance Qualiopi : règles 2026 et préparation",
+        "related": [
+            "automatisation-organisme-de-formation",
+            "fin-subrogation-opco-organisme-formation",
+            "facturation-electronique-organisme-formation"
+        ]
+    },
+    {
         "id": 21,
         "slug": "facturation-electronique-organisme-formation",
         "title": "Organisme de formation : facturation électronique et TVA exonérée",
@@ -28,7 +44,7 @@
         "related": [
             "fin-subrogation-opco-organisme-formation",
             "facturation-electronique-2026",
-            "organisation-avant-developpement"
+            "audit-de-surveillance-qualiopi"
         ],
         "tools": [
             "calcul-penalites-de-retard"

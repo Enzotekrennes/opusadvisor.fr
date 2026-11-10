@@ -61,7 +61,7 @@ Nous proposons de classer les tâches selon leur fréquence, le coût d'une erre
 2. Les documents en brouillon. Conventions, certificats et factures se remplissent seuls, puis une personne les relit avant l'envoi.
 3. Les alertes de délais et de pièces manquantes, qui préviennent la bonne personne avant l'échéance.
 4. Les relances de paiement, avec un rappel avant l'échéance et, en cas de retard, notre [calculateur de pénalités de retard](/outils/calcul-penalites-de-retard/).
-5. Les preuves, rangées au moment où elles sont produites.
+5. Les preuves, rangées au moment où elles sont produites. Lors de [l'audit de surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/), l'auditeur choisit la session à examiner, et une pièce absente ce jour-là devient une non-conformité.
 
 Si le CPF pèse lourd dans vos dossiers, placez les alertes de délais en tête, car ils sont courts. Les [conditions générales](https://of.moncompteformation.gouv.fr/espace-public/sites/of/files/2026-10/Conditions-generales-d%27utilisation_V16.pdf) fixent le premier, les [conditions particulières](https://of.moncompteformation.gouv.fr/espace-public/sites/of/files/2026-10/Conditions-particulieres-of_V16.pdf) les suivants.
 
