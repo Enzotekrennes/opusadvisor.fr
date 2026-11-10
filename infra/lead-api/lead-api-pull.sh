@@ -5,7 +5,8 @@
 set -euo pipefail
 
 DIR="/opt/opus-lead-api"
-REPO_URL="https://github.com/Enzotekrennes/Linky.git"
+# Dépôt privé : lu avec la clé de déploiement en lecture seule (alias SSH github-opusadvisor, voir infra/README.md).
+REPO_URL="git@github-opusadvisor:Enzotekrennes/opusadvisor.fr.git"
 PATHS=(services/lead-api lib/einvoice)
 
 if [ ! -d "$DIR/.git" ]; then

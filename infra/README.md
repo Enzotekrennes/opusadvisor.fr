@@ -12,7 +12,7 @@ VPS OVH (VPS-1, Beauharnois, Canada) sous Ubuntu 26.04, en service depuis le 06/
 1. Un push sur `main` lance le workflow GitHub `Build & publish` (`.github/workflows/deploy.yml`) : compilation du site, puis publication de `out/` dans la branche `deploy`.
 2. Sur le serveur, la minuterie `opus-pull.timer` lance `/usr/local/bin/opus-pull` (copie de `infra/opus-pull.sh`) toutes les 2 minutes : si la branche `deploy` a changé, nouvelle release puis bascule atomique.
 
-Aucun secret GitHub n'est nécessaire (dépôt public, `GITHUB_TOKEN` automatique). Une compilation en échec ne publie rien. Journal côté serveur : `journalctl -u opus-pull`.
+Le dépôt `Enzotekrennes/opusadvisor.fr` est privé. Le workflow n'a besoin d'aucun secret (`GITHUB_TOKEN` automatique). Le serveur lit le dépôt avec une clé de déploiement en lecture seule, `~/.ssh/opusadvisor_deploy` de l'utilisateur `ubuntu`, via l'alias SSH `github-opusadvisor` de `~/.ssh/config`. Une compilation en échec ne publie rien. Journal côté serveur : `journalctl -u opus-pull`.
 
 Déploiement manuel de secours (depuis ce PC, alias SSH `opus-vps`) :
 ```bash
@@ -23,8 +23,9 @@ bash scripts/deploy-vps.sh
 1. Commander un VPS Ubuntu, installer la clé SSH, vérifier la connexion par clé.
 2. `scp infra/setup-vps.sh <hote>:/tmp/ && ssh <hote> 'bash /tmp/setup-vps.sh'` (pose aussi le bloc nginx par défaut `00-default`, qui coupe la connexion pour les noms d'hôte inconnus)
 3. Pointer le DNS du domaine (enregistrement A chez IONOS) vers la nouvelle IP.
-4. Installer le déploiement automatique :
-   `scp infra/opus-pull.sh infra/opus-pull.service infra/opus-pull.timer <hote>:/tmp/`, puis sur le serveur :
+4. Installer le déploiement automatique. D'abord l'accès au dépôt privé, en tant que `ubuntu` :
+   `ssh-keygen -t ed25519 -N "" -C "opus-vps opusadvisor.fr lecture seule" -f ~/.ssh/opusadvisor_deploy`, puis ajouter à `~/.ssh/config` un bloc `Host github-opusadvisor` (`HostName github.com`, `User git`, `IdentityFile ~/.ssh/opusadvisor_deploy`, `IdentitiesOnly yes`). Depuis ce PC, déclarer la clé publique en lecture seule : `gh repo deploy-key add opusadvisor_deploy.pub --repo Enzotekrennes/opusadvisor.fr --title "VPS (lecture seule)"`. Vérifier l'empreinte de github.com à la première connexion (`gh api meta --jq .ssh_key_fingerprints`), puis tester avec `git ls-remote git@github-opusadvisor:Enzotekrennes/opusadvisor.fr.git deploy`.
+   Ensuite `scp infra/opus-pull.sh infra/opus-pull.service infra/opus-pull.timer <hote>:/tmp/`, puis sur le serveur :
    `sudo install -m 755 /tmp/opus-pull.sh /usr/local/bin/opus-pull && sudo install -m 644 /tmp/opus-pull.{service,timer} /etc/systemd/system/ && sudo systemctl daemon-reload && sudo systemctl enable --now opus-pull.timer`
 5. Une fois le DNS propagé : `sudo certbot --nginx -d opusadvisor.fr -d www.opusadvisor.fr --redirect`
 6. Réinstaller les redirections des anciennes URL (route `/article/` au singulier, articles supprimés) : copier `docs/nginx-redirects.conf` vers `/etc/nginx/snippets/opus-redirects.conf`, ajouter `include snippets/opus-redirects.conf;` dans le vhost opusadvisor.fr (avant `location /`), puis `sudo nginx -t && sudo systemctl reload nginx`. Sans ce fichier, Google voit des 404 sur des pages qu'il connaît encore.
