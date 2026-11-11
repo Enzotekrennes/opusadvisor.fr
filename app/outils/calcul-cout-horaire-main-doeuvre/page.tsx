@@ -4,9 +4,9 @@ import { LaborCostCalculator } from '@/components/pages/calc/LaborCostCalculator
 import { DEFAULT_LABOR, laborCost } from '@/lib/labor-cost';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/calcul-cout-horaire-main-doeuvre/';
-const PAGE_TITLE = "Calcul du coût horaire de main-d'œuvre (bâtiment)";
+const PAGE_TITLE = "Coût horaire de main-d'œuvre : prix de revient et taux horaire";
 const PAGE_DESCRIPTION =
-  "Calculez le coût horaire réel d'un compagnon (salaire chargé, indemnités, véhicule, heures facturées) et le taux horaire à facturer pour dégager une marge.";
+  "Calculez le prix de revient horaire réel d'un compagnon (salaire chargé, indemnités, véhicule, heures facturées) et le taux horaire à mettre dans vos devis pour dégager une marge.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -36,6 +36,13 @@ export default function LaborCostPage() {
       ctaTitle="Combien d'heures payées ne sont jamais facturées ?"
       ctaText="Pour le savoir, il faut que les heures pointées sur le chantier remontent au bon endroit, chantier par chantier. On regarde comment le faire avec vos outils actuels pendant le pré-audit : 30 minutes, gratuites."
     >
+      <ToolH2>Prix de revient horaire et taux horaire, deux chiffres différents</ToolH2>
+      <ToolP>
+        Le prix de revient horaire, ou coût horaire de revient, c'est ce que vous coûte une heure facturée. Le taux horaire,
+        ou tarif horaire, c'est ce que vous facturez au client : le prix de revient, plus les frais généraux, plus la marge.
+        Mettre l'un à la place de l'autre dans un devis, c'est travailler à prix coûtant.
+      </ToolP>
+
       <ToolH2>La formule</ToolH2>
       <Formula>coût horaire = coût annuel du compagnon ÷ heures réellement facturées</Formula>
       <ToolP>
@@ -72,6 +79,14 @@ export default function LaborCostPage() {
         <ToolLink href="/outils/calcul-marge-chantier/">calculateur de marge chantier</ToolLink>. Dans l'exemple :{' '}
         {h(base.perBillableHour)} × {(1 + d.overheadRate / 100).toLocaleString('fr-FR')} ÷{' '}
         {(1 - d.marginRate / 100).toLocaleString('fr-FR')} = {h(base.sellingRate)} HT de l'heure.
+      </ToolP>
+
+      <ToolH2>Chiffrer un chantier au taux horaire</ToolH2>
+      <ToolP>
+        Pour évaluer un chantier à l'heure, estimez les heures poste par poste, multipliez-les par le taux de vente, puis
+        ajoutez les fournitures avec leur propre coefficient. Une fois le chantier terminé, comparez les heures prévues aux
+        heures pointées : l'écart dit si votre taux et les temps de vos devis sont justes. Notre{' '}
+        <ToolLink href="/outils/calcul-marge-chantier/">calculateur de marge chantier</ToolLink> fait ce bilan.
       </ToolP>
 
       <ToolH2>Électricien, plombier, chauffagiste : ce qui change</ToolH2>

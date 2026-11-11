@@ -97,6 +97,14 @@ S'il est inadapté, ou si vous partez de zéro, on construit le système complet
 On ne revend aucun logiciel. Si on vous conseille d'en changer, on n'y gagne rien.`,
   },
   {
+    question: 'Quel logiciel de gestion choisir pour une entreprise du second œuvre ?',
+    answer: `Celui qui supprime vos ressaisies, quel que soit son nom. Batappli, Tolteck, Obat, EBP Bâtiment, Onaya ou Sage Batigest font des devis et des factures. Pour vous, la différence se joue sur le reste : suivi de chantier, planning, pointage des heures, lien avec la comptabilité.
+
+Avant de choisir, listez ce que votre équipe refait à la main chaque semaine : situations, relances, marge réelle par chantier, heures. Le bon outil fait disparaître ces tâches, seul ou relié aux autres.
+
+On ne touche aucune commission sur les logiciels. Pendant le pré-audit, on regarde avec vous si le vôtre suffit ou s'il faut en changer.`,
+  },
+  {
     question: 'Combien ça coûte, au total, de refaire mon système ?',
     answer: `Ça dépend surtout de la taille de votre boîte. Trois cas typiques :
 

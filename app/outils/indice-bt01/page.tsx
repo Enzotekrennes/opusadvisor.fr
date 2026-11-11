@@ -14,8 +14,8 @@ const monthBefore = periodAt(iLatest - 1);
 const yearBefore = periodAt(iLatest - 12);
 const valueAtPeriod = (s: (typeof btSeries)[number], p: string) => s.values[indexOfPeriod(p)] ?? null;
 
-const PAGE_TITLE = `Indice BT01 ${monthLabel(latest)} : valeur et révision de prix`;
-const PAGE_DESCRIPTION = `Dernier indice BT01 publié : ${fmtIndex(latestValue)} pour ${monthLabel(latest)} (base 100 en 2010). Historique sur 12 mois, index BT du second œuvre et calculateur de révision de prix.`;
+const PAGE_TITLE = `Indice BT01 ${monthLabel(latest)} : dernière valeur et simulateur`;
+const PAGE_DESCRIPTION = `Dernier indice BT01 publié : ${fmtIndex(latestValue)} pour ${monthLabel(latest)} (base 100 en 2010). Historique sur 12 mois, tous les index BT et simulateur de révision de prix.`;
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

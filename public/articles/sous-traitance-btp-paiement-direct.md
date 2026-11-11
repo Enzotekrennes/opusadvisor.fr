@@ -39,7 +39,7 @@ L'erreur courante : facturer avec TVA par habitude. Résultat, la facture est re
 
 Traduit en clair : une sous-traitance gérée à l'arrache passera de plus en plus mal dans le circuit. Les boîtes qui ont leurs contrats, leurs mentions et leur process carrés vont fluidifier ; les autres vont multiplier les rejets.
 
-Pour vérifier où en est votre entreprise sur la réception et l'émission, le [diagnostic gratuit](/diagnostic-facture-electronique/) prend 2 minutes.
+Pour vérifier où en est votre entreprise sur la réception et l'émission, le [diagnostic facture électronique](/diagnostic-facture-electronique/), gratuit, prend 2 minutes.
 
 ## Ce qu'un système propre sécurise
 

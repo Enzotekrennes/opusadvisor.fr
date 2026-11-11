@@ -29,9 +29,9 @@ const BTP_ARTICLES = [
   'maprimerenov-2026',
   'facturation-electronique-2026',
 ];
-const PAGE_TITLE = 'BTP second œuvre : automatiser devis et relances';
+const PAGE_TITLE = 'BTP second œuvre : logiciel de gestion, devis et relances';
 const PAGE_DESCRIPTION =
-  'On rend 10 h par semaine aux patrons du second œuvre : relances automatiques, chantiers centralisés, devis qui partent vite. Pré-audit gratuit de 30 min.';
+  'Devis, chantiers, situations et relances reliés, avec ou sans changer de logiciel : environ 10 h par semaine rendues aux patrons du second œuvre. Pré-audit gratuit.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

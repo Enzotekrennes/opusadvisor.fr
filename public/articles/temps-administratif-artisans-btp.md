@@ -46,7 +46,7 @@ Le problème n'est pas le manque d'outil. C'est que vos outils actuels ne se par
 
 On ne vise pas zéro heure d'administratif, ce serait mentir. On vise la moitié. Voici ce qui rend le plus de temps, dans l'ordre.
 
-- **Les relances qui partent toutes seules.** [Une facture émise déclenche une relance](/articles/relances-automatiques-impayes-btp/) à J+30 sans que vous y pensiez. Fini les deux heures du dimanche.
+- **Les relances qui partent toutes seules.** [Une facture émise déclenche ses relances](/articles/relances-automatiques-impayes-btp/) sans que vous y pensiez : un rappel trois jours avant l'échéance, une relance écrite le lendemain, un appel à J+8. Fini les deux heures du dimanche.
 - **Les justificatifs classés à la source.** La photo d'un ticket ou la pièce d'un dossier atterrit dans le bon dossier au moment où elle arrive, pas trois mois plus tard quand le comptable réclame.
 - **Les devis types prêts à dégainer.** Un modèle calé sur vos prix et vos mentions obligatoires, au lieu de repartir d'une page blanche à chaque chantier.
 - **Le lien direct avec le comptable.** Un export propre remplace la ressaisie mensuelle.
