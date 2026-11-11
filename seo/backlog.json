@@ -178,9 +178,9 @@
       "gsc": null,
       "serp": "Pas de page de référence dans les résultats consultés : une FAQ Centre Inffo, une page Certiforma sur les obligations, des sources luxembourgeoises (Pixie) et des résultats hors sujet. Les durées varient selon les sources, et rien ne les rassemble par type de document."
     },
-    "status": "validated",
+    "status": "published",
     "reason": "Question propre aux organismes sur un terrain peu couvert, et porte d'entrée vers le classement automatique des preuves ; les durées devront venir des textes officiels.",
-    "updatedAt": "2026-11-05"
+    "updatedAt": "2026-11-11"
   },
   {
     "id": "formation-tableau-de-bord",

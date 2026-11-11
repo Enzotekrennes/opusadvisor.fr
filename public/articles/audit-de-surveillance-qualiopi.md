@@ -106,7 +106,7 @@ Voici notre méthode, que le référentiel n'exige pas. Tirez au hasard une sess
 
 Notez le temps et ce qui manque. Si une pièce dépend d'un intervenant extérieur ou d'une boîte mail personnelle, le problème est là.
 
-La parade consiste à ranger chaque preuve au moment où elle est produite, dans le dossier de la session. Nous l'avons décrit dans notre guide sur [l'automatisation d'un organisme de formation](/articles/automatisation-organisme-de-formation/). C'est aussi le problème des preuves éparpillées que traitent nos [systèmes de gestion pour organismes de formation](/secteurs/formation/).
+La parade consiste à ranger chaque preuve au moment où elle est produite, dans le dossier de la session. Nous l'avons décrit dans notre guide sur [l'automatisation d'un organisme de formation](/articles/automatisation-organisme-de-formation/). C'est aussi le problème des preuves éparpillées que traitent nos [systèmes de gestion pour organismes de formation](/secteurs/formation/). Ce dossier peut aussi porter sa date de fin de conservation, calculée à partir des règles du CPF, de vos OPCO et de l'État, comme l'explique notre article sur [la durée de conservation des documents de formation](/articles/conservation-documents-organisme-de-formation/).
 
 ## Ce qui peut coûter la certification
 

@@ -70,7 +70,7 @@ Si le CPF pèse lourd dans vos dossiers, placez les alertes de délais en tête,
 - 3 jours ouvrés à l'issue de la formation pour la sortie et le service fait
 - 5 jours ouvrés pour transmettre les pièces que la Caisse des Dépôts réclame
 
-Elle peut les demander pendant 5 ans à compter de l'exécution de la formation. Des preuves perdues dans une boîte mail ne se retrouvent pas en 5 jours ouvrés, quatre ans plus tard. La version 16 ajoute [des notifications pour ces déclarations](https://of.moncompteformation.gouv.fr/espace-public/version-16-des-conditions-dutilisation-ce-qui-change), à faire arriver chez la personne qui déclare.
+Elle peut les demander pendant 5 ans à compter de l'exécution de la formation. S'y ajoutent [les durées de conservation fixées par vos OPCO, l'État et le droit comptable](/articles/conservation-documents-organisme-de-formation/), qui ne partent pas de la même date. Des preuves perdues dans une boîte mail ne se retrouvent pas en 5 jours ouvrés, quatre ans plus tard. La version 16 ajoute [des notifications pour ces déclarations](https://of.moncompteformation.gouv.fr/espace-public/version-16-des-conditions-dutilisation-ce-qui-change), à faire arriver chez la personne qui déclare.
 
 Un rappel peut aussi servir de preuve. Les conditions particulières citent, parmi les justificatifs d'accompagnement à distance, les « relances pour inciter le stagiaire à se connecter ». Nous en déduisons qu'une relance automatique n'a cette valeur que si vous la conservez dans le dossier du stagiaire.
 
