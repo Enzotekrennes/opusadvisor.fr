@@ -15,7 +15,7 @@ const PAGES: { path: string; updated: string; changeFrequency: 'weekly' | 'month
   { path: '/secteurs/', updated: '2026-10-23', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/secteurs/formation/', updated: '2026-11-05', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/secteurs/immobilier/', updated: '2026-10-23', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/secteurs/btp/', updated: '2026-10-23', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/secteurs/btp/', updated: '2026-11-11', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/cas-clients/', updated: '2026-10-23', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/equipe/', updated: '2026-10-31', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/contact/', updated: '2026-10-31', changeFrequency: 'monthly', priority: 0.8 },
@@ -25,6 +25,12 @@ const PAGES: { path: string; updated: string; changeFrequency: 'weekly' | 'month
   { path: '/mentions-legales/', updated: '2026-10-31', changeFrequency: 'yearly', priority: 0.1 },
 ];
 const TOOLS_UPDATED = '2026-10-23';
+// Outils dont le texte a changé depuis TOOLS_UPDATED.
+const TOOL_UPDATED: Record<string, string> = {
+  'calcul-situation-de-travaux': '2026-11-11',
+  'calcul-retenue-de-garantie': '2026-11-11',
+  'calcul-cout-horaire-main-doeuvre': '2026-11-11',
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles();
@@ -42,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...tools.map((t) => ({
       url: `${SITE_URL}/outils/${t.slug}/`,
       // La page de l'indice BT01 change à chaque publication de l'INSEE au Journal officiel.
-      lastModified: new Date(t.slug === 'indice-bt01' ? (getBt('BT01').last.jo ?? TOOLS_UPDATED) : TOOLS_UPDATED),
+      lastModified: new Date(t.slug === 'indice-bt01' ? (getBt('BT01').last.jo ?? TOOLS_UPDATED) : (TOOL_UPDATED[t.slug] ?? TOOLS_UPDATED)),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),

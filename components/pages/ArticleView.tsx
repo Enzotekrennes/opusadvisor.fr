@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { ArrowRight } from 'lucide-react';
@@ -44,8 +44,17 @@ function splitBeforeThirdH2(md: string): [string, string] {
   return [md, ''];
 }
 
+/** Each table gets a wrapper: below 640 px, CSS (globals.css, .article-table) stacks its rows instead of squeezing two columns. */
+const markdownComponents: Components = {
+  table: ({ node: _node, ...props }) => (
+    <div className="article-table">
+      <table {...props} />
+    </div>
+  ),
+};
+
 const Markdown: React.FC<{ children: string }> = ({ children }) => (
-  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
+  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]} components={markdownComponents}>
     {children}
   </ReactMarkdown>
 );

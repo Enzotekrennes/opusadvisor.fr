@@ -5,7 +5,7 @@ import { RetentionCalculator } from '@/components/pages/calc/RetentionCalculator
 const PAGE_URL = 'https://opusadvisor.fr/outils/calcul-retenue-de-garantie/';
 const PAGE_TITLE = 'Calcul de la retenue de garantie : HT ou TTC ?';
 const PAGE_DESCRIPTION =
-  "Calculez la retenue de garantie d'un marché de travaux : 5 % au maximum, sur le HT ou le TTC selon le marché, et sa libération un an après la réception.";
+  "Calculez la retenue de garantie de 5 % d'un marché de travaux : sur le HT ou le TTC, exemple sur une facture, consignation ou caution, et libération un an après la réception.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -45,6 +45,24 @@ export default function RetentionPage() {
           ['Versé tout de suite', '50 160 €', '50 400 €'],
         ]}
       />
+
+      <ToolH2>5 % de retenue sur une facture : l'exemple</ToolH2>
+      <ToolP>
+        Une situation de 9 600 € HT avec une TVA à 10 % fait 10 560 € TTC. Une retenue de 5 % sur le TTC représente 528 €,
+        et le client vous verse 10 032 €. Sur la facture, la retenue s'écrit sur une ligne à part, après le total TTC :
+      </ToolP>
+      <ToolTable
+        head={['Facture de situation n° 2', 'Montant']}
+        rows={[
+          ['Total TTC', '10 560 €'],
+          ['Retenue de garantie 5 %', '− 528 €'],
+          ['Net à payer', '10 032 €'],
+        ]}
+      />
+      <ToolP>
+        5 % est un plafond : le marché peut prévoir un taux plus bas, ou pas de retenue du tout. La retenue doit être
+        prévue au contrat, la loi parle d'une retenue « stipulée contractuellement ».
+      </ToolP>
 
       <ToolH2>Consignation ou caution bancaire</ToolH2>
       <ToolP>
