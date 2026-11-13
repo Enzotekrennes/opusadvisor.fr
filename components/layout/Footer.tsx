@@ -2,19 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 import type { FooterSection } from '@/types';
 import { MobileCTABar } from '@/components/layout/MobileCTABar';
 
 const GOLD = '#C9A84C';
 const FOOTER_BG = '#11161F';
-
-// Icône X (Twitter)
-const XIcon: React.FC<{ size?: number; className?: string }> = ({ size = 20, className = '' }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
 
 export const Footer: React.FC = () => {
   const footerSections: FooterSection[] = [
@@ -45,10 +38,8 @@ export const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: 'https://www.instagram.com/opusadvisor/', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/opus_enzo/', label: 'Instagram' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/enzo-monnier/', label: 'LinkedIn' },
-    { icon: XIcon, href: 'https://x.com/opusadvisor', label: 'X' },
-    { icon: Youtube, href: 'https://www.youtube.com', label: 'YouTube' },
   ];
 
   return (
