@@ -66,7 +66,7 @@ Côté montant, Atlas règle « la facture TTC à l'organisme de formation, dans
 
 En facture électronique, Atlas, Akto et OPCO Mobilités publient chacun un adressage réservé à la formation (851296632_FORMATION, 853000982_FORMATION et 851240499_FORMATION), l'Opcommerce un identifiant de réception (398522243_Formation). Selon que la formation facturée est exonérée ou taxable, la facture entre ou non dans la réforme, comme le détaille notre article sur [la facturation électronique des organismes de formation](/articles/facturation-electronique-organisme-formation/).
 
-Atlas demande aussi, en facture électronique, de joindre les justificatifs, « certificat de réalisation notamment », à l'envoi de la facture. S'il en manque, il relance l'organisme, qui les transmet par myAtlas prestataires. Par exemple, la facture part vendredi soir, le certificat reste à établir lundi, et Atlas vous relance pour une pièce qui pouvait partir avec elle.
+Atlas demande aussi, en facture électronique, de joindre les justificatifs, « certificat de réalisation notamment », à l'envoi de la facture. S'il en manque, il relance l'organisme, qui les transmet par myAtlas prestataires. Par exemple, la facture part vendredi soir, le certificat reste à établir lundi, et Atlas vous relance pour une pièce qui pouvait partir avec elle. Pour le préparer en même temps que la facture, voyez [comment remplir le certificat de réalisation champ par champ](/articles/certificat-de-realisation-formation/).
 
 ## Facturer l'entreprise : TVA, pièces et cas qui coincent
 
