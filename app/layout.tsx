@@ -148,8 +148,9 @@ const organizationJsonLd = {
         'Notion',
         'WhatsApp Business',
       ],
+      // The company's own profiles. The founder's personal LinkedIn stays on `founder.url`.
       sameAs: [
-        'https://www.linkedin.com/in/enzo-monnier/',
+        'https://www.linkedin.com/company/opusadvisor-fr/',
         'https://www.instagram.com/opusadvisor/',
         'https://x.com/opusadvisor',
       ],
