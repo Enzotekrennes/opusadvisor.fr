@@ -35,14 +35,14 @@ export const cases: ClientCase[] = [
     slug: 'conciergerie',
     sector: 'immobilier',
     client: 'Conciergerie',
-    title: 'Une seule automatisation pour facturer tous les propriétaires',
+    title: 'Tout le système de gestion repris, puis suivi chaque mois',
     before:
-      "Le système existait déjà, mais la facturation reposait sur une automatisation par propriétaire. Chaque nouveau propriétaire en ajoutait une, et chaque changement devait être reporté partout.",
+      "Le système existait déjà : des applications sur Softr et des automatisations. La facturation, par exemple, reposait sur une automatisation par propriétaire. Chaque nouveau propriétaire en ajoutait une, et chaque changement devait être reporté partout.",
     done:
-      "On a remplacé toutes ces automatisations par une seule, qui facture l'ensemble des propriétaires, et ajouté de quoi simplifier la maintenance du reste du système.",
-    result: "Un seul scénario à surveiller et à faire évoluer. Un nouveau propriétaire ne demande plus de nouvelle automatisation.",
+      "On a repris l'ensemble du système. Les applications Softr ont été refaites et les automatisations revues : la facturation de tous les propriétaires passe maintenant par une seule automatisation. Depuis septembre 2025, on en assure la maintenance et les évolutions.",
+    result: "Un système plus simple à surveiller et à faire évoluer, suivi chaque mois. Un nouveau propriétaire ne demande plus de nouvelle automatisation.",
     visual: {
-      caption: 'Le scénario de facturation, en représentation simplifiée. Les factures sont créées en brouillon et validées avant envoi.',
+      caption: 'Une partie du système : le scénario de facturation, en représentation simplifiée. Les factures sont créées en brouillon et validées avant envoi.',
     },
   },
   {

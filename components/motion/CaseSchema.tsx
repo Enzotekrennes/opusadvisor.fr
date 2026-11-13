@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  User, FileText, Send, Workflow, LayoutDashboard, Eye, HelpCircle, ChevronRight, type LucideIcon,
+  User, FileText, Send, Workflow, LayoutDashboard, Eye, HelpCircle, ChevronRight, Wrench, type LucideIcon,
 } from 'lucide-react';
 
 const NAVY = '#1A2332';
@@ -42,16 +42,20 @@ const SCHEMAS: Record<string, Schema> = {
   conciergerie: {
     before: {
       chips: [
+        { icon: LayoutDashboard, text: 'Applications' },
         { icon: Workflow, text: 'Propr. 1' },
         { icon: Workflow, text: 'Propr. 2' },
-        { icon: Workflow, text: 'Propr. 3' },
         { icon: Workflow, text: '…' },
       ],
       note: 'Une automatisation par propriétaire',
     },
     after: {
-      chips: [{ icon: Workflow, text: 'Tous les propriétaires' }],
-      note: 'Une seule automatisation',
+      chips: [
+        { icon: LayoutDashboard, text: 'Applications refaites' },
+        { icon: Workflow, text: 'Facturation unique' },
+        { icon: Wrench, text: 'Maintenance' },
+      ],
+      note: 'Tout le système repris et suivi',
     },
   },
   'equipe-agents-immobiliers': {

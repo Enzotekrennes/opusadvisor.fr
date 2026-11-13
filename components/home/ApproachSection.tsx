@@ -58,8 +58,8 @@ export const ApproachSection: React.FC = () => (
       <p data-reveal className="mt-8 text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl">
         Une conciergerie, par exemple, a un logiciel de réservation et un logiciel de facturation : une application
         centrale reçoit les réservations, calcule ce qui revient à chaque propriétaire et déclenche les factures. Dans les
-        cas présentés plus haut, l'organisme de formation et la conciergerie avaient besoin d'automatisations ; pour
-        l'équipe d'agents immobiliers, on a construit l'outil de zéro.
+        cas présentés plus haut, l'organisme de formation avait besoin d'automatisations et la conciergerie d'un système
+        repris en entier ; pour l'équipe d'agents immobiliers, on a construit l'outil de zéro.
       </p>
     </div>
   </section>

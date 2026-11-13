@@ -22,7 +22,7 @@ Preuve réelle publiée : un réseau d'organismes de formation équipé d'un CRM
 ### Immobilier et conciergerie (`/secteurs/immobilier/`)
 Lecteur : gérant de conciergerie de location courte durée, ou responsable d'une petite équipe d'agents immobiliers.
 Ce qui lui coûte du temps : synchronisation des réservations, planning des ménages, documents voyageurs, facturation et relevés des propriétaires, taxe de séjour, suivi des mandats, pilotage des agents.
-Preuves réelles publiées : une conciergerie qui facture tous ses propriétaires avec une seule automatisation, une équipe d'agents suivie depuis un seul outil (sans nom ni chiffre).
+Preuves réelles publiées : une conciergerie dont on a repris tout le système de gestion (applications Softr refaites, automatisations revues, dont la facturation de tous les propriétaires par une seule automatisation) et qu'on maintient depuis septembre 2025, une équipe d'agents suivie depuis un seul outil (sans nom ni chiffre). Ne pas résumer la conciergerie à « une seule automatisation de facturation ».
 
 ### BTP second œuvre (`/secteurs/btp/`)
 Lecteur : patron d'une entreprise d'électricité, plomberie, CVC, menuiserie, peinture, de 8 à 60 collaborateurs et plus (jamais « 8-25 »).
