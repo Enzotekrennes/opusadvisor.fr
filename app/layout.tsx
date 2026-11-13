@@ -102,10 +102,9 @@ const organizationJsonLd = {
         jobTitle: 'Consultant en organisation et automatisation',
         url: 'https://www.linkedin.com/in/enzo-monnier/',
       },
+      // City only: the street address is not published in structured data.
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '25 allée du petit domaine',
-        postalCode: '35590',
         addressLocality: "L'Hermitage",
         addressRegion: 'Bretagne',
         addressCountry: 'FR',
