@@ -17,7 +17,7 @@ Chaque article cible un seul secteur, ou un sujet transverse explicitement utile
 ### Organismes de formation (`/secteurs/formation/`)
 Lecteur : dirigeant ou responsable administratif d'un organisme de formation, souvent de 2 à 30 personnes.
 Ce qui lui coûte du temps : inscriptions, conventions, convocations, émargements, dossiers de financement (OPCO, CPF, France Travail), preuves Qualiopi, bilan pédagogique et financier, facturation des sessions.
-Preuve réelle publiée : un organisme dont les dossiers de financement se préparent et partent sans ressaisie (cas « organisme-de-formation », sans nom ni chiffre).
+Preuve réelle publiée : un réseau d'organismes de formation équipé d'un CRM sur mesure (Next.js, Airtable) qui suit chaque dossier de l'opportunité au certificat de réalisation ; les documents réglementaires se génèrent et les dossiers partent aux financeurs (cas « organisme-de-formation », sans nom). Seuls chiffres publiables : 10 modules, 3 240 tests, en production. Aucun chiffre de résultat (heures, euros).
 
 ### Immobilier et conciergerie (`/secteurs/immobilier/`)
 Lecteur : gérant de conciergerie de location courte durée, ou responsable d'une petite équipe d'agents immobiliers.

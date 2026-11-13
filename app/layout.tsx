@@ -90,6 +90,7 @@ const organizationJsonLd = {
       description:
         "Organisation et automatisation de la gestion des petites entreprises (organismes de formation, immobilier et conciergerie, BTP second œuvre) : des systèmes construits à l'image de chaque entreprise, des automatisations entre les logiciels existants jusqu'au système complet monté de A à Z. Diagnostic chiffré, mise en œuvre, formation de l'équipe, suivi.",
       url: SITE_URL,
+      foundingDate: '2023-05',
       logo: `${SITE_URL}/images/opus-icon.png`,
       image: `${SITE_URL}/images/Logo_1200x630.png`,
       email: 'enzo@opusadvisor.fr',

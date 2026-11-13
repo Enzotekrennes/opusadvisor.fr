@@ -1,4 +1,5 @@
-// Missions réelles, présentées sans nom de client et sans chiffre tant qu'on n'a pas l'accord et les mesures.
+// Missions réelles, présentées sans nom de client. Pas de chiffre de résultat (heures gagnées, euros) tant qu'on n'a pas l'accord et les mesures ;
+// les chiffres techniques déjà publiés par Enzo (modules, tests) sont acceptés.
 // Source unique pour l'accueil, la page Cas clients et les pages Secteurs.
 export type SectorSlug = 'formation' | 'immobilier' | 'btp';
 
@@ -18,12 +19,14 @@ export const cases: ClientCase[] = [
   {
     slug: 'organisme-de-formation',
     sector: 'formation',
-    client: 'Organisme de formation',
+    client: "Réseau d'organismes de formation",
     title: 'Les dossiers de financement se préparent et partent tout seuls',
     before:
       "Chaque dossier se montait à la main : les documents à générer pour chaque stagiaire, puis l'envoi aux financeurs, un par un. Ça prenait beaucoup de temps à l'équipe.",
-    done: "On a automatisé la génération des dossiers et leur envoi aux financeurs.",
-    result: "Le système tourne au quotidien : l'équipe ne monte plus les dossiers à la main.",
+    done:
+      "On a construit un CRM sur mesure (Next.js, Airtable) qui suit chaque dossier, de l'opportunité au certificat de réalisation. Les documents réglementaires se génèrent automatiquement, et les dossiers partent aux financeurs.",
+    result:
+      "Le système est en production, avec 10 modules et 3 240 tests : l'équipe ne monte plus les dossiers à la main.",
     visual: {
       caption: 'Le scénario, en représentation simplifiée.',
     },
