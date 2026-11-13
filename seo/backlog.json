@@ -233,9 +233,9 @@
       "gsc": null,
       "serp": "Centre Inffo et Akto publient le modèle du ministère, Learnybox un générateur, Transitions Pro un PDF. Le modèle officiel existe déjà : la valeur est dans son explication et sa production à partir des émargements. Les résultats vus sur ce document n'évoquent pas son rôle dans le remboursement de l'entreprise, alors qu'OPCO EP le cite parmi les pièces à fournir."
     },
-    "status": "validated",
+    "status": "published",
     "reason": "Document propre aux organismes, qui déclenche le paiement, et le plus proche du cas réel publié (documents générés et envoyés aux financeurs).",
-    "updatedAt": "2026-11-05"
+    "updatedAt": "2026-11-13"
   },
   {
     "id": "formation-documents-qualiopi",

@@ -1,5 +1,21 @@
 [
     {
+        "id": 24,
+        "slug": "certificat-de-realisation-formation",
+        "title": "Certificat de réalisation formation : le modèle commenté",
+        "description": "Certificat de réalisation : modèle du ministère commenté champ par champ, calcul des heures, absences, durée de conservation et envoi à l'OPCO ou au client.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-13",
+        "category": "Réglementation",
+        "seoTitle": "Certificat de réalisation formation : le modèle commenté",
+        "related": [
+            "fin-subrogation-opco-organisme-formation",
+            "conservation-documents-organisme-de-formation",
+            "automatisation-organisme-de-formation"
+        ]
+    },
+    {
         "id": 23,
         "slug": "conservation-documents-organisme-de-formation",
         "title": "Délai de conservation des documents d'un organisme de formation",
@@ -79,7 +95,7 @@
         "related": [
             "facturation-electronique-organisme-formation",
             "automatisation-organisme-de-formation",
-            "organisation-avant-developpement"
+            "certificat-de-realisation-formation"
         ],
         "tools": [
             "calcul-penalites-de-retard"

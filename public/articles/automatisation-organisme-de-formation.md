@@ -90,7 +90,7 @@ Côté OPCO, [la connexion Wedof](https://doc.wedof.fr/article/21-connexion-opco
 
 ### Les signatures et les validations
 
-L'outil envoie le lien d'émargement, et c'est le stagiaire qui signe. Pour le contrôle de service fait d'un OPCO, le [certificat de réalisation](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037880305) est « établi par le dispensateur de l'action », donc par vous. Quand un stagiaire manque une demi-journée, une personne décide de ce que le document indique.
+L'outil envoie le lien d'émargement, et c'est le stagiaire qui signe. Pour le contrôle de service fait d'un OPCO, le certificat de réalisation est « établi par le dispensateur de l'action » ([arrêté du 21 décembre 2018](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037880305)), donc par vous. Quand un stagiaire manque une demi-journée, une personne décide de ce que le document indique, à partir des émargements, comme le détaille [notre modèle de certificat de réalisation commenté](/articles/certificat-de-realisation-formation/).
 
 ## Ce que votre logiciel de gestion fait déjà, et où il s'arrête
 

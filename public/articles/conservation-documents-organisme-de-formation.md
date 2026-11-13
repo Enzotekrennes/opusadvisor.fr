@@ -87,7 +87,7 @@ Les émargements se gardent au moins jusqu'au 4 mai 2032, la facture plus longte
 | :- | :- |
 | Émargements et autres preuves de réalisation | La plus tardive de 5 ans après l'exécution (CPF), la clause de vos OPCO et la fin du délai de reprise de l'État |
 | Convention ou devis valant convention | Les mêmes échéances, voire dix ans comme pièce justificative (à voir avec votre expert-comptable) |
-| Certificat de réalisation | Les mêmes échéances que les émargements |
+| [Certificat de réalisation](/articles/certificat-de-realisation-formation/) | Les mêmes échéances que les émargements |
 | Programme et supports remis au stagiaire | Les mêmes échéances que les émargements |
 | Contrats de sous-traitance | Gardés par le donneur d'ordre pour le CPF, mêmes échéances que les émargements |
 | Factures et pièces comptables | 10 ans (Code de commerce) ; 10 ans en fiscal si le délai expire après le 1er janvier 2027 |
