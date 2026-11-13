@@ -68,7 +68,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@opusadvisor',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
     images: [
@@ -150,8 +149,7 @@ const organizationJsonLd = {
       // The company's own profiles. The founder's personal LinkedIn stays on `founder.url`.
       sameAs: [
         'https://www.linkedin.com/company/opusadvisor-fr/',
-        'https://www.instagram.com/opusadvisor/',
-        'https://x.com/opusadvisor',
+        'https://www.instagram.com/opus_enzo/',
       ],
     },
   ],

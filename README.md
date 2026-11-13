@@ -91,8 +91,7 @@ vercel --prod
 - **Site** : [opusadvisor.fr](https://opusadvisor.fr)
 - **Email** : enzo@opusadvisor.fr
 - **LinkedIn** : [Enzo Monnier](https://www.linkedin.com/in/enzo-monnier-7524ab205/)
-- **Instagram** : [@opusadvisor](https://www.instagram.com/opusadvisor/)
-- **X** : [@opusadvisor](https://x.com/opusadvisor)
+- **Instagram** : [@opus_enzo](https://www.instagram.com/opus_enzo/)
 
 ## Licence
 
