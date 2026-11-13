@@ -35,7 +35,7 @@ const personJsonLd = {
   name: 'Enzo Monnier',
   jobTitle: "Fondateur d'Opus Advisor",
   description:
-    "Développeur de logiciels métier pendant 5 ans, devenu consultant en organisation et automatisation des petites entreprises. Il code lui-même les systèmes qu'il installe.",
+    "Développeur de logiciels métier pendant 3 ans, devenu consultant en organisation et automatisation des petites entreprises. Il code lui-même les systèmes qu'il installe.",
   image: 'https://opusadvisor.fr/images/enzo.jpg',
   url: 'https://opusadvisor.fr/equipe/',
   worksFor: { '@id': 'https://opusadvisor.fr/#organization' },

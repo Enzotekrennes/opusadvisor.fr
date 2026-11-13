@@ -40,7 +40,7 @@ const team: Member[] = [
     bullets: [
       {
         title: 'Développeur pendant 5 ans, consultant depuis',
-        desc: "J'ai développé des logiciels métier pendant 5 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
+        desc: "J'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
       },
       {
         title: "Ce que j'ai compris en travaillant pour d'autres",
