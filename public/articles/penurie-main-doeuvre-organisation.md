@@ -51,7 +51,7 @@ Quand on remet tout ça en ordre, voilà ce que vos équipes voient changer sur 
 
 - **Un planning unique, à jour, visible par tous.** Fini les trois versions contradictoires. Chacun sait où il va, et quand ça bouge, tout le monde le voit en même temps.
 - **Des chantiers préparés en amont.** Le matériel, les plans, les accès, les contacts : centralisés, accessibles depuis le téléphone, plus de compagnon qui poireaute devant un chantier fermé.
-- **Les heures et les pointages qui remontent tout seuls.** Plus besoin de réclamer, plus d'erreurs de paie, et la tension de fin de mois retombe.
+- **[Les heures et les pointages qui remontent tout seuls](/articles/marge-chantier-suivi-reel/).** Plus besoin de réclamer, plus d'erreurs de paie, et la tension de fin de mois retombe.
 - **L'info qui ne se perd plus quand quelqu'un part.** Le savoir reste dans le système, pas dans la tête d'un seul.
 
 Aucune de ces briques n'est un gadget. Chacune retire une source de friction quotidienne. Mises bout à bout, elles font la différence entre une boîte où on reste et une boîte qu'on quitte.

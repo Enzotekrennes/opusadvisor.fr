@@ -52,7 +52,7 @@ Pour une boîte de 15 personnes avec 4 à 5 utilisateurs simultanés, comptez 10
 
 **Le pilier collaboratif : un endroit unique pour les documents et la communication.** Google Workspace (6,80 à 21 €/utilisateur/mois selon la formule) ou Notion (10 €/utilisateur/mois) pour ranger devis signés, comptes-rendus de chantier, photos, contrats, plans, CCTP, DPGF. WhatsApp Business pour la communication terrain (gratuit). Pour 15 personnes, comptez 60 à 200 €/mois selon la formule.
 
-**Le pilier automation : faire parler les outils entre eux.** Make ou n8n. C'est ce qui fait que les photos WhatsApp d'un chantier atterrissent automatiquement dans le bon dossier, que la facture émise dans Batappli génère une relance à 30 jours, que le devis signé crée une fiche chantier dans le drive partagé. Make démarre à environ 10 $/mois, n8n à 24 €/mois en cloud (gratuit en self-hosted). Comptez 30 à 100 €/mois selon le volume d'opérations.
+**Le pilier automation : faire parler les outils entre eux.** Make ou n8n. C'est ce qui fait que les photos WhatsApp d'un chantier atterrissent automatiquement dans le bon dossier, que la facture émise dans Batappli [génère une relance à 30 jours](/articles/relances-automatiques-impayes-btp/), que le devis signé crée une fiche chantier dans le drive partagé. Make démarre à environ 10 $/mois, n8n à 24 €/mois en cloud (gratuit en self-hosted). Comptez 30 à 100 €/mois selon le volume d'opérations.
 
 **Total pour une boîte de 15 personnes : 200 à 500 €/mois**, soit 2 400 à 6 000 € par an. Face à 35 000 € d'installation et 10 000 €/an de licences pour le gros logiciel, l'écart est de 5 à 10 fois moins cher la première année, et 2 à 3 fois moins cher en rythme de croisière.
 
@@ -84,11 +84,11 @@ Sous 25 salariés et sur de l'installation classique en second œuvre, ces cas r
 
 Trois actions à mener dans les 30 jours, avant de signer quoi que ce soit.
 
-**1. Listez les 5 frictions qui vous coûtent le plus de temps par semaine.** Pas en théorie, dans le concret de votre semaine. Combien d'heures votre assistante passe-t-elle à ressaisir des données ? Combien de fois vos chefs de chantier appellent-ils le bureau pour une info qui devrait être dans un document ? Combien de devis sortent en retard à cause d'un modèle non paramétré ?
+**1. Listez [les 5 frictions qui vous coûtent le plus de temps par semaine](/articles/diagnostic-operationnel-pme/).** Pas en théorie, dans le concret de votre semaine. Combien d'heures votre assistante passe-t-elle à ressaisir des données ? Combien de fois vos chefs de chantier appellent-ils le bureau pour une info qui devrait être dans un document ? Combien de devis sortent en retard à cause d'un modèle non paramétré ?
 
 **2. Vérifiez ce que votre logiciel actuel couvre déjà.** Demandez à votre éditeur (Batappli, Obat, Tolteck, EBP) la liste des modules de votre formule. Cochez ceux que vous utilisez réellement. La plupart des boîtes utilisent 30 à 50 % de ce qu'elles paient.
 
-**3. Faites un test à 500 €/mois sur 3 mois avant tout engagement à 50 000 €.** Activez les modules manquants, ajoutez Make ou n8n pour une automation pilote, structurez votre drive. Si au bout de 3 mois vous avez réglé 60 % de vos frictions, vous avez votre réponse. Et si rien n'a bougé, le souci vient de l'organisation, pas de l'outil ; un nouveau logiciel à 50 000 € ne le réglera pas davantage.
+**3. Faites un test à 500 €/mois sur 3 mois avant tout engagement à 50 000 €.** Activez les modules manquants, ajoutez Make ou n8n pour une automation pilote, structurez votre drive. Si au bout de 3 mois vous avez réglé 60 % de vos frictions, vous avez votre réponse. Et si rien n'a bougé, [le souci vient de l'organisation, pas de l'outil](/articles/organisation-avant-developpement/) ; un nouveau logiciel à 50 000 € ne le réglera pas davantage.
 
 ---
 

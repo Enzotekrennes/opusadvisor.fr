@@ -30,7 +30,7 @@ Quand on regarde l'usage réel chez les petites structures, on tombe à 7 %. L'i
 
 ## Pourquoi ça ne décolle pas chez vous
 
-L'étude est claire sur les obstacles : l'interopérabilité des logiciels, le coût, mais surtout la qualité de la donnée. Et c'est là que tout se joue.
+L'étude est claire sur les obstacles : [l'interopérabilité des logiciels](/articles/automatiser-sans-erp/), le coût, mais surtout la qualité de la donnée. Et c'est là que tout se joue.
 
 Une IA, ça ne fait pas de miracle avec du désordre. Elle a besoin d'informations propres, structurées, au même endroit. Or une boîte du second œuvre produit de la donnée éparpillée : un devis dans Batappli, une photo de chantier dans WhatsApp, une facture fournisseur dans un mail, des heures notées sur un carnet, parfois encore du papier.
 
@@ -38,7 +38,7 @@ Donnez ça à manger à une IA, elle ne saura rien en tirer. Garbage in, garbage
 
 ## Ranger avant d'automatiser
 
-C'est le bon ordre, et la plupart le prennent à l'envers. On veut l'outil magique avant d'avoir mis de l'ordre dans la maison.
+C'est le bon ordre, et la plupart le prennent à l'envers. On veut l'outil magique avant d'avoir [mis de l'ordre dans la maison](/articles/organisation-avant-developpement/).
 
 Concrètement, avant de parler IA, il faut que vos données de base soient tenues :
 
