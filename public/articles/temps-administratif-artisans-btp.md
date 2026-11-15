@@ -38,7 +38,7 @@ Ensuite la trésorerie. Avec des retards de paiement qui s'allongent et un march
 
 ## L'erreur classique : ajouter un outil
 
-Face à ces 13 heures, le réflexe est d'acheter un logiciel qui promet de tout régler. Dans les faits, ça déçoit souvent. Le logiciel demande son propre temps de paramétrage, l'équipe ne l'adopte qu'à moitié, et au bout de six mois vous avez payé une licence pour faire le travail autrement, pas pour le faire moins.
+Face à ces 13 heures, le réflexe est d'[acheter un logiciel qui promet de tout régler](/articles/automatiser-sans-erp/). Dans les faits, ça déçoit souvent. Le logiciel demande son propre temps de paramétrage, l'équipe ne l'adopte qu'à moitié, et au bout de six mois vous avez payé une licence pour faire le travail autrement, pas pour le faire moins.
 
 Le problème n'est pas le manque d'outil. C'est que vos outils actuels ne se parlent pas. Le devis sort de Batappli, la relance vit dans votre tête, le justificatif dort dans un mail, la déclaration se fait à la main dans un coin d'Excel. Chaque tâche est ressaisie deux ou trois fois.
 
@@ -57,7 +57,7 @@ Ce travail tient en 3 à 5 semaines. L'objectif : faire tomber l'administratif d
 
 Cette semaine, notez chaque tâche administrative que vous faites et le temps qu'elle prend. Pas une estimation au doigt mouillé, le vrai temps. Au bout de sept jours, vous verrez où partent vos 13 heures, et lesquelles n'auraient jamais dû atterrir sur votre bureau.
 
-C'est exactement le point de départ du pré-audit : on regarde vos tâches réelles, on repère celles qu'un système peut absorber, et on chiffre ce que ça vous rend.
+C'est exactement [le point de départ du pré-audit](/services/) : on regarde vos tâches réelles, on repère celles qu'un système peut absorber, et on chiffre ce que ça vous rend.
 
 ---
 

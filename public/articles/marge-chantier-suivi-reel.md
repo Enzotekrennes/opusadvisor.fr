@@ -37,7 +37,7 @@ Trois fuites reviennent sur presque tous les chantiers.
 
 ## Pourquoi vous ne le voyez pas
 
-Ce n'est pas un problème de compétence. C'est un problème de données éparpillées. Les heures sont sur un carnet ou dans la tête du chef d'équipe. Les achats sont dans des tickets qui traînent dans le camion. Les avenants se décident à l'oral sur le chantier. Le devis, lui, dort dans le logiciel.
+Ce n'est pas un problème de compétence. C'est [un problème de données éparpillées](/articles/ia-btp-donnees-propres/). Les heures sont sur un carnet ou dans la tête du chef d'équipe. Les achats sont dans des tickets qui traînent dans le camion. Les avenants se décident à l'oral sur le chantier. Le devis, lui, dort dans le logiciel.
 
 Rien de tout ça ne se parle. Donc personne ne peut mettre côte à côte « ce qui était prévu » et « ce qui a été dépensé ». La marge réelle n'est pas fausse, elle est juste invisible.
 

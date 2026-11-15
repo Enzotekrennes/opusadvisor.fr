@@ -52,7 +52,7 @@ Le Code de commerce prévoit plusieurs leviers qui passent souvent à la trappe.
 
 **Le délai maximum de paiement entre professionnels est plafonné.** Article L441-10 du Code de commerce : 60 jours à compter de l'émission de la facture, ou 45 jours fin de mois si c'est expressément mentionné dans vos CGV. Tout délai supérieur convenu est nul. Vos CGV doivent le rappeler clairement.
 
-**Les pénalités de retard sont dues automatiquement.** Pas besoin de mise en demeure préalable. Leur taux est celui fixé dans vos CGV, sans pouvoir être inférieur à trois fois le taux d'intérêt légal ; si vos CGV ne disent rien, c'est le taux de la BCE majoré de 10 points. Il doit figurer sur la facture et dans les CGV. Beaucoup d'artisans BTP ont la mention par défaut sur leur logiciel et ne s'en servent jamais.
+**[Les pénalités de retard sont dues automatiquement](/outils/calcul-penalites-de-retard/).** Pas besoin de mise en demeure préalable. Leur taux est celui fixé dans vos CGV, sans pouvoir être inférieur à trois fois le taux d'intérêt légal ; si vos CGV ne disent rien, c'est le taux de la BCE majoré de 10 points. Il doit figurer sur la facture et dans les CGV. Beaucoup d'artisans BTP ont la mention par défaut sur leur logiciel et ne s'en servent jamais.
 
 **L'indemnité forfaitaire de 40 € pour frais de recouvrement est due de plein droit.** Article D441-5 du Code de commerce, pour chaque facture payée en retard. Si vous facturez 30 chantiers par mois et qu'un tiers paye en retard, c'est 400 € à 600 € par mois que vous n'allez jamais chercher.
 

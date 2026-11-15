@@ -47,7 +47,7 @@ Vous n'avez pas besoin d'un juriste à demeure. Vous avez besoin que le circuit 
 
 - **Un contrat de sous-traitance type**, envoyé et agréé par le maître d'ouvrage avant le démarrage. C'est ce qui ouvre le droit au paiement direct.
 - **Des devis et factures avec les bonnes mentions** : autoliquidation, références du marché, agrément. Calés dans vos modèles, pas réécrits à chaque fois.
-- **Un suivi des échéances** : qui doit payer quoi, à quelle date, et la relance qui part toute seule au bon moment.
+- **Un suivi des échéances** : qui doit payer quoi, à quelle date, et [la relance qui part toute seule au bon moment](/articles/relances-automatiques-impayes-btp/).
 - **Les pièces classées par chantier**, accessibles le jour où il faut activer un recours.
 
 Ce cadrage évite les rejets de factures et raccourcit les délais de paiement : le dossier ne donne plus aucune raison de retarder.

@@ -55,11 +55,11 @@ Il y a trois raisons de ne pas reporter.
 
 **La deuxième : l'embouteillage.** Si près de 4 TPE sur 10 n'étaient pas prêtes au 1er septembre 2026, cela faisait beaucoup d'entreprises à chercher une PA en urgence à la rentrée. Le même scénario guette l'émission en septembre 2027 : les éditeurs de logiciels BTP, les Plateformes Agréées, les comptables seront sollicités par toutes les PME en même temps. Les délais de paramétrage vont exploser. Vous risquez de ne pas être servi à temps, même en payant.
 
-**La troisième : 2027 arrive vite.** Une fois la réception réglée, il vous reste jusqu'au 1er septembre 2027 pour préparer l'émission, soit moins de dix mois. C'est court. Émettre une facture électronique conforme suppose que votre logiciel produise du Factur-X, que vos données clients soient propres, et que vos workflows internes soient adaptés (qui valide quoi, qui envoie quand). Si vous démarrez en juillet 2027, c'est trop tard.
+**La troisième : 2027 arrive vite.** Une fois la réception réglée, il vous reste jusqu'au 1er septembre 2027 pour préparer l'émission, soit moins de dix mois. C'est court. Émettre une facture électronique conforme suppose que votre logiciel produise du Factur-X, que [vos données clients soient propres](/articles/ia-btp-donnees-propres/), et que vos workflows internes soient adaptés (qui valide quoi, qui envoie quand). Si vous démarrez en juillet 2027, c'est trop tard.
 
 ## Le scénario le plus courant
 
-Dans beaucoup d'entreprises du second œuvre, le tableau se ressemble. Le patron a entendu parler de la réforme mais ne sait pas exactement ce que ça implique. Il a Batappli ou Obat mais ignore si une PA est intégrée. Son fichier clients est à 60 % rempli, sans SIREN systématique. Ses devis et factures sortent du logiciel, parfois d'Excel, parfois directement sur papier pour les gros clients qui demandent des situations très spécifiques. Les acomptes, les situations, les retenues de garantie sont gérés à la main dans des tableurs annexes.
+Dans beaucoup d'entreprises du second œuvre, le tableau se ressemble. Le patron a entendu parler de la réforme mais ne sait pas exactement ce que ça implique. Il a Batappli ou Obat mais ignore si une PA est intégrée. Son fichier clients est à 60 % rempli, sans SIREN systématique. Ses devis et factures sortent du logiciel, parfois d'Excel, parfois directement sur papier pour les gros clients qui demandent des situations très spécifiques. Les acomptes, les situations, [les retenues de garantie](/outils/calcul-retenue-de-garantie/) sont gérés à la main dans des tableurs annexes.
 
 À moins de dix mois de l'échéance de 2027, c'est tout sauf prêt.
 
