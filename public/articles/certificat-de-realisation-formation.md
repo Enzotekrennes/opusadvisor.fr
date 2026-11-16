@@ -109,7 +109,7 @@ Voici la vérification que nous proposons, à faire sur chaque certificat avant 
 1. La durée du certificat est égale à la somme des émargements signés de ce stagiaire.
 2. Elle ne dépasse pas la durée de l'accord de prise en charge. Si elle la dépasse, c'est une erreur de saisie ou des heures que le financeur n'a pas accordées.
 3. Elle est cohérente avec la facture. Si vous facturez autre chose que les heures réalisées, par exemple selon vos CGV en cas d'absence, l'écart doit pouvoir s'expliquer.
-4. L'intitulé, les dates de l'action et la raison sociale sont identiques sur le certificat, la convention, l'accord et la facture, sauf action suivie en partie, déjà vérifiée avec le financeur.
+4. L'intitulé, les dates de l'action et la raison sociale sont identiques sur le certificat, la convention, l'accord et la facture, sauf action suivie en partie, déjà vérifiée avec le financeur. Le [modèle commenté de facture d'organisme de formation](/articles/facture-organisme-de-formation-sans-tva/) montre où les reporter sur la facture.
 
 Reste le destinataire. En subrogation, le certificat accompagne votre facture à l'OPCO. Quand l'entreprise vous paie puis demande son remboursement, c'est elle qui peut en avoir besoin. Chez Opco EP, d'après [sa lettre aux prestataires de juillet 2026](https://www.opcoep.fr/ressources/centre-ressources/IPF/newsletter-IPF-juillet-2026-opcoep.pdf), ses demandes déposées sur Mes Services en ligne depuis le 1er août 2026 tiennent en deux pièces : « le certificat de réalisation ; la facture de l'organisme de formation ». Un certificat en retard y bloque le remboursement de votre client. Pour les autres OPCO, voyez [la fin de la subrogation OPCO et qui facturer](/articles/fin-subrogation-opco-organisme-formation/).
 

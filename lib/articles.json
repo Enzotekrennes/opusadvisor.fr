@@ -1,5 +1,24 @@
 [
     {
+        "id": 26,
+        "slug": "facture-organisme-de-formation-sans-tva",
+        "title": "Facture d'un organisme de formation sans TVA : modèle commenté",
+        "description": "Facture d'un organisme de formation sans TVA : mentions obligatoires, mention d'exonération, franchise ou exonération, et facture OPCO avec reste à charge.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-16",
+        "category": "Réglementation",
+        "seoTitle": "Facture organisme de formation sans TVA : modèle commenté",
+        "related": [
+            "fin-subrogation-opco-organisme-formation",
+            "facturation-electronique-organisme-formation",
+            "certificat-de-realisation-formation"
+        ],
+        "tools": [
+            "calcul-penalites-de-retard"
+        ]
+    },
+    {
         "id": 25,
         "slug": "suivi-retenue-de-garantie",
         "title": "Retenue de garantie : suivre et réclamer vos 5 % à temps",
@@ -79,7 +98,7 @@
         "seoTitle": "Facturation électronique : organisme de formation exonéré",
         "related": [
             "fin-subrogation-opco-organisme-formation",
-            "automatisation-organisme-de-formation",
+            "facture-organisme-de-formation-sans-tva",
             "facturation-electronique-2026"
         ]
     },

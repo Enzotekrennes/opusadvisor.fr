@@ -86,7 +86,7 @@ Plusieurs OPCO publient leurs consignes de facturation électronique. Atlas, Akt
 
 Les pages Légifrance des articles 261, 289, 289 bis et 290 du CGI cités ici annoncent leur abrogation au 1er janvier 2027, sauf quelques dispositions maintenues, et la TVA passe dans le code des impositions sur les biens et services. [L'actualité BOFiP du 7 octobre 2026](https://bofip.impots.gouv.fr/node/383792) indique que l'entrée en vigueur de ce transfert « est décalée du 1er septembre 2026 au 1er janvier 2027 », et que les anciennes références au code général des impôts « peuvent continuer à être utilisées » jusqu'au 30 juin 2028.
 
-Pour la mention d'exonération en bas de vos factures, rien ne presse. Prévoyez de la revoir avec votre expert-comptable au cours de 2027. Nous ne donnons pas ici le nouveau numéro de l'exonération formation, faute de l'avoir vérifié.
+Pour la [mention d'exonération en bas de vos factures de formation](/articles/facture-organisme-de-formation-sans-tva/), rien ne presse. Prévoyez de la revoir avec votre expert-comptable au cours de 2027. Nous ne donnons pas ici le nouveau numéro de l'exonération formation, faute de l'avoir vérifié.
 
 ## Ce qu'il reste à faire en novembre 2026
 
