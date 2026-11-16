@@ -1,6 +1,6 @@
 [
     {
-        "id": 25,
+        "id": 26,
         "slug": "facture-organisme-de-formation-sans-tva",
         "title": "Facture d'un organisme de formation sans TVA : modèle commenté",
         "description": "Facture d'un organisme de formation sans TVA : mentions obligatoires, mention d'exonération, franchise ou exonération, et facture OPCO avec reste à charge.",
@@ -16,6 +16,26 @@
         ],
         "tools": [
             "calcul-penalites-de-retard"
+        ]
+    },
+    {
+        "id": 25,
+        "slug": "suivi-retenue-de-garantie",
+        "title": "Retenue de garantie : suivre et réclamer vos 5 % à temps",
+        "description": "Retenue de garantie : quand elle doit vous être rendue en marché privé ou public, comment suivre chaque échéance et quoi envoyer au client.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-16",
+        "category": "Réglementation",
+        "seoTitle": "Retenue de garantie : suivre et réclamer vos 5 % à temps",
+        "related": [
+            "relances-automatiques-impayes-btp",
+            "sous-traitance-btp-paiement-direct",
+            "marge-chantier-suivi-reel"
+        ],
+        "tools": [
+            "calcul-retenue-de-garantie",
+            "calcul-situation-de-travaux"
         ]
     },
     {
