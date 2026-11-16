@@ -23,6 +23,7 @@ const PAGE_URL = 'https://opusadvisor.fr/secteurs/btp/';
 // Articles mis en avant sur la page BTP, dans l'ordre d'affichage.
 const BTP_ARTICLES = [
   'relances-automatiques-impayes-btp',
+  'suivi-retenue-de-garantie',
   'marge-chantier-suivi-reel',
   'temps-administratif-artisans-btp',
   'sous-traitance-btp-paiement-direct',
