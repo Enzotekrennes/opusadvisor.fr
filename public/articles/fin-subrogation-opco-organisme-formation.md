@@ -70,7 +70,7 @@ Atlas demande aussi, en facture électronique, de joindre les justificatifs, « 
 
 ## Facturer l'entreprise : TVA, pièces et cas qui coincent
 
-Votre facture porte la TVA si votre prestation y est soumise. Si vous êtes exonéré, elle part sans TVA et, précise Atlas, le circuit reste le même. D'après le [BOFiP](https://bofip.impots.gouv.fr/bofip/943-PGP.html), l'exonération sur attestation vaut quel que soit le client, et son titulaire ne peut pas y renoncer. Pour la mention à porter sur la facture, voyez votre expert-comptable.
+Votre facture porte la TVA si votre prestation y est soumise. Si vous êtes exonéré, elle part sans TVA et, précise Atlas, le circuit reste le même. D'après le [BOFiP](https://bofip.impots.gouv.fr/bofip/943-PGP.html), l'exonération sur attestation vaut quel que soit le client, et son titulaire ne peut pas y renoncer. Pour la [mention d'exonération à porter sur la facture](/articles/facture-organisme-de-formation-sans-tva/), voyez votre expert-comptable.
 
 Les OPCO qui publient ce point remboursent l'entreprise sur le hors taxes. Dans l'exemple de [la fiche d'août 2026 d'Opco EP](https://www.opcoep.fr/ressources/centre-ressources/fiche/Fiche-reforme-de-la-tva-1er-octobre-2026-entreprises-opcoep.pdf), l'entreprise règle 1 200 € TTC à l'organisme et reçoit 1 000 € pour une prise en charge à 100 %. Une entreprise qui ne récupère pas la TVA la garde à sa charge.
 
