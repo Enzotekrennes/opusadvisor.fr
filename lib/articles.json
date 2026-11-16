@@ -182,11 +182,11 @@
         "id": 16,
         "slug": "sous-traitance-btp-paiement-direct",
         "title": "Sous-traitance BTP : paiement direct et autoliquidation de TVA",
-        "description": "Sous-traitant BTP : obtenir le paiement direct du maître d'ouvrage (loi de 1975) et mettre la bonne mention d'autoliquidation de TVA sur vos factures.",
+        "description": "Sous-traitant BTP impayé : action directe ou paiement direct auprès du maître d'ouvrage (loi de 1975), et mention d'autoliquidation de TVA sur vos factures.",
         "imageSrc": "/images/Logo_1200x630.png",
         "icon": "file-text",
         "publishedAt": "2026-06-10",
-        "updatedAt": "2026-10-31",
+        "updatedAt": "2026-11-16",
         "category": "Réglementation",
         "seoTitle": "Sous-traitance BTP : paiement direct et autoliquidation",
         "related": [
