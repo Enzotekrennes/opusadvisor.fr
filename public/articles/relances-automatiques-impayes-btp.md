@@ -6,7 +6,7 @@ keywords: ["relance facture impayée", "modèle relance facture impayée", "mise
 essentiel:
   - "Entre professionnels, les pénalités de retard et l'indemnité de 40 € sont dues dès le lendemain de l'échéance, sans mise en demeure."
   - "La séquence : un rappel à J-3, une relance écrite à J+1, un appel à J+8, la mise en demeure en recommandé à J+15."
-  - "Quatre modèles de relance prêts à copier, et la façon de les envoyer automatiquement depuis Batappli, Obat, Tolteck ou EBP."
+  - "Quatre modèles de relance prêts à copier, et la façon de les envoyer automatiquement sans changer de logiciel BTP."
 faq:
   - q: "Combien de relances avant la mise en demeure ?"
     a: "La loi n'impose aucun nombre minimum. Dans la séquence qu'on recommande, il y en a trois : un rappel avant l'échéance, une relance écrite le lendemain, puis un appel à J+8. La mise en demeure part à J+15."
@@ -26,15 +26,15 @@ ctaMid:
 
 *Catégorie : Outils & organisation BTP — Lecture : 7 minutes — Auteur : Enzo Monnier, Opus Advisor*
 
-Dans beaucoup de boîtes d'élec, de plomberie ou de chauffage-clim, une partie du chiffre facturé tourne à plus de 60 jours, et personne ne sait précisément qui doit quoi à quelle date. Le client n'est pas de mauvaise volonté, c'est le système qui manque. Voici comment on cadre le sujet : la séquence à mettre en place, les vrais délais légaux, quatre modèles de relance prêts à copier, et comment câbler tout ça sur Batappli, Obat, Tolteck ou EBP sans changer d'outil.
+Dans beaucoup de boîtes d'élec, de plomberie ou de chauffage-clim, une partie du chiffre facturé tourne à plus de 60 jours, et personne ne sait précisément qui doit quoi à quelle date. Le client n'est pas de mauvaise volonté, c'est le système qui manque. Voici comment on cadre le sujet : la séquence à mettre en place, les vrais délais légaux, quatre modèles de relance prêts à copier, et comment automatiser tout ça sans changer de logiciel BTP.
 
 ## Le vrai coût des impayés dans le second œuvre
 
-Une facture qui glisse de 30 jours à 90 jours ne se résume pas à un client en retard. C'est de la trésorerie qui dort, des découverts bancaires qui coûtent 8 à 12 % par an, et un patron qui finit par accepter le délai de paiement comme une fatalité.
+Une facture qui glisse de 30 jours à 90 jours ne se résume pas à un client en retard. C'est de la trésorerie qui dort, des agios sur le découvert, et un patron qui finit par accepter le délai de paiement comme une fatalité.
 
-L'Observatoire des délais de paiement publié chaque année par la Banque de France situe la France parmi les pays européens où les délais sont les plus longs, avec un DSO moyen toutes entreprises confondues autour de 50 jours. Le BTP est nettement au-dessus, en particulier sur les marchés publics et avec les bailleurs sociaux.
+Le dernier rapport de l'Observatoire des délais de paiement de la Banque de France, publié en septembre 2026, chiffre le retard moyen de paiement en France à 13,4 jours fin 2025, juste au-dessus de la moyenne européenne (13,3 jours). La construction fait mieux sur ce point, avec 10,8 jours de retard moyen fin 2025. Ce sont ses délais clients qui restent longs : 74 jours de production en 2024 dans le bâtiment, d'après l'enquête BTP Banque de la FFB citée par le rapport.
 
-Quand on chiffre l'impact pour une boîte de 12 personnes qui facture 1,2 M€ par an, 15 jours de DSO en moins, c'est 50 000 € de trésorerie immédiatement disponible. Le sujet mérite mieux qu'un post-it sur le bureau du patron.
+Faites le calcul pour une boîte de 12 personnes qui facture 1,2 M€ par an : 15 jours de délai client en moins, c'est environ 49 000 € de trésorerie récupérée (1 200 000 € ÷ 365 × 15). Le sujet mérite mieux qu'un post-it sur le bureau du patron.
 
 ## Pourquoi les relances ne partent jamais
 
@@ -50,11 +50,11 @@ La plupart des artisans du BTP savent qui leur doit de l'argent. Ce qu'ils ne fo
 
 Le Code de commerce prévoit plusieurs leviers qui passent souvent à la trappe.
 
-**Le délai maximum de paiement entre professionnels est plafonné.** Article L441-10 du Code de commerce : 60 jours à compter de l'émission de la facture, ou 45 jours fin de mois si c'est expressément mentionné dans vos CGV. Tout délai supérieur convenu est nul. Vos CGV doivent le rappeler clairement.
+**Le délai maximum de paiement entre professionnels est plafonné.** Article L441-10 du Code de commerce : 60 jours au plus à compter de l'émission de la facture, ou 45 jours fin de mois si c'est expressément prévu au contrat. Sans clause particulière, c'est 30 jours après l'exécution des travaux. Vos CGV doivent préciser le délai retenu.
 
-**[Les pénalités de retard sont dues automatiquement](/outils/calcul-penalites-de-retard/).** Pas besoin de mise en demeure préalable. Leur taux est celui fixé dans vos CGV, sans pouvoir être inférieur à trois fois le taux d'intérêt légal ; si vos CGV ne disent rien, c'est le taux de la BCE majoré de 10 points. Il doit figurer sur la facture et dans les CGV. Beaucoup d'artisans BTP ont la mention par défaut sur leur logiciel et ne s'en servent jamais.
+**[Les pénalités de retard sont dues automatiquement](/outils/calcul-penalites-de-retard/).** Pas besoin de mise en demeure préalable. Leur taux est celui fixé dans vos CGV, sans pouvoir être inférieur à trois fois le taux d'intérêt légal ; si vos CGV ne disent rien, c'est le taux de la BCE majoré de 10 points, soit 12,40 % au 2e semestre 2026. Il doit figurer sur la facture et dans les CGV. Vérifiez qu'il est bien dans votre modèle de facture, puis appliquez-le.
 
-**L'indemnité forfaitaire de 40 € pour frais de recouvrement est due de plein droit.** Article D441-5 du Code de commerce, pour chaque facture payée en retard. Si vous facturez 30 chantiers par mois et qu'un tiers paye en retard, c'est 400 € à 600 € par mois que vous n'allez jamais chercher.
+**L'indemnité forfaitaire de 40 € pour frais de recouvrement est due de plein droit.** Article D441-5 du Code de commerce, pour chaque facture payée en retard, même en cas de paiement partiel. Si vous facturez 30 chantiers par mois et qu'un tiers paie en retard, c'est 10 factures, soit 400 € par mois que vous n'allez jamais chercher.
 
 Vous n'êtes pas obligé d'appliquer tout ça à un client historique sur un retard de 5 jours. Mais à partir du moment où vous avez le droit de le faire, votre relance devient un rappel d'obligations légales plutôt qu'une supplique. Le ton change, et la réponse des clients aussi.
 
@@ -62,7 +62,7 @@ Vous n'êtes pas obligé d'appliquer tout ça à un client historique sur un ret
 
 La séquence type qui marche dans cette niche tient en 5 étapes. Elle commence avant l'échéance et se termine en pré-contentieux.
 
-**J-3 (avant l'échéance) : rappel courtois automatique.** Mail envoyé 3 jours avant la date d'échéance. Tonalité informative : "votre facture n°2026-0142 d'un montant de 4 280 € arrive à échéance le 15 mai". Aucun reproche, aucune pression. Ce seul mail récupère 30 à 50 % des oublis purs et simples, pour zéro énergie côté patron.
+**J-3 (avant l'échéance) : rappel courtois automatique.** Mail envoyé 3 jours avant la date d'échéance. Tonalité informative : "votre facture n°2026-0142 d'un montant de 4 280 € arrive à échéance le 15 mai". Aucun reproche, aucune pression. Il suffit à régler les simples oublis, sans effort côté patron.
 
 **J+1 : première relance écrite.** Le lendemain de l'échéance, mail automatique avec l'objet "Facture 2026-0142, échéance dépassée hier" et un PDF rappel joint. Tonalité ferme mais professionnelle.
 
@@ -70,9 +70,9 @@ La séquence type qui marche dans cette niche tient en 5 étapes. Elle commence 
 
 **J+15 : mise en demeure formelle par lettre recommandée.** Modèle pré-rédigé avec mention des pénalités de retard et de l'indemnité forfaitaire de 40 €. Cette étape change la perception du dossier côté client : vous arrêtez de relancer, vous commencez à constituer un dossier.
 
-**J+30 à J+45 : décision recouvrement.** Soit vous sous-traitez à une plateforme de recouvrement (GCollect, Rubypayeur, ou un huissier), soit vous demandez une injonction de payer (au tribunal de commerce si votre client est une entreprise). À ce stade, 80 % des dossiers se débloquent rien qu'à l'annonce.
+**J+30 à J+45 : décision recouvrement.** Soit vous confiez le dossier à une plateforme de recouvrement (GCollect, Rubypayeur) ou à un commissaire de justice, soit vous demandez une injonction de payer au tribunal compétent.
 
-Cette séquence est exécutée à 90 % par des outils, à 10 % par un humain. C'est ce ratio qu'il faut viser.
+Toute la séquence peut tourner avec des outils, sauf l'appel de J+8, qui reste humain.
 
 ## Les modèles de relance, prêts à copier
 
@@ -148,11 +148,11 @@ Le plus dur n'est pas d'écrire ces messages, c'est de les envoyer à la bonne d
 
 Vous n'avez pas besoin de [changer de logiciel BTP](/articles/organisation-avant-developpement/). Dans la grande majorité des cas, on garde Batappli, Obat, Tolteck ou EBP, et [on ajoute la couche relance autour](/secteurs/btp/).
 
-**Si votre logiciel BTP exporte les factures vers un Google Sheet ou Airtable** (Batappli, Obat, Tolteck le font tous via export quotidien ou API), Make ou n8n lit la liste des factures non payées chaque matin, calcule l'écart entre la date d'échéance et aujourd'hui, et déclenche le bon mail au bon moment. Coût : 30 à 60 €/mois selon le volume.
+**Si votre logiciel BTP sait exporter ses factures** (export programmé ou API, selon le logiciel et l'abonnement : à vérifier avec l'éditeur), Make ou n8n les range dans un Google Sheet ou une base Airtable, lit chaque matin la liste des factures non payées, calcule l'écart entre la date d'échéance et aujourd'hui, et déclenche le bon mail au bon moment. Le coût dépend du volume et des outils retenus.
 
-**Si vous facturez via Pennylane, Sellsy ou Axonaut**, les séquences de relance par mail sont natives. Il suffit de les activer et de personnaliser les modèles. La vraie limite : elles n'embarquent ni la mise en demeure recommandée ni l'appel J+8, donc il faut compléter avec un Make qui prévient l'assistante.
+**Si vous facturez via Pennylane, Sellsy ou Axonaut**, ces logiciels proposent des relances automatiques par mail. Il suffit de les activer et de personnaliser les modèles. Vérifiez ce qu'elles couvrent : l'appel de J+8 reste à organiser, et la mise en demeure en recommandé n'est pas toujours prévue. Un scénario Make peut prévenir l'assistante le jour de l'appel.
 
-**Si vous travaillez en cabinet partagé avec votre expert-comptable**, demandez-lui s'il a accès à Pennylane Cabinet, Tiime Apps ou Cegid Loop. Beaucoup d'experts-comptables peuvent activer les relances automatiques de leur côté, à condition que les factures émises soient remontées rapidement, pas une fois par mois.
+**Si vous travaillez en cabinet partagé avec votre expert-comptable**, demandez-lui si son outil peut gérer les relances de son côté. Cela suppose que vos factures émises lui remontent vite, pas une fois par mois.
 
 Le point sensible n'est jamais l'outil, c'est [la donnée d'entrée](/articles/ia-btp-donnees-propres/). Pour qu'une relance automatique parte au bon moment, il faut que la date de paiement réel soit synchronisée chaque jour entre votre banque, votre logiciel BTP et votre comptabilité. Sans ça, vous relancez un client qui a déjà payé. Une fois suffit : vous perdez la confiance dans le système, et plus personne ne l'utilise.
 
@@ -162,7 +162,7 @@ Deux exemples construits pour l'illustration, à partir de situations courantes 
 
 **Profil 1, boîte de plomberie autour de 15 salariés, sous Batappli.** Prenons un DSO de 70 à 80 jours, avec un patron qui n'a aucune visibilité sur les retards. La mise en place type : export quotidien des factures vers une base de données légère, séquence d'envoi 4 touches via Make (J-3 rappel, J+1 mail ferme, J+8 alerte appel, J+15 mise en demeure pré-remplie), branchement comptable pour lettrer les paiements automatiquement. L'objectif : ramener le DSO entre 50 et 60 jours en 8 à 12 semaines. À cette taille, cela représente plusieurs dizaines de milliers d'euros de trésorerie disponible.
 
-**Profil 2, boîte d'électricité autour de 8 salariés, sous Tolteck ou Obat.** DSO moins dégradé (60 à 65 jours), mais avec une queue de 3 ou 4 vieux dossiers oubliés à 150 jours et plus. Là, la mise en place est plus simple : activer les relances natives du logiciel et de l'outil comptable, sans Make. Le vrai gain tient au traitement des anciens dossiers plus qu'au DSO global, en parallèle, via une plateforme de recouvrement amiable (commission classique 10-15 % du recouvré). Sur ces vieux dossiers, on ne récupère jamais tout. On récupère ce qui peut l'être avant qu'ils prescrivent.
+**Profil 2, boîte d'électricité autour de 8 salariés, sous Tolteck ou Obat.** DSO moins dégradé (60 à 65 jours), mais avec une queue de 3 ou 4 vieux dossiers oubliés à 150 jours et plus. Là, la mise en place est plus simple : activer les relances natives du logiciel et de l'outil comptable, sans Make. Le vrai gain tient au traitement des anciens dossiers plus qu'au DSO global, en parallèle, via une plateforme de recouvrement amiable, rémunérée en général par une commission sur les sommes récupérées. Sur ces vieux dossiers, on ne récupère jamais tout. On récupère ce qui peut l'être avant qu'ils prescrivent.
 
 Pas le même outil, pas le même budget. Le point commun, c'est que la séquence reste la même et qu'elle tourne sans le patron.
 
@@ -180,8 +180,8 @@ Avant de lancer le vôtre, voici ce qui plante régulièrement.
 
 **Vous voulez chiffrer ce que les retards de paiement coûtent vraiment à votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me montrez votre logiciel BTP et 3 ou 4 factures récentes, je vous donne en direct votre DSO réel et l'ordre de grandeur de trésorerie qu'une séquence de relance automatique peut débloquer.
 
-[Réserver un créneau](/contact)
+[Réserver un créneau](/contact/)
 
 ---
 
-*Sources : [Article L441-10 du Code de commerce — délais de paiement](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041836691), [Article D441-5 du Code de commerce — indemnité forfaitaire 40 €](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000027016078), [Observatoire des délais de paiement, Banque de France](https://www.banque-france.fr/fr/publications-et-statistiques/publications/rapport-annuel-de-lobservatoire-des-delais-de-paiement), [Étude Allianz Trade sur les comportements de paiement en France](https://www.allianz-trade.com/fr_FR/actualites/etudes-economiques.html).*
+*Sources : [Légifrance — article L441-10 du Code de commerce, délais de paiement et pénalités](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038414392), [Légifrance — article D441-5 du Code de commerce, indemnité forfaitaire de 40 €](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043197457), [service-public.gouv.fr — délais de paiement entre professionnels](https://entreprendre.service-public.gouv.fr/vosdroits/F23211), [Banque de France — rapport de l'Observatoire des délais de paiement 2025](https://www.banque-france.fr/fr/publications-et-statistiques/publications/rapport-de-lobservatoire-des-delais-de-paiement-2025).*
