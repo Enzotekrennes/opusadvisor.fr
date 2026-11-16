@@ -15,7 +15,7 @@ faq:
   - q: "Le numéro de déclaration d'activité est-il obligatoire sur la facture ?"
     a: "Il ne figure ni dans l'article L. 441-9 du Code de commerce ni dans l'article 242 nonies A de l'annexe II au CGI, qui listent les mentions de facture. L'article L. 6352-12 du Code du travail impose une formule quand la publicité d'un organisme cite sa déclaration. Le faire figurer sur la facture reste utile, car vos clients et leurs financeurs s'en servent."
   - q: "Comment facturer une formation financée en partie par l'OPCO ?"
-    a: "Sans subrogation, vous adressez une seule facture à l'entreprise, qui se fait rembourser par l'OPCO.Pour une entreprise de moins de 50 salariés, sur le plan de développement des compétences, quand la subrogation porte sur une part seulement, Atlas prévoit une facture à l'OPCO pour la part prise en charge et une facture à l'entreprise pour le solde. Nous recommandons que les deux portent la même mention d'exonération et se référencent l'une l'autre. Chez les autres OPCO, l'accord de prise en charge dit qui facturer."
+    a: "Sans subrogation, vous adressez une seule facture à l'entreprise, qui se fait rembourser par l'OPCO. Pour une entreprise de moins de 50 salariés, sur le plan de développement des compétences, quand la subrogation porte sur une part seulement, Atlas prévoit une facture à l'OPCO pour la part prise en charge et une facture à l'entreprise pour le solde. Nous recommandons que les deux portent la même mention d'exonération et se référencent l'une l'autre. Chez les autres OPCO, l'accord de prise en charge dit qui facturer."
   - q: "La mention d'exonération change-t-elle en 2027 ?"
     a: "La TVA passe du CGI au code des impositions sur les biens et services le 1er janvier 2027, et les anciennes références au CGI restent utilisables jusqu'au 30 juin 2028, selon le BOFiP du 7 octobre 2026. Le nouveau numéro de l'exonération formation est à confirmer avec votre expert-comptable avant de modifier votre modèle."
 ctaMid:
@@ -88,7 +88,7 @@ Indemnité forfaitaire pour frais de recouvrement : 40 €
 - Indemnité forfaitaire de recouvrement de 40 € (L. 441-9, F31808).
 - Bon de commande « lorsqu'il a été préalablement établi par l'acheteur » (L. 441-9).
 
-Le taux des pénalités s'écrit en chiffres sur la facture, jamais « inférieur à trois fois le taux d'intérêt légal » ([article L. 441-10](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038414392)). Le [calculateur de pénalités de retard](/outils/calcul-penalites-de-retard/) donne le montant dû.
+Écrivez le taux des pénalités en chiffres sur la facture. Il ne peut pas être « inférieur à trois fois le taux d'intérêt légal » ([article L. 441-10](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038414392)). Le [calculateur de pénalités de retard](/outils/calcul-penalites-de-retard/) donne le montant dû.
 
 Le SIREN du client et la nature des opérations s'ajoutent au 1er septembre 2027 pour les PME, et service-public les rattache à la réforme de la facture électronique. Leur application aux factures exonérées n'est pas tranchée dans nos sources. Les ajouter dès maintenant ne coûte rien. Faites confirmer le reste par votre expert-comptable.
 
@@ -143,7 +143,7 @@ Chez Atlas, pour une entreprise de moins de 50 salariés, sur le plan de dévelo
 
 Leur somme égale les 3 000 € de la convention. Atlas demande le numéro de dossier sur la sienne. Nous recommandons de le reporter aussi sur celle de l'entreprise, avec la même mention, le même intitulé, les mêmes dates et une référence croisée (« solde facturé sous le n° 2026-0152 »). Pour le CPF, France Travail ou la sous-traitance, voyez le financeur.
 
-Dans le réseau d'organismes que nous avons équipé d'un CRM, les documents réglementaires se génèrent depuis le dossier, comme le décrit [notre page consacrée aux organismes de formation](/secteurs/formation/). Générée ainsi, une facture reprend d'office l'intitulé, les dates, le numéro de dossier et la mention validée.
+Dans le réseau d'organismes que nous avons équipé d'un CRM, les documents réglementaires se génèrent depuis le dossier, comme le décrit [notre page consacrée aux organismes de formation](/secteurs/formation/). Les factures, elles, sont créées dans leur outil de facturation par une action lancée depuis le CRM, à partir des informations du dossier, sans ressaisie.
 
 ## Ce qui change le 1er janvier 2027
 
