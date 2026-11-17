@@ -50,6 +50,12 @@ export const FinalCTASection: React.FC = () => {
             <p className="mt-4 text-sm text-white/70 leading-relaxed">
               Créneaux disponibles sous 5 jours. Annulation libre jusqu'à 2 h avant.
             </p>
+            <p className="mt-3 text-sm text-white/70">
+              Plutôt un appel :{' '}
+              <a href="tel:+33615756549" className="font-semibold whitespace-nowrap text-white underline underline-offset-4 decoration-white/40 hover:decoration-white">
+                06 15 75 65 49
+              </a>
+            </p>
           </div>
         </div>
 

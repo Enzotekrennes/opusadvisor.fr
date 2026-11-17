@@ -59,6 +59,14 @@ export const SectorsSection: React.FC<{ headingLevel?: 'h1' | 'h2' }> = ({ headi
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
+              {s.pilot && (
+                <p className="mb-7 -mt-1 pt-5 border-t text-sm text-gray-700 leading-relaxed" style={{ borderColor: RULE }}>
+                  {s.pilot.text}{' '}
+                  <Link href={s.pilot.href} className="font-semibold underline underline-offset-4" style={{ color: NAVY }}>
+                    Voir le programme pilote
+                  </Link>
+                </p>
+              )}
             </li>
             );
           })}
