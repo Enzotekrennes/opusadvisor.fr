@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { HeroHome, HERO_ID } from '@/components/home/HeroHome';
+import { HeroHome } from '@/components/home/HeroHome';
 import { HomeCases } from '@/components/home/day/HomeCases';
 import { HomeLetter } from '@/components/home/day/HomeLetter';
 import { HomeTimeLoss } from '@/components/home/day/HomeTimeLoss';
@@ -99,7 +99,7 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }} />
-      <Header variant="desktop" heroId={HERO_ID} />
+      <Header />
       <main id="contenu" className="flex-grow">
         <HeroHome />
         <HomeCases />
