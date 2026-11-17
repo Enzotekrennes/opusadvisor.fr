@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -25,6 +25,42 @@ const mobileLinks: NavLink[] = [{ label: 'Accueil', href: '/' }, ...navLinks];
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  /** Closes the menu and gives focus back to the button that opened it. */
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    burgerRef.current?.focus();
+  };
+
+  // The open menu covers the page: focus starts on its close button, Escape closes it,
+  // and Tab cycles inside it instead of reaching the hidden page behind.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    closeRef.current?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        burgerRef.current?.focus();
+        return;
+      }
+      if (event.key !== 'Tab' || !panelRef.current) return;
+      const items = panelRef.current.querySelectorAll<HTMLElement>('a[href], button');
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isMenuOpen]);
 
   // Ferme le menu lors d'un changement de route
   useEffect(() => {
@@ -111,14 +147,17 @@ export const Header: React.FC = () => {
               </Link>
             </div>
 
-            {/* Burger button */}
+            {/* Burger button: 44 px touch target. The open menu covers it and carries its own close button. */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="xl:hidden transition-colors z-[60] text-gray-700"
-              aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              ref={burgerRef}
+              type="button"
+              onClick={() => setIsMenuOpen(true)}
+              className="xl:hidden -mr-2 p-2 transition-colors text-gray-700"
+              aria-label="Ouvrir le menu"
               aria-expanded={isMenuOpen}
+              aria-controls="menu-mobile"
             >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <Menu size={28} aria-hidden="true" />
             </button>
           </div>
         </nav>
@@ -126,6 +165,11 @@ export const Header: React.FC = () => {
 
       {/* Overlay plein écran */}
       <div
+        ref={panelRef}
+        id="menu-mobile"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu"
         className={`fixed inset-0 z-[55] flex flex-col xl:hidden transition-all duration-500 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
@@ -133,6 +177,21 @@ export const Header: React.FC = () => {
         aria-hidden={!isMenuOpen}
         inert={!isMenuOpen}
       >
+        {/* Same row height and padding as the header, so the close button sits where the burger was. */}
+        <div className="container mx-auto px-6 py-1 md:py-1.5">
+          <div className="flex h-11 md:h-12 items-center justify-end">
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={closeMenu}
+              className="-mr-2 p-2 text-white/80 hover:text-white transition-colors"
+              aria-label="Fermer le menu"
+            >
+              <X size={28} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
         <div className="flex flex-col items-center justify-center flex-1 gap-9 px-8">
           {mobileLinks.map((link, index) => (
             <Link

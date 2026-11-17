@@ -119,7 +119,7 @@ export const AutomationDemo: React.FC<AutomationDemoProps> = ({ keys }) => {
               type="button"
               onClick={() => choose(f.key)}
               aria-pressed={f.key === key}
-              className="px-2.5 py-1.5 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap"
+              className="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:px-3.5"
               style={
                 f.key === key
                   ? { background: NAVY, color: '#FAF7F0', borderColor: NAVY }

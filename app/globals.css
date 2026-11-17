@@ -6,36 +6,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Disable text selection site-wide to prevent cursor from appearing */
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 
+/* Visible scrollbar (visitors see where they are on long pages), tinted from the navy.
+   overflow-y: scroll keeps its gutter on short pages, so the layout never shifts. */
 html {
-  /* Hide scrollbar but keep scroll functionality */
   overflow-y: scroll;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
+  scrollbar-color: rgba(26, 35, 50, 0.35) transparent;
 }
 
-/* Ré-autorise la sélection de texte dans les champs de formulaire
-   (le * { user-select: none } ci-dessus la coupe partout sinon). */
-input,
-textarea,
-select {
-  user-select: text;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar {
-  display: none;
+/* Text stays selectable so visitors can copy a price or a sentence; selection uses the brand gold. */
+::selection {
+  background: rgba(201, 168, 76, 0.35);
+  color: #1A2332;
 }
 
 body {
