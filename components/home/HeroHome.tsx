@@ -58,7 +58,7 @@ export const HeroHome: React.FC = () => {
             />
             <p className="text-sm text-gray-600 leading-snug">
               30 minutes en visio avec Enzo Monnier, le fondateur. Gratuit et sans engagement.
-              <br className="hidden sm:inline" /> Opus Advisor, à Rennes, intervient partout en France.
+              <br className="hidden sm:inline" /> Opus Advisor, basé à Vannes, intervient partout en France.
             </p>
           </div>
         </div>
