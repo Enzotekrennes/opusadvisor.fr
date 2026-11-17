@@ -37,6 +37,17 @@ h4,
 h5,
 h6 {
   font-family: var(--font-bricolage), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* Even line lengths instead of a long line followed by one stray word. */
+  text-wrap: balance;
+}
+
+/* Body copy: avoid a lone last word. Progressive: browsers without support keep their default wrap. */
+p,
+li,
+dd,
+figcaption,
+blockquote {
+  text-wrap: pretty;
 }
 
 /* Lead / paragraph helper */
