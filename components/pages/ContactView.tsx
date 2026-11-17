@@ -2,15 +2,12 @@
 
 import React, { useState } from 'react';
 import { Clock, Mail, Linkedin, ShieldCheck, ArrowRight, Phone, Calendar, Check } from 'lucide-react';
-import { SectionKicker } from '@/components/ui/SectionKicker';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 import { track } from '@/lib/analytics';
-
-const GOLD = '#C9A84C';
-// Or foncé pour le texte et les icônes sur fond clair : l'or d'origine y tombe à 2,1:1 de contraste.
-const GOLD_INK = '#8A6A1C';
-const NAVY = '#1A2332';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
 
 const CAL_URL = 'https://cal.com/enzo-monnier-qc1nqv/30min';
 
@@ -20,9 +17,10 @@ const WEB3FORMS_ACCESS_KEY = '14bb79f3-5e45-4423-afcc-23b0cb155435';
 
 type Status = 'idle' | 'sending' | 'ok' | 'error';
 
-const fieldClass =
-  'w-full bg-white border rounded-lg px-4 py-3 text-sm md:text-[15px] text-[#1A2332] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/60 transition-shadow';
-
+/**
+ * Contact page: book the free pre-audit on the calendar, or send a short request in writing (sent
+ * through Web3Forms; on failure the visitor is pointed to the email address), plus the direct ways in.
+ */
 export const ContactView: React.FC = () => {
   const [status, setStatus] = useState<Status>('idle');
 
@@ -62,113 +60,74 @@ export const ContactView: React.FC = () => {
 
   return (
     <main id="contenu" className="flex-grow">
-      {/* Hero */}
-      <section className="pt-36 pb-20 md:pt-44 md:pb-24" style={{ background: NAVY }}>
-        <div className="container mx-auto px-6 max-w-5xl">
-          <SectionKicker label="Pré-audit · 30 min · gratuit" tone="dark" className="mb-8" />
-          <h1 className="font-heading font-bold leading-[1.0] tracking-tight text-5xl md:text-6xl lg:text-7xl text-white">
-            On parle de votre boîte ?
-          </h1>
-          <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-            30 minutes en visio. Vous me montrez vos outils. J'identifie 3 points de friction et je
-            vous montre en direct comment les régler.{' '}
-            <span className="text-white font-medium">C'est gratuit et sans engagement.</span>
-          </p>
-        </div>
-      </section>
+      <PageHero
+        titleId="contact-title"
+        chips={[{ label: 'Pré-audit gratuit', icon: 'booking' }, { label: '30 min en visio' }]}
+        title="On parle de votre boîte ?"
+        lede={
+          <>
+            30 minutes en visio. Vous me montrez vos outils. J'identifie 3 points de friction et je vous montre en direct
+            comment les régler. <strong className="font-semibold text-white">C'est gratuit et sans engagement.</strong>
+          </>
+        }
+      />
 
-      {/* Réservation + formulaire */}
-      <section className="py-20 md:py-28" style={{ background: PAPER }}>
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Calendrier */}
-            <div className="lg:col-span-7 border-t pt-8" style={{ borderColor: NAVY }}>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-2" style={{ color: GOLD_INK }}>
-                Réserver un créneau
-              </p>
-              <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6" style={{ color: NAVY }}>
-                Choisissez votre horaire.
-              </h2>
-
-              <div className="overflow-hidden rounded-lg" style={{ border: `1px solid ${RULE}` }}>
+      <Section tone="ground">
+        <div className={inner.contactGrid}>
+          <Window title="Réserver un créneau">
+            <div className={inner.paneBody}>
+              <h2 className={inner.paneTitle}>Choisissez votre horaire.</h2>
+              <div className={inner.calendarFrame}>
                 <iframe
                   src={CAL_URL}
                   title="Réserver un créneau de pré-audit avec Opus Advisor"
-                  className="w-full h-[720px] border-0 bg-white"
                   loading="lazy"
                   allow="camera; microphone; fullscreen; payment"
                 />
               </div>
-
-              <a
-                href={CAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 transition-colors"
-              >
-                <ArrowRight size={14} style={{ color: GOLD_INK }} />
-                Ouvrir le calendrier dans un nouvel onglet
-              </a>
-
-              <ul className="mt-6 flex flex-wrap gap-x-7 gap-y-2 text-xs md:text-sm text-gray-500">
-                <li className="inline-flex items-center gap-2">
-                  <Clock size={14} style={{ color: GOLD_INK }} /> 30 min · Visio
+              <p className="mt-4">
+                <a href={CAL_URL} target="_blank" rel="noopener noreferrer" className={sections.more}>
+                  Ouvrir le calendrier dans un nouvel onglet
+                  <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                </a>
+              </p>
+              <ul className={inner.facts}>
+                <li>
+                  <Clock size={15} aria-hidden="true" /> 30 min · Visio
                 </li>
-                <li className="inline-flex items-center gap-2">
-                  <ShieldCheck size={14} style={{ color: GOLD_INK }} /> Annulation libre jusqu'à 2h avant
+                <li>
+                  <ShieldCheck size={15} aria-hidden="true" /> Annulation libre jusqu'à 2h avant
                 </li>
-                <li className="inline-flex items-center gap-2">
-                  <Calendar size={14} style={{ color: GOLD_INK }} /> Plages dispo sous 5 jours
+                <li>
+                  <Calendar size={15} aria-hidden="true" /> Plages dispo sous 5 jours
                 </li>
               </ul>
             </div>
+          </Window>
 
-            {/* Formulaire court */}
-            <aside className="lg:col-span-5 border-t pt-8" style={{ borderColor: RULE }}>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-2" style={{ color: GOLD_INK }}>
-                Ou par écrit
-              </p>
-              <h3 className="font-heading font-bold text-2xl md:text-3xl mb-4" style={{ color: NAVY }}>
-                Pas envie de bloquer un créneau tout de suite ?
-              </h3>
-              <p className="text-sm md:text-[15px] text-gray-600 leading-relaxed mb-6">
-                Dites-moi l'essentiel en 30 secondes. Je vous réponds sous 24h ouvrées avec un
-                premier retour concret.
+          <Window title="Ou par écrit">
+            <div className={inner.paneBody}>
+              <h2 className={inner.paneTitle}>Pas envie de bloquer un créneau tout de suite ?</h2>
+              <p className={inner.paneText}>
+                Dites-moi l'essentiel en 30 secondes. Je vous réponds sous 24h ouvrées avec un premier retour concret.
               </p>
 
               {status === 'ok' ? (
-                <div
-                  className="rounded-lg p-6 flex items-start gap-3"
-                  style={{ background: 'rgba(201,168,76,0.10)', border: `1px solid ${GOLD}55` }}
-                >
-                  <Check size={20} style={{ color: GOLD_INK }} className="mt-0.5 shrink-0" />
+                <div className={inner.success} role="status">
+                  <Check size={20} strokeWidth={2.6} aria-hidden="true" />
                   <div>
-                    <p className="font-semibold" style={{ color: NAVY }}>
-                      C'est reçu.
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1 leading-relaxed">
-                      Je vous réponds sous 24h ouvrées. En attendant, vous pouvez aussi réserver
-                      directement un créneau à gauche.
-                    </p>
+                    <b>C'est reçu.</b>
+                    <p>Je vous réponds sous 24h ouvrées. En attendant, vous pouvez aussi réserver directement un créneau à gauche.</p>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form onSubmit={handleSubmit} className={inner.form}>
                   {/* Honeypot anti-spam (caché) */}
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    className="hidden"
-                    aria-hidden="true"
-                  />
+                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
                   <div>
-                    <label htmlFor="metier" className="block text-xs font-medium mb-1.5 text-gray-600">
-                      Votre secteur
-                    </label>
-                    <select id="metier" name="Secteur" required defaultValue="" className={fieldClass} style={{ borderColor: RULE }}>
+                    <label htmlFor="metier">Votre secteur</label>
+                    <select id="metier" name="Secteur" required defaultValue="" className={inner.field}>
                       <option value="" disabled>
                         Choisir…
                       </option>
@@ -181,10 +140,8 @@ export const ContactView: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="taille" className="block text-xs font-medium mb-1.5 text-gray-600">
-                      Taille de l'équipe
-                    </label>
-                    <select id="taille" name="Taille équipe" required defaultValue="" className={fieldClass} style={{ borderColor: RULE }}>
+                    <label htmlFor="taille">Taille de l'équipe</label>
+                    <select id="taille" name="Taille équipe" required defaultValue="" className={inner.field}>
                       <option value="" disabled>
                         Choisir…
                       </option>
@@ -196,114 +153,71 @@ export const ContactView: React.FC = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-xs font-medium mb-1.5 text-gray-600">
-                      Votre email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="Email"
-                      required
-                      placeholder="vous@votreboite.fr"
-                      className={fieldClass}
-                      style={{ borderColor: RULE }}
-                    />
+                    <label htmlFor="email">Votre email</label>
+                    <input id="email" type="email" name="Email" required placeholder="vous@votreboite.fr" className={inner.field} />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-xs font-medium mb-1.5 text-gray-600">
-                      Votre principale galère du moment
-                    </label>
+                    <label htmlFor="message">Votre principale galère du moment</label>
                     <textarea
                       id="message"
                       name="Problème prioritaire"
                       rows={3}
                       required
                       placeholder="Ex : les devis traînent, les relances je les fais jamais à temps…"
-                      className={`${fieldClass} resize-none`}
-                      style={{ borderColor: RULE }}
+                      className={inner.field}
                     />
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-sm leading-relaxed" style={{ color: '#B23B3B' }}>
-                      L'envoi n'a pas pu se faire. Écrivez-moi directement à{' '}
-                      <a href="mailto:enzo@opusadvisor.fr" className="underline font-medium">
-                        enzo@opusadvisor.fr
-                      </a>
-                      .
+                    <p className={inner.formError} role="alert">
+                      L'envoi n'a pas pu se faire. Écrivez-moi directement à <a href="mailto:enzo@opusadvisor.fr">enzo@opusadvisor.fr</a>.
                     </p>
                   )}
 
-                  <button
-                    type="submit"
-                    disabled={status === 'sending'}
-                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm md:text-base transition-all duration-200 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
-                    style={{ background: GOLD, color: NAVY }}
-                  >
+                  <button type="submit" disabled={status === 'sending'} className={`${sections.button} disabled:opacity-60`}>
                     {status === 'sending' ? 'Envoi…' : 'Envoyer ma demande'}
-                    {status !== 'sending' && (
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    )}
+                    {status !== 'sending' && <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />}
                   </button>
-                  <p className="text-xs text-gray-500 leading-relaxed">
-                    Vos coordonnées servent seulement à vous répondre.
-                  </p>
+                  <p className={inner.formNote}>Vos coordonnées servent seulement à vous répondre.</p>
                 </form>
               )}
 
-              {/* Contact direct */}
-              <div className="mt-8 flex flex-col gap-4 pt-6 border-t" style={{ borderColor: RULE }}>
-                <a
-                  href="mailto:enzo@opusadvisor.fr"
-                  className="inline-flex items-center gap-3 text-sm md:text-base font-medium hover:opacity-70 transition-opacity"
-                  style={{ color: NAVY }}
-                >
-                  <Mail size={18} style={{ color: GOLD_INK }} />
+              <div className={inner.direct}>
+                <a href="mailto:enzo@opusadvisor.fr">
+                  <Mail size={18} aria-hidden="true" />
                   enzo@opusadvisor.fr
                 </a>
-                <a
-                  href="tel:+33615756549"
-                  className="inline-flex items-center gap-3 text-sm md:text-base font-medium hover:opacity-70 transition-opacity"
-                  style={{ color: NAVY }}
-                >
-                  <Phone size={18} style={{ color: GOLD_INK }} />
+                <a href="tel:+33615756549">
+                  <Phone size={18} aria-hidden="true" />
                   +33 6 15 75 65 49
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/enzo-monnier/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-sm md:text-base font-medium hover:opacity-70 transition-opacity"
-                  style={{ color: NAVY }}
-                >
-                  <Linkedin size={18} style={{ color: GOLD_INK }} />
+                <a href="https://www.linkedin.com/in/enzo-monnier/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={18} aria-hidden="true" />
                   Enzo Monnier
                 </a>
               </div>
 
-              <div className="mt-8 pt-6 border-t" style={{ borderColor: RULE }}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-3" style={{ color: GOLD_INK }}>
-                  Ce qu'on fera au pré-audit
-                </p>
-                <ul className="space-y-2.5 text-sm text-gray-600">
+              <div className={inner.agenda}>
+                <p>Ce qu'on fera au pré-audit</p>
+                <ul className={inner.ticks}>
                   {[
                     'Tour rapide de vos outils actuels',
                     '3 points de friction identifiés en direct',
                     '1 automatisation montrée sur vos propres données',
                     'Sans engagement de votre part',
                   ].map((d) => (
-                    <li key={d} className="flex items-start gap-2.5">
-                      <span className="mt-2 h-px w-3 shrink-0" style={{ background: GOLD }} />
-                      <span className="leading-relaxed">{d}</span>
+                    <li key={d}>
+                      <Check size={16} strokeWidth={2.6} aria-hidden="true" />
+                      <span>{d}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </aside>
-          </div>
+            </div>
+          </Window>
         </div>
-      </section>
+      </Section>
     </main>
   );
 };
