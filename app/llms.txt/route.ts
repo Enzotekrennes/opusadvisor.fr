@@ -33,7 +33,7 @@ export function GET() {
 
   const body = `# Opus Advisor
 
-> Opus Advisor construit des systèmes de gestion complets et automatisés pour les petites entreprises, à l'image de chacune. Selon le besoin : des automatisations entre les outils déjà en place (logiciel métier, tableurs, mails, banque, comptabilité), une application centrale qui réunit ces outils, ou un système monté de A à Z. Secteurs : organismes de formation, immobilier et conciergerie, BTP second œuvre. Objectif annoncé : rendre 10 heures par semaine au dirigeant à partir du deuxième mois. Basé à Rennes, intervient partout en France. Indépendant de tout éditeur de logiciel.
+> Opus Advisor construit des systèmes de gestion complets et automatisés pour les petites entreprises, à l'image de chacune. Selon le besoin : des automatisations entre les outils déjà en place (logiciel métier, tableurs, mails, banque, comptabilité), une application centrale qui réunit ces outils, ou un système monté de A à Z. Secteurs : organismes de formation, immobilier et conciergerie, BTP second œuvre. Objectif annoncé : rendre 10 heures par semaine au dirigeant une fois le système en place, mesuré avec lui. Basé à Vannes, intervient partout en France. Indépendant de tout éditeur de logiciel.
 
 ## Comment on travaille
 - Automatisations seules : quand les logiciels de l'entreprise font l'affaire, on automatise ce qui se fait encore à la main (documents, mails, relances, factures) avec Make ou n8n.

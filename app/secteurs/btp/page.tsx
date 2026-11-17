@@ -32,7 +32,7 @@ const BTP_ARTICLES = [
 ];
 const PAGE_TITLE = 'BTP second œuvre : logiciel de gestion, devis et relances';
 const PAGE_DESCRIPTION =
-  'Devis, chantiers, situations et relances reliés, avec ou sans changer de logiciel : environ 10 h par semaine rendues aux patrons du second œuvre. Pré-audit gratuit.';
+  'Devis, chantiers et relances reliés, avec ou sans changer de logiciel. Objectif : 10 h par semaine rendues aux patrons du second œuvre. Pré-audit gratuit.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
