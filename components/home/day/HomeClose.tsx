@@ -13,7 +13,7 @@ const TOWN_PLANES = [5, 4, 3, 2, 1];
  * quiet link. Still: nothing moves here. Its id `contact` also tells the mobile booking bar to step aside.
  */
 export const HomeClose: React.FC = () => (
-  <section id="contact" className={`${styles.section} ${styles.dusk}`} aria-labelledby="cta-title">
+  <section id="contact" className={`${styles.section} ${styles.dusk}`} aria-labelledby="cta-title" data-surface="dark">
     <div className={styles.duskTown} aria-hidden="true">
       {TOWN_PLANES.map((n) => (
         <img key={n} src={`/images/home/town/layer-${n}.svg`} alt="" width={1520} height={980} loading="lazy" decoding="async" />

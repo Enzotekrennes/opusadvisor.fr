@@ -22,7 +22,7 @@ export const HERO_ID = 'bureau';
  * the visitor asks for reduced motion.
  */
 export const HeroHome: React.FC = () => (
-  <section id={HERO_ID} className={styles.desk} aria-labelledby="hero-title" data-booking-hero>
+  <section id={HERO_ID} className={styles.desk} aria-labelledby="hero-title" data-booking-hero data-surface="dark">
     <TownScene />
 
     <div className={styles.grid}>

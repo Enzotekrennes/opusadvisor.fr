@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { NavLink } from '@/types';
 
-/** Night blue of the menu bar and of the full-screen menu, from the dawn sky of the home page. */
+/** Night blue of the full-screen menu, from the dawn sky of the home page. */
 const NIGHT = '#08112A';
+/** Height of the menu bar, in px (kept in step with `.site-bar` in globals.css). */
+const BAR_HEIGHT = 56;
 
 // "Contact" n'est plus un lien : c'est le bouton de réservation, toujours visible.
 const navLinks: NavLink[] = [
@@ -26,7 +28,7 @@ const SCENE_TIME = '07:52';
 
 /** Control Center glyph of a desktop menu bar: two toggles. */
 const ControlsGlyph = () => (
-  <svg viewBox="0 0 24 24" width={15} height={15} fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden="true">
+  <svg viewBox="0 0 24 24" width={16} height={16} fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden="true">
     <rect x="3" y="5" width="18" height="6" rx="3" />
     <rect x="3" y="13" width="18" height="6" rx="3" />
     <circle cx="8" cy="8" r="1.4" />
@@ -36,22 +38,51 @@ const ControlsGlyph = () => (
 
 /** Battery glyph of a desktop menu bar: a pill, about three quarters full. */
 const BatteryGlyph = () => (
-  <svg viewBox="0 0 28 13" width={27} height={13} aria-hidden="true">
+  <svg viewBox="0 0 28 13" width={28} height={13} aria-hidden="true">
     <rect x=".65" y=".65" width="23.7" height="11.7" rx="3.6" fill="none" stroke="currentColor" strokeOpacity=".85" strokeWidth="1.3" />
     <rect x="2.6" y="2.6" width="14.6" height="7.8" rx="1.8" fill="currentColor" />
     <path d="M26 4.4v4.2a2.1 2.1 0 0 0 0-4.2Z" fill="currentColor" fillOpacity=".85" />
   </svg>
 );
 
+/** Relative luminance (0 to 1) of an `rgb()`/`rgba()` colour string; null when it is transparent. */
+function luminance(color: string): number | null {
+  const parts = color.match(/[\d.]+/g)?.map(Number);
+  if (!parts || parts.length < 3 || parts[3] === 0) return null;
+  const [r, g, b] = parts.map((v) => v / 255);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
 /**
- * Site header: one menu bar, the same on every page and at every scroll position. Night-blue glass,
- * fixed at the top, in the style of a desktop menu bar (logo, navigation, booking button, status items
- * and the clock of the dawn scene). Below 1280 px the navigation moves into a full-screen menu.
+ * Whether what lies under the menu bar is dark: a section marked `data-surface`, or else the nearest
+ * ancestor with an opaque background colour. Read at the bar's left edge, under the bar itself.
+ */
+function darkUnderBar(bar: HTMLElement): boolean {
+  const stack = document.elementsFromPoint(8, BAR_HEIGHT / 2);
+  const under = stack.find((el) => !bar.contains(el));
+  for (let el: Element | null = under ?? null; el; el = el.parentElement) {
+    const surface = el.getAttribute('data-surface');
+    if (surface) return surface === 'dark';
+    const l = luminance(getComputedStyle(el).backgroundColor);
+    if (l !== null) return l < 0.4;
+  }
+  return false;
+}
+
+/**
+ * Site header: one menu bar, the same on every page and at every scroll position, in the style of a
+ * desktop menu bar (logo, navigation, booking button, status items and the clock of the dawn scene).
+ * It is a light pane of frosted glass: the page shows through, and its tint follows what lies under it,
+ * like a desktop menu bar over its wallpaper (white text over the dawn and dusk scenes, night-blue text
+ * over the daylight sections). Without JavaScript it stays night blue, readable on any page.
+ * Below 1280 px the navigation moves into a full-screen menu.
  */
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [today, setToday] = useState('');
+  const [tone, setTone] = useState<'dark' | 'light'>('dark');
   const pathname = usePathname();
+  const barRef = useRef<HTMLElement>(null);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -66,6 +97,26 @@ export const Header: React.FC = () => {
   useEffect(() => {
     setToday(new Intl.DateTimeFormat('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' }).format(new Date()));
   }, []);
+
+  // The bar's tint follows what scrolls under it, checked once per frame at most.
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      if (barRef.current) setTone(darkUnderBar(barRef.current) ? 'dark' : 'light');
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
+  }, [pathname]);
 
   // The open menu covers the page: focus starts on its close button, Escape closes it,
   // and Tab cycles inside it instead of reaching the hidden page behind.
@@ -117,8 +168,6 @@ export const Header: React.FC = () => {
     return normalized === href || (href !== '/' && normalized.startsWith(href));
   };
 
-  const focusRing = 'rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white';
-
   return (
     <>
       {/* Skip link: first stop for keyboard users, visible only when focused. Every page's <main> carries id="contenu". */}
@@ -129,48 +178,35 @@ export const Header: React.FC = () => {
         Aller au contenu
       </a>
 
-      <header
-        className="fixed inset-x-0 top-0 z-50 border-b border-white/10 text-white backdrop-blur-xl backdrop-saturate-150 [text-shadow:0_1px_2px_rgba(3,8,22,0.35)]"
-        style={{ background: 'rgba(8, 17, 42, 0.96)' }}
-      >
-        <nav aria-label="Navigation principale" className="flex h-14 items-center gap-6 px-5 xl:h-11">
-          <Link href="/" aria-label="Retour à l'accueil" onClick={() => window.scrollTo(0, 0)} className={`mr-2 shrink-0 ${focusRing}`}>
-            <img src="/images/opus-logo-white-trim.webp" alt="" width={168} height={26} className="block h-[26px] w-[168px]" />
+      <header ref={barRef} className="site-bar" data-tone={tone}>
+        <nav aria-label="Navigation principale" className="site-bar-inner">
+          <Link href="/" aria-label="Retour à l'accueil" onClick={() => window.scrollTo(0, 0)} className="site-bar-logo">
+            <img src="/images/opus-logo-white-trim.webp" alt="" width={194} height={30} className="logo-on-dark" />
+            <img src="/images/opus-logo-navy-trim.webp" alt="" width={194} height={30} className="logo-on-light" />
           </Link>
 
-          <div className="hidden items-center gap-6 text-[13.5px] xl:flex">
-            {navLinks.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={handleNavClick}
-                  aria-current={active ? 'page' : undefined}
-                  className={`relative whitespace-nowrap transition-colors ${focusRing} ${
-                    active
-                      ? 'font-semibold text-white after:absolute after:-bottom-[7px] after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-white'
-                      : 'text-white/85 hover:text-white'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+          <div className="site-bar-links">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={handleNavClick}
+                aria-current={isActive(link.href) ? 'page' : undefined}
+                className="site-bar-link"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          <div className="ml-auto flex items-center gap-4">
-            <Link
-              href="/contact"
-              onClick={handleNavClick}
-              className="hidden rounded-lg bg-white/95 px-3 py-1.5 text-[13.5px] font-semibold text-[#1E3A66] shadow-[0_1px_2px_rgba(3,8,22,0.25)] [text-shadow:none] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:inline-flex"
-            >
+          <div className="site-bar-right">
+            <Link href="/contact" onClick={handleNavClick} className="site-bar-cta">
               Réserver le pré-audit
             </Link>
             {/* Decorative status items of a desktop menu bar. */}
-            <span className="hidden items-center gap-4 text-[13.5px] xl:flex" aria-hidden="true">
+            <span className="site-bar-status" aria-hidden="true">
               <ControlsGlyph />
-              <Wifi size={15} strokeWidth={1.8} />
+              <Wifi size={16} strokeWidth={1.8} />
               <BatteryGlyph />
               <span className="tabular-nums">{today ? `${today} ${SCENE_TIME}` : SCENE_TIME}</span>
             </span>
@@ -179,7 +215,7 @@ export const Header: React.FC = () => {
               ref={burgerRef}
               type="button"
               onClick={() => setIsMenuOpen(true)}
-              className={`-mr-2 p-2 text-white transition-opacity hover:opacity-80 xl:hidden ${focusRing}`}
+              className="site-bar-burger"
               aria-label="Ouvrir le menu"
               aria-expanded={isMenuOpen}
               aria-controls="menu-mobile"
