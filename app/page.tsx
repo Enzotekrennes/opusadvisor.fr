@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org Service : les cinq étapes, avec leurs prix publics.
+// Schema.org Service : les cinq offres (quatre étapes et l'Audit Stack), avec leurs prix publics.
 const servicesJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
