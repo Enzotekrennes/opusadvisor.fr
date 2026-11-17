@@ -1,0 +1,105 @@
+/*
+ * An invoice example in an article (InvoiceSheet.tsx): a document in a light window, set in Inter,
+ * figures in tabular digits so the amounts line up. Plain divs and spans only: the site styles every
+ * `p`, `li` and `strong` inside an article as blog text.
+ */
+.wrap {
+  margin: 32px 0;
+}
+
+.sheet {
+  padding: 26px 22px 28px;
+  color: #13213d;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+@media (min-width: 640px) {
+  .sheet {
+    padding: 32px 40px 36px;
+    font-size: 15px;
+  }
+}
+
+.block + .block {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #eef1f6;
+}
+
+.issuer {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.title {
+  margin-bottom: 2px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.line {
+  color: #13213d;
+}
+
+/* The issuer's address and numbers, under its name. */
+.head .line {
+  color: #56627e;
+}
+
+.label {
+  color: #56627e;
+}
+
+.detail {
+  padding-left: 16px;
+  color: #56627e;
+  font-size: 0.93em;
+}
+
+.figure {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Totals: label and figure on one row, the figures in a right-hand column. */
+.totals {
+  display: grid;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .totals {
+    width: 340px;
+    margin-left: auto;
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  color: #3c4866;
+}
+
+.grand {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid #dde3ec;
+  color: #13213d;
+  font-size: 1.07em;
+  font-weight: 700;
+}
+
+/* Payment terms, under the totals. */
+.terms {
+  color: #56627e;
+  font-size: 0.9em;
+}
+
+.terms .line {
+  color: #56627e;
+}

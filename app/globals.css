@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+/* Site colours (same values as .section in components/sections/sections.module.css), defined at the
+   root so a shared button or list keeps its colours outside a section, inside an article for instance. */
+:root {
+  --ink: #13213d;
+  --ink-soft: #56627e;
+  --navy: #1e3a66;
+  --rule: #e6eaf1;
+  --ground: #f3f5f9;
+  --ok: #1e7b43;
+  --ok-bg: #e4f5ea;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 /* Visible scrollbar (visitors see where they are on long pages), tinted from the navy.
    overflow-y: scroll keeps its gutter on short pages, so the layout never shifts. */
 html {

@@ -8,6 +8,7 @@ import rehypeSlug from 'rehype-slug';
 import { ArrowRight, Check, ChevronDown } from 'lucide-react';
 import { TableOfContents } from '@/components/ui/TableOfContents';
 import { PageHero } from '@/components/sections/PageHero';
+import { InvoiceSheet } from '@/components/pages/InvoiceSheet';
 import sections from '@/components/sections/sections.module.css';
 
 const INK = '#13213D';
@@ -46,13 +47,23 @@ function splitBeforeThirdH2(md: string): [string, string] {
   return [md, ''];
 }
 
-/** Each table gets a wrapper: below 640 px, CSS (globals.css, .article-table) stacks its rows instead of squeezing two columns. */
+/**
+ * Each table gets a wrapper: below 640 px, CSS (globals.css, .article-table) stacks its rows instead of squeezing two columns.
+ * A code block tagged `facture` is an invoice example, laid out as a document (InvoiceSheet); other blocks stay preformatted.
+ */
 const markdownComponents: Components = {
   table: ({ node: _node, ...props }) => (
     <div className="article-table">
       <table {...props} />
     </div>
   ),
+  pre: ({ node: _node, children, ...props }) => {
+    const code = React.Children.toArray(children)[0];
+    if (React.isValidElement<{ className?: string; children?: React.ReactNode }>(code) && code.props.className?.includes('language-facture')) {
+      return <InvoiceSheet text={String(code.props.children ?? '')} />;
+    }
+    return <pre {...props}>{children}</pre>;
+  },
 };
 
 const Markdown: React.FC<{ children: string }> = ({ children }) => (

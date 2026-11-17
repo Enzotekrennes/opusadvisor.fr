@@ -32,7 +32,7 @@ Imaginez que l'expert-comptable d'un client vous écrive que votre facture porte
 
 Exemple fictif, pour une session intra.
 
-```
+```facture
 ORGANISME EXEMPLE FORMATION, SAS au capital de 10 000 €
 12 rue de l'Exemple, 35000 Rennes
 SIREN 000 000 000
@@ -118,7 +118,7 @@ Le BOFiP (§ 300) range dans la formation les « prestations de services ou livr
 
 Une même facture peut donc porter deux régimes, avec un total hors taxes par taux (242 nonies A, 11°). Exemple construit pour l'illustration.
 
-```
+```facture
 Formation « Planifier et suivre un chantier », 14 heures
   2 800,00 € HT, exonération de TVA, article 261, 4, 4° a du CGI
 Conseil en organisation, une demi-journée
