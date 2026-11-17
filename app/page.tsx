@@ -4,10 +4,8 @@ import { Footer } from '@/components/layout/Footer';
 import { HeroHome } from '@/components/home/HeroHome';
 import { CasesSection } from '@/components/home/CasesSection';
 import { SectorsSection } from '@/components/home/SectorsSection';
-import { ApproachSection } from '@/components/home/ApproachSection';
 import { TimeLossSection } from '@/components/home/TimeLossSection';
 import { ManifestoSection } from '@/components/home/ManifestoSection';
-import { ConvictionsSection } from '@/components/home/ConvictionsSection';
 import { MethodSection } from '@/components/home/MethodSection';
 import { WhyNowSection } from '@/components/home/WhyNowSection';
 import { FAQSection } from '@/components/home/FAQSection';
@@ -112,9 +110,7 @@ export default function HomePage() {
           link={{ href: '/cas-clients', label: 'Tous les cas clients' }}
         />
         <SectorsSection />
-        <ApproachSection />
         <TimeLossSection />
-        <ConvictionsSection />
         <ManifestoSection />
         <WhyNowSection />
         <MethodSection />

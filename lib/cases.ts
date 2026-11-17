@@ -11,6 +11,8 @@ export interface ClientCase {
   before: string;
   done: string;
   result: string;
+  /** Which of the three starting points named in the hero this mission used (automations, central app, full system). */
+  level: string;
   /** Légende du visuel animé de la page Cas clients (components/motion/CaseVisual). */
   visual?: { caption: string };
 }
@@ -27,6 +29,7 @@ export const cases: ClientCase[] = [
       "On a construit un CRM sur mesure (Next.js, Airtable) qui suit chaque dossier, de l'opportunité au certificat de réalisation. Les documents réglementaires se génèrent automatiquement, et les dossiers partent aux financeurs.",
     result:
       "Le système est en production, avec 10 modules et 3 240 tests : l'équipe ne monte plus les dossiers à la main.",
+    level: 'une application centrale',
     visual: {
       caption: 'Le scénario, en représentation simplifiée.',
     },
@@ -41,6 +44,7 @@ export const cases: ClientCase[] = [
     done:
       "On a repris l'ensemble du système. Les applications Softr ont été refaites et les automatisations revues : la facturation de tous les propriétaires passe maintenant par une seule automatisation. Depuis septembre 2025, on en assure la maintenance et les évolutions.",
     result: "Un système plus simple à surveiller et à faire évoluer, suivi chaque mois. Un nouveau propriétaire ne demande plus de nouvelle automatisation.",
+    level: 'le système complet, repris et maintenu',
     visual: {
       caption: 'Une partie du système : le scénario de facturation, en représentation simplifiée. Les factures sont créées en brouillon et validées avant envoi.',
     },
@@ -54,6 +58,7 @@ export const cases: ClientCase[] = [
     done:
       "On a construit l'outil de suivi : les dossiers de chaque agent, la gestion de chaque bien et l'avancement des ventes, au même endroit.",
     result: "Le manager revoit les dossiers de son équipe et voit où en sont les ventes, sans courir après l'information.",
+    level: 'une application centrale',
     visual: {
       caption: "Maquette de l'outil, avec des données d'exemple.",
     },

@@ -50,6 +50,7 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases, title, intro,
               <h3 className="mt-2 font-heading font-bold text-xl md:text-2xl leading-snug" style={{ color: NAVY }}>
                 {c.title}
               </h3>
+              <p className="mt-2 text-sm text-gray-600">Réponse retenue : {c.level}</p>
               {!(showVisuals && c.visual) && <CaseSchema slug={c.slug} />}
             </div>
             <dl className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
