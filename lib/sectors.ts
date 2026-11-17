@@ -7,6 +7,8 @@ export interface Sector {
   name: string;
   short: string;
   href: string;
+  /** Published pilot offer for a sector with no client case yet: said plainly instead of implying past work. */
+  pilot?: { text: string; href: string };
 }
 
 export const sectors: Sector[] = [
@@ -27,5 +29,9 @@ export const sectors: Sector[] = [
     name: 'BTP second œuvre',
     short: 'Devis, situations de travaux, relances, suivi de chantier et révision de prix.',
     href: '/secteurs/btp/',
+    pilot: {
+      text: "Pas encore de mission BTP à montrer : 3 places pilotes en Bretagne et Pays-de-la-Loire, système complet à tarif pilote.",
+      href: '/cas-clients/#programme-pilote',
+    },
   },
 ];

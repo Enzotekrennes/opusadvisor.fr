@@ -58,7 +58,11 @@ export const HeroHome: React.FC = () => {
             />
             <p className="text-sm text-gray-600 leading-snug">
               30 minutes en visio avec Enzo Monnier, le fondateur. Gratuit et sans engagement.
-              <br className="hidden sm:inline" /> Opus Advisor, basé à Vannes, intervient partout en France.
+              <br className="hidden sm:inline" /> Plutôt un appel :{' '}
+              <a href="tel:+33615756549" className="font-semibold whitespace-nowrap text-gray-800 underline underline-offset-4">
+                06 15 75 65 49
+              </a>
+              . Opus Advisor, basé à Vannes, intervient partout en France.
             </p>
           </div>
         </div>
