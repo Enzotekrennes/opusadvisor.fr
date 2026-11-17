@@ -24,7 +24,7 @@ export const HeroBTP: React.FC = () => {
           </p>
 
           <h1 className="font-heading font-bold leading-[1.02] tracking-tight text-[2.5rem] sm:text-6xl mt-6">
-            On rend 10 heures par semaine aux patrons du second œuvre.
+            Objectif : rendre 10 heures par semaine aux patrons du second œuvre.
           </h1>
 
           <p className="mt-7 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">

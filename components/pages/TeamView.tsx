@@ -48,7 +48,7 @@ const team: Member[] = [
       },
       {
         title: 'Pourquoi les petites entreprises',
-        desc: "Organisme de formation, conciergerie ou entreprise du bâtiment : à cette taille, le dirigeant est encore sur le terrain et l'administratif se fait le soir. C'est là qu'on gagne 10 heures par semaine avec les bons outils, sans embaucher d'assistant.",
+        desc: "Organisme de formation, conciergerie ou entreprise du bâtiment : à cette taille, le dirigeant est encore sur le terrain et l'administratif se fait le soir. C'est là que les bons outils peuvent rendre 10 heures par semaine, sans embaucher d'assistant.",
       },
     ],
   },
