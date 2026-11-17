@@ -8,9 +8,9 @@ const NAVY = '#1A2332';
 const RULE = 'rgba(26,35,50,0.16)';
 
 // Les prix sont ceux de la page Services : les montrer dès l'accueil rassure plus qu'un discours.
+// The ladder has four steps; the Audit Stack is a standalone written review, shown apart below the steps.
 const steps = [
   { name: 'Pré-audit', price: 'Gratuit', line: '30 minutes en visio pour repérer 3 points de friction dans vos outils.' },
-  { name: 'Audit Stack', price: '990 €', line: '10 jours pour cartographier vos outils et savoir lesquels garder.' },
   { name: 'Diagnostic', price: '2 500 €', line: '2 à 3 semaines. Un plan chiffré, avec le gain attendu.' },
   { name: 'Mise en œuvre', price: 'Dès 5 500 €', line: '4 à 10 semaines pour installer le système et former votre équipe.' },
   { name: 'Gardien du système', price: '400 à 1 500 €/mois', line: "On surveille le système et on l'adapte quand votre boîte change." },
@@ -33,7 +33,7 @@ export const MethodSection: React.FC<{ background?: string }> = ({ background = 
           </p>
         </div>
 
-        <ol data-reveal className="relative mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-t" style={{ borderColor: RULE }}>
+        <ol data-reveal className="relative mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t" style={{ borderColor: RULE }}>
           {/* Fil doré qui se trace d'une étape à l'autre quand la frise apparaît */}
           <span aria-hidden="true" className="method-line absolute -top-px left-0 right-0 h-[3px]" style={{ background: GOLD }} />
           {steps.map((s, i) => (
@@ -58,6 +58,14 @@ export const MethodSection: React.FC<{ background?: string }> = ({ background = 
             </li>
           ))}
         </ol>
+
+        <p className="mt-8 pt-6 border-t text-base text-gray-600 leading-relaxed max-w-3xl" style={{ borderColor: RULE }}>
+          Vous voulez seulement un avis écrit et chiffré sur vos outils ?{' '}
+          <Link href="/services#audit-stack" className="font-semibold underline underline-offset-4" style={{ color: NAVY }}>
+            L'Audit Stack
+          </Link>{' '}
+          coûte 990 € et se livre en 10 jours ouvrés.
+        </p>
 
         <div className="mt-10">
           <Link

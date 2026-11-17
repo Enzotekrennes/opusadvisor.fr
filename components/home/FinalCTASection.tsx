@@ -54,7 +54,7 @@ export const FinalCTASection: React.FC = () => {
         </div>
 
         <p data-reveal className="mt-14 text-base text-white/70 leading-relaxed max-w-3xl">
-          Vous voulez plutôt un avis écrit et chiffré sur tous vos outils ?{' '}
+          Vous voulez seulement un avis écrit et chiffré sur vos outils ?{' '}
           <Link
             href="/services#audit-stack"
             className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white"
