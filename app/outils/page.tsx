@@ -49,7 +49,7 @@ export default function ToolsPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <section className="pt-32 md:pt-40 pb-14 md:pb-16" style={{ background: PAPER }}>
           <div className="container mx-auto px-6 max-w-6xl">
             <SectionKicker label="Outils gratuits" className="mb-6" />

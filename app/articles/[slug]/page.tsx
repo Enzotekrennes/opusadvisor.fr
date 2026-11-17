@@ -140,7 +140,7 @@ export default async function ArticlePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
-      <main className="min-h-screen bg-white">
+      <main id="contenu" className="min-h-screen bg-white">
         <ArticleView
           title={article.title}
           description={article.description}

@@ -93,6 +93,13 @@ export const Header: React.FC = () => {
 
   return (
     <>
+      {/* Skip link: first stop for keyboard users, visible only when focused. Every page's <main> carries id="contenu". */}
+      <a
+        href="#contenu"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[70] focus:rounded-md focus:bg-[#1A2332] focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
+      >
+        Aller au contenu
+      </a>
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
         <nav className="container mx-auto px-6 py-1 md:py-1.5">
           <div className="relative flex items-center justify-between">

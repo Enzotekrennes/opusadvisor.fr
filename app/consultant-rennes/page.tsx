@@ -116,7 +116,7 @@ export default function ConsultantRennesPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <section className="pt-32 md:pt-40 pb-16 md:pb-20" style={{ background: PAPER }}>
           <div className="container mx-auto px-6 max-w-6xl">
             <SectionKicker label="Rennes · Ille-et-Vilaine" className="mb-6" />

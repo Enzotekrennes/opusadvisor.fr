@@ -32,7 +32,7 @@ export default function SecteursPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <SectorsSection headingLevel="h1" />
         <CasesSection cases={cases} title="Des missions réelles" intro="Trois missions récentes, présentées sans le nom des clients." />
         <FinalCTASection />

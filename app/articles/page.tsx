@@ -50,7 +50,7 @@ export default function ArticlesPage() {
       />
       <Header />
       <ArticlesHero />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <section className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-6 max-w-5xl">
             <ArticlesGrid articles={articles} />

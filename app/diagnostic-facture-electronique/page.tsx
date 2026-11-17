@@ -47,7 +47,7 @@ export default function DiagnosticFactureElectroniquePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <EInvoiceDiagnostic />
         <FAQSection items={FAQ} title="Questions fréquentes" />
       </main>

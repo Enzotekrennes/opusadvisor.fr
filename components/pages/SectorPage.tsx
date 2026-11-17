@@ -55,7 +55,7 @@ export const SectorPage: React.FC<SectorPageProps> = (p) => {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         <section className="pt-32 md:pt-40 pb-20 md:pb-24" style={{ background: PAPER }}>
           <div className="container mx-auto px-6 max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             <div className="lg:col-span-7">
