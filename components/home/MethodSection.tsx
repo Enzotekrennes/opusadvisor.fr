@@ -1,20 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { methodSteps as steps } from '@/lib/method';
 
 const GOLD = '#C9A84C';
 const GOLD_INK = '#8A6A1C';
 const NAVY = '#1A2332';
 const RULE = 'rgba(26,35,50,0.16)';
 
-// Les prix sont ceux de la page Services : les montrer dès l'accueil rassure plus qu'un discours.
-// The ladder has four steps; the Audit Stack is a standalone written review, shown apart below the steps.
-const steps = [
-  { name: 'Pré-audit', price: 'Gratuit', line: '30 minutes en visio pour repérer 3 points de friction dans vos outils.' },
-  { name: 'Diagnostic', price: '2 500 €', line: '2 à 3 semaines. Un plan chiffré, avec le gain attendu.' },
-  { name: 'Mise en œuvre', price: 'Dès 5 500 €', line: '4 à 10 semaines pour installer le système et former votre équipe.' },
-  { name: 'Gardien du système', price: '400 à 1 500 €/mois', line: "On surveille le système et on l'adapte quand votre boîte change." },
-];
 
 export const MethodSection: React.FC<{ background?: string }> = ({ background = '#FFFFFF' }) => {
   return (
