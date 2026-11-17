@@ -40,7 +40,7 @@ const personJsonLd = {
   url: 'https://opusadvisor.fr/equipe/',
   worksFor: { '@id': 'https://opusadvisor.fr/#organization' },
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'Epitech' },
-  workLocation: { '@type': 'Place', name: 'Rennes' },
+  workLocation: { '@type': 'Place', name: 'Vannes' },
   knowsAbout: ['automatisation', 'Make', 'n8n', 'Airtable', 'organismes de formation', 'conciergerie', 'BTP second œuvre'],
   sameAs: ['https://www.linkedin.com/in/enzo-monnier/'],
 };

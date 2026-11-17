@@ -179,7 +179,7 @@ export default function BtpPage() {
         >
           <HeroActions secondary={{ href: '/outils', label: 'Les outils gratuits' }} />
           <p className={inner.heroNote}>
-            30 minutes en visio, gratuites et sans engagement · Opus Advisor, à Rennes, intervient partout en France.
+            30 minutes en visio, gratuites et sans engagement · Opus Advisor, basé à Vannes, intervient partout en France.
           </p>
         </PageHero>
 

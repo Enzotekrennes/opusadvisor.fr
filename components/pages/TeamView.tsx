@@ -27,13 +27,13 @@ const team: Member[] = [
     name: 'Enzo Monnier',
     role: 'Fondateur · Organisation et automatisation',
     photo: '/images/enzo.jpg',
-    location: 'Rennes · Interventions partout en France',
-    experience: 'Epitech · 5 ans de dev avant Opus',
+    location: 'Vannes · Interventions partout en France',
+    experience: 'Epitech · 3 ans de dev avant Opus',
     label: 'Pourquoi Opus Advisor',
     heading: 'Je code encore ce que je déploie chez vous.',
     bullets: [
       {
-        title: 'Développeur pendant 5 ans, consultant depuis',
+        title: 'Développeur pendant 3 ans, consultant depuis',
         desc: "J'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
       },
       {
@@ -50,8 +50,8 @@ const team: Member[] = [
     name: 'Gwendoline',
     role: 'Associée',
     photo: '/images/gwen.jpg',
-    location: 'Rennes · Interventions partout en France',
-    experience: 'Epitech · 5 ans de dev avant Opus',
+    location: 'Vannes · Interventions partout en France',
+    experience: 'Epitech · 3 ans de dev avant Opus',
     label: 'Pourquoi une équipe de deux',
     heading: 'Deux personnes sur votre système, un seul interlocuteur.',
     bullets: [
