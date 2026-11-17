@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Table2, Sigma, Layers, FileText, FolderOpen, Mail, Split, User, Clock, type LucideIcon } from 'lucide-react';
+import { Table2, Sigma, Layers, FileText, FolderOpen, Mail, Split, User, Clock, Check, type LucideIcon } from 'lucide-react';
 import { scenarios, type AppKey, type ScenarioKey, type ScenarioModule } from '@/lib/caseVisuals';
 import { PauseButton } from '@/components/motion/PauseButton';
 
@@ -137,14 +137,67 @@ const Module: React.FC<{ p: Placed; state: State; wrapAt: number }> = ({ p, stat
 };
 
 /**
+ * One step of the phone layout: the app's round icon, its name and number, the step's label. Drawn in
+ * HTML so the text keeps a readable size on a narrow screen, where the SVG would shrink to a few pixels.
+ *
+ * @param link the dotted line down to the next step: `run` once the run has passed it, `idle` before, none for the last.
+ */
+const StepRow: React.FC<{ p: Placed; state: State; link?: 'run' | 'idle' }> = ({ p, state, link }) => {
+  const app = APPS[p.m.app];
+  const Icon = app.icon;
+  return (
+    <li className="relative flex gap-3 pb-4 last:pb-0" style={{ opacity: state === 'pending' ? 0.32 : 1, transition: 'opacity 0.4s ease' }}>
+      {link && (
+        <span
+          aria-hidden="true"
+          className="absolute bottom-0 left-[16.5px] top-10 border-l-[3px] border-dotted"
+          style={{ borderColor: link === 'run' ? ACCENT : '#B5BDCC' }}
+        />
+      )}
+      <span
+        className="relative grid h-9 w-9 shrink-0 place-items-center rounded-full"
+        style={{ background: app.color, boxShadow: state === 'active' ? `0 0 0 3px #F3F5F9, 0 0 0 5.5px ${ACCENT}` : 'none' }}
+      >
+        <Icon size={18} strokeWidth={2} color={app.ink || '#FFFFFF'} aria-hidden="true" />
+        {state === 'done' && (
+          <span className="absolute -right-1 -top-1 grid h-[18px] w-[18px] place-items-center rounded-full border-2 border-white" style={{ background: OK }}>
+            <Check size={10} strokeWidth={3.5} color="#FFFFFF" aria-hidden="true" />
+          </span>
+        )}
+      </span>
+      <span className="min-w-0 pt-0.5">
+        <span className="flex items-center gap-1.5 text-[15px] font-bold leading-tight" style={{ color: INK }}>
+          {app.name}
+          <span className="rounded-full px-1.5 text-[11px] font-semibold leading-[18px]" style={{ background: '#EEF2F8', color: '#3C4866' }}>
+            {p.m.n}
+          </span>
+        </span>
+        {p.m.pill && (
+          <span className="mt-1 inline-block rounded-full px-2 py-0.5 text-[12.5px] font-semibold" style={{ background: '#E8EEF8', color: '#22406E' }}>
+            {p.m.pill}
+          </span>
+        )}
+        {p.m.sub && (
+          <span className="mt-0.5 block text-[14px] leading-snug" style={{ color: INK_SOFT }}>
+            {p.m.sub}
+          </span>
+        )}
+      </span>
+    </li>
+  );
+};
+
+/**
  * Exécution animée d'un scénario façon Make : les modules s'allument un par un, une branche
- * différente du If-else à chaque passage, avec un bouton pause. Sans JavaScript, le schéma complet
+ * différente du If-else à chaque passage, avec un bouton pause. Sur téléphone, la même exécution
+ * s'affiche en liste verticale d'étapes, lisible à cette largeur. Sans JavaScript, le schéma complet
  * s'affiche, immobile. Avec « réduire les animations », l'exécution tourne sans le halo qui pulse.
  */
 export const ScenarioAnimation: React.FC<{ scenario: ScenarioKey }> = ({ scenario }) => {
   const { s, placed, branches, height, wrapAt } = useMemo(() => layout(scenario), [scenario]);
   const uid = useId().replace(/:/g, '');
-  const box = useRef<SVGSVGElement>(null);
+  // Observed to run only while visible: the wrapper, since the SVG is not displayed on a phone.
+  const box = useRef<HTMLDivElement>(null);
   const inView = useRef(false);
   const [running, setRunning] = useState(false);
   const [step, setStep] = useState(0); // module en cours ; placed.length = branche ; au-delà = terminé
@@ -182,13 +235,52 @@ export const ScenarioAnimation: React.FC<{ scenario: ScenarioKey }> = ({ scenari
   const stateOf = (i: number): State => (!running ? 'static' : i < step ? 'done' : i === step ? 'active' : 'pending');
   const branchState = (j: number): State => (!running ? 'static' : j !== branch ? 'pending' : stateOf(placed.length));
   const finished = running && step >= total;
+  const statusColor = finished ? OK : paused ? '#A7B0C2' : ACCENT;
+  const statusText = finished ? 'Exécution terminée' : paused ? 'Exécution en pause' : 'Exécution en cours…';
 
   return (
-    <div>
+    <div ref={box}>
+      {/* Phone: the same run as a vertical list of steps, readable at that width. */}
+      <div className="overflow-hidden rounded-[12px] sm:hidden" style={{ background: '#F3F5F9' }}>
+        <div className="flex items-start justify-between gap-3 border-b bg-white px-4 py-3" style={{ borderColor: '#E6EAF1' }}>
+          <span id={`${uid}-m`} className="text-[15px] font-bold leading-snug" style={{ color: INK }}>
+            {s.title}
+          </span>
+          <span className="flex shrink-0 items-center gap-1.5 pt-0.5 text-[12.5px]" style={{ color: INK_SOFT }}>
+            {running ? (
+              <>
+                <span className="h-2 w-2 rounded-full" style={{ background: statusColor }} aria-hidden="true" />
+                {statusText}
+              </>
+            ) : (
+              <>
+                <Clock size={14} aria-hidden="true" />
+                {s.schedule}
+              </>
+            )}
+          </span>
+        </div>
+        <div className="px-4 py-4">
+          <ol aria-labelledby={`${uid}-m`}>
+            {placed.map((p, i) => (
+              <StepRow key={`l${i}`} p={p} state={stateOf(i)} link={running && i < step ? 'run' : 'idle'} />
+            ))}
+          </ol>
+          {/* The alternatives after the If-else, one taken per run. */}
+          <ol
+            className="ml-[16.5px] border-l-[3px] border-dotted pl-[22px]"
+            style={{ borderColor: running && step >= placed.length ? ACCENT : '#B5BDCC' }}
+          >
+            {branches.map((p, j) => (
+              <StepRow key={`lb${j}`} p={p} state={branchState(j)} />
+            ))}
+          </ol>
+        </div>
+      </div>
+
       <svg
-        ref={box}
         viewBox={`0 0 ${W} ${height}`}
-        className="block w-full h-auto"
+        className="hidden h-auto w-full sm:block"
         role="img"
         aria-labelledby={`${uid}-t ${uid}-d`}
         style={{ fontFamily: 'inherit' }}
@@ -213,9 +305,9 @@ export const ScenarioAnimation: React.FC<{ scenario: ScenarioKey }> = ({ scenari
           </text>
           {running ? (
             <g>
-              <circle cx={W - 26 - (finished || paused ? 168 : 196)} cy={34} r={6} fill={finished ? OK : paused ? '#A7B0C2' : ACCENT} />
+              <circle cx={W - 26 - (finished || paused ? 168 : 196)} cy={34} r={6} fill={statusColor} />
               <text x={W - 26} y={40} fontSize={17} fill={INK_SOFT} textAnchor="end">
-                {finished ? 'Exécution terminée' : paused ? 'Exécution en pause' : 'Exécution en cours…'}
+                {statusText}
               </text>
             </g>
           ) : (
