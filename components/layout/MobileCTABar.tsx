@@ -9,7 +9,8 @@ const GOLD = '#C9A84C';
 
 /**
  * Barre de réservation fixée en bas de l'écran, sur mobile et tablette uniquement.
- * Elle apparaît une fois le haut de page dépassé (il a déjà ses propres boutons)
+ * Elle apparaît une fois le haut de page dépassé (il a déjà ses propres boutons),
+ * se retire quand la section de réservation de fin de page (#contact) est à l'écran,
  * et n'est pas affichée sur /contact, où elle ferait doublon.
  */
 export const MobileCTABar: React.FC = () => {
@@ -17,11 +18,17 @@ export const MobileCTABar: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.6);
+    const finalCta = document.getElementById('contact');
+    const onScroll = () => {
+      const pastTop = window.scrollY > window.innerHeight * 0.6;
+      const rect = finalCta?.getBoundingClientRect();
+      const finalCtaInView = !!rect && rect.top < window.innerHeight && rect.bottom > 0;
+      setVisible(pastTop && !finalCtaInView);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [pathname]);
 
   if (pathname.startsWith('/contact')) return null;
 

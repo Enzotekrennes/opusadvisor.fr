@@ -78,7 +78,7 @@ export default function MarginCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         {/* Hero */}
         <section className="pt-32 md:pt-40 pb-14 md:pb-16" style={{ background: PAPER }}>
           <div className="container mx-auto px-6 max-w-6xl">

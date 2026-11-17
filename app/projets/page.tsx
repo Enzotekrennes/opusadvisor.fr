@@ -22,7 +22,7 @@ export default function ProjetsRedirectPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow flex items-center justify-center py-32 px-6 text-center">
+      <main id="contenu" className="flex-grow flex items-center justify-center py-32 px-6 text-center">
         <div className="max-w-md">
           <h1 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#1A2332' }}>
             Cette page a déménagé.

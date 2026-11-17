@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow flex items-center justify-center py-24">
+      <main id="contenu" className="flex-grow flex items-center justify-center py-24">
         <div className="text-center px-6">
           <p className="text-sm font-semibold tracking-[0.25em] uppercase mb-4" style={{ color: '#8A6A1C' }}>
             Erreur 404

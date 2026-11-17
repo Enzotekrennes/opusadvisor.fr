@@ -77,7 +77,7 @@ export default function MentionsLegalesPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         {/* Hero */}
         <section className="pt-36 pb-16 md:pt-44 md:pb-20" style={{ background: NAVY }}>
           <div className="container mx-auto px-6 max-w-4xl">

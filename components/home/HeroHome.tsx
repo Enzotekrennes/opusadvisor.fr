@@ -12,7 +12,7 @@ export const HeroHome: React.FC = () => {
     <section
       className="pt-32 md:pt-40 pb-20 md:pb-28"
       style={{ background: PAPER, color: NAVY }}
-      aria-label="Opus Advisor, organisation et automatisation de la gestion des petites entreprises"
+      aria-labelledby="hero-title"
     >
       <div className="container mx-auto px-6 max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         <div className="lg:col-span-7">
@@ -20,7 +20,7 @@ export const HeroHome: React.FC = () => {
             Formation · Immobilier et conciergerie · BTP
           </p>
 
-          <h1 className="font-heading font-bold leading-[1.02] tracking-tight text-[2.5rem] sm:text-6xl mt-6">
+          <h1 id="hero-title" className="font-heading font-bold leading-[1.02] tracking-tight text-[2.5rem] sm:text-6xl mt-6">
             On construit un système de gestion à votre image, complet et automatisé.
           </h1>
 
@@ -50,7 +50,7 @@ export const HeroHome: React.FC = () => {
           {/* The pre-audit is booked on Enzo's own calendar: show who the visitor will talk to, in the first screen. */}
           <div className="mt-7 flex items-center gap-3">
             <img
-              src="/images/enzo.jpg"
+              src="/images/enzo-avatar.webp"
               alt=""
               width={44}
               height={44}

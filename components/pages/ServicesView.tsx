@@ -164,7 +164,7 @@ export const ServicesView: React.FC = () => {
   }, []);
 
   return (
-    <main className="flex-grow">
+    <main id="contenu" className="flex-grow">
       {/* Hero */}
       <section className="pt-36 pb-20 md:pt-44 md:pb-24" style={{ background: NAVY }}>
         <div className="container mx-auto px-6 max-w-5xl">

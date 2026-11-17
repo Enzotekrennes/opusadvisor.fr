@@ -110,7 +110,7 @@ export default function BtpPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(faqsBtp)) }} />
       <Header />
-      <main className="flex-grow">
+      <main id="contenu" className="flex-grow">
         {/* Fonds alternés : crème, blanc, crème, blanc… */}
         <HeroBTP />
         <ContextSection />
