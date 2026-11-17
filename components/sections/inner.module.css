@@ -592,11 +592,14 @@
 .stories {
   margin-top: 48px;
   display: grid;
+  /* One column that never grows past the section, whatever the demo inside asks for. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 28px;
   list-style: none;
 }
 
 .story {
+  min-width: 0;
   scroll-margin-top: 80px;
 }
 
@@ -662,8 +665,15 @@
   line-height: 1.65;
 }
 
+/* Tighter on a phone, so the demo keeps as much of the narrow width as it can. */
 .storyVisual {
-  margin: 0 26px 26px;
+  margin: 0 14px 16px;
+}
+
+@media (min-width: 640px) {
+  .storyVisual {
+    margin: 0 26px 26px;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -673,7 +683,7 @@
 }
 
 .storyVisual > div {
-  padding: 10px;
+  padding: 6px;
   border-radius: 14px;
   background: #13213d;
 }
@@ -686,6 +696,7 @@
 
 .storyVisual figcaption {
   margin-top: 10px;
+  padding: 0 4px;
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.5;

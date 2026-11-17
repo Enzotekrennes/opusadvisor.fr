@@ -268,7 +268,7 @@ export const ScenarioAnimation: React.FC<{ scenario: ScenarioKey }> = ({ scenari
           </ol>
           {/* The alternatives after the If-else, one taken per run. */}
           <ol
-            className="ml-[16.5px] border-l-[3px] border-dotted pl-[22px]"
+            className="ml-[16.5px] border-l-[3px] border-dotted pl-[22px] pt-4"
             style={{ borderColor: running && step >= placed.length ? ACCENT : '#B5BDCC' }}
           >
             {branches.map((p, j) => (

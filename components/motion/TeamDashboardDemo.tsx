@@ -86,7 +86,8 @@ const UPDATE_DELAY_MS = 1600;
  * Maquette vivante de l'outil de suivi : chiffres qui se comptent, sélection qui passe d'un agent
  * à l'autre, statut d'un bien qui se met à jour, avec un bouton pause. Sans JavaScript : maquette fixe,
  * premier agent sélectionné. Avec « réduire les animations », tout tourne sans le clignotement du bien
- * mis à jour. Un clic sur un agent l'affiche et arrête le défilement.
+ * mis à jour. Un clic sur un agent l'affiche et arrête le défilement. Sur téléphone, les pastilles
+ * d'initiales s'effacent pour que les noms tiennent sur une ligne sans élargir la page.
  */
 export const TeamDashboardDemo: React.FC = () => {
   const box = useRef<HTMLDivElement>(null);
@@ -165,7 +166,7 @@ export const TeamDashboardDemo: React.FC = () => {
         </span>
       </div>
 
-      <div className="p-4 md:p-6" style={{ background: '#F7F9FC' }}>
+      <div className="p-3 sm:p-4 md:p-6" style={{ background: '#F7F9FC' }}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
           {KPIS.map((k, i) => (
             <div key={k.label} className="rounded-xl border bg-white px-3.5 py-3" style={{ borderColor: RULE }}>
@@ -201,7 +202,7 @@ export const TeamDashboardDemo: React.FC = () => {
                 style={{ background: i === sel ? '#EEF2F8' : '#FFFFFF' }}
               >
                 <td className="whitespace-nowrap px-3 md:px-4 py-2.5 border-b" style={{ borderColor: ROW_RULE, boxShadow: i === sel ? `inset 3px 0 0 ${ACCENT}` : 'none' }}>
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold mr-2.5 align-middle" style={{ background: ACCENT, color: '#FFFFFF' }}>
+                  <span className="hidden h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold mr-2.5 align-middle sm:inline-flex" style={{ background: ACCENT, color: '#FFFFFF' }}>
                     {a.initials}
                   </span>
                   <span className="whitespace-nowrap" style={{ color: INK }}>{a.name}</span>
