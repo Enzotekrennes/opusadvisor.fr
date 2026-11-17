@@ -30,7 +30,7 @@ On ne revend aucun logiciel. Si on vous conseille d'en changer, on n'y gagne rie
 - **Mise en œuvre** : à partir de 5 500 € ;
 - **Gardien du système** : 400 à 1 500 € par mois, sans engagement.
 
-Pour une entreprise d'une dizaine de personnes, comptez environ 17 500 € sur deux ans, suivi compris. Pour voir clair avant de vous engager, commencez par l'Audit Stack.`,
+Pour une entreprise d'une dizaine de personnes, comptez environ 17 500 € sur deux ans, suivi compris. Pour voir clair avant de vous engager, commencez par le pré-audit, gratuit : si une mission ne vaut pas le coup pour vous, on vous le dit.`,
   },
   {
     question: 'Combien de temps avant de voir des résultats ?',
@@ -112,7 +112,7 @@ On ne touche aucune commission sur les logiciels. Pendant le pré-audit, on rega
 - **15 à 25 personnes** : Diagnostic 2 500 € + Mise en œuvre 9 000 € + Gardien 600 €/mois. Sur deux ans, environ 26 000 €.
 - **PME de 30 à 60+ personnes, plusieurs agences** : Diagnostic Premium 4 500 € + Mise en œuvre 25 000 € + Gardien Premium 1 500 €/mois, avec engagement de 12 mois. Sur deux ans, environ 65 000 €.
 
-Pour voir clair avant de vous engager, vous pouvez commencer par l'Audit Stack, à 990 €.`,
+Pour voir clair avant de vous engager, commencez par le pré-audit, gratuit. Si vous voulez ensuite un avis écrit et chiffré sur vos outils, l'Audit Stack coûte 990 €.`,
   },
   {
     question: 'Combien de temps avant de voir des résultats ?',

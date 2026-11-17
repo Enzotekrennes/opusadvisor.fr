@@ -143,7 +143,7 @@ export const Header: React.FC = () => {
                 onClick={handleNavClick}
                 className="inline-flex items-center whitespace-nowrap px-5 py-2.5 rounded-md text-sm font-semibold bg-[#1A2332] text-[#FAF7F0] hover:bg-[#26334a] transition-colors"
               >
-                Pré-audit gratuit
+                Réserver le pré-audit
               </Link>
             </div>
 
