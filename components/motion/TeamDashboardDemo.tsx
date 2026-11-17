@@ -4,9 +4,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { LayoutDashboard } from 'lucide-react';
 import { PauseButton } from '@/components/motion/PauseButton';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-const RULE = '#E5E7EB';
+// Site palette: ink for text and figures, navy accent for the selection, cool grey rules.
+const INK = '#13213D';
+const INK_SOFT = '#56627E';
+const ACCENT = '#1E3A66';
+const RULE = '#E6EAF1';
+const ROW_RULE = '#EEF1F6';
 
 type Status = 'Mandat signé' | 'En visite' | 'Offre reçue' | 'Compromis' | 'Vendu';
 const NEXT: Record<Status, Status> = {
@@ -16,12 +19,13 @@ const NEXT: Record<Status, Status> = {
   Compromis: 'Vendu',
   Vendu: 'Vendu',
 };
+// Status chips in the hero's vocabulary: grey to start, blue in progress, amber waiting, green agreed, ink sold.
 const CHIP: Record<Status, [string, string]> = {
-  'Mandat signé': ['#F3F4F6', '#374151'],
-  'En visite': ['#DBEAFE', '#1E40AF'],
-  'Offre reçue': ['#FEF3C7', '#92400E'],
-  Compromis: ['#DCFCE7', '#166534'],
-  Vendu: ['#1A2332', '#F7F1E3'],
+  'Mandat signé': ['#EEF2F8', '#3C4866'],
+  'En visite': ['#E8EEF8', '#22406E'],
+  'Offre reçue': ['#FFF2D4', '#8A5A00'],
+  Compromis: ['#E4F5EA', '#1E7B43'],
+  Vendu: [INK, '#FFFFFF'],
 };
 
 interface Bien { label: string; prix: string; status: Status }
@@ -143,12 +147,12 @@ export const TeamDashboardDemo: React.FC = () => {
   return (
     <div ref={box} className="rounded-xl overflow-hidden bg-white" role="group" aria-label="Maquette de l'outil de suivi de l'équipe, avec des données d'exemple">
       <div className="flex items-center justify-between px-4 md:px-6 py-3.5 border-b" style={{ borderColor: RULE }}>
-        <span className="flex items-center gap-2.5 font-extrabold text-base md:text-lg" style={{ color: NAVY }}>
+        <span className="flex items-center gap-2.5 font-bold text-base md:text-lg" style={{ color: INK }}>
           <LayoutDashboard size={20} aria-hidden="true" /> Suivi de l'équipe
         </span>
         <span className="flex items-center gap-3">
-          <span className="hidden sm:inline text-xs md:text-sm text-gray-600">
-            Octobre · <b style={{ color: NAVY }}>Manager</b>
+          <span className="hidden sm:inline text-xs md:text-sm" style={{ color: INK_SOFT }}>
+            Octobre · <b style={{ color: INK }}>Manager</b>
           </span>
           <PauseButton
             paused={paused}
@@ -161,12 +165,12 @@ export const TeamDashboardDemo: React.FC = () => {
         </span>
       </div>
 
-      <div className="p-4 md:p-6" style={{ background: '#F8FAFC' }}>
+      <div className="p-4 md:p-6" style={{ background: '#F7F9FC' }}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
           {KPIS.map((k, i) => (
             <div key={k.label} className="rounded-xl border bg-white px-3.5 py-3" style={{ borderColor: RULE }}>
-              <div className="text-xs text-gray-600">{k.label}</div>
-              <div className="mt-1 text-2xl md:text-3xl font-extrabold tabular-nums" style={{ color: NAVY }}>
+              <div className="text-xs" style={{ color: INK_SOFT }}>{k.label}</div>
+              <div className="mt-1 text-2xl md:text-3xl font-bold tracking-tight tabular-nums" style={{ color: INK }}>
                 {counts[i]}
               </div>
             </div>
@@ -175,7 +179,7 @@ export const TeamDashboardDemo: React.FC = () => {
 
         <table className="mt-4 w-full rounded-xl border bg-white text-sm md:text-[15px] border-separate border-spacing-0 overflow-hidden" style={{ borderColor: RULE }}>
           <thead>
-            <tr className="text-left text-[11px] uppercase tracking-wider text-gray-600">
+            <tr className="text-left text-[11px] uppercase tracking-wider" style={{ color: INK_SOFT }}>
               <th className="font-semibold px-3 md:px-4 py-2.5 border-b" style={{ borderColor: RULE }}>Agent</th>
               <th className="font-semibold px-2 py-2.5 border-b" style={{ borderColor: RULE }}>Mandats</th>
               <th className="hidden sm:table-cell font-semibold px-2 py-2.5 border-b" style={{ borderColor: RULE }}>Visites</th>
@@ -194,30 +198,30 @@ export const TeamDashboardDemo: React.FC = () => {
                   setSel(i);
                 }}
                 className="cursor-pointer transition-colors duration-500"
-                style={{ background: i === sel ? '#FAF7F0' : '#FFFFFF' }}
+                style={{ background: i === sel ? '#EEF2F8' : '#FFFFFF' }}
               >
-                <td className="px-3 md:px-4 py-2.5 border-b" style={{ borderColor: '#F1F5F9', boxShadow: i === sel ? `inset 3px 0 0 ${GOLD}` : 'none' }}>
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold mr-2.5 align-middle" style={{ background: NAVY, color: GOLD }}>
+                <td className="px-3 md:px-4 py-2.5 border-b" style={{ borderColor: ROW_RULE, boxShadow: i === sel ? `inset 3px 0 0 ${ACCENT}` : 'none' }}>
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold mr-2.5 align-middle" style={{ background: ACCENT, color: '#FFFFFF' }}>
                     {a.initials}
                   </span>
-                  <span style={{ color: '#111827' }}>{a.name}</span>
+                  <span style={{ color: INK }}>{a.name}</span>
                 </td>
-                <td className="px-2 py-2.5 border-b tabular-nums" style={{ borderColor: '#F1F5F9' }}>{a.mandats}</td>
-                <td className="hidden sm:table-cell px-2 py-2.5 border-b tabular-nums" style={{ borderColor: '#F1F5F9' }}>{a.visites}</td>
-                <td className="hidden sm:table-cell px-2 py-2.5 border-b tabular-nums" style={{ borderColor: '#F1F5F9' }}>{a.offres}</td>
-                <td className="px-2 py-2.5 border-b tabular-nums" style={{ borderColor: '#F1F5F9' }}>{a.ventes}</td>
+                <td className="px-2 py-2.5 border-b tabular-nums" style={{ borderColor: ROW_RULE }}>{a.mandats}</td>
+                <td className="hidden sm:table-cell px-2 py-2.5 border-b tabular-nums" style={{ borderColor: ROW_RULE }}>{a.visites}</td>
+                <td className="hidden sm:table-cell px-2 py-2.5 border-b tabular-nums" style={{ borderColor: ROW_RULE }}>{a.offres}</td>
+                <td className="px-2 py-2.5 border-b tabular-nums" style={{ borderColor: ROW_RULE }}>{a.ventes}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
         <div className="mt-4 flex items-center justify-between gap-3">
-          <span className="font-bold text-sm md:text-base" style={{ color: '#111827' }}>
+          <span className="font-bold text-sm md:text-base" style={{ color: INK }}>
             Biens de {agent.name}
           </span>
           <span
-            className="text-xs text-gray-600 transition-opacity duration-500"
-            style={{ opacity: updated === sel ? 1 : 0 }}
+            className="text-xs transition-opacity duration-500"
+            style={{ color: INK_SOFT, opacity: updated === sel ? 1 : 0 }}
             aria-live="polite"
           >
             {updated === sel ? `Mis à jour par ${agent.name} · à l'instant` : ''}
@@ -231,10 +235,10 @@ export const TeamDashboardDemo: React.FC = () => {
               <li
                 key={`${agent.name}-${b.label}`}
                 className={`flex items-center gap-3 rounded-lg border bg-white px-3 md:px-3.5 py-2.5 text-sm md:text-[15px] ${changed ? 'live-flash' : ''}`}
-                style={{ borderColor: changed ? GOLD : RULE, transition: 'border-color 0.5s' }}
+                style={{ borderColor: changed ? ACCENT : RULE, transition: 'border-color 0.5s' }}
               >
-                <span className="flex-1 min-w-0 truncate" style={{ color: '#111827' }}>{b.label}</span>
-                <span className="hidden sm:inline font-semibold text-gray-600 tabular-nums">{b.prix}</span>
+                <span className="flex-1 min-w-0 truncate" style={{ color: INK }}>{b.label}</span>
+                <span className="hidden sm:inline font-semibold tabular-nums" style={{ color: INK_SOFT }}>{b.prix}</span>
                 <span
                   className="shrink-0 rounded-full px-2.5 py-1 text-xs font-bold transition-colors duration-500"
                   style={{ background: CHIP[status][0], color: CHIP[status][1] }}
@@ -245,7 +249,7 @@ export const TeamDashboardDemo: React.FC = () => {
             );
           })}
         </ul>
-        <p className="mt-3 text-right text-xs text-gray-600">Données d'exemple</p>
+        <p className="mt-3 text-right text-xs" style={{ color: INK_SOFT }}>Données d'exemple</p>
       </div>
     </div>
   );

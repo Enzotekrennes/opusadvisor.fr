@@ -22,7 +22,11 @@ const HEAD = 64;
 const TOP = 40;
 const ROW_H = 222;
 const R = 44;
-const GOLD = '#C9A84C';
+// Site palette: the navy accent marks the path already run, the hero's green marks a finished module.
+const ACCENT = '#1E3A66';
+const OK = '#1E7B43';
+const INK = '#13213D';
+const INK_SOFT = '#56627E';
 const STEP_MS = 650;
 const PAUSE_MS = 2200;
 
@@ -92,35 +96,35 @@ const Module: React.FC<{ p: Placed; state: State; wrapAt: number }> = ({ p, stat
     <g style={{ opacity: state === 'pending' ? 0.32 : 1, transition: 'opacity 0.4s ease' }}>
       {state === 'active' && (
         <>
-          <circle className="scenario-pulse" cx={p.x} cy={p.y} r={R + 4} fill="none" stroke={GOLD} strokeWidth={4} />
-          <circle cx={p.x} cy={p.y} r={R + 7} fill="none" stroke={GOLD} strokeWidth={4} />
+          <circle className="scenario-pulse" cx={p.x} cy={p.y} r={R + 4} fill="none" stroke={ACCENT} strokeWidth={4} />
+          <circle cx={p.x} cy={p.y} r={R + 7} fill="none" stroke={ACCENT} strokeWidth={4} />
         </>
       )}
       <circle cx={p.x} cy={p.y} r={R} fill={app.color} />
       <Icon x={p.x - 18} y={p.y - 18} width={36} height={36} color={app.ink || '#FFFFFF'} strokeWidth={2} />
       {state === 'done' && (
         <g>
-          <circle cx={p.x + 32} cy={p.y - 32} r={13} fill="#22A55B" stroke="#FFFFFF" strokeWidth={3} />
+          <circle cx={p.x + 32} cy={p.y - 32} r={13} fill={OK} stroke="#FFFFFF" strokeWidth={3} />
           <path d={`M${p.x + 26},${p.y - 32} l4,4 l8,-8`} fill="none" stroke="#FFFFFF" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
         </g>
       )}
-      <text x={start} y={nameY} fontSize={20} fontWeight={700} fill="#111827">
+      <text x={start} y={nameY} fontSize={20} fontWeight={700} fill={INK}>
         {app.name}
       </text>
-      <rect x={start + nameW + 8} y={nameY - 15} width={badgeW} height={20} rx={10} fill="#E5E7EB" />
-      <text x={start + nameW + 8 + badgeW / 2} y={nameY} fontSize={13} fontWeight={600} fill="#374151" textAnchor="middle">
+      <rect x={start + nameW + 8} y={nameY - 15} width={badgeW} height={20} rx={10} fill="#EEF2F8" />
+      <text x={start + nameW + 8 + badgeW / 2} y={nameY} fontSize={13} fontWeight={600} fill="#3C4866" textAnchor="middle">
         {p.m.n}
       </text>
       {p.m.pill && (
         <>
-          <rect x={p.x - pillW / 2} y={nameY + 10} width={pillW} height={26} rx={6} fill="#FDE68A" />
-          <text x={p.x} y={nameY + 28} fontSize={15} fontWeight={700} fill="#78350F" textAnchor="middle">
+          <rect x={p.x - pillW / 2} y={nameY + 10} width={pillW} height={26} rx={13} fill="#E8EEF8" />
+          <text x={p.x} y={nameY + 28} fontSize={15} fontWeight={600} fill="#22406E" textAnchor="middle">
             {p.m.pill}
           </text>
         </>
       )}
       {p.m.sub && (
-        <text x={p.x} y={subY} fontSize={16} fill="#4B5563" textAnchor="middle">
+        <text x={p.x} y={subY} fontSize={16} fill={INK_SOFT} textAnchor="middle">
           {wrap(p.m.sub, wrapAt).map((l, i) => (
             <tspan key={i} x={p.x} dy={i === 0 ? 0 : 20}>
               {l}
@@ -196,44 +200,44 @@ export const ScenarioAnimation: React.FC<{ scenario: ScenarioKey }> = ({ scenari
             <rect width={W} height={height} rx={18} />
           </clipPath>
           <pattern id={`${uid}-dots`} width={20} height={20} patternUnits="userSpaceOnUse">
-            <circle cx={2} cy={2} r={1.4} fill="#CBD0D8" />
+            <circle cx={2} cy={2} r={1.4} fill="#CDD4E0" />
           </pattern>
         </defs>
         <g clipPath={`url(#${uid}-clip)`}>
-          <rect width={W} height={height} fill="#F3F4F6" />
+          <rect width={W} height={height} fill="#F3F5F9" />
           <rect y={HEAD} width={W} height={height - HEAD} fill={`url(#${uid}-dots)`} />
           <rect width={W} height={HEAD} fill="#FFFFFF" />
-          <line x1={0} x2={W} y1={HEAD} y2={HEAD} stroke="#E5E7EB" />
-          <text x={26} y={40} fontSize={21} fontWeight={700} fill="#111827">
+          <line x1={0} x2={W} y1={HEAD} y2={HEAD} stroke="#E6EAF1" />
+          <text x={26} y={40} fontSize={21} fontWeight={700} fill={INK}>
             {s.title}
           </text>
           {running ? (
             <g>
-              <circle cx={W - 26 - (finished || paused ? 168 : 196)} cy={34} r={6} fill={finished ? '#22A55B' : paused ? '#9CA3AF' : GOLD} />
-              <text x={W - 26} y={40} fontSize={17} fill="#4B5563" textAnchor="end">
+              <circle cx={W - 26 - (finished || paused ? 168 : 196)} cy={34} r={6} fill={finished ? OK : paused ? '#A7B0C2' : ACCENT} />
+              <text x={W - 26} y={40} fontSize={17} fill={INK_SOFT} textAnchor="end">
                 {finished ? 'Exécution terminée' : paused ? 'Exécution en pause' : 'Exécution en cours…'}
               </text>
             </g>
           ) : (
             <g>
-              <Clock x={W - 26 - s.schedule.length * 8.4 - 26} y={24} width={18} height={18} color="#6B7280" />
-              <text x={W - 26} y={40} fontSize={17} fill="#4B5563" textAnchor="end">
+              <Clock x={W - 26 - s.schedule.length * 8.4 - 26} y={24} width={18} height={18} color={INK_SOFT} />
+              <text x={W - 26} y={40} fontSize={17} fill={INK_SOFT} textAnchor="end">
                 {s.schedule}
               </text>
             </g>
           )}
 
-          {/* Liaisons : pointillés gris, puis dorés sur le chemin déjà parcouru */}
+          {/* Links: grey dots, then navy on the path already run */}
           <g fill="none" strokeLinecap="round">
             {[...placed, ...branches].map((p, i) =>
-              p.seg ? <path key={`b${i}`} d={p.seg} stroke="#9CA3AF" strokeWidth={4} strokeDasharray="0.1 11" /> : null,
+              p.seg ? <path key={`b${i}`} d={p.seg} stroke="#B5BDCC" strokeWidth={4} strokeDasharray="0.1 11" /> : null,
             )}
             {running &&
               placed.map((p, i) =>
-                p.seg && i <= step ? <path key={`g${i}`} d={p.seg} stroke={GOLD} strokeWidth={5} strokeDasharray="0.1 11" /> : null,
+                p.seg && i <= step ? <path key={`g${i}`} d={p.seg} stroke={ACCENT} strokeWidth={5} strokeDasharray="0.1 11" /> : null,
               )}
             {running && step >= placed.length && (
-              <path d={branches[branch].seg!} stroke={GOLD} strokeWidth={5} strokeDasharray="0.1 11" />
+              <path d={branches[branch].seg!} stroke={ACCENT} strokeWidth={5} strokeDasharray="0.1 11" />
             )}
           </g>
 
