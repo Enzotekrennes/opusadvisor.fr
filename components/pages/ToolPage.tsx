@@ -1,16 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SectionKicker } from '@/components/ui/SectionKicker';
 import { TrackFirstUse } from '@/components/analytics/TrackFirstUse';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import { HomeClose } from '@/components/sections/HomeClose';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
+const INK = '#13213D';
+const NAVY = '#1E3A66';
+const RULE = '#E6EAF1';
+
+/** A cell that holds only a figure (« 139,4 », « +8,6 % », « 2 800 € ») stays on one line on a phone. */
+const NUMBER = /^[\s+\-\u2212\d,.\u00a0\u202f%\u20ac]+$/;
 
 interface ToolPageProps {
   url: string;
@@ -23,10 +26,11 @@ interface ToolPageProps {
   ctaText: string;
 }
 
-/** Gabarit des pages /outils/* : calculateur en haut, explications lisibles sans JavaScript en dessous. */
-export const ToolPage: React.FC<ToolPageProps> = ({
-  url, breadcrumbName, title, intro, calculator, children, ctaTitle, ctaText,
-}) => {
+/**
+ * Template of the /outils/* pages: the calculator in a window right under the hero, the explanations
+ * below (readable without JavaScript), then the close at dusk with the tool's own invitation.
+ */
+export const ToolPage: React.FC<ToolPageProps> = ({ url, breadcrumbName, title, intro, calculator, children, ctaTitle, ctaText }) => {
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -42,82 +46,60 @@ export const ToolPage: React.FC<ToolPageProps> = ({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
       <main id="contenu" className="flex-grow">
-        <section className="pt-32 md:pt-40 pb-14 md:pb-16" style={{ background: PAPER }}>
-          <div className="container mx-auto px-6 max-w-6xl">
-            <Link href="/outils/" className="inline-block mb-6 text-sm font-semibold hover:opacity-70 transition-opacity" style={{ color: GOLD_INK }}>
-              ← Tous les outils
-            </Link>
-            <h1 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-6xl max-w-4xl" style={{ color: NAVY }}>
-              {title}
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">{intro}</p>
-          </div>
-        </section>
-
-        <section className="py-14 md:py-20 bg-white">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <TrackFirstUse tool={breadcrumbName}>{calculator}</TrackFirstUse>
-          </div>
-        </section>
-
-        <section className="py-20 md:py-28" style={{ background: PAPER }}>
-          <div className="container mx-auto px-6 max-w-3xl tool-prose">{children}</div>
-        </section>
-
-        <section className="py-20 md:py-28" style={{ background: NAVY }}>
-          <div className="container mx-auto px-6 max-w-5xl">
-            <SectionKicker label="Opus Advisor" tone="dark" className="mb-8" />
-            <h2 className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl text-white max-w-3xl">
-              {ctaTitle}
-            </h2>
-            <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">{ctaText}</p>
-            <Link
-              href="/contact"
-              className="group mt-9 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-colors"
-              style={{ background: GOLD, color: NAVY }}
-            >
-              Réserver le pré-audit gratuit
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </section>
+        <PageHero titleId="tool-title" back={{ href: '/outils/', label: 'Tous les outils' }} title={title} lede={intro} />
+        <Section tone="ground">
+          <ToolWindow name={breadcrumbName}>{calculator}</ToolWindow>
+        </Section>
+        <Section tone="white" narrow>
+          <div className="font-[family-name:var(--font-inter)]">{children}</div>
+        </Section>
+        <HomeClose title={ctaTitle} lede={ctaText} auditStack={false} />
       </main>
       <Footer />
     </div>
   );
 };
 
+/** A calculator in its window, counted once in the audience statistics when first used. */
+export const ToolWindow: React.FC<{ name: string; children: React.ReactNode }> = ({ name, children }) => (
+  <Window title={name}>
+    <div className="p-5 md:p-8">
+      <TrackFirstUse tool={name}>{children}</TrackFirstUse>
+    </div>
+  </Window>
+);
+
 /** Sous-titre de section dans les explications d'un outil. */
 export const ToolH2: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <h2 className="font-heading font-bold leading-tight tracking-tight text-2xl md:text-3xl mt-14 first:mt-0 mb-5" style={{ color: NAVY }}>
+  <h2 className="mt-14 mb-5 text-2xl font-bold leading-tight tracking-tight first:mt-0 md:text-3xl" style={{ color: INK }}>
     {children}
   </h2>
 );
 
 export const ToolP: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <p className="text-lg text-gray-700 leading-relaxed mb-5">{children}</p>
+  <p className="mb-5 text-lg leading-relaxed text-[#3C4866]">{children}</p>
 );
 
 /** Formule mise en avant (ex. « pénalités = montant × taux × jours ÷ 365 »). */
 export const Formula: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <p className="my-6 px-5 py-4 border-l-[3px] bg-white text-base md:text-lg font-semibold" style={{ borderColor: GOLD, color: NAVY }}>
+  <p className="my-6 rounded-xl px-5 py-4 text-base font-semibold md:text-lg" style={{ background: '#F3F5F9', color: INK }}>
     {children}
   </p>
 );
 
 export const ToolLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
-  <Link href={href} className="font-semibold underline underline-offset-4 hover:opacity-70" style={{ color: GOLD_INK }}>
+  <Link href={href} className="font-semibold underline underline-offset-4 decoration-[#1E3A66]/35 hover:decoration-[#1E3A66]" style={{ color: NAVY }}>
     {children}
   </Link>
 );
 
 export const ToolTable: React.FC<{ head: string[]; rows: string[][] }> = ({ head, rows }) => (
   <div className="my-6 overflow-x-auto">
-    <table className="w-full text-left text-base border-collapse">
+    <table className="w-full border-collapse text-left text-base tabular-nums">
       <thead>
         <tr>
           {head.map((h) => (
-            <th key={h} className="py-3 pr-4 font-semibold border-b-2" style={{ color: NAVY, borderColor: NAVY }}>
+            <th key={h} className="border-b py-3 pr-4 text-[13.5px] font-semibold text-[#56627E]" style={{ borderColor: '#DDE3EC' }}>
               {h}
             </th>
           ))}
@@ -127,7 +109,7 @@ export const ToolTable: React.FC<{ head: string[]; rows: string[][] }> = ({ head
         {rows.map((r) => (
           <tr key={r.join('|')}>
             {r.map((c, i) => (
-              <td key={i} className="py-3 pr-4 border-b text-gray-700" style={{ borderColor: RULE }}>
+              <td key={i} className={`border-b py-3 pr-4 text-[#3C4866] ${NUMBER.test(c) ? 'whitespace-nowrap' : ''}`} style={{ borderColor: RULE }}>
                 {c}
               </td>
             ))}

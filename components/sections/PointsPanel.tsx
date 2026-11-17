@@ -4,7 +4,7 @@ import styles from './inner.module.css';
 
 /**
  * A section listing short points (title and one or two sentences) in one panel, two columns wide on
- * large screens: the pains of a trade, the criteria of a programme.
+ * large screens: the pains of a trade, the criteria of a programme. Children follow the panel (a link).
  */
 export const PointsPanel: React.FC<{
   id: string;
@@ -12,7 +12,8 @@ export const PointsPanel: React.FC<{
   lede?: React.ReactNode;
   items: { title: string; desc: string }[];
   tone?: 'ground' | 'white';
-}> = ({ id, title, lede, items, tone }) => (
+  children?: React.ReactNode;
+}> = ({ id, title, lede, items, tone, children }) => (
   <Section tone={tone} labelledBy={id}>
     <SectionHead id={id} title={title} lede={lede} />
     <ul className={`${styles.panel} ${styles.panelTwo}`} data-reveal data-reveal-delay="1">
@@ -23,5 +24,6 @@ export const PointsPanel: React.FC<{
         </li>
       ))}
     </ul>
+    {children}
   </Section>
 );

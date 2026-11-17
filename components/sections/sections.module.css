@@ -1032,6 +1032,11 @@
   text-shadow: 0 2px 30px rgba(3, 8, 22, 0.35);
 }
 
+.closeTitleLong {
+  font-size: clamp(2rem, 1.3rem + 2.2vw, 3rem);
+  line-height: 1.08;
+}
+
 .closeLede {
   margin-top: 20px;
   max-width: 560px;

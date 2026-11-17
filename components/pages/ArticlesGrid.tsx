@@ -3,11 +3,10 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import sections from '@/components/sections/sections.module.css';
 
-// Or foncé pour le texte et les icônes sur fond clair : l'or d'origine y tombe à 2,1:1 de contraste.
-const GOLD_INK = '#8A6A1C';
-const NAVY = '#1A2332';
-const RULE = 'rgba(26,35,50,0.16)';
+const INK = '#13213D';
+const INK_SOFT = '#56627E';
 
 interface ArticleMetadata {
   id: number;
@@ -35,6 +34,10 @@ const formatDate = (d?: string): string => {
   }
 };
 
+/**
+ * The list of articles as cards, newest first, with a filter by category. Every article is in the
+ * static page; the filter only hides the others.
+ */
 export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articles }) => {
   const [active, setActive] = useState<string>('Tous');
 
@@ -49,9 +52,8 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
   );
 
   return (
-    <div>
-      {/* Barre de filtres */}
-      <div className="flex flex-wrap gap-2.5 mb-10 md:mb-12">
+    <div className="font-[family-name:var(--font-inter)]">
+      <div className="mb-10 inline-flex flex-wrap gap-1 rounded-xl p-1" style={{ background: '#E6EAF1' }} role="group" aria-label="Filtrer par sujet">
         {categories.map((cat) => {
           const isActive = cat === active;
           return (
@@ -60,12 +62,8 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
               type="button"
               onClick={() => setActive(cat)}
               aria-pressed={isActive}
-              className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200"
-              style={
-                isActive
-                  ? { background: NAVY, color: '#fff', border: `1px solid ${NAVY}` }
-                  : { background: 'transparent', color: NAVY, border: `1px solid ${RULE}` }
-              }
+              className="rounded-lg px-4 py-2 text-[14px] font-semibold transition-colors [@media(pointer:coarse)]:min-h-11"
+              style={isActive ? { background: '#FFFFFF', color: INK, boxShadow: '0 1px 2px rgba(19,33,61,0.12)' } : { color: INK_SOFT }}
             >
               {cat}
             </button>
@@ -73,52 +71,31 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
         })}
       </div>
 
-      {/* Liste */}
-      {filtered.map((article) => (
-        <div key={article.id}>
-          <Link
-            href={`/articles/${article.slug}`}
-            className="group block border-t py-9 md:py-11"
-            style={{ borderColor: RULE }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
-              <div className="md:col-span-3">
-                {article.publishedAt && (
-                  <span className="block text-xs uppercase tracking-[0.16em] text-gray-500">
-                    {formatDate(article.publishedAt)}
-                  </span>
-                )}
-                {article.category && (
-                  <span
-                    className="block text-xs font-semibold uppercase tracking-[0.16em] mt-1"
-                    style={{ color: GOLD_INK }}
-                  >
-                    {article.category}
-                  </span>
-                )}
-              </div>
-
-              <div className="md:col-span-9">
-                <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight text-[#1A2332] group-hover:text-[#8A6A1C] transition-colors duration-200">
-                  {article.title}
-                </h2>
-                <p className="mt-3 text-base text-gray-600 leading-relaxed max-w-2xl line-clamp-2">
-                  {article.description}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#1A2332]">
-                  Lire l'article
-                  <ArrowRight
-                    size={16}
-                    style={{ color: GOLD_INK }}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </div>
-            </div>
-          </Link>
-        </div>
-      ))}
-      <div className="border-t" style={{ borderColor: RULE }} />
+      <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {filtered.map((article) => (
+          <li key={article.id}>
+            <Link
+              href={`/articles/${article.slug}`}
+              className="group flex h-full flex-col rounded-2xl bg-white p-6 shadow-[0_0_0_1px_rgba(19,33,61,0.07),0_10px_24px_rgba(19,33,61,0.05)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(19,33,61,0.09),0_18px_36px_rgba(19,33,61,0.09)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            >
+              <span className="flex flex-wrap items-center gap-2 text-[13px]" style={{ color: INK_SOFT }}>
+                {article.publishedAt && <span>{formatDate(article.publishedAt)}</span>}
+                {article.category && <span className={sections.pill}>{article.category}</span>}
+              </span>
+              <h2 className="mt-3 text-xl font-bold leading-snug tracking-tight group-hover:underline group-hover:underline-offset-4" style={{ color: INK }}>
+                {article.title}
+              </h2>
+              <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed" style={{ color: INK_SOFT }}>
+                {article.description}
+              </p>
+              <span className="mt-auto inline-flex items-center gap-2 pt-4 text-[14.5px] font-semibold" style={{ color: '#1E3A66' }}>
+                Lire l'article
+                <ArrowRight size={16} strokeWidth={2} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

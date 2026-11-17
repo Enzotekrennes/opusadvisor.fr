@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ArticleView } from '@/components/pages/ArticleView';
 import { RelatedArticles } from '@/components/home/RelatedArticles';
+import { HomeClose } from '@/components/sections/HomeClose';
 import {
   getAllArticles,
   getArticleBySlug,
@@ -155,6 +156,7 @@ export default async function ArticlePage({ params }: PageProps) {
           ctaMid={frontMatter.ctaMid}
         />
         <RelatedArticles currentArticleId={article.id} />
+        <HomeClose />
       </main>
       <Footer />
     </>

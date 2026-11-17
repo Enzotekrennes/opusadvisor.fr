@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ArticlesHero } from '@/components/pages/ArticlesHero';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section } from '@/components/sections/Section';
+import { HomeClose } from '@/components/sections/HomeClose';
 import { ArticlesGrid } from '@/components/pages/ArticlesGrid';
 import { getAllArticles } from '@/lib/articles';
 
@@ -49,13 +51,16 @@ export default function ArticlesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleListJsonLd) }}
       />
       <Header />
-      <ArticlesHero />
       <main id="contenu" className="flex-grow">
-        <section className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <ArticlesGrid articles={articles} />
-          </div>
-        </section>
+        <PageHero
+          titleId="articles-title"
+          title="Conseils et retours terrain."
+          lede="Méthodes de consolidation, outils BTP comparés, facturation électronique, automatisations testées sur le terrain. Lecture courte, sans jargon."
+        />
+        <Section tone="ground">
+          <ArticlesGrid articles={articles} />
+        </Section>
+        <HomeClose />
       </main>
       <Footer />
     </div>

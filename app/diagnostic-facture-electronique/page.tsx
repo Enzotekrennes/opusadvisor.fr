@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { FAQSection } from '@/components/home/FAQSection';
+import { PageHero } from '@/components/sections/PageHero';
+import { HomeFaq } from '@/components/sections/HomeFaq';
 import { EInvoiceDiagnostic } from '@/components/diagnostic/EInvoiceDiagnostic';
 import { faqPageJsonLd } from '@/lib/faqData';
 import { FAQ as FAQ_RAW, typo } from '@/lib/einvoice/rules';
@@ -43,13 +44,18 @@ const breadcrumbJsonLd = {
 
 export default function DiagnosticFactureElectroniquePage() {
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#FAF7F0' }}>
+    <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(FAQ)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
       <main id="contenu" className="flex-grow">
+        <PageHero
+          titleId="diagnostic-title"
+          chips={[{ label: 'Diagnostic gratuit', icon: 'booking' }]}
+          title={'Facture électronique\u00a0: où en êtes-vous\u00a0?'}
+        />
         <EInvoiceDiagnostic />
-        <FAQSection items={FAQ} title="Questions fréquentes" />
+        <HomeFaq items={FAQ} title="Questions fréquentes" tone="white" />
       </main>
       <Footer />
     </div>
