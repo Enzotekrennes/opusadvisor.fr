@@ -15,11 +15,12 @@ export interface WindowCard {
 }
 
 /**
- * Three cards side by side, each in a window: missions on the home page, typical systems on the BTP
- * page. A card with `href` is a link as a whole, with an arrow; one without is a plain card.
+ * Cards side by side, each in a window: missions on the home page, typical systems on the BTP page.
+ * A card with `href` is a link as a whole, with an arrow; one without is a plain card. Three columns on
+ * large screens, or two for a pair of cards.
  */
 export const WindowCards: React.FC<{ items: WindowCard[] }> = ({ items }) => (
-  <ul className={styles.cases}>
+  <ul className={`${styles.cases} ${items.length === 2 ? styles.casesTwo : ''}`}>
     {items.map((item, i) => {
       const body = (
         <Window>

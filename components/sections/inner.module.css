@@ -781,3 +781,458 @@
     transform: none;
   }
 }
+
+
+/* ---------- Price list in the Services hero ---------- */
+.priceList {
+  list-style: none;
+  padding: 6px 8px 8px;
+}
+
+.priceList a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 16px;
+  padding: 12px 12px;
+  border-radius: 10px;
+  color: var(--ink, #13213d);
+  text-decoration: none;
+}
+
+.priceList li + li a {
+  border-top: 1px solid #eef1f6;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (hover: hover) {
+  .priceList a:hover {
+    background: #f4f7fb;
+  }
+}
+
+.priceList b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.priceList small {
+  grid-column: 1;
+  color: #56627e;
+  font-size: 13px;
+}
+
+.priceList em {
+  grid-row: span 2;
+  align-self: center;
+  font-style: normal;
+  font-size: 14.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Offers (Services page) ---------- */
+.offers {
+  display: grid;
+  gap: 28px;
+  list-style: none;
+}
+
+.offer {
+  scroll-margin-top: 80px;
+}
+
+.offerBody {
+  display: grid;
+  gap: 28px 48px;
+  padding: 26px;
+}
+
+@media (min-width: 900px) {
+  .offerBody {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    padding: 32px 34px 34px;
+  }
+}
+
+.offerTitle {
+  margin-top: 12px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.offerHook {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.offerPrice {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+
+.offerPrice small {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.offerPrice b {
+  display: block;
+  margin-top: 4px;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.offerPrice span {
+  display: block;
+  max-width: 320px;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.offerText {
+  color: #3c4866;
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+.offerListTitle {
+  margin-top: 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.offerCta {
+  margin-top: 24px;
+}
+
+/* A panel of ticked lines, two columns on large screens. */
+.tickPanel {
+  margin-top: 44px;
+  display: grid;
+  gap: 14px 40px;
+  padding: 26px;
+  border-radius: 18px;
+  background: #fff;
+  list-style: none;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 14px 32px rgba(19, 33, 61, 0.06);
+}
+
+@media (min-width: 900px) {
+  .tickPanel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 30px 34px;
+  }
+}
+
+.tickPanel li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.tickPanel li svg {
+  margin-top: 2px;
+  color: var(--ok);
+}
+
+/* ---------- Team profiles ---------- */
+.profiles {
+  display: grid;
+  gap: 28px;
+  list-style: none;
+}
+
+.profileBody {
+  display: grid;
+  gap: 28px 48px;
+  padding: 26px;
+}
+
+@media (min-width: 900px) {
+  .profileBody {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    padding: 34px;
+  }
+}
+
+.profilePhoto {
+  width: 132px;
+  height: 132px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.08), 0 10px 24px rgba(19, 33, 61, 0.14);
+}
+
+.profileName {
+  margin-top: 18px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.profileRole {
+  margin-top: 4px;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profileMeta {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  list-style: none;
+}
+
+.profileMeta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileMeta svg {
+  flex: none;
+  color: var(--navy);
+}
+
+.profileHeading {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.bullets {
+  margin-top: 18px;
+  list-style: none;
+}
+
+.bullets li {
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.bullets h4 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.bullets p {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+/* ---------- Contact ---------- */
+.contactGrid {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 1100px) {
+  .contactGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+}
+
+.paneBody {
+  padding: 22px 24px 26px;
+}
+
+.paneTitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.paneText {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.calendarFrame {
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+.calendarFrame iframe {
+  display: block;
+  width: 100%;
+  height: 720px;
+  border: 0;
+  background: #fff;
+}
+
+.facts {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  list-style: none;
+}
+
+.facts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.facts svg {
+  color: var(--navy);
+}
+
+.form {
+  margin-top: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #3c4866;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.field {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #dde3ec;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.field::placeholder {
+  color: #8a93a8;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(30, 58, 102, 0.15);
+}
+
+textarea.field {
+  resize: none;
+}
+
+.formNote {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.formError {
+  color: #b23b3b;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.formError a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.success {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 12px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--ok-bg);
+}
+
+.success svg {
+  margin-top: 2px;
+  color: var(--ok);
+}
+
+.success b {
+  display: block;
+  font-size: 16px;
+}
+
+.success p {
+  margin-top: 4px;
+  color: #3c4866;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.direct {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 12px;
+}
+
+.direct a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .direct a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.direct svg {
+  color: var(--navy);
+}
+
+.agenda {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+
+.agenda p {
+  font-size: 14.5px;
+  font-weight: 600;
+}

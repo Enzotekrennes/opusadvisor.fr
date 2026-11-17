@@ -3,14 +3,14 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
-import { SectionKicker } from '@/components/ui/SectionKicker';
-
-const GOLD = '#C9A84C';
-// Or foncé pour le texte et les icônes sur fond clair : l'or d'origine y tombe à 2,1:1 de contraste.
-const GOLD_INK = '#8A6A1C';
-const NAVY = '#1A2332';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section, SectionHead } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import { PointsPanel } from '@/components/sections/PointsPanel';
+import { WindowCards } from '@/components/sections/WindowCards';
+import { HomeClose } from '@/components/sections/HomeClose';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 
 interface ServiceData {
   id: string;
@@ -146,199 +146,143 @@ const summary = [
   'Les automatisations tournent chez vous dès la mise en œuvre',
 ];
 
+/** Height to leave above a section reached by its anchor, for the fixed menu bar. */
+const BAR_OFFSET = 80;
+
+/** The five offers and their prices, linking to each offer below: shown beside the hero. */
+const PriceList: React.FC = () => (
+  <Window title="Tarifs">
+    <ul className={inner.priceList}>
+      {services.map((s) => (
+        <li key={s.id}>
+          <a href={`#${s.id}`}>
+            <b>{s.title}</b>
+            <em>{s.price}</em>
+            <small>{s.duration}</small>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Window>
+);
+
+/**
+ * Services page: the five offers with their prices, how they compare with the other options, a short
+ * summary, two links to go further, and the close. An anchor in the address (#diagnostic…) scrolls to
+ * its offer once the page is loaded.
+ */
 export const ServicesView: React.FC = () => {
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    if (window.location.hash) {
-      const sectionId = window.location.hash.replace('#', '');
-      const element = document.getElementById(sectionId);
-      if (element) {
-        setTimeout(() => {
-          const navbarHeight = 100;
-          const offsetPosition =
-            element.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }, 100);
-      }
-    }
+    const id = window.location.hash.replace('#', '');
+    const element = id ? document.getElementById(id) : null;
+    if (!element) return;
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: element.getBoundingClientRect().top + window.scrollY - BAR_OFFSET, behavior: 'smooth' });
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <main id="contenu" className="flex-grow">
-      {/* Hero */}
-      <section className="pt-36 pb-20 md:pt-44 md:pb-24" style={{ background: NAVY }}>
-        <div className="container mx-auto px-6 max-w-5xl">
-          <SectionKicker label="Services et tarifs" tone="dark" className="mb-8" />
-          <h1 className="font-heading font-bold leading-[1.0] tracking-tight text-5xl md:text-6xl lg:text-7xl text-white">
-            Cinq étapes, avec leur prix.
-          </h1>
-          <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-            Vous connaissez le prix de chaque étape avant de signer, et vous pouvez vous arrêter à la
-            fin de chacune.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        titleId="services-title"
+        title="Cinq étapes, avec leur prix."
+        lede="Vous connaissez le prix de chaque étape avant de signer, et vous pouvez vous arrêter à la fin de chacune."
+        aside={<PriceList />}
+      />
 
-      {/* Offres */}
-      <section className="py-20 md:py-28" style={{ background: PAPER }}>
-        <div className="container mx-auto px-6 max-w-5xl">
+      <Section tone="ground" labelledBy="offers-title">
+        <h2 id="offers-title" className="sr-only">
+          Les cinq étapes
+        </h2>
+        <ol className={inner.offers}>
           {services.map((s, i) => (
-            <div key={s.id} id={s.id} className="border-t scroll-mt-28" style={{ borderColor: RULE }}>
-              <div className="py-10 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
-                {/* Gauche */}
-                <div className="md:col-span-5">
-                  <p className="text-sm text-gray-500">
-                    Étape {i + 1} sur {services.length} · {s.tag}
-                  </p>
-                  <h2 className="mt-2 font-heading font-bold text-2xl md:text-3xl leading-tight" style={{ color: NAVY }}>
-                    {s.title}
-                  </h2>
-                  <p className="mt-3 text-base text-gray-600 leading-relaxed">{s.hook}</p>
-
-                  <div className="mt-7">
-                    <p className="text-sm text-gray-500 mb-1">{s.duration}</p>
-                    <p className="font-heading font-bold text-2xl md:text-3xl" style={{ color: NAVY }}>
-                      {s.price}
+            <li key={s.id} id={s.id} className={inner.offer} data-reveal>
+              <Window title={`Étape ${i + 1} sur ${services.length}`}>
+                <div className={inner.offerBody}>
+                  <div>
+                    <span className={sections.pill}>{s.tag}</span>
+                    <h3 className={inner.offerTitle}>{s.title}</h3>
+                    <p className={inner.offerHook}>{s.hook}</p>
+                    <p className={inner.offerPrice}>
+                      <small>{s.duration}</small>
+                      <b>{s.price}</b>
+                      {s.priceNote && <span>{s.priceNote}</span>}
                     </p>
-                    {s.priceNote && <p className="text-xs text-gray-500 mt-1.5 max-w-xs">{s.priceNote}</p>}
+                  </div>
+                  <div>
+                    <p className={inner.offerText}>{s.description}</p>
+                    <p className={inner.offerListTitle}>Ce que vous recevez</p>
+                    <ul className={inner.ticks}>
+                      {s.deliverables.map((d) => (
+                        <li key={d}>
+                          <Check size={16} strokeWidth={2.6} aria-hidden="true" />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {s.cta && (
+                      <p className={inner.offerCta}>
+                        <Link href="/contact" className={sections.button}>
+                          {s.cta}
+                          <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+                        </Link>
+                      </p>
+                    )}
                   </div>
                 </div>
-
-                {/* Droite */}
-                <div className="md:col-span-7">
-                  <p className="text-base md:text-lg text-gray-700 leading-relaxed">{s.description}</p>
-
-                  <p className="mt-7 text-sm font-semibold mb-4" style={{ color: NAVY }}>
-                    Ce que vous recevez
-                  </p>
-                  <ul className="space-y-2.5">
-                    {s.deliverables.map((d) => (
-                      <li key={d} className="flex items-start gap-3">
-                        <Check size={15} strokeWidth={3} className="mt-1 shrink-0" style={{ color: GOLD_INK }} />
-                        <span className="text-sm md:text-[15px] text-gray-700 leading-snug">{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {s.cta && (
-                    <Link
-                      href="/contact"
-                      className="group mt-7 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-colors"
-                      style={{ background: GOLD, color: NAVY }}
-                    >
-                      {s.cta}
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
+              </Window>
+            </li>
           ))}
-          <div className="border-t" style={{ borderColor: RULE }} />
-        </div>
-      </section>
+        </ol>
+      </Section>
 
-      {/* Comparaisons */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <h2 className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl mb-12" style={{ color: NAVY }}>
-            Par rapport aux autres options
-          </h2>
+      <PointsPanel
+        id="compare-title"
+        title="Par rapport aux autres options"
+        items={comparisons.map((c) => ({ title: c.vs, desc: c.text }))}
+        tone="white"
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-            {comparisons.map((c) => (
-              <div key={c.vs} className="py-7 border-t" style={{ borderColor: RULE }}>
-                <h3 className="font-semibold text-lg md:text-xl leading-snug mb-2" style={{ color: NAVY }}>
-                  {c.vs}
-                </h3>
-                <p className="text-sm md:text-[15px] text-gray-600 leading-relaxed">{c.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section id="identite" tone="ground" labelledBy="summary-title">
+        <SectionHead id="summary-title" title="En résumé" />
+        <ul className={inner.tickPanel} data-reveal data-reveal-delay="1">
+          {summary.map((line) => (
+            <li key={line}>
+              <Check size={18} strokeWidth={2.6} aria-hidden="true" />
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      {/* En résumé */}
-      <section id="identite" className="py-20 md:py-28 scroll-mt-28" style={{ background: PAPER }}>
-        <div className="container mx-auto px-6 max-w-5xl">
-          <h2 className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl mb-12" style={{ color: NAVY }}>
-            En résumé
-          </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-            {summary.map((line) => (
-              <li
-                key={line}
-                className="py-4 border-t text-base md:text-lg font-semibold"
-                style={{ borderColor: RULE, color: NAVY }}
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Section tone="white" labelledBy="further-title">
+        <SectionHead id="further-title" title="Avant de décider, prenez deux minutes" />
+        <WindowCards
+          items={[
+            {
+              key: 'pilotes',
+              label: 'Programme pilote · 3 places',
+              title: 'Opus Pilotes : construisez la première version avec nous',
+              text: 'Pour le BTP : trois entreprises du second œuvre, 40 % moins cher que le tarif normal, avec un accès direct. En échange, on documente ensemble ce qui marche.',
+              href: '/cas-clients#programme-pilote',
+            },
+            {
+              key: 'articles',
+              label: 'Conseils et retours terrain',
+              title: 'Nos articles, pour voir comment on travaille',
+              text: 'Facturation électronique, relances, marge, outils comparés : des articles courts, écrits d’abord pour les patrons du BTP.',
+              href: '/articles',
+            },
+          ]}
+        />
+      </Section>
 
-      {/* Pour aller plus loin */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <h2 className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl mb-12" style={{ color: NAVY }}>
-            Avant de décider, prenez deux minutes
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-            <Link href="/cas-clients" className="group py-7 border-t flex flex-col" style={{ borderColor: NAVY }}>
-              <span className="text-sm text-gray-500 mb-3">Programme pilote · 3 places</span>
-              <h3 className="font-heading font-bold text-xl md:text-2xl leading-snug mb-3" style={{ color: NAVY }}>
-                Opus Pilotes : construisez la première version avec nous
-              </h3>
-              <p className="text-sm md:text-[15px] text-gray-600 leading-relaxed mb-5 flex-1">
-                Pour le BTP : trois entreprises du second œuvre, 40 % moins cher que le tarif normal, avec un accès direct.
-                En échange, on documente ensemble ce qui marche.
-              </p>
-              <span className="inline-flex items-center gap-2 font-semibold text-sm md:text-base" style={{ color: NAVY }}>
-                Voir le programme
-                <ArrowRight size={18} style={{ color: GOLD_INK }} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-
-            <Link href="/articles" className="group py-7 border-t flex flex-col" style={{ borderColor: NAVY }}>
-              <span className="text-sm text-gray-500 mb-3">Conseils et retours terrain</span>
-              <h3 className="font-heading font-bold text-xl md:text-2xl leading-snug mb-3" style={{ color: NAVY }}>
-                Nos articles, pour voir comment on travaille
-              </h3>
-              <p className="text-sm md:text-[15px] text-gray-600 leading-relaxed mb-5 flex-1">
-                Facturation électronique, relances, marge, outils comparés : des articles courts,
-                écrits d'abord pour les patrons du BTP.
-              </p>
-              <span className="inline-flex items-center gap-2 font-semibold text-sm md:text-base" style={{ color: NAVY }}>
-                Lire les articles
-                <ArrowRight size={18} style={{ color: GOLD_INK }} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA bas */}
-      <section className="py-20 md:py-28" style={{ background: NAVY }}>
-        <div className="container mx-auto px-6 max-w-5xl">
-          <h2 className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl text-white max-w-3xl">
-            Vous hésitez sur l'offre qui colle à votre boîte ?
-          </h2>
-          <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-            Commencez par le pré-audit. C'est gratuit, ça dure 30 minutes, et vous repartez avec 3
-            points de friction identifiés. Ensuite, on décide ensemble si on continue.
-          </p>
-          <Link
-            href="/contact"
-            className="group mt-9 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-colors"
-            style={{ background: GOLD, color: NAVY }}
-          >
-            Réserver mon pré-audit
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </section>
+      <HomeClose
+        title="Vous hésitez sur l'offre qui colle à votre boîte ?"
+        lede="Commencez par le pré-audit. C'est gratuit, ça dure 30 minutes, et vous repartez avec 3 points de friction identifiés. Ensuite, on décide ensemble si on continue."
+        auditStack={false}
+      />
     </main>
   );
 };
