@@ -1,75 +1,83 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { AutomationDemo } from '@/components/motion/AutomationDemo';
+import { desktopSectors } from '@/lib/homeDesktop';
+import { DesktopGlyph } from '@/components/home/desktop/DesktopGlyph';
+import { TownScene } from '@/components/home/desktop/TownScene';
+import { AppWindow } from '@/components/home/desktop/AppWindow';
+import { Notifications } from '@/components/home/desktop/Notifications';
+import { Dock } from '@/components/home/desktop/Dock';
+import { DesktopControls } from '@/components/home/desktop/DesktopControls';
+import styles from '@/components/home/desktop/desktop.module.css';
 
-const NAVY = '#1A2332';
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
+/** Id of the hero section, read by the motion controls and the home header. */
+export const HERO_ID = 'bureau';
 
-export const HeroHome: React.FC = () => {
-  return (
-    <section
-      className="pt-32 md:pt-40 pb-20 md:pb-28"
-      style={{ background: PAPER, color: NAVY }}
-      aria-labelledby="hero-title"
-    >
-      <div className="container mx-auto px-6 max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-        <div className="lg:col-span-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: GOLD_INK }}>
-            Formation · Immobilier et conciergerie · BTP
-          </p>
+/**
+ * First screen of the home page, drawn as a computer desktop at dawn over a town with a building
+ * site: the promise and the way in on the left, and an example window on the right where each
+ * trade's documents leave on their own, with a notification for each and a Dock of shortcuts.
+ * The menu bar at the top is the home variant of the site header. Text, links and the example are
+ * readable without JavaScript; the motion starts with it, can be paused, and keeps only fades when
+ * the visitor asks for reduced motion.
+ */
+export const HeroHome: React.FC = () => (
+  <section id={HERO_ID} className={styles.desk} aria-labelledby="hero-title" data-booking-hero>
+    <TownScene />
 
-          <h1 id="hero-title" className="font-heading font-bold leading-[1.02] tracking-tight text-[2.5rem] sm:text-6xl mt-6">
-            Ce que votre équipe ressaisit à la main, on le fait partir tout seul.
-          </h1>
+    <div className={styles.grid}>
+      <div className={styles.copy}>
+        <ul className={styles.sectors} aria-label="Secteurs accompagnés">
+          {desktopSectors.map((s) => (
+            <li key={s.href}>
+              <Link href={s.href}>
+                <DesktopGlyph icon={s.icon} size={16} />
+                {s.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          <p className="mt-7 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">
-            Dossiers de financement, factures des propriétaires, devis et relances : on relie vos logiciels et on
-            automatise ce qui se fait encore à la main. Puis on reste pour faire tourner le système.
-          </p>
+        <h1 id="hero-title" className={styles.title}>
+          Ce que votre équipe ressaisit à la main, on le fait partir tout seul.
+        </h1>
 
-          <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-base bg-[#1A2332] text-[#FAF7F0] hover:bg-[#26334a] transition-colors"
-            >
-              Réserver le pré-audit gratuit
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/cas-clients"
-              className="self-start sm:self-auto font-semibold text-base border-b pb-0.5 hover:opacity-70 transition-opacity"
-              style={{ color: GOLD_INK, borderColor: GOLD_INK }}
-            >
-              Voir ce qu'on a déjà mis en place
-            </Link>
-          </div>
+        <p className={styles.lede}>
+          Dossiers de financement, factures des propriétaires, devis et relances&#8239;: on relie vos logiciels et on
+          automatise ce qui se fait encore à la main. Puis on reste pour faire tourner le système.
+        </p>
 
-          {/* The pre-audit is booked on Enzo's own calendar: show who the visitor will talk to, in the first screen. */}
-          <div className="mt-7 flex items-center gap-3">
-            <img
-              src="/images/enzo-avatar.webp"
-              alt=""
-              width={44}
-              height={44}
-              className="h-11 w-11 shrink-0 rounded-full object-cover"
-            />
-            <p className="text-sm text-gray-600 leading-snug">
-              30 minutes en visio avec Enzo Monnier, le fondateur. Gratuit et sans engagement.
-              <br className="hidden sm:inline" /> Plutôt un appel :{' '}
-              <a href="tel:+33615756549" className="font-semibold whitespace-nowrap text-gray-800 underline underline-offset-4">
-                06 15 75 65 49
-              </a>
-              . Opus Advisor, basé à Vannes, intervient partout en France.
-            </p>
-          </div>
+        <div className={styles.ctas}>
+          <Link href="/contact" className={styles.primary}>
+            Réserver le pré-audit gratuit
+            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+          </Link>
+          <Link href="/cas-clients" className={styles.secondary}>
+            Voir ce qu’on a déjà mis en place
+          </Link>
         </div>
 
-        <div className="lg:col-span-5">
-          <AutomationDemo />
+        {/* The pre-audit is booked on Enzo's own calendar: show who the visitor will talk to, in the first screen. */}
+        <div className={styles.who}>
+          <img src="/images/enzo-avatar.webp" alt="" width={42} height={42} />
+          <p>
+            30&nbsp;min en visio avec <b>Enzo Monnier</b>, le fondateur, basé à Vannes.
+            <br />
+            Plutôt un appel&#8239;: <a href="tel:+33615756549">06&nbsp;15&nbsp;75&nbsp;65&nbsp;49</a>
+          </p>
         </div>
       </div>
-    </section>
-  );
-};
+
+      <figure className={styles.demo}>
+        <Notifications />
+        <AppWindow />
+        <figcaption className={styles.caption}>
+          <span>Fenêtre et notifications d’exemple, données fictives.</span>
+          <DesktopControls heroId={HERO_ID} />
+        </figcaption>
+      </figure>
+    </div>
+
+    <Dock />
+  </section>
+);
