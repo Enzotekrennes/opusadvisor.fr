@@ -92,7 +92,7 @@ export const TimeLossSection: React.FC = () => {
               className="group mt-8 inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base"
               style={{ background: GOLD, color: NAVY }}
             >
-              Voir ce qu'on peut automatiser
+              Réserver le pré-audit gratuit
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <p className="mt-4 text-sm text-white/70">

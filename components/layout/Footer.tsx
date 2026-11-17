@@ -14,12 +14,12 @@ export const Footer: React.FC = () => {
     {
       title: 'Nos services',
       links: [
-        { label: 'Pré-audit gratuit', href: '/services' },
+        { label: 'Pré-audit gratuit', href: '/services#pre-audit' },
         { label: 'Audit Stack', href: '/services#audit-stack' },
-        { label: 'Diagnostic', href: '/services' },
-        { label: 'Mise en œuvre', href: '/services' },
-        { label: 'Gardien du système', href: '/services' },
-        { label: 'Opus Pilotes', href: '/cas-clients' },
+        { label: 'Diagnostic', href: '/services#diagnostic' },
+        { label: 'Mise en œuvre', href: '/services#implementation' },
+        { label: 'Gardien du système', href: '/services#suivi' },
+        { label: 'Programme pilote BTP', href: '/cas-clients#programme-pilote' },
       ],
     },
     {

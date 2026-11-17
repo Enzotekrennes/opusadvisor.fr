@@ -6,63 +6,63 @@ const GOLD = '#C9A84C';
 const NAVY = '#1A2332';
 const RULE = 'rgba(255,255,255,0.16)';
 
+/** One way in: the free pre-audit, what the visitor leaves with, and the paid Audit Stack as a quiet text link. */
 export const FinalCTASection: React.FC = () => {
   return (
     <section id="contact" className="py-24 md:py-32" style={{ background: NAVY }} aria-labelledby="cta-title">
       <div className="container mx-auto px-6 max-w-5xl">
-        <h2
-          data-reveal
-          id="cta-title"
-          className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl text-white"
-        >
-          Deux façons de démarrer
-        </h2>
+        <div data-reveal className="max-w-3xl">
+          <h2
+            id="cta-title"
+            className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl text-white"
+          >
+            Commencez par le pré-audit
+          </h2>
+          <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed">
+            30 minutes en visio, gratuites et sans engagement. Vous partagez votre écran, et on regarde vos outils
+            ensemble.
+          </p>
+        </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-0 md:gap-x-14">
-          {/* Pré-audit */}
-          <div data-reveal data-reveal-delay="1" className="pt-7 border-t flex flex-col" style={{ borderColor: RULE }}>
-            <div className="flex items-baseline justify-between gap-4 mb-4">
-              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white">Le pré-audit</h3>
-              <span className="font-heading font-bold text-lg whitespace-nowrap" style={{ color: GOLD }}>
-                Gratuit
-              </span>
-            </div>
-            <p className="text-base text-white/75 leading-relaxed flex-1">
-              30 minutes en visio. Vous partagez votre écran, on regarde vos outils ensemble et on
-              repère 3 points de friction, avec la façon de les régler.
-            </p>
+        <div
+          data-reveal
+          data-reveal-delay="1"
+          className="mt-12 pt-8 border-t grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start"
+          style={{ borderColor: RULE }}
+        >
+          <div className="md:col-span-7">
+            <p className="font-semibold text-white">Vous repartez avec :</p>
+            <ul className="mt-4 space-y-3 text-base md:text-lg text-white/75 leading-relaxed list-disc pl-5 marker:text-[#C9A84C]">
+              <li>3 points de friction repérés dans vos outils, avec la façon de régler chacun ;</li>
+              <li>un avis franc : si une mission ne vaut pas le coup pour vous, on vous le dit.</li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-5">
             <Link
               href="/contact"
-              className="group mt-7 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base transition-colors self-start"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-base transition-colors"
               style={{ background: GOLD, color: NAVY }}
             >
-              Réserver un créneau
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Réserver le pré-audit gratuit
+              <ArrowRight size={18} aria-hidden="true" className="group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
-
-          {/* Audit Stack */}
-          <div data-reveal data-reveal-delay="2" className="pt-7 border-t flex flex-col" style={{ borderColor: RULE }}>
-            <div className="flex items-baseline justify-between gap-4 mb-4">
-              <h3 className="font-heading font-bold text-2xl md:text-3xl text-white">L'Audit Stack</h3>
-              <span className="font-heading font-bold text-lg whitespace-nowrap" style={{ color: GOLD }}>
-                990 €
-              </span>
-            </div>
-            <p className="text-base text-white/75 leading-relaxed flex-1">
-              10 jours ouvrés pour cartographier vos outils. Vous recevez une recommandation écrite et
-              chiffrée : ce qu'il faut garder, et ce qu'il vaut mieux remplacer.
+            <p className="mt-4 text-sm text-white/70 leading-relaxed">
+              Créneaux disponibles sous 5 jours. Annulation libre jusqu'à 2 h avant.
             </p>
-            <Link
-              href="/contact"
-              className="group mt-7 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm md:text-base border-2 text-white hover:bg-white/5 transition-colors self-start"
-              style={{ borderColor: GOLD }}
-            >
-              Demander un Audit Stack
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
         </div>
+
+        <p data-reveal className="mt-14 text-base text-white/70 leading-relaxed max-w-3xl">
+          Vous voulez plutôt un avis écrit et chiffré sur tous vos outils ?{' '}
+          <Link
+            href="/services#audit-stack"
+            className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-white"
+          >
+            L'Audit Stack
+          </Link>{' '}
+          coûte 990 € et se livre en 10 jours ouvrés.
+        </p>
       </div>
     </section>
   );

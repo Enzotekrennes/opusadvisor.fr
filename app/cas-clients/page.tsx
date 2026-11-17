@@ -98,7 +98,7 @@ export default function CasClientsPage() {
         <CasesSection cases={cases} title="Trois missions, trois problèmes concrets" showVisuals />
 
         {/* Programme pilote BTP */}
-        <section className="py-20 md:py-28" style={{ background: NAVY }}>
+        <section id="programme-pilote" className="py-20 md:py-28 scroll-mt-20" style={{ background: NAVY }}>
           <div className="container mx-auto px-6 max-w-5xl">
             <SectionKicker label="Opus Pilotes · BTP" tone="dark" className="mb-8" />
             <h2 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-5xl text-white max-w-3xl">
