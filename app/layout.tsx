@@ -1,22 +1,32 @@
 import type { Metadata } from 'next';
-import { Inter, Bricolage_Grotesque } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { ClickTracker } from '@/components/analytics/ClickTracker';
 import { RevealProvider } from '@/components/motion/RevealProvider';
 import { UMAMI_WEBSITE_ID } from '@/lib/analytics';
 
-// Polices auto-hébergées au build (next/font) : aucune requête navigateur
-// vers Google au runtime, donc aucune fuite d'IP vers Google (RGPD) + plus rapide.
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+// Fonts are stored in the repository (app/fonts/, see its README): the build no longer
+// downloads them from Google Fonts, and browsers never contact Google (GDPR).
+// Each file is a variable font; one face per weight mirrors the previous next/font/google output.
+// next/font only accepts literal values here, hence the repeated paths.
+const inter = localFont({
+  src: [
+    { path: './fonts/inter-latin.woff2', weight: '300', style: 'normal' },
+    { path: './fonts/inter-latin.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/inter-latin.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/inter-latin.woff2', weight: '600', style: 'normal' },
+  ],
   display: 'swap',
   variable: '--font-inter',
 });
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+const bricolage = localFont({
+  src: [
+    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '800', style: 'normal' },
+  ],
   display: 'swap',
   variable: '--font-bricolage',
 });
