@@ -7,11 +7,13 @@ import {
 } from 'lucide-react';
 import { demoFlows, type DemoIcon, type DemoKey } from '@/lib/demoFlows';
 import { PauseButton } from '@/components/motion/PauseButton';
+import { Window } from '@/components/sections/Window';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-const GOLD_INK = '#8A6A1C';
-const RULE = 'rgba(26,35,50,0.14)';
+const INK = '#13213D';
+const INK_SOFT = '#56627E';
+const NAVY = '#1E3A66';
+const OK = '#1E7B43';
+const RULE = '#E6EAF1';
 
 const ICONS: Record<DemoIcon, LucideIcon> = {
   userPlus: UserPlus, fileText: FileText, send: Send, bell: BellRing,
@@ -107,88 +109,99 @@ export const AutomationDemo: React.FC<AutomationDemoProps> = ({ keys }) => {
   const state = (i: number) => (!animate || step === -1 || i < step ? 'done' : i === step ? 'active' : 'todo');
 
   return (
-    <div ref={box} className="rounded-2xl border bg-white p-5 md:p-6" style={{ borderColor: RULE }}>
-      <p className="sr-only">
-        Exemple de déroulé automatique : chaque étape se déclenche toute seule après la précédente.
-      </p>
-      {flows.length > 1 && (
-        <div className="flex flex-wrap gap-1.5 mb-5" role="group" aria-label="Choisir un secteur">
-          {flows.map((f) => (
-            <button
-              key={f.key}
-              type="button"
-              onClick={() => choose(f.key)}
-              aria-pressed={f.key === key}
-              className="inline-flex items-center px-2.5 py-1.5 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:px-3.5"
-              style={
-                f.key === key
-                  ? { background: NAVY, color: '#FAF7F0', borderColor: NAVY }
-                  : { background: 'transparent', color: '#4b5563', borderColor: RULE }
-              }
-            >
-              {f.tab}
-            </button>
-          ))}
-        </div>
-      )}
-
-      <div className="flex items-center justify-between gap-3 mb-4">
-        <p className="text-sm text-gray-600">{flow.trigger}</p>
-        {/* Toujours rendu pour ne rien décaler au chargement ; masqué tant que l'animation ne tourne pas. */}
-        <PauseButton paused={paused} onToggle={togglePause} className={animate ? 'shrink-0' : 'shrink-0 invisible'} />
-      </div>
-
-      <ol>
-        {flow.steps.map((s, i) => {
-          const Icon = ICONS[s.icon];
-          const st = state(i);
-          return (
-            <li key={`${flow.key}-${s.title}`} className="relative">
-              {i > 0 && (
-                <span
-                  aria-hidden="true"
-                  className="block w-0.5 h-4 ml-[19px] transition-colors duration-500"
-                  style={{ background: st === 'todo' ? RULE : GOLD }}
-                />
-              )}
-              <div
-                className="flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-all duration-500"
-                style={{
-                  borderColor: st === 'active' ? GOLD : RULE,
-                  background: st === 'active' ? '#FAF7F0' : '#FFFFFF',
-                  transform: st === 'active' && !reduce ? 'translateX(4px)' : 'none',
-                }}
-              >
-                <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors duration-500"
-                  style={{ background: st === 'todo' ? '#F3F4F6' : NAVY, color: st === 'todo' ? '#6b7280' : '#FAF7F0' }}
+    <div ref={box} className="font-[family-name:var(--font-inter)]" style={{ color: INK }}>
+      <Window title="Déroulé automatique">
+        <div className="p-5 md:p-6">
+          <p className="sr-only">Exemple de déroulé automatique : chaque étape se déclenche toute seule après la précédente.</p>
+          {flows.length > 1 && (
+            <div className="mb-5 flex flex-wrap gap-1 rounded-[10px] p-1" style={{ background: '#EEF1F6' }} role="group" aria-label="Choisir un secteur">
+              {flows.map((f) => (
+                <button
+                  key={f.key}
+                  type="button"
+                  onClick={() => choose(f.key)}
+                  aria-pressed={f.key === key}
+                  className="flex-1 whitespace-nowrap rounded-[7px] px-3 py-1.5 text-[13px] font-semibold transition-colors [@media(pointer:coarse)]:min-h-11"
+                  style={
+                    f.key === key
+                      ? { background: '#FFFFFF', color: INK, boxShadow: '0 1px 2px rgba(19,33,61,0.12)' }
+                      : { background: 'transparent', color: INK_SOFT }
+                  }
                 >
-                  <Icon size={18} aria-hidden="true" />
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold leading-snug" style={{ color: st === 'todo' ? '#6b7280' : NAVY }}>
-                    {s.title}
-                  </span>
-                  <span className={`block text-xs ${st === 'todo' ? 'text-gray-500' : 'text-gray-600'}`}>{s.detail}</span>
-                </span>
-                <Check
-                  size={18}
-                  aria-hidden="true"
-                  className="ml-auto shrink-0 transition-opacity duration-300"
-                  style={{ color: GOLD_INK, opacity: st === 'done' ? 1 : 0 }}
-                />
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+                  {f.tab}
+                </button>
+              ))}
+            </div>
+          )}
 
-      <p className="mt-5 pt-4 border-t text-xs text-gray-600 flex items-center justify-between gap-3" style={{ borderColor: RULE }}>
-        <span>Exemple de déroulé, sans ressaisie</span>
-        <span className="font-semibold" style={{ color: GOLD_INK }}>
-          Un système qui tourne tout seul
-        </span>
-      </p>
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <p className="text-[14.5px]" style={{ color: INK_SOFT }}>
+              {flow.trigger}
+            </p>
+            {/* Toujours rendu pour ne rien décaler au chargement ; masqué tant que l'animation ne tourne pas. */}
+            <PauseButton paused={paused} onToggle={togglePause} className={animate ? 'shrink-0' : 'shrink-0 invisible'} />
+          </div>
+
+          <ol>
+            {flow.steps.map((s, i) => {
+              const Icon = ICONS[s.icon];
+              const st = state(i);
+              return (
+                <li key={`${flow.key}-${s.title}`} className="relative">
+                  {i > 0 && (
+                    <span
+                      aria-hidden="true"
+                      className="ml-[23px] block h-3.5 w-0.5 transition-colors duration-500"
+                      style={{ background: st === 'todo' ? RULE : NAVY }}
+                    />
+                  )}
+                  <div
+                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-500"
+                    style={{
+                      background: st === 'active' ? '#F2F5FA' : '#FFFFFF',
+                      boxShadow: st === 'active' ? `inset 0 0 0 1px ${NAVY}` : `inset 0 0 0 1px ${RULE}`,
+                      transform: st === 'active' && !reduce ? 'translateX(4px)' : 'none',
+                    }}
+                  >
+                    <span
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[11px] transition-colors duration-500"
+                      style={
+                        st === 'todo'
+                          ? { background: '#EEF1F6', color: '#66708A' }
+                          : { background: 'linear-gradient(180deg, #2C4E85, #1A3360)', color: '#FFFFFF' }
+                      }
+                    >
+                      <Icon size={18} aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[14.5px] font-semibold leading-snug" style={{ color: st === 'todo' ? '#66708A' : INK }}>
+                        {s.title}
+                      </span>
+                      <span className="block text-[13px]" style={{ color: INK_SOFT }}>
+                        {s.detail}
+                      </span>
+                    </span>
+                    <Check
+                      size={18}
+                      strokeWidth={2.6}
+                      aria-hidden="true"
+                      className="ml-auto shrink-0 transition-opacity duration-300"
+                      style={{ color: OK, opacity: st === 'done' ? 1 : 0 }}
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <p className="mt-5 flex items-center justify-between gap-3 border-t pt-4 text-[13px]" style={{ borderColor: RULE, color: INK_SOFT }}>
+            <span>Exemple de déroulé, sans ressaisie</span>
+            <span className="font-semibold" style={{ color: NAVY }}>
+              Un système qui tourne tout seul
+            </span>
+          </p>
+        </div>
+      </Window>
     </div>
   );
 };

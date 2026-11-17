@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SectorsSection } from '@/components/home/SectorsSection';
-import { CasesSection } from '@/components/home/CasesSection';
-import { FinalCTASection } from '@/components/home/FinalCTASection';
-import { cases } from '@/lib/cases';
+import { PageHero } from '@/components/sections/PageHero';
+import { HomeSectors } from '@/components/sections/HomeSectors';
+import { HomeCases } from '@/components/sections/HomeCases';
+import { HomeClose } from '@/components/sections/HomeClose';
 
 const PAGE_URL = 'https://opusadvisor.fr/secteurs/';
 const PAGE_TITLE = 'Nos secteurs : formation, immobilier et BTP';
@@ -33,9 +33,14 @@ export default function SecteursPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Header />
       <main id="contenu" className="flex-grow">
-        <SectorsSection headingLevel="h1" />
-        <CasesSection cases={cases} title="Des missions réelles" intro="Trois missions récentes, présentées sans le nom des clients." />
-        <FinalCTASection />
+        <PageHero
+          titleId="sectors-title"
+          title="Les entreprises avec qui on travaille"
+          lede="Des petites entreprises et des PME, avec du travail sur le terrain et beaucoup d’administratif derrière. Les problèmes se ressemblent d’un secteur à l’autre ; les outils et le vocabulaire changent."
+        />
+        <HomeSectors withHead={false} tone="ground" />
+        <HomeCases title="Des missions réelles" tone="white" />
+        <HomeClose />
       </main>
       <Footer />
     </div>

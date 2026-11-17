@@ -1,0 +1,52 @@
+import React from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { Window } from './Window';
+import styles from './sections.module.css';
+
+/** One card: a small label on top, a title, a sentence, an optional pill, an optional link. */
+export interface WindowCard {
+  key: string;
+  label: string;
+  title: string;
+  text: string;
+  pill?: string;
+  href?: string;
+}
+
+/**
+ * Three cards side by side, each in a window: missions on the home page, typical systems on the BTP
+ * page. A card with `href` is a link as a whole, with an arrow; one without is a plain card.
+ */
+export const WindowCards: React.FC<{ items: WindowCard[] }> = ({ items }) => (
+  <ul className={styles.cases}>
+    {items.map((item, i) => {
+      const body = (
+        <Window>
+          <div className={styles.caseBody}>
+            <p className={styles.caseClient}>{item.label}</p>
+            <h3 className={styles.caseTitle}>{item.title}</h3>
+            <p className={styles.caseSummary}>{item.text}</p>
+            {(item.pill || item.href) && (
+              <div className={styles.caseFoot}>
+                {item.pill ? <span className={styles.pill}>{item.pill}</span> : <span />}
+                {item.href && <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />}
+              </div>
+            )}
+          </div>
+        </Window>
+      );
+      return (
+        <li key={item.key} data-reveal data-reveal-delay={String(i + 1)}>
+          {item.href ? (
+            <Link href={item.href} className={styles.caseLink}>
+              {body}
+            </Link>
+          ) : (
+            <div className={styles.caseStatic}>{body}</div>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+);
