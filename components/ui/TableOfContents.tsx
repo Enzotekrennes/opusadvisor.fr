@@ -36,51 +36,64 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
     return () => clearTimeout(timer);
   }, [content]);
 
+  // The current section is the last heading that has passed a line a quarter down the screen. Worked out on
+  // every scroll rather than when a heading crosses that line, so a jump (a click in this list, the browser
+  // restoring the position, a link to an anchor) lands on the right row, and nothing is lit above the first one.
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '-20% 0px -80% 0px' }
-    );
+    if (headings.length === 0) return;
+    const elements = headings.map((h) => document.getElementById(h.id)).filter((el): el is HTMLElement => el !== null);
+    let frame = 0;
 
-    headings.forEach((heading) => {
-      const element = document.getElementById(heading.id);
-      if (element) observer.observe(element);
-    });
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.25;
+      let current = '';
+      for (const el of elements) {
+        if (el.getBoundingClientRect().top <= line) current = el.id;
+        else break;
+      }
+      setActiveId(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
 
-    return () => observer.disconnect();
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [headings]);
 
   if (headings.length === 0) return null;
 
   return (
-    <nav className="w-full bg-gray-50 border border-gray-200 rounded-lg p-6">
-      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 uppercase tracking-wide border-b border-gray-300 pb-2">
-        Sommaire
-      </h3>
-      <ul className="space-y-2">
+    <nav
+      aria-label="Sommaire"
+      className="w-full rounded-2xl bg-white p-5 font-[family-name:var(--font-inter)] shadow-[0_0_0_1px_rgba(19,33,61,0.07),0_10px_24px_rgba(19,33,61,0.05)]"
+    >
+      <p className="mb-3 px-2 text-[13px] font-semibold text-[#56627E]">Sommaire</p>
+      <ul className="space-y-0.5">
         {headings.map((heading) => (
           <li key={heading.id}>
             <a
               href={`#${heading.id}`}
-              className={`block text-sm md:text-base lg:text-lg transition-colors duration-200 py-1 ${
-                activeId === heading.id ? 'font-semibold border-l-2 pl-3' : 'text-gray-600 pl-3'
+              aria-current={activeId === heading.id ? 'location' : undefined}
+              className={`block rounded-lg px-2 py-1.5 text-[14.5px] leading-snug transition-colors duration-200 ${
+                activeId === heading.id ? 'bg-[#EEF2F8] font-semibold text-[#1E3A66]' : 'text-[#56627E] hover:text-[#13213D]'
               }`}
-              style={
-                activeId === heading.id ? { color: '#8A6A1C', borderColor: '#C9A84C' } : undefined
-              }
               onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById(heading.id);
                 if (element) {
                   const elementPosition = element.getBoundingClientRect().top;
                   const offsetPosition = elementPosition + window.pageYOffset - 100;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  window.scrollTo({ top: offsetPosition, behavior: reduce ? 'auto' : 'smooth' });
+                  history.replaceState(null, '', `#${heading.id}`);
                 }
               }}
             >

@@ -21,17 +21,6 @@ const inter = localFont({
   variable: '--font-inter',
 });
 
-const bricolage = localFont({
-  src: [
-    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '400', style: 'normal' },
-    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '600', style: 'normal' },
-    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '700', style: 'normal' },
-    { path: './fonts/bricolage-grotesque-latin.woff2', weight: '800', style: 'normal' },
-  ],
-  display: 'swap',
-  variable: '--font-bricolage',
-});
-
 const SITE_URL = 'https://opusadvisor.fr';
 const SITE_NAME = 'Opus Advisor';
 const DEFAULT_TITLE = 'Opus Advisor : automatisation de la gestion des PME';
@@ -169,7 +158,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${bricolage.variable}`}>
+    <html lang="fr" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"

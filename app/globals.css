@@ -29,14 +29,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use Bricolage Grotesque */
+/* Headings use Inter, set tight, like the rest of the site since the redesign. */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-bricolage), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  letter-spacing: -0.015em;
   /* Even line lengths instead of a long line followed by one stray word. */
   text-wrap: balance;
 }
@@ -54,7 +55,7 @@ blockquote {
 article h1 {
   font-size: 2.5rem !important;
   font-weight: 700 !important;
-  color: #1f2937 !important;
+  color: #13213d !important;
   margin-top: 2rem !important;
   margin-bottom: 1.5rem !important;
   line-height: 1.2 !important;
@@ -63,7 +64,8 @@ article h1 {
 article h2 {
   font-size: 2rem !important;
   font-weight: 700 !important;
-  color: #1f2937 !important;
+  color: #13213d !important;
+  letter-spacing: -0.02em;
   margin-top: 2rem !important;
   margin-bottom: 1rem !important;
   line-height: 1.3 !important;
@@ -72,7 +74,7 @@ article h2 {
 article h3 {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
-  color: #1f2937 !important;
+  color: #13213d !important;
   margin-top: 1.5rem !important;
   margin-bottom: 0.75rem !important;
   line-height: 1.4 !important;
@@ -80,7 +82,7 @@ article h3 {
 
 article p {
   font-size: 1.125rem !important;
-  color: #374151 !important;
+  color: #3c4866 !important;
   line-height: 1.75 !important;
   margin-bottom: 1rem !important;
 }
@@ -101,18 +103,19 @@ article ol {
 
 article li {
   font-size: 1.125rem !important;
-  color: #374151 !important;
+  color: #3c4866 !important;
   line-height: 1.75 !important;
   margin-bottom: 0.5rem !important;
 }
 
 article strong {
   font-weight: 600 !important;
-  color: #111827 !important;
+  color: #13213d !important;
 }
 
 article a:not([data-plain]) {
-  color: #8A6A1C !important;
+  color: #1e3a66 !important;
+  font-weight: 600;
   text-decoration: underline !important;
   text-underline-offset: 3px;
 }
@@ -123,9 +126,10 @@ article a:not([data-plain]):hover {
 
 article blockquote {
   font-style: normal !important;
-  border-left: 3px solid #C9A84C !important;
-  background: #FAF7F0;
-  padding: 1rem 1.25rem !important;
+  border: 0 !important;
+  border-radius: 14px;
+  background: #f3f5f9;
+  padding: 1.1rem 1.35rem !important;
   margin: 1.5rem 0 !important;
 }
 
@@ -138,9 +142,61 @@ article blockquote p {
   margin-bottom: 0.75rem !important;
 }
 
+/* The panel's own padding sets the space at its edges, not the first and last paragraphs' margins. */
+article blockquote > :first-child {
+  margin-top: 0 !important;
+}
+
+article blockquote > :last-child {
+  margin-bottom: 0 !important;
+}
+
 article hr {
   margin: 2rem 0 !important;
-  border-color: #d1d5db !important;
+  border-color: #e6eaf1 !important;
+}
+
+/* Preformatted blocks (an invoice laid out line by line, for instance) read as a sheet of paper.
+   The inline-code chip must not reach the code inside them, or every line gets its own pale band. */
+article pre {
+  background: #f7f9fc !important;
+  color: #13213d !important;
+  box-shadow: inset 0 0 0 1px #e6eaf1;
+  border-radius: 14px !important;
+  padding: 1.1rem 1.35rem !important;
+  margin: 1.5rem 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  /* Long lines wrap on a phone instead of scrolling sideways; the short aligned totals keep their columns. */
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 639px) {
+  article pre {
+    font-size: 0.85rem !important;
+    padding: 1rem 1.1rem !important;
+  }
+}
+
+article pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  font-size: inherit !important;
+}
+
+article :not(pre) > code {
+  background: #eef2f8;
+  color: #13213d;
+  font-weight: 500;
+}
+
+article :not(pre) > code::before,
+article :not(pre) > code::after {
+  content: none !important;
 }
 
 /* ------------------------------------------------------------------------------------------
@@ -195,10 +251,10 @@ article hr {
   .article-table tr,
   .article-table td { display: block; width: 100%; }
   .article-table table { margin-top: 1.5rem; margin-bottom: 1.5rem; font-size: 1rem; }
-  .article-table tr { padding: 0.9rem 0; border-bottom: 1px solid rgba(26, 35, 50, 0.16); }
-  .article-table tr:first-child { border-top: 1px solid rgba(26, 35, 50, 0.16); }
+  .article-table tr { padding: 0.9rem 0; border-bottom: 1px solid #e6eaf1; }
+  .article-table tr:first-child { border-top: 1px solid #e6eaf1; }
   .article-table td { padding: 0; }
-  .article-table td:first-child { font-weight: 600; color: #1A2332; margin-bottom: 0.3rem; }
+  .article-table td:first-child { font-weight: 600; color: #13213d; margin-bottom: 0.3rem; }
 }
 
 /* ------------------------------------------------------------------------------------------

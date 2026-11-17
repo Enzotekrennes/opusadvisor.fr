@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileCheck2 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SectionKicker } from '@/components/ui/SectionKicker';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import { LinkCards } from '@/components/sections/LinkCards';
+import { HomeClose } from '@/components/sections/HomeClose';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 import { tools } from '@/lib/tools';
-
-const NAVY = '#1A2332';
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/';
 const PAGE_TITLE = 'Outils gratuits BTP : calculateurs et indice BT01';
@@ -50,74 +51,45 @@ export default function ToolsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Header />
       <main id="contenu" className="flex-grow">
-        <section className="pt-32 md:pt-40 pb-14 md:pb-16" style={{ background: PAPER }}>
-          <div className="container mx-auto px-6 max-w-6xl">
-            <SectionKicker label="Outils gratuits" className="mb-6" />
-            <h1 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-6xl max-w-4xl" style={{ color: NAVY }}>
-              Les calculs qu'on refait sans arrêt au bureau
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">
-              Marge d'un chantier, coût horaire d'un compagnon, révision de prix, pénalités d'une facture en retard, retenue de garantie, situation de travaux. Chaque
-              outil donne le résultat et explique le calcul. Pas d'inscription, rien n'est enregistré.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          titleId="tools-title"
+          title="Les calculs qu'on refait sans arrêt au bureau"
+          lede="Marge d'un chantier, coût horaire d'un compagnon, révision de prix, pénalités d'une facture en retard, retenue de garantie, situation de travaux. Chaque outil donne le résultat et explique le calcul. Pas d'inscription, rien n'est enregistré."
+        />
 
-        <section className="py-14 md:py-20 bg-white">
-          <div className="container mx-auto px-6 max-w-6xl">
-            <Link
-              href="/diagnostic-facture-electronique/"
-              className="group mb-12 block rounded-2xl px-6 py-7 md:px-8 md:py-8"
-              style={{ background: PAPER, border: `1px solid ${RULE}` }}
-            >
-              <span className="block text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: GOLD_INK }}>
-                Nouveau · facture électronique
-              </span>
-              <span className="mt-3 block font-heading font-bold text-2xl md:text-3xl tracking-tight group-hover:underline underline-offset-4" style={{ color: NAVY }}>
-                Facture électronique : où en est votre entreprise ?
-              </span>
-              <span className="mt-2 block text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl">
-                7 questions, 2 minutes : réception, émission, e-reporting, les dates qui vous concernent et ce qu'il reste à
-                faire. Le verdict s'affiche sans laisser votre email.
-              </span>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold" style={{ color: GOLD_INK }}>
-                Faire le diagnostic
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
-            <ol>
-              {tools.map((tool, i) => (
-                <li key={tool.slug} className="border-t" style={{ borderColor: RULE }}>
-                  <Link
-                    href={`/outils/${tool.slug}/`}
-                    className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_1fr_auto] gap-x-4 md:gap-x-8 gap-y-2 py-8 md:py-10 items-baseline"
-                  >
-                    <span className="text-sm font-semibold tabular-nums" style={{ color: GOLD_INK }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span>
-                      <span className="block font-heading font-bold text-2xl md:text-3xl tracking-tight group-hover:underline underline-offset-4" style={{ color: NAVY }}>
-                        {tool.title}
-                      </span>
-                      <span className="block mt-2 text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl">
-                        {tool.description}
-                      </span>
-                    </span>
-                    <span className="col-start-2 md:col-start-auto inline-flex items-center gap-2 text-sm font-semibold whitespace-nowrap" style={{ color: GOLD_INK }}>
-                      Ouvrir
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-            <div className="border-t" style={{ borderColor: RULE }} />
-            <p className="mt-10 text-base text-gray-700 leading-relaxed max-w-2xl">
-              Ces outils donnent un ordre de grandeur fiable pour un devis ou une relance. Pour un litige, faites valider le
-              montant par votre comptable ou votre avocat.
-            </p>
+        <Section tone="ground">
+          <div data-reveal>
+            <Window title="Nouveau · facture électronique">
+              <Link href="/diagnostic-facture-electronique/" className={`${inner.announce} group text-inherit no-underline`}>
+                <span className={inner.announceIcon} aria-hidden="true">
+                  <FileCheck2 size={26} strokeWidth={1.8} />
+                </span>
+                <span>
+                  <span className={`${sections.subtitle} block group-hover:underline group-hover:underline-offset-4`}>
+                    Facture électronique : où en est votre entreprise ?
+                  </span>
+                  <span className={`${inner.announceText} block`}>
+                    7 questions, 2 minutes : réception, émission, e-reporting, les dates qui vous concernent et ce qu'il reste à
+                    faire. Le verdict s'affiche sans laisser votre email.
+                  </span>
+                  <span className={`${sections.more} mt-4`}>
+                    Faire le diagnostic
+                    <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                  </span>
+                </span>
+              </Link>
+            </Window>
           </div>
-        </section>
+
+          <LinkCards three items={tools.map((tool) => ({ href: `/outils/${tool.slug}/`, title: tool.title, text: tool.description }))} />
+
+          <p className={sections.note}>
+            Ces outils donnent un ordre de grandeur fiable pour un devis ou une relance. Pour un litige, faites valider le montant
+            par votre comptable ou votre avocat.
+          </p>
+        </Section>
+
+        <HomeClose />
       </main>
       <Footer />
     </div>

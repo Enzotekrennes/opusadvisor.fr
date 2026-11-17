@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 
-const NAVY = '#1A2332';
-const GOLD_INK = '#8A6A1C';
-const RULE = 'rgba(26,35,50,0.16)';
+const NAVY = '#13213D';
+const GOLD_INK = '#1E3A66';
 
 const eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
 const pct = (v: number) => `${(Math.round(v * 10) / 10).toLocaleString('fr-FR')} %`;
@@ -90,8 +89,8 @@ export const MarginCalculator: React.FC = () => {
               <span className="block text-sm font-semibold" style={{ color: NAVY }}>
                 {f.label}
               </span>
-              {f.hint && <span className="block text-xs text-gray-500 mt-0.5">{f.hint}</span>}
-              <span className="mt-2 flex items-center rounded-lg border bg-white focus-within:ring-2 focus-within:ring-[#C9A84C]/60" style={{ borderColor: RULE }}>
+              {f.hint && <span className="block text-[13px] text-[#56627E] mt-0.5">{f.hint}</span>}
+              <span className="mt-2 flex items-center rounded-[10px] border bg-white transition-shadow focus-within:border-[#1E3A66] focus-within:ring-[3px] focus-within:ring-[#1E3A66]/15" style={{ borderColor: '#DDE3EC' }}>
                 <input
                   type="number"
                   inputMode="decimal"
@@ -118,24 +117,24 @@ export const MarginCalculator: React.FC = () => {
       </form>
 
       <div className="lg:col-span-5">
-        <div className="lg:sticky lg:top-28 border-t-2 pt-6" style={{ borderColor: NAVY }} aria-live="polite">
+        <div className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
           <p className="text-sm font-semibold" style={{ color: NAVY }}>
             Résultat
           </p>
-          <dl className="mt-2">
+          <dl className="mt-1">
             {results.map((r) => (
-              <div key={r.label} className="py-4 border-b" style={{ borderColor: RULE }}>
-                <dt className="text-sm text-gray-600">{r.label}</dt>
-                <dd className="mt-1 font-heading font-bold text-2xl md:text-3xl" style={{ color: NAVY }}>
+              <div key={r.label} className="py-4 border-b last:border-b-0" style={{ borderColor: '#E6EAF1' }}>
+                <dt className="text-sm text-[#56627E]">{r.label}</dt>
+                <dd className="mt-1 text-2xl font-bold tracking-tight tabular-nums md:text-3xl" style={{ color: NAVY }}>
                   {r.value}
                 </dd>
-                <dd className="text-sm text-gray-500">{r.note}</dd>
+                <dd className="text-sm text-[#56627E]">{r.note}</dd>
               </div>
             ))}
           </dl>
-          <div className="mt-6 p-5 rounded-lg" style={{ background: '#FAF7F0' }}>
-            <p className="text-sm text-gray-600">Prix de vente pour {pct(v.targetRate)} de bénéfice</p>
-            <p className="mt-1 font-heading font-bold text-2xl" style={{ color: NAVY }}>
+          <div className="mt-4 p-5 rounded-xl bg-white shadow-[inset_0_0_0_1px_#E6EAF1]">
+            <p className="text-sm text-[#56627E]">Prix de vente pour {pct(v.targetRate)} de bénéfice</p>
+            <p className="mt-1 text-2xl font-bold tracking-tight tabular-nums" style={{ color: NAVY }}>
               {advisedPrice > 0 ? `${eur.format(advisedPrice)} HT` : '—'}
             </p>
             {grossMargin < 0 && (

@@ -5,14 +5,16 @@ import Link from 'next/link';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown } from 'lucide-react';
 import { TableOfContents } from '@/components/ui/TableOfContents';
+import { PageHero } from '@/components/sections/PageHero';
+import sections from '@/components/sections/sections.module.css';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
+const INK = '#13213D';
+const INK_SOFT = '#56627E';
+const NAVY = '#1E3A66';
+const GROUND = '#F3F5F9';
+const RULE = '#E6EAF1';
 
 const DEFAULT_CTA = {
   text: 'Vous voulez savoir où part le temps dans votre entreprise ? On regarde vos outils ensemble pendant 30 minutes, en visio. C’est gratuit.',
@@ -99,133 +101,125 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
   const cta = ctaMid ?? DEFAULT_CTA;
 
   return (
-    <div className="relative pt-32 pb-12" ref={articleSectionRef}>
-      <div
-        ref={tocRef}
-        className={`hidden xl:block xl:w-64 ${
-          tocPosition === 'fixed'
-            ? 'fixed left-8 top-28'
-            : tocPosition === 'absolute-bottom'
-            ? 'absolute left-8 bottom-4'
-            : 'absolute left-8 top-12'
-        }`}
-        style={{ transition: 'none' }}
-      >
-        <TableOfContents content={content} />
-      </div>
-
-      {/* À partir de xl, le sommaire fixe occupe 288 px à gauche : on décale le texte tant que l'écran ne permet pas de le centrer. */}
-      <div className="container mx-auto px-6 max-w-4xl xl:mr-auto xl:ml-[max(19rem,calc((100%_-_56rem)/2))]">
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">{title}</h1>
-          <p className="text-lg text-gray-600">{description}</p>
-
-          <div className="mt-6 flex items-center gap-3">
-            <img src="/images/enzo.jpg" alt="" className="w-11 h-11 rounded-full object-cover shrink-0" />
-            <div className="text-sm leading-snug">
-              <Link href="/equipe/" className="font-semibold hover:underline underline-offset-4" style={{ color: NAVY }}>
-                Enzo Monnier
-              </Link>
-              <span className="text-gray-600"> · {readingMinutes} min de lecture</span>
-              <div className="text-gray-600">
-                {publishedLabel && <>Publié le {publishedLabel}</>}
-                {updatedLabel && <> · Mis à jour le {updatedLabel}</>}
-              </div>
+    <>
+      <PageHero titleId="article-title" back={{ href: '/articles/', label: 'Tous les articles' }} title={title} lede={description}>
+        <div className="mt-7 flex items-center gap-3">
+          <img src="/images/enzo.jpg" alt="" width={44} height={44} className="h-11 w-11 shrink-0 rounded-full object-cover shadow-[0_0_0_2px_rgba(255,255,255,0.25)]" />
+          <div className="text-[14.5px] leading-snug text-white/80">
+            <Link href="/equipe/" className="font-semibold text-white underline-offset-4 hover:underline">
+              Enzo Monnier
+            </Link>
+            <span> · {readingMinutes} min de lecture</span>
+            <div>
+              {publishedLabel && <>Publié le {publishedLabel}</>}
+              {updatedLabel && <> · Mis à jour le {updatedLabel}</>}
             </div>
           </div>
-        </header>
+        </div>
+      </PageHero>
 
-        {essentiel && essentiel.length > 0 && (
-          <aside aria-labelledby="essentiel-titre" className="mb-10 px-6 py-6 border-l-[3px]" style={{ background: PAPER, borderColor: GOLD }}>
-            <div id="essentiel-titre" className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: GOLD_INK }}>
-              L'essentiel en 30 secondes
-            </div>
-            <ul className="mt-4 space-y-3">
-              {essentiel.map((item) => (
-                <li key={item} className="flex gap-3 text-base md:text-lg text-gray-800 leading-relaxed">
-                  <span aria-hidden="true" className="mt-[0.7em] w-1.5 h-1.5 rounded-full shrink-0" style={{ background: GOLD_INK }} />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
-
-        <article
-          className="prose prose-lg max-w-none
-            prose-headings:text-gray-800 prose-headings:font-bold
-            prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8
-            prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
-            prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-p:text-lg
-            prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2
-            prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2
-            prose-li:text-gray-700 prose-li:text-lg prose-li:leading-relaxed
-            prose-strong:text-gray-900 prose-strong:font-semibold
-            prose-a:no-underline hover:prose-a:underline
-            prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-            prose-hr:my-8 prose-hr:border-gray-300
-          "
+      <div className="relative bg-white pt-14 pb-16 font-[family-name:var(--font-inter)] md:pt-16" ref={articleSectionRef}>
+        <div
+          ref={tocRef}
+          className={`hidden xl:block xl:w-64 ${
+            tocPosition === 'fixed' ? 'fixed left-8 top-24' : tocPosition === 'absolute-bottom' ? 'absolute left-8 bottom-4' : 'absolute left-8 top-14'
+          }`}
+          style={{ transition: 'none' }}
         >
-          <Markdown>{before}</Markdown>
-          {after && (
-            <aside className="not-prose my-10 py-6 border-y flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8" style={{ borderColor: RULE }}>
-              <div className="flex-1 text-base md:text-lg text-gray-800 leading-relaxed">{cta.text}</div>
-              <Link
-                href={cta.href}
-                data-plain
-                className="group self-start sm:self-auto inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm whitespace-nowrap text-white"
-                style={{ background: NAVY }}
-              >
-                {cta.label}
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+          <TableOfContents content={content} />
+        </div>
+
+        {/* From xl the fixed table of contents takes 288 px on the left: the text moves aside while the screen cannot centre it. */}
+        <div className="container mx-auto px-6 max-w-4xl xl:mr-auto xl:ml-[max(19rem,calc((100%_-_56rem)/2))]">
+          {essentiel && essentiel.length > 0 && (
+            <aside aria-labelledby="essentiel-titre" className="mb-10 rounded-2xl px-6 py-6" style={{ background: GROUND }}>
+              <p id="essentiel-titre" className="text-[15px] font-semibold" style={{ color: INK }}>
+                L'essentiel en 30 secondes
+              </p>
+              <ul className="mt-4 space-y-3">
+                {essentiel.map((item) => (
+                  <li key={item} className="flex gap-3 text-base leading-relaxed md:text-lg" style={{ color: '#3C4866' }}>
+                    <Check size={18} strokeWidth={2.6} aria-hidden="true" className="mt-1 shrink-0" style={{ color: '#1E7B43' }} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </aside>
           )}
-          {after && <Markdown>{after}</Markdown>}
-        </article>
 
-        {faq && faq.length > 0 && (
-          <section aria-labelledby="faq-titre" className="mt-16">
-            <h2 id="faq-titre" className="text-3xl font-bold text-gray-800 mb-6">
-              Questions fréquentes
-            </h2>
-            {faq.map((item) => (
-              <details key={item.q} className="group border-t" style={{ borderColor: RULE }}>
-                <summary className="flex items-start justify-between gap-6 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                  <span className="text-lg font-semibold leading-snug" style={{ color: NAVY }}>
-                    {item.q}
-                  </span>
-                  <span aria-hidden="true" className="text-2xl leading-none transition-transform group-open:rotate-45" style={{ color: GOLD_INK }}>
-                    +
-                  </span>
-                </summary>
-                <div className="pb-6 -mt-1 text-lg text-gray-700 leading-relaxed">{item.a}</div>
-              </details>
-            ))}
-            <div className="border-t" style={{ borderColor: RULE }} />
+          <article
+            className="prose prose-lg max-w-none
+              prose-headings:font-bold
+              prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8
+              prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
+              prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
+              prose-p:leading-relaxed prose-p:mb-4 prose-p:text-lg
+              prose-ul:my-6 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-2
+              prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2
+              prose-li:text-lg prose-li:leading-relaxed
+              prose-strong:font-semibold
+              prose-a:no-underline hover:prose-a:underline
+              prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-medium
+              prose-hr:my-8
+            "
+          >
+            <Markdown>{before}</Markdown>
+            {after && (
+              <aside className="not-prose my-10 flex flex-col gap-5 rounded-2xl px-6 py-6 sm:flex-row sm:items-center sm:gap-8" style={{ background: GROUND }}>
+                <div className="flex-1 text-base leading-relaxed md:text-lg" style={{ color: INK }}>
+                  {cta.text}
+                </div>
+                <Link href={cta.href} data-plain className={`${sections.button} self-start sm:self-auto`}>
+                  {cta.label}
+                  <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+                </Link>
+              </aside>
+            )}
+            {after && <Markdown>{after}</Markdown>}
+          </article>
+
+          {faq && faq.length > 0 && (
+            <section aria-labelledby="faq-titre" className="mt-16">
+              <h2 id="faq-titre" className="mb-6 text-3xl font-bold" style={{ color: INK }}>
+                Questions fréquentes
+              </h2>
+              <div className={sections.faq}>
+                {faq.map((item) => (
+                  <details key={item.q} className={sections.question}>
+                    <summary>
+                      <span>{item.q}</span>
+                      <ChevronDown size={20} strokeWidth={2} aria-hidden="true" />
+                    </summary>
+                    <div className={sections.answer}>
+                      <p>{item.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section aria-label="L'auteur" className="mt-16 flex gap-5 rounded-2xl px-6 py-6" style={{ background: GROUND }}>
+            <img src="/images/enzo.jpg" alt="Enzo Monnier" width={64} height={64} className="h-16 w-16 shrink-0 rounded-full object-cover" />
+            <div>
+              <p className="text-[13.5px] font-semibold" style={{ color: INK_SOFT }}>
+                Écrit par
+              </p>
+              <p className="mt-1 text-lg font-semibold" style={{ color: INK }}>
+                Enzo Monnier, fondateur d'Opus Advisor
+              </p>
+              <p className="mt-2 max-w-2xl text-base leading-relaxed" style={{ color: '#3C4866' }}>
+                Trois ans de développement de logiciels métier avant de passer au conseil. Depuis Vannes, il automatise la
+                gestion des petites entreprises : organismes de formation, conciergeries, entreprises du bâtiment.
+              </p>
+              <Link href="/equipe/" className={`${sections.more} mt-3`} style={{ fontSize: 14.5 }}>
+                L'équipe
+                <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
+              </Link>
+            </div>
           </section>
-        )}
-
-        <section aria-label="L'auteur" className="mt-16 pt-8 border-t flex gap-5" style={{ borderColor: RULE }}>
-          <img src="/images/enzo.jpg" alt="Enzo Monnier" className="w-16 h-16 rounded-full object-cover shrink-0" />
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em]" style={{ color: GOLD_INK }}>
-              Écrit par
-            </div>
-            <div className="mt-1 text-lg font-semibold" style={{ color: NAVY }}>
-              Enzo Monnier, fondateur d'Opus Advisor
-            </div>
-            <div className="mt-2 text-base text-gray-700 leading-relaxed max-w-2xl">
-              Trois ans de développement de logiciels métier avant de passer au conseil. Depuis Vannes, il automatise la
-              gestion des petites entreprises : organismes de formation, conciergeries, entreprises du bâtiment.
-            </div>
-            <Link href="/equipe/" className="mt-3 inline-block text-sm font-semibold hover:underline underline-offset-4" style={{ color: GOLD_INK }}>
-              L'équipe →
-            </Link>
-          </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

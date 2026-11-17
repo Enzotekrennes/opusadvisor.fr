@@ -7,12 +7,15 @@ import styles from './sections.module.css';
 /** Planes of the town drawn for the hero, reused still: the same town at the end of the day. */
 const TOWN_PLANES = [5, 4, 3, 2, 1];
 
+/** Beyond this many characters a heading set at full size runs to five lines or more beside the invitation. */
+const LONG_TITLE = 70;
+
 /**
  * Page close, back outside at dusk over the same town as the morning hero: one way in, the free
  * pre-audit, shown as an invitation with what the visitor leaves with, and the paid Audit Stack as a
  * quiet link. Still: nothing moves here. Its id `contact` also tells the mobile booking bar to step aside.
  *
- * @param title heading of the close; the home page's by default.
+ * @param title heading of the close; the home page's by default. A long one is set a size smaller.
  * @param lede sentence under the heading; the home page's by default.
  * @param auditStack show the Audit Stack line (off where the page already presents it).
  */
@@ -30,7 +33,7 @@ export const HomeClose: React.FC<{ title?: string; lede?: React.ReactNode; audit
 
     <div className={`${styles.inner} ${styles.closeGrid}`}>
       <div data-reveal>
-        <h2 id="cta-title" className={styles.closeTitle}>
+        <h2 id="cta-title" className={title.length > LONG_TITLE ? `${styles.closeTitle} ${styles.closeTitleLong}` : styles.closeTitle}>
           {title}
         </h2>
         <p className={styles.closeLede}>{lede}</p>

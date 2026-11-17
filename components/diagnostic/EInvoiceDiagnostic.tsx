@@ -7,16 +7,18 @@ import { computeDiagnostic, type Diagnostic, type Verdict } from '@/lib/einvoice
 import { DATES, DISCLAIMER, OFFICIAL_LINKS, dateFr, typo } from '@/lib/einvoice/rules';
 import { BOOKING_URL, LEAD_API_URL, OFFER_PRICE, PRIVACY_URL } from '@/lib/einvoice/config';
 import { track } from '@/lib/analytics';
+import { Window } from '@/components/sections/Window';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
+// Palette of the site since the redesign: ink, navy accent, cool grey ground.
+const NAVY = '#13213D';
+const GOLD = '#1E3A66';
+const GOLD_INK = '#1E3A66';
+const PAPER = '#F3F5F9';
+const RULE = '#DDE3EC';
 
 const VERDICT_STYLE: Record<Verdict, { bg: string; ink: string; border: string }> = {
   EN_RETARD: { bg: '#FBEAEA', ink: '#8B1D1D', border: '#E5B3B3' },
-  A_PREPARER: { bg: '#FAF3DF', ink: GOLD_INK, border: GOLD },
+  A_PREPARER: { bg: '#FFF2D4', ink: '#8A5A00', border: '#F1D9A0' },
   EN_REGLE: { bg: '#E7F2EA', ink: '#1E5E3A', border: '#A7CDB3' },
 };
 
@@ -53,11 +55,11 @@ const ERRORS: Record<SendError, string> = {
 };
 
 const primaryBtn =
-  'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-base bg-[#1A2332] text-[#FAF7F0] hover:bg-[#26334a] transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A2332]';
+  'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-base bg-[#1E3A66] text-white hover:bg-[#234575] transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]';
 const ghostBtn =
-  'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-base text-[#1A2332] hover:bg-[#1A2332]/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A2332]';
+  'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-semibold text-base text-[#1E3A66] hover:bg-[#1E3A66]/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]';
 const fieldCls =
-  'mt-1.5 block w-full rounded-lg border bg-white px-3.5 py-3 text-base text-[#1A2332] focus:outline-none focus:ring-2 focus:ring-[#1A2332] focus:border-[#1A2332]';
+  'mt-1.5 block w-full rounded-[10px] border bg-white px-3.5 py-3 text-base text-[#13213D] focus:outline-none focus:ring-[3px] focus:ring-[#1E3A66]/15 focus:border-[#1E3A66]';
 
 export const EInvoiceDiagnostic: React.FC = () => {
   const [stage, setStage] = useState<Stage>('intro');
@@ -128,45 +130,40 @@ export const EInvoiceDiagnostic: React.FC = () => {
     });
 
   return (
-    <section className="pt-32 md:pt-40 pb-20 md:pb-28" style={{ background: PAPER }}>
-      <div className="container mx-auto px-5 md:px-6 max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: GOLD_INK }}>
-          Diagnostic gratuit
-        </p>
-        <h1 className="mt-4 font-heading font-bold leading-[1.05] tracking-tight text-4xl md:text-6xl" style={{ color: NAVY }}>
-          Facture électronique&nbsp;: où en êtes-vous&nbsp;?
-        </h1>
-
+    <section className="px-5 py-16 font-[family-name:var(--font-inter)] md:px-10 md:py-20" style={{ background: PAPER }} aria-label="Diagnostic">
+      <div className="mx-auto max-w-3xl">
         {stage === 'intro' && (
-          <div className="mt-6">
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              7 questions, 2 minutes, un verdict clair et les dates qui vous concernent.
-            </p>
-            <button type="button" onClick={start} className={`${primaryBtn} mt-8`}>
-              Commencer
-              <ArrowRight size={18} aria-hidden="true" />
-            </button>
-            <p className="mt-4 text-sm text-gray-600">Sans inscription. Votre verdict s'affiche avant toute demande d'email.</p>
-          </div>
+          <Window title="Diagnostic facture électronique">
+            <div className="p-5 md:p-8">
+              <p className="text-lg md:text-xl text-[#3C4866] leading-relaxed">
+                7 questions, 2 minutes, un verdict clair et les dates qui vous concernent.
+              </p>
+              <button type="button" onClick={start} className={`${primaryBtn} mt-7`}>
+                Commencer
+                <ArrowRight size={18} aria-hidden="true" />
+              </button>
+              <p className="mt-4 text-sm text-[#56627E]">Sans inscription. Votre verdict s'affiche avant toute demande d'email.</p>
+            </div>
+          </Window>
         )}
 
         {stage === 'quiz' && (
+          <Window title="Diagnostic facture électronique">
           <form
-            className="mt-8 rounded-2xl border bg-white p-5 md:p-8"
-            style={{ borderColor: RULE }}
+            className="p-5 md:p-8"
             onSubmit={(e) => {
               e.preventDefault();
               next();
             }}
           >
-            <div className="flex items-center justify-between gap-4 text-sm text-gray-600">
+            <div className="flex items-center justify-between gap-4 text-sm text-[#56627E]">
               <span>
                 Question {index + 1} sur {total}
               </span>
             </div>
             <div
               className="mt-2 h-1.5 w-full rounded-full overflow-hidden"
-              style={{ background: '#ECE7DA' }}
+              style={{ background: '#E6EAF1' }}
               role="progressbar"
               aria-label="Progression du diagnostic"
               aria-valuemin={1}
@@ -186,7 +183,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
                 >
                   {typo(question.label)}
                 </span>
-                {question.hint && <span className="mt-1 block text-sm text-gray-600">{question.hint}</span>}
+                {question.hint && <span className="mt-1 block text-sm text-[#56627E]">{question.hint}</span>}
               </legend>
 
               <div className="mt-5 grid gap-3">
@@ -212,7 +209,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
                         className="flex items-center gap-3 rounded-xl border px-4 py-3.5 text-base leading-snug transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#1A2332] peer-focus-visible:ring-offset-2 hover:border-[#1A2332]"
                         style={{
                           borderColor: checked ? NAVY : RULE,
-                          background: checked ? '#F6F1E3' : '#FFFFFF',
+                          background: checked ? '#EEF2F8' : '#FFFFFF',
                           color: NAVY,
                         }}
                       >
@@ -221,7 +218,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
                           className={`flex h-5 w-5 shrink-0 items-center justify-center border ${question.multiple ? 'rounded' : 'rounded-full'}`}
                           style={{ borderColor: checked ? NAVY : '#9CA3AF', background: checked ? NAVY : '#FFFFFF' }}
                         >
-                          {checked && <Check size={13} strokeWidth={3} color="#FAF7F0" />}
+                          {checked && <Check size={13} strokeWidth={3} color="#FFFFFF" />}
                         </span>
                         {typo(o.label)}
                       </span>
@@ -233,7 +230,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
               {question.id === 'q5_outil' && answers.q5_outil === 'logiciel' && (
                 <div className="mt-4">
                   <label htmlFor="q5-nom" className="text-sm font-semibold" style={{ color: NAVY }}>
-                    Lequel ? <span className="font-normal text-gray-600">(facultatif)</span>
+                    Lequel ? <span className="font-normal text-[#56627E]">(facultatif)</span>
                   </label>
                   <input
                     id="q5-nom"
@@ -260,6 +257,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
               </button>
             </div>
           </form>
+          </Window>
         )}
 
         {stage === 'result' && result && (
@@ -341,7 +339,7 @@ const Result: React.FC<{
         >
           {typo(d.titre)}
         </h2>
-        <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed">{typo(d.resume)}</p>
+        <p className="mt-4 text-base md:text-lg text-[#3C4866] leading-relaxed">{typo(d.resume)}</p>
 
         <dl className="mt-8">
           {rows.map((r) => (
@@ -353,11 +351,11 @@ const Result: React.FC<{
                 <span className="block text-sm font-semibold" style={{ color: GOLD_INK }}>
                   {r.status}
                 </span>
-                {r.date && <span className="block text-sm text-gray-600">{r.date}</span>}
+                {r.date && <span className="block text-sm text-[#56627E]">{r.date}</span>}
               </dt>
-              <dd className="text-base text-gray-700 leading-relaxed">
+              <dd className="text-base text-[#3C4866] leading-relaxed">
                 {typo(r.text)}
-                {r.extra && <span className="mt-2 block text-gray-700">{typo(r.extra)}</span>}
+                {r.extra && <span className="mt-2 block text-[#3C4866]">{typo(r.extra)}</span>}
               </dd>
             </div>
           ))}
@@ -366,25 +364,25 @@ const Result: React.FC<{
               <dt className="font-semibold" style={{ color: NAVY }}>
                 Amende indicative
               </dt>
-              <dd className="text-base text-gray-700 leading-relaxed">{typo(d.amende.texte)}</dd>
+              <dd className="text-base text-[#3C4866] leading-relaxed">{typo(d.amende.texte)}</dd>
             </div>
           )}
           <div className="grid gap-x-6 gap-y-1 border-t border-b py-5 md:grid-cols-[11rem_1fr]" style={{ borderColor: RULE }}>
             <dt className="font-semibold" style={{ color: NAVY }}>
               Votre outil
             </dt>
-            <dd className="text-base text-gray-700 leading-relaxed">{typo(d.recommandation)}</dd>
+            <dd className="text-base text-[#3C4866] leading-relaxed">{typo(d.recommandation)}</dd>
           </div>
         </dl>
 
-        <p className="mt-6 text-sm text-gray-600 leading-relaxed">
+        <p className="mt-6 text-sm text-[#56627E] leading-relaxed">
           {DISCLAIMER} Pour aller plus loin&nbsp;:{' '}
-          <a href={OFFICIAL_LINKS.faqImpots.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#1A2332]">
+          <a href={OFFICIAL_LINKS.faqImpots.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#13213D]">
             {OFFICIAL_LINKS.faqImpots.label}
             <ExternalLink size={12} aria-hidden="true" className="inline ml-1 -mt-0.5" />
           </a>{' '}
           et{' '}
-          <a href={OFFICIAL_LINKS.servicePublic.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#1A2332]">
+          <a href={OFFICIAL_LINKS.servicePublic.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#13213D]">
             {OFFICIAL_LINKS.servicePublic.label}
             <ExternalLink size={12} aria-hidden="true" className="inline ml-1 -mt-0.5" />
           </a>
@@ -416,7 +414,7 @@ const Result: React.FC<{
           rel="noopener noreferrer"
           onClick={() => track('booking_click', { position: 'appel', verdict: d.verdict, src: tracking.src })}
           className="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-base focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          style={{ background: GOLD, color: NAVY }}
+          style={{ background: '#FFFFFF', color: '#1E3A66' }}
         >
           <CalendarCheck size={18} aria-hidden="true" />
           Réserver un appel de 20 min
@@ -434,7 +432,7 @@ const Result: React.FC<{
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => track('booking_click', { position: 'offre', verdict: d.verdict, src: tracking.src })}
-            className="mt-4 inline-flex items-center gap-2 font-semibold text-base underline underline-offset-4 decoration-[#C9A84C] text-white hover:text-[#F3E6BD]"
+            className="mt-4 inline-flex items-center gap-2 font-semibold text-base underline underline-offset-4 decoration-white/50 text-white hover:decoration-white"
           >
             En parler pendant l'appel
             <ArrowRight size={18} aria-hidden="true" />
@@ -485,7 +483,7 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
         <h2 ref={doneRef} tabIndex={-1} className="font-heading font-bold text-2xl md:text-3xl leading-tight focus:outline-none" style={{ color: NAVY }}>
           Votre plan d'action
         </h2>
-        <p className="mt-3 text-base text-gray-700 leading-relaxed" role="status">
+        <p className="mt-3 text-base text-[#3C4866] leading-relaxed" role="status">
           {mailSent
             ? `C'est envoyé : votre plan arrive à ${form.email}. Pensez à vérifier vos indésirables.`
             : "C'est noté. Le mail n'a pas pu partir pour l'instant : votre plan est ci-dessous, et nous vous le renverrons."}
@@ -500,7 +498,7 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
                 <span className="block font-semibold" style={{ color: NAVY }}>
                   {typo(s.titre)}
                 </span>
-                <span className="mt-1 block text-base text-gray-700 leading-relaxed">{typo(s.detail)}</span>
+                <span className="mt-1 block text-base text-[#3C4866] leading-relaxed">{typo(s.detail)}</span>
               </span>
             </li>
           ))}
@@ -522,7 +520,7 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
       <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight" style={{ color: NAVY }}>
         Recevez votre plan d'action daté
       </h2>
-      <p className="mt-3 text-base text-gray-700 leading-relaxed">
+      <p className="mt-3 text-base text-[#3C4866] leading-relaxed">
         3 à 5 étapes datées selon vos réponses, puis un rappel avant votre prochaine échéance.
       </p>
 
@@ -560,12 +558,12 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
           required
           checked={form.consent}
           onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-          className="mt-1 h-5 w-5 shrink-0 rounded border-gray-400 accent-[#1A2332] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A2332]"
+          className="mt-1 h-5 w-5 shrink-0 rounded border-gray-400 accent-[#1E3A66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]"
         />
-        <label htmlFor="lead-consent" className="text-sm text-gray-700 leading-relaxed">
+        <label htmlFor="lead-consent" className="text-sm text-[#3C4866] leading-relaxed">
           J'accepte de recevoir mon plan d'action et d'être recontacté par Opus Advisor au sujet de la facturation électronique.
           Désinscription en un clic.{' '}
-          <a href={PRIVACY_URL} className="underline underline-offset-2 hover:text-[#1A2332]">
+          <a href={PRIVACY_URL} className="underline underline-offset-2 hover:text-[#13213D]">
             Politique de confidentialité
           </a>
           .
