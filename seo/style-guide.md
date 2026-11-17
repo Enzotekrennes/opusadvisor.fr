@@ -47,6 +47,8 @@ ctaMid:
 
 `ctaMid` : facultatif. À défaut, le gabarit affiche un renvoi vers le pré-audit.
 
+Exemple de facture : dans un bloc de code marqué `facture` (trois accents graves suivis de `facture`), le site l'affiche comme un document. Une ligne vide sépare les blocs (émetteur, numéro et date, client, désignation, totaux, conditions de paiement) ; une ligne en retrait de deux espaces précise la ligne du dessus ; une ligne qui finit par un montant avec centimes (« 2 800,00 € ») devient une ligne de total, la dernière du bloc des totaux en gras. Un bloc de code sans marque reste en texte préformaté.
+
 ## Entrée dans `lib/articles.json`
 
 Ajoutée en tête du tableau :
