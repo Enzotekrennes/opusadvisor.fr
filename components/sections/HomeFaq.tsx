@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ChevronDown } from 'lucide-react';
 import type { Faq } from '@/lib/faqData';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /**
  * Home page: the questions, as a grouped list of native <details>. Every answer is in the HTML (readable

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Check, Clock, Video } from 'lucide-react';
 import { Window } from './Window';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /** Planes of the town drawn for the hero, reused still: the same town at the end of the day. */
 const TOWN_PLANES = [5, 4, 3, 2, 1];

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { methodSteps } from '@/lib/method';
 import { Window } from './Window';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /**
  * Home page: the four steps of a mission and their public prices, as a table in a window, then the

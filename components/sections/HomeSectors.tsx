@@ -5,7 +5,7 @@ import { sectors } from '@/lib/sectors';
 import type { SectorSlug } from '@/lib/cases';
 import type { DesktopIcon } from '@/lib/homeDesktop';
 import { DesktopGlyph } from '@/components/home/desktop/DesktopGlyph';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /** Each sector keeps the icon it has in the hero's Dock and chips. */
 const ICONS: Record<SectorSlug, DesktopIcon> = { formation: 'formation', immobilier: 'conciergerie', btp: 'btp' };

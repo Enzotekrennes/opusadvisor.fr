@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /**
  * Home page: the e-invoicing deadline for SMEs, as a calendar event. One sentence of context, a link to

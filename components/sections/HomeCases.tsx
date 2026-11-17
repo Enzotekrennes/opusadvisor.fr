@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cases } from '@/lib/cases';
 import { Window } from './Window';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /**
  * Home page: the three real missions, unnamed, as three windows, each opening its full story on the
