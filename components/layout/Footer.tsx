@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
             />
             <p className="mt-5 text-sm md:text-[15px] text-white/55 leading-relaxed max-w-xs">
               Organisation et automatisation de la gestion des petites entreprises : formation,
-              immobilier, BTP. On rend 10 h par semaine à votre entreprise.
+              immobilier, BTP. Objectif : 10 h par semaine rendues à votre entreprise.
             </p>
           </div>
 

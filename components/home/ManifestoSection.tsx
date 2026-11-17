@@ -67,7 +67,7 @@ export const ManifestoSection: React.FC = () => {
                 pour les faire tourner. C'est ce qu'on fait.
               </p>
               <p>
-                Une fois votre système en place, vous devez récupérer 10 heures par semaine. On les mesure
+                L'objectif : vous rendre 10 heures par semaine une fois votre système en place. On les mesure
                 avec vous, sur vos chiffres.
               </p>
             </div>

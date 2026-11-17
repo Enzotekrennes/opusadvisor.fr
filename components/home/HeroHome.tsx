@@ -21,13 +21,12 @@ export const HeroHome: React.FC = () => {
           </p>
 
           <h1 id="hero-title" className="font-heading font-bold leading-[1.02] tracking-tight text-[2.5rem] sm:text-6xl mt-6">
-            On construit un système de gestion à votre image, complet et automatisé.
+            Ce que votre équipe ressaisit à la main, on le fait partir tout seul.
           </h1>
 
           <p className="mt-7 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl">
-            Tout construire de A à Z, réunir vos logiciels dans une application centrale plus simple à utiliser, ou
-            seulement automatiser ce qui se fait encore à la main : on fait ce dont votre entreprise a besoin. Puis on
-            reste pour faire tourner le système.
+            Dossiers de financement, factures des propriétaires, devis et relances : on relie vos logiciels et on
+            automatise ce qui se fait encore à la main. Puis on reste pour faire tourner le système.
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">

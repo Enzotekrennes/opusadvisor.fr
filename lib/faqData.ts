@@ -34,7 +34,7 @@ Pour une entreprise d'une dizaine de personnes, comptez environ 17 500 € sur d
   },
   {
     question: 'Combien de temps avant de voir des résultats ?',
-    answer: `On s'engage sur 10 heures par semaine rendues à votre entreprise à partir du deuxième mois.
+    answer: `L'objectif : vous rendre 10 heures par semaine une fois le système en place. Le diagnostic chiffre le gain attendu pour votre entreprise, et on le mesure ensuite avec vous, sur vos chiffres.
 
 Dans le détail :
 - le diagnostic est livré 2 à 3 semaines après le cadrage ;
@@ -116,7 +116,7 @@ Pour voir clair avant de vous engager, commencez par le pré-audit, gratuit. Si 
   },
   {
     question: 'Combien de temps avant de voir des résultats ?',
-    answer: `On s'engage sur 10 heures par semaine rendues à votre entreprise à partir du deuxième mois.
+    answer: `L'objectif : vous rendre 10 heures par semaine une fois le système en place. Le diagnostic chiffre le gain attendu pour votre entreprise, et on le mesure ensuite avec vous, sur vos chiffres.
 
 Dans le détail :
 - le diagnostic est livré 2 à 3 semaines après le cadrage ;
