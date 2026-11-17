@@ -3,7 +3,7 @@ import styles from './sections.module.css';
 
 /**
  * A light application window, the frame of the home page sections below the desktop hero: a title bar
- * with the three window buttons (greyed, as on an inactive window) and an optional title.
+ * with the three window buttons in red, yellow and green, as on the home desktop, and an optional title.
  *
  * A plain `div`: the site styles every `article` as a blog post.
  *
