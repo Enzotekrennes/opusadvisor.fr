@@ -72,7 +72,7 @@ ${articles}
 
 ## À propos
 - [Équipe](${SITE_URL}/equipe/): Enzo Monnier (fondateur, ancien développeur, il code lui-même les systèmes) et Gwendoline (associée).
-- [Consultant à Rennes](${SITE_URL}/consultant-rennes/): installés à Rennes, déplacements sur site pendant les missions à moins de deux heures de Rennes (Bretagne, Pays-de-la-Loire) ; pré-audit en visio partout en France.
+- [Consultant à Rennes](${SITE_URL}/consultant-rennes/): installés à Vannes, déplacements sur site pendant les missions à moins de deux heures de Rennes (Bretagne, Pays-de-la-Loire) ; pré-audit en visio partout en France.
 - Contact : enzo@opusadvisor.fr
 `;
 

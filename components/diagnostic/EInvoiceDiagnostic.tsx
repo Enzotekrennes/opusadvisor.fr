@@ -206,7 +206,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
                         }}
                       />
                       <span
-                        className="flex items-center gap-3 rounded-xl border px-4 py-3.5 text-base leading-snug transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#1A2332] peer-focus-visible:ring-offset-2 hover:border-[#1A2332]"
+                        className="flex items-center gap-3 rounded-xl border px-4 py-3.5 text-base leading-snug transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#1E3A66] peer-focus-visible:ring-offset-2 hover:border-[#1E3A66]"
                         style={{
                           borderColor: checked ? NAVY : RULE,
                           background: checked ? '#EEF2F8' : '#FFFFFF',

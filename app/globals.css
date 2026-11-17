@@ -18,7 +18,7 @@ html {
 /* Text stays selectable so visitors can copy a price or a sentence; selection uses the brand gold. */
 ::selection {
   background: rgba(201, 168, 76, 0.35);
-  color: #1A2332;
+  color: #13213D;
 }
 
 body {

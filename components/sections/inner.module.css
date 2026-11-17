@@ -1236,3 +1236,79 @@ textarea.field {
   font-size: 14.5px;
   font-weight: 600;
 }
+
+/* ---------- Legal notice: publisher and host in windows, then a document to read ---------- */
+.legalBlocks {
+  display: grid;
+  gap: 56px;
+}
+
+.legalWindow {
+  margin-top: 20px;
+}
+
+.legalRow {
+  display: grid;
+  gap: 4px 28px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.legalRow:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 700px) {
+  .legalRow {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    padding: 17px 28px;
+  }
+}
+
+.legalRow dt {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.legalRow dd {
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.legalLink {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 58, 102, 0.35);
+  text-underline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .legalLink:hover {
+    text-decoration-color: var(--navy);
+  }
+}
+
+.legalText {
+  display: grid;
+  gap: 56px;
+  max-width: 720px;
+}
+
+.legalText h2 {
+  margin-bottom: 18px;
+}
+
+.legalText p {
+  color: #3c4866;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.legalText p + p {
+  margin-top: 16px;
+}
