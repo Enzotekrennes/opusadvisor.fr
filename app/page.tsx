@@ -109,9 +109,9 @@ export default function HomePage() {
           intro="Trois missions récentes, présentées sans le nom des clients."
           link={{ href: '/cas-clients', label: 'Tous les cas clients' }}
         />
-        <SectorsSection />
-        <TimeLossSection />
         <ManifestoSection />
+        <TimeLossSection />
+        <SectorsSection />
         <WhyNowSection />
         <MethodSection />
         <FAQSection items={faqs} background="#FAF7F0" />

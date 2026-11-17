@@ -24,7 +24,9 @@ export const SectorsSection: React.FC<{ headingLevel?: 'h1' | 'h2' }> = ({ headi
         <div data-reveal>
         <Heading
           id="sectors-title"
-          className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl max-w-3xl"
+          className={`font-heading font-bold leading-[1.05] tracking-tight text-3xl max-w-3xl ${
+            headingLevel === 'h1' ? 'md:text-5xl' : 'md:text-4xl'
+          }`}
           style={{ color: NAVY }}
         >
           Les entreprises avec qui on travaille
