@@ -9,7 +9,9 @@ const GOLD = '#C9A84C';
 
 /**
  * Barre de réservation fixée en bas de l'écran, sur mobile et tablette uniquement.
- * Elle apparaît une fois le haut de page dépassé (il a déjà ses propres boutons),
+ * Elle apparaît une fois le haut de page dépassé (il a déjà ses propres boutons) : sur une page dont
+ * le haut porte l'attribut data-booking-hero (l'accueil), une fois cette section entièrement passée,
+ * pour ne pas couvrir son Dock ; ailleurs, après 60 % de la hauteur de l'écran ;
  * se retire quand la section de réservation de fin de page (#contact) est à l'écran,
  * et n'est pas affichée sur /contact, où elle ferait doublon.
  */
@@ -19,8 +21,9 @@ export const MobileCTABar: React.FC = () => {
 
   useEffect(() => {
     const finalCta = document.getElementById('contact');
+    const hero = document.querySelector('[data-booking-hero]');
     const onScroll = () => {
-      const pastTop = window.scrollY > window.innerHeight * 0.6;
+      const pastTop = hero ? hero.getBoundingClientRect().bottom <= 0 : window.scrollY > window.innerHeight * 0.6;
       const rect = finalCta?.getBoundingClientRect();
       const finalCtaInView = !!rect && rect.top < window.innerHeight && rect.bottom > 0;
       setVisible(pastTop && !finalCtaInView);

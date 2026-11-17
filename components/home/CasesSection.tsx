@@ -38,9 +38,10 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases, title, intro,
         {cases.map((c, i) => (
           <li
             key={c.slug}
+            id={c.slug}
             data-reveal
             data-reveal-delay={String(i % 3)}
-            className="py-9 border-t grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-5"
+            className="py-9 border-t grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-5 scroll-mt-24"
             style={{ borderColor: RULE }}
           >
             <div className="lg:col-span-4">

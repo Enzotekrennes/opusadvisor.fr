@@ -1,0 +1,1175 @@
+/*
+ * The home page below the desktop hero: the same working day in daylight, then at dusk.
+ * One visual language with the hero: Inter set tight, light windows with a title bar, pills, tables,
+ * a navy accent. Sections alternate a cool grey ground and white; the close goes back outside, at dusk.
+ */
+
+.section {
+  --ink: #13213d;
+  --ink-soft: #56627e;
+  --navy: #1e3a66;
+  --rule: #e6eaf1;
+  --ground: #f3f5f9;
+  --ok: #1e7b43;
+  --ok-bg: #e4f5ea;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 88px 20px;
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 120px 40px;
+  }
+}
+
+.ground {
+  background: var(--ground);
+}
+
+.white {
+  background: #fff;
+}
+
+.section ::selection {
+  background: rgba(30, 58, 102, 0.16);
+  color: var(--ink);
+}
+
+.section a:focus-visible,
+.section summary:focus-visible,
+.section input:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.narrow {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.head {
+  max-width: 760px;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2rem, 1.35rem + 2.6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin-top: 18px;
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .lede {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+
+.centered .lede {
+  margin-inline: auto;
+  max-width: 640px;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more svg {
+  transition: transform 0.18s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .more:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px 14px 24px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 8px 20px rgba(19, 33, 61, 0.18);
+  transition: transform 0.18s var(--ease-out), background-color 0.18s;
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background: #234575;
+    transform: translateY(-1px);
+  }
+}
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: 0.08s;
+}
+
+.textLink {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 58, 102, 0.35);
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .textLink:hover {
+    text-decoration-color: var(--navy);
+  }
+}
+
+/* ---------- Light window (Window.tsx) ---------- */
+.window {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 24px 48px rgba(19, 33, 61, 0.08), 0 4px 10px rgba(19, 33, 61, 0.04);
+}
+
+.windowBar {
+  position: relative;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border-bottom: 1px solid #eef1f6;
+  background: #fafbfd;
+}
+
+.windowBar > i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #dfe3ec;
+}
+
+.windowTitle {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  overflow: hidden;
+  color: #66708a;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Cases ---------- */
+.cases {
+  margin-top: 56px;
+  display: grid;
+  gap: 24px;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .cases {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+
+.caseLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+
+.caseLink > .window {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .caseLink:hover {
+    transform: translateY(-3px);
+  }
+
+  .caseLink:hover > .window {
+    box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.09), 0 30px 60px rgba(19, 33, 61, 0.12), 0 6px 14px rgba(19, 33, 61, 0.05);
+  }
+}
+
+.caseBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+}
+
+.caseClient {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.caseTitle {
+  margin-top: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+}
+
+.caseSummary {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.caseFoot {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e8eef8;
+  color: #22406e;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.caseFoot svg {
+  flex: none;
+  color: var(--navy);
+  transition: transform 0.18s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .caseLink:hover .caseFoot svg {
+    transform: translateX(3px);
+  }
+}
+
+.below {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ---------- The letter and the four rules ---------- */
+.letterGrid {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 1000px) {
+  .letterGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 28px;
+  }
+}
+
+.mailHead {
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.mailFrom {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mailFrom img {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mailFrom b {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mailFrom span {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.mailTo {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.mailSubject {
+  margin-top: 6px;
+}
+
+.mailBody {
+  padding: 22px 26px 28px;
+  display: grid;
+  gap: 16px;
+  color: #3c4866;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  .mailBody {
+    font-size: 1.125rem;
+  }
+}
+
+.signature {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.rulesHead {
+  padding: 20px 22px 6px;
+}
+
+.rules {
+  list-style: none;
+  padding: 0 10px 12px;
+}
+
+.rule {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.rule:first-child {
+  border-top: 0;
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+}
+
+.rule h4 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.rule p {
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* ---------- Re-typing calculator ---------- */
+.calcGrid {
+  display: grid;
+  grid-template-areas: 'head' 'calc' 'action';
+  gap: 32px;
+}
+
+.calcHead {
+  grid-area: head;
+}
+
+.calcWindow {
+  grid-area: calc;
+}
+
+.calcAction {
+  grid-area: action;
+}
+
+@media (min-width: 1000px) {
+  .calcGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    grid-template-areas: 'head calc' 'action calc';
+    column-gap: 64px;
+    row-gap: 28px;
+  }
+
+  .calcHead {
+    align-self: end;
+  }
+
+  .calcAction {
+    align-self: start;
+  }
+}
+
+.settings {
+  padding: 8px 20px;
+}
+
+.setting {
+  padding: 16px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.setting:first-child {
+  border-top: 0;
+}
+
+.settingHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.settingHead label {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.settingHead output {
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.setting input {
+  width: 100%;
+  margin-top: 12px;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+
+.result {
+  padding: 22px 24px 24px;
+  border-top: 1px solid var(--rule);
+  background: #f7f9fc;
+}
+
+.resultLabel {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.resultHours {
+  margin-top: 6px;
+  font-size: clamp(2.75rem, 2rem + 3vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.resultDays {
+  margin-top: 6px;
+  font-size: 17px;
+}
+
+.resultCost {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.resultCost b {
+  white-space: nowrap;
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.fine {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+/* ---------- Sectors ---------- */
+.sectors {
+  margin-top: 48px;
+  display: grid;
+  gap: 20px;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .sectors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+.sector {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 12px 28px rgba(19, 33, 61, 0.06);
+}
+
+.sectorLink {
+  flex: 1;
+  display: block;
+  padding: 26px 24px 22px;
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.appIcon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #fff;
+  background: linear-gradient(180deg, #2c4e85, #1a3360);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 14px rgba(26, 51, 96, 0.25);
+  transition: transform 0.25s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .sectorLink:hover .appIcon {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .sectorLink:hover .sectorName {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+.sectorName {
+  display: block;
+  margin-top: 18px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+}
+
+.sectorShort {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.sectorMore {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pilot {
+  margin: 0 24px 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  color: #3c4866;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.note {
+  max-width: 720px;
+  margin: 32px auto 0;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* ---------- The e-invoicing date, as a calendar event ---------- */
+.event {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  padding: 26px 24px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 18px 40px rgba(19, 33, 61, 0.08);
+}
+
+@media (min-width: 640px) {
+  .event {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
+    padding: 30px 34px;
+  }
+}
+
+.eventAction {
+  margin-top: 20px;
+}
+
+.calendar {
+  width: 84px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.1), 0 6px 16px rgba(19, 33, 61, 0.1);
+}
+
+.calendarMonth {
+  display: block;
+  padding: 5px 0 4px;
+  background: #e5484d;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calendarDay {
+  display: block;
+  padding-top: 2px;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.calendarYear {
+  display: block;
+  padding-bottom: 7px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eventTitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.eventText {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* ---------- Steps and prices ---------- */
+.methodHead {
+  display: grid;
+  gap: 16px;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .methodHead {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 40px;
+  }
+
+  .methodHead .lede {
+    margin-top: 0;
+  }
+}
+
+.steps {
+  margin-top: 48px;
+}
+
+.stepsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepsTable th {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--rule);
+  color: #66708a;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.stepsTable td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #f0f2f7;
+  vertical-align: top;
+}
+
+.stepsTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.stepNumber {
+  width: 56px;
+  color: #66708a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stepName {
+  display: block;
+  font-size: 16.5px;
+  font-weight: 600;
+}
+
+.stepLine {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.stepPrice {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.stepPrice span {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: #e8eef8;
+  color: #22406e;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stepPrice .free {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+@media (max-width: 639px) {
+  .stepsTable thead {
+    display: none;
+  }
+
+  .stepsTable tr {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 16px 16px 18px;
+    border-bottom: 1px solid #f0f2f7;
+  }
+
+  .stepsTable tr:last-child {
+    border-bottom: 0;
+  }
+
+  .stepsTable td {
+    padding: 0;
+    border: 0;
+  }
+
+  .stepNumber {
+    width: auto;
+    grid-row: span 2;
+  }
+
+  .stepPrice {
+    width: auto;
+    margin-top: 10px;
+    text-align: left;
+  }
+}
+
+.methodFoot {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 32px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+/* ---------- Questions ---------- */
+.faq {
+  margin-top: 40px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 12px 28px rgba(19, 33, 61, 0.05);
+}
+
+.question {
+  border-top: 1px solid var(--rule);
+}
+
+.question:first-child {
+  border-top: 0;
+}
+
+.question summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.question summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (hover: hover) {
+  .question summary:hover {
+    background: #fafbfd;
+  }
+}
+
+.question summary svg {
+  flex: none;
+  color: #66708a;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.question[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: 0 24px 22px;
+  color: #3c4866;
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.answer p + p,
+.answer p + ul,
+.answer ul + p {
+  margin-top: 10px;
+}
+
+.answer ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.answer li + li {
+  margin-top: 4px;
+}
+
+.answer strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.answer a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- The close, at dusk ---------- */
+.dusk {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 104px 20px 300px;
+  color: #fff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: linear-gradient(
+    180deg,
+    #060b1d 0,
+    #111b3f 34%,
+    #2c2f5f calc(100% - 330px),
+    #6a4b78 calc(100% - 230px),
+    #b8686d calc(100% - 160px),
+    #ec9a6c calc(100% - 110px)
+  );
+}
+
+@media (min-width: 768px) {
+  .dusk {
+    padding: 128px 40px 340px;
+  }
+}
+
+.dusk ::selection {
+  background: rgba(243, 196, 123, 0.45);
+  color: #fff;
+}
+
+.dusk a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.duskTown {
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  height: 640px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.duskTown img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 100%;
+}
+
+.closeGrid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .closeGrid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 64px;
+  }
+}
+
+.closeTitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 1.4rem + 3.2vw, 4rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(3, 8, 22, 0.35);
+}
+
+.closeLede {
+  margin-top: 20px;
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .closeLede {
+    font-size: 1.25rem;
+  }
+}
+
+.closeAside {
+  margin-top: 28px;
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+.closeAside a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 4px;
+}
+
+.invite {
+  color: var(--ink);
+}
+
+.inviteBody {
+  padding: 22px 24px 24px;
+}
+
+.inviteTitle {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.inviteMeta {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+
+.inviteMeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inviteWith {
+  margin-top: 16px;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 14.5px;
+}
+
+.inviteWith img {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.inviteWith b {
+  font-weight: 600;
+}
+
+.inviteList {
+  margin-top: 16px;
+}
+
+.inviteList p {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.inviteList ul {
+  margin-top: 8px;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.inviteList li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 8px;
+  color: #3c4866;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.inviteList li svg {
+  margin-top: 3px;
+  color: var(--ok);
+}
+
+.inviteActions {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.inviteActions .button {
+  width: 100%;
+}
+
+.inviteNote {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.inviteNote a {
+  color: var(--navy);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseLink,
+  .caseLink > .window,
+  .appIcon,
+  .button,
+  .question summary svg {
+    transition: none;
+  }
+
+  .caseLink:hover,
+  .button:hover {
+    transform: none;
+  }
+}

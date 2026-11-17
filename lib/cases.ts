@@ -13,6 +13,8 @@ export interface ClientCase {
   result: string;
   /** Which of the three starting points named in the hero this mission used (automations, central app, full system). */
   level: string;
+  /** One line for the home page cards, drawn from `done`. */
+  summary: string;
   /** Légende du visuel animé de la page Cas clients (components/motion/CaseVisual). */
   visual?: { caption: string };
 }
@@ -30,6 +32,7 @@ export const cases: ClientCase[] = [
     result:
       "Le système est en production, avec 10 modules et 3 240 tests : l'équipe ne monte plus les dossiers à la main.",
     level: 'une application centrale',
+    summary: "Un CRM sur mesure suit chaque dossier, de l'opportunité au certificat de réalisation.",
     visual: {
       caption: 'Le scénario, en représentation simplifiée.',
     },
@@ -45,6 +48,7 @@ export const cases: ClientCase[] = [
       "On a repris l'ensemble du système. Les applications Softr ont été refaites et les automatisations revues : la facturation de tous les propriétaires passe maintenant par une seule automatisation. Depuis septembre 2025, on en assure la maintenance et les évolutions.",
     result: "Un système plus simple à surveiller et à faire évoluer, suivi chaque mois. Un nouveau propriétaire ne demande plus de nouvelle automatisation.",
     level: 'le système complet, repris et maintenu',
+    summary: 'Applications refaites, facturation de tous les propriétaires en une seule automatisation.',
     visual: {
       caption: 'Une partie du système : le scénario de facturation, en représentation simplifiée. Les factures sont créées en brouillon et validées avant envoi.',
     },
@@ -59,6 +63,7 @@ export const cases: ClientCase[] = [
       "On a construit l'outil de suivi : les dossiers de chaque agent, la gestion de chaque bien et l'avancement des ventes, au même endroit.",
     result: "Le manager revoit les dossiers de son équipe et voit où en sont les ventes, sans courir après l'information.",
     level: 'une application centrale',
+    summary: "Les dossiers de chaque agent, les biens et l'avancement des ventes, au même endroit.",
     visual: {
       caption: "Maquette de l'outil, avec des données d'exemple.",
     },

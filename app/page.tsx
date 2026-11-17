@@ -1,17 +1,16 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { HeroHome } from '@/components/home/HeroHome';
-import { CasesSection } from '@/components/home/CasesSection';
-import { SectorsSection } from '@/components/home/SectorsSection';
-import { TimeLossSection } from '@/components/home/TimeLossSection';
-import { ManifestoSection } from '@/components/home/ManifestoSection';
-import { MethodSection } from '@/components/home/MethodSection';
-import { WhyNowSection } from '@/components/home/WhyNowSection';
-import { FAQSection } from '@/components/home/FAQSection';
-import { FinalCTASection } from '@/components/home/FinalCTASection';
+import { HeroHome, HERO_ID } from '@/components/home/HeroHome';
+import { HomeCases } from '@/components/home/day/HomeCases';
+import { HomeLetter } from '@/components/home/day/HomeLetter';
+import { HomeTimeLoss } from '@/components/home/day/HomeTimeLoss';
+import { HomeSectors } from '@/components/home/day/HomeSectors';
+import { HomeDeadline } from '@/components/home/day/HomeDeadline';
+import { HomeMethod } from '@/components/home/day/HomeMethod';
+import { HomeFaq } from '@/components/home/day/HomeFaq';
+import { HomeClose } from '@/components/home/day/HomeClose';
 import { faqs, faqJsonLd } from '@/lib/faqData';
-import { cases } from '@/lib/cases';
 
 const PAGE_URL = 'https://opusadvisor.fr/';
 const PAGE_TITLE = 'Automatisation de la gestion des PME, à Vannes | Opus Advisor';
@@ -100,22 +99,17 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }} />
-      <Header />
+      <Header variant="desktop" heroId={HERO_ID} />
       <main id="contenu" className="flex-grow">
         <HeroHome />
-        <CasesSection
-          cases={cases}
-          title="Ce qu'on a déjà mis en place"
-          intro="Trois missions récentes, présentées sans le nom des clients."
-          link={{ href: '/cas-clients', label: 'Tous les cas clients' }}
-        />
-        <ManifestoSection />
-        <TimeLossSection />
-        <SectorsSection />
-        <WhyNowSection />
-        <MethodSection />
-        <FAQSection items={faqs} background="#FAF7F0" />
-        <FinalCTASection />
+        <HomeCases />
+        <HomeLetter />
+        <HomeTimeLoss />
+        <HomeSectors />
+        <HomeDeadline />
+        <HomeMethod />
+        <HomeFaq items={faqs} />
+        <HomeClose />
       </main>
       <Footer />
     </div>
