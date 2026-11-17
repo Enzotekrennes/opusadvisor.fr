@@ -13,7 +13,7 @@ export const WhyNowSection: React.FC = () => {
           {/* Date : ancre typographique */}
           <div data-reveal className="md:col-span-4">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60 mb-2">
-              1ᵉʳ septembre
+              1<sup className="normal-case">er</sup> septembre
             </p>
             <p className="font-heading font-bold leading-[0.85] text-7xl lg:text-8xl" style={{ color: GOLD }}>
               2027
