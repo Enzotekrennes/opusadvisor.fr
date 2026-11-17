@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SectionKicker } from '@/components/ui/SectionKicker';
-
-const NAVY = '#1A2332';
-const RULE = 'rgba(26,35,50,0.16)';
+import { PageHero } from '@/components/sections/PageHero';
+import { Section } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 
 const PAGE_URL = 'https://opusadvisor.fr/mentions-legales';
 const PAGE_TITLE = 'Mentions légales';
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 interface Block {
+  id: string;
   title: string;
   rows: { label: string; value: React.ReactNode }[];
   paragraphs?: React.ReactNode[];
@@ -26,6 +28,7 @@ interface Block {
 
 const blocks: Block[] = [
   {
+    id: 'editeur-title',
     title: 'Éditeur du site',
     rows: [
       { label: 'Raison sociale', value: 'Opus Advisor — Enzo Monnier (entrepreneur individuel)' },
@@ -35,7 +38,7 @@ const blocks: Block[] = [
       {
         label: 'E-mail',
         value: (
-          <a href="mailto:enzo@opusadvisor.fr" className="underline hover:opacity-70">
+          <a href="mailto:enzo@opusadvisor.fr" className={inner.legalLink}>
             enzo@opusadvisor.fr
           </a>
         ),
@@ -48,6 +51,7 @@ const blocks: Block[] = [
     ],
   },
   {
+    id: 'hebergeur-title',
     title: 'Hébergeur',
     rows: [
       { label: 'Société', value: 'OVH SAS (OVHcloud)' },
@@ -62,7 +66,7 @@ const blocks: Block[] = [
             href="https://www.ovhcloud.com/fr/"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline hover:opacity-70"
+            className={inner.legalLink}
           >
             ovhcloud.com
           </a>
@@ -78,55 +82,44 @@ export default function MentionsLegalesPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main id="contenu" className="flex-grow">
-        {/* Hero */}
-        <section className="pt-36 pb-16 md:pt-44 md:pb-20" style={{ background: NAVY }}>
-          <div className="container mx-auto px-6 max-w-4xl">
-            <SectionKicker label="Informations légales" tone="dark" className="mb-8" />
-            <h1 className="font-heading font-bold leading-[1.05] tracking-tight text-4xl md:text-5xl lg:text-6xl text-white">
-              Mentions légales
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-white/70">
-              Dernière mise à jour : octobre 2026.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          titleId="legal-title"
+          chips={[{ label: 'Informations légales' }]}
+          title="Mentions légales"
+          lede="Dernière mise à jour : octobre 2026."
+        />
 
-        {/* Contenu */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-6 max-w-4xl">
+        {/* Who publishes the site and who hosts it, each in a window. */}
+        <Section tone="ground" labelledBy="editeur-title" narrow>
+          <div className={inner.legalBlocks}>
             {blocks.map((block) => (
-              <div key={block.title} className="mb-12 md:mb-16">
-                <h2
-                  className="font-heading font-bold text-2xl md:text-3xl mb-6"
-                  style={{ color: NAVY }}
-                >
+              <div key={block.title} data-reveal>
+                <h2 id={block.id} className={sections.subtitle}>
                   {block.title}
                 </h2>
-                <dl>
-                  {block.rows.map((row) => (
-                    <div
-                      key={row.label}
-                      className="grid grid-cols-1 sm:grid-cols-[14rem_1fr] gap-x-6 gap-y-1 py-4 border-t"
-                      style={{ borderColor: RULE }}
-                    >
-                      <dt className="text-sm font-semibold uppercase tracking-[0.12em] text-gray-500">
-                        {row.label}
-                      </dt>
-                      <dd className="text-base md:text-lg" style={{ color: NAVY }}>
-                        {row.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
+                <Window className={inner.legalWindow}>
+                  <dl>
+                    {block.rows.map((row) => (
+                      <div key={row.label} className={inner.legalRow}>
+                        <dt>{row.label}</dt>
+                        <dd>{row.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </Window>
               </div>
             ))}
+          </div>
+        </Section>
 
-            {/* Propriété intellectuelle */}
-            <div className="mb-12 md:mb-16">
-              <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6" style={{ color: NAVY }}>
+        {/* The rest reads as a document. */}
+        <Section tone="white" labelledBy="propriete-title" narrow>
+          <div className={inner.legalText}>
+            <div>
+              <h2 id="propriete-title" className={sections.subtitle}>
                 Propriété intellectuelle
               </h2>
-              <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
+              <div>
                 <p>
                   L'ensemble du contenu du site opusadvisor.fr (textes, articles, logo, identité
                   visuelle, mise en page) est la propriété d'Opus Advisor, sauf mention contraire.
@@ -142,11 +135,9 @@ export default function MentionsLegalesPage() {
             </div>
 
             {/* Données personnelles */}
-            <div id="donnees-personnelles" className="mb-12 md:mb-16 scroll-mt-28">
-              <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6" style={{ color: NAVY }}>
-                Données personnelles
-              </h2>
-              <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
+            <div id="donnees-personnelles" className="scroll-mt-24">
+              <h2 className={sections.subtitle}>Données personnelles</h2>
+              <div>
                 <p>
                   Le site ne collecte aucune donnée personnelle à votre insu. En dehors de la mesure
                   d'audience anonyme décrite ci-dessous, les seules données recueillies sont celles
@@ -174,7 +165,7 @@ export default function MentionsLegalesPage() {
                 <p>
                   Conformément au RGPD, vous disposez d'un droit d'accès, de rectification,
                   d'opposition et de suppression de vos données. Pour l'exercer, écrivez à{' '}
-                  <a href="mailto:enzo@opusadvisor.fr" className="underline hover:opacity-70" style={{ color: NAVY }}>
+                  <a href="mailto:enzo@opusadvisor.fr" className={inner.legalLink}>
                     enzo@opusadvisor.fr
                   </a>
                   . Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).
@@ -189,11 +180,9 @@ export default function MentionsLegalesPage() {
             </div>
 
             {/* Mesure d'audience */}
-            <div className="mb-12 md:mb-16">
-              <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6" style={{ color: NAVY }}>
-                Mesure d'audience
-              </h2>
-              <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
+            <div>
+              <h2 className={sections.subtitle}>Mesure d'audience</h2>
+              <div>
                 <p>
                   Pour savoir quelles pages sont lues et quels outils servent, le site utilise Umami,
                   un outil de mesure d'audience installé sur notre propre serveur. Il ne dépose aucun
@@ -217,17 +206,15 @@ export default function MentionsLegalesPage() {
 
             {/* Cookies */}
             <div>
-              <h2 className="font-heading font-bold text-2xl md:text-3xl mb-6" style={{ color: NAVY }}>
-                Cookies
-              </h2>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              <h2 className={sections.subtitle}>Cookies</h2>
+              <p>
                 Le site n'utilise pas de cookies publicitaires ni de traceurs de profilage, et la
                 mesure d'audience fonctionne sans cookie. Seuls des éléments techniques strictement
                 nécessaires à son affichage peuvent être déposés.
               </p>
             </div>
           </div>
-        </section>
+        </Section>
       </main>
       <Footer />
     </div>

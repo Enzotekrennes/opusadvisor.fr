@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { PageHero } from '@/components/sections/PageHero';
+import inner from '@/components/sections/inner.module.css';
 
 const PAGE_URL = 'https://opusadvisor.fr/projets';
 const PAGE_TITLE = 'Cas clients — Opus Advisor';
@@ -18,26 +21,20 @@ export const metadata: Metadata = {
   },
 };
 
+/** Old address of the client cases: the browser moves on to /cas-clients at once, this page is the fallback. */
 export default function ProjetsRedirectPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main id="contenu" className="flex-grow flex items-center justify-center py-32 px-6 text-center">
-        <div className="max-w-md">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: '#1A2332' }}>
-            Cette page a déménagé.
-          </h1>
-          <p className="text-gray-600 mb-6">
-            Les cas clients sont désormais ici :
-          </p>
-          <Link
-            href="/cas-clients"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all hover:scale-[1.02]"
-            style={{ background: '#C9A84C', color: '#1A2332' }}
-          >
-            Voir les cas clients
-          </Link>
-        </div>
+      <main id="contenu" className="flex-grow">
+        <PageHero titleId="moved-title" title="Cette page a déménagé." lede="Les cas clients sont désormais ici :">
+          <div className={inner.heroActions}>
+            <Link href="/cas-clients" className={inner.lightButton}>
+              Voir les cas clients
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </div>
+        </PageHero>
       </main>
       <Footer />
     </div>
