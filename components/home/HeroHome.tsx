@@ -17,7 +17,7 @@ export const HERO_ID = 'bureau';
  * First screen of the home page, drawn as a computer desktop at dawn over a town with a building
  * site: the promise and the way in on the left, and an example window on the right where each
  * trade's documents leave on their own, with a notification for each and a Dock of shortcuts.
- * The menu bar at the top is the home variant of the site header. Text, links and the example are
+ * The menu bar at the top is the site header, the same on every page. Text, links and the example are
  * readable without JavaScript; the motion starts with it, can be paused, and keeps only fades when
  * the visitor asks for reduced motion.
  */

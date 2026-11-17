@@ -76,10 +76,19 @@
   }
 }
 
+/* From 1280 px the copy and the window sit in the middle of the screen's height, between the menu bar
+   and the Dock; the larger bottom padding keeps them a little above centre, clear of the rooftops. */
 @media (min-width: 1280px) {
   .desk {
     min-height: max(100svh, 780px);
-    padding: 104px clamp(36px, 6.1vw, 88px) 150px clamp(40px, 6.67vw, 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 76px clamp(36px, 6.1vw, 88px) clamp(150px, 22vh, 260px) clamp(40px, 6.67vw, 96px);
+  }
+
+  .grid {
+    width: 100%;
   }
 }
 
@@ -1014,8 +1023,8 @@
 
   .notification,
   .notification + .notification {
-    animation-name: stackCalm;
-    animation-timing-function: linear;
+    animation-name: stackFade;
+    animation-timing-function: ease-out;
   }
 
   .tile {
@@ -1341,22 +1350,45 @@
   }
 }
 
-@keyframes stackCalm {
+/* Same stack with reduced motion: the new card fades in on top instead of sliding in from the side. */
+@keyframes stackFade {
   0% {
     z-index: 3;
     opacity: 0;
+    transform: none;
   }
 
-  3%,
-  31% {
+  4%,
+  33.3% {
     z-index: 3;
     opacity: 1;
+    transform: none;
   }
 
-  33.3%,
-  100% {
+  36.5%,
+  66.6% {
+    z-index: 2;
+    opacity: 0.97;
+    transform: translateY(12px) scale(0.94);
+  }
+
+  69.8%,
+  95% {
+    z-index: 1;
+    opacity: 0.88;
+    transform: translateY(24px) scale(0.88);
+  }
+
+  98% {
     z-index: 1;
     opacity: 0;
+    transform: translateY(28px) scale(0.86);
+  }
+
+  100% {
+    z-index: 3;
+    opacity: 0;
+    transform: none;
   }
 }
 
