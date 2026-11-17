@@ -19,7 +19,7 @@ export const FAQSection: React.FC<{ items: Faq[]; title?: string; background?: s
         <h2
           data-reveal
           id="faq-title"
-          className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl mb-10 md:mb-12"
+          className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-4xl mb-10 md:mb-12"
           style={{ color: NAVY }}
         >
           {title}

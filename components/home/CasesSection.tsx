@@ -53,15 +53,16 @@ export const CasesSection: React.FC<CasesSectionProps> = ({ cases, title, intro,
               <p className="mt-2 text-sm text-gray-600">Réponse retenue : {c.level}</p>
               {!(showVisuals && c.visual) && <CaseSchema slug={c.slug} />}
             </div>
-            <dl className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4">
+            {/* One row per step, label beside the text: full-width lines instead of three ~25-character columns. */}
+            <dl className="lg:col-span-8 space-y-5">
               {[
                 ['Avant', c.before],
                 ['Ce qu’on a fait', c.done],
                 ['Aujourd’hui', c.result],
               ].map(([label, text]) => (
-                <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">{label}</dt>
-                  <dd className="mt-2 text-base text-gray-700 leading-relaxed">{text}</dd>
+                <div key={label} className="md:grid md:grid-cols-[9rem_1fr] md:gap-x-6">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 md:pt-1.5">{label}</dt>
+                  <dd className="mt-2 md:mt-0 text-base text-gray-700 leading-relaxed">{text}</dd>
                 </div>
               ))}
             </dl>

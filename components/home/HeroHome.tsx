@@ -47,9 +47,20 @@ export const HeroHome: React.FC = () => {
             </Link>
           </div>
 
-          <p className="mt-6 text-sm text-gray-600">
-            30 minutes en visio, gratuites et sans engagement · Opus Advisor, à Rennes, intervient partout en France.
-          </p>
+          {/* The pre-audit is booked on Enzo's own calendar: show who the visitor will talk to, in the first screen. */}
+          <div className="mt-7 flex items-center gap-3">
+            <img
+              src="/images/enzo.jpg"
+              alt=""
+              width={44}
+              height={44}
+              className="h-11 w-11 shrink-0 rounded-full object-cover"
+            />
+            <p className="text-sm text-gray-600 leading-snug">
+              30 minutes en visio avec Enzo Monnier, le fondateur. Gratuit et sans engagement.
+              <br className="hidden sm:inline" /> Opus Advisor, à Rennes, intervient partout en France.
+            </p>
+          </div>
         </div>
 
         <div className="lg:col-span-5">

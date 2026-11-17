@@ -8,7 +8,6 @@ import { track } from '@/lib/analytics';
 const NAVY = '#1A2332';
 const GOLD = '#C9A84C';
 const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
 
 const WEEKS = 45; // semaines travaillées par an, congés et jours fériés déduits
 
@@ -58,7 +57,7 @@ export const TimeLossSection: React.FC = () => {
   );
 
   return (
-    <section className="py-24 md:py-32" style={{ background: PAPER }} aria-labelledby="timeloss-title">
+    <section className="py-24 md:py-32 bg-white" aria-labelledby="timeloss-title">
       <div className="container mx-auto px-6 max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-6" data-reveal>
           <h2 id="timeloss-title" className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl" style={{ color: NAVY }}>
