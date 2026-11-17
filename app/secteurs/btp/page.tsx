@@ -3,20 +3,21 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { HeroBTP } from '@/components/home/HeroBTP';
-import { PainSection } from '@/components/home/PainSection';
-import { ContextSection } from '@/components/home/ContextSection';
-import { SystemSection } from '@/components/home/SystemSection';
-import { CaseTeasersSection } from '@/components/home/CaseTeasersSection';
-import { FAQSection } from '@/components/home/FAQSection';
-import { FinalCTASection } from '@/components/home/FinalCTASection';
+import { AutomationDemo } from '@/components/motion/AutomationDemo';
+import { PageHero, HeroActions } from '@/components/sections/PageHero';
+import { Section, SectionHead } from '@/components/sections/Section';
+import { Figures } from '@/components/sections/Figures';
+import { Checklist } from '@/components/sections/Checklist';
+import { LinkCards } from '@/components/sections/LinkCards';
+import { SetupWindow } from '@/components/sections/SetupWindow';
+import { HomeFaq } from '@/components/sections/HomeFaq';
+import { WindowCards } from '@/components/sections/WindowCards';
+import { HomeClose } from '@/components/sections/HomeClose';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 import { faqsBtp, faqPageJsonLd } from '@/lib/faqData';
 import { tools } from '@/lib/tools';
 import { getAllArticles } from '@/lib/articles';
-
-const NAVY = '#1A2332';
-const GOLD_INK = '#8A6A1C';
-const RULE = 'rgba(26,35,50,0.16)';
 
 const PAGE_URL = 'https://opusadvisor.fr/secteurs/btp/';
 
@@ -51,75 +52,205 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const BtpResources = () => (
-  <section className="py-24 md:py-32 bg-white" aria-labelledby="btp-resources-title">
-    <div className="container mx-auto px-6 max-w-6xl">
-      <h2 id="btp-resources-title" className="font-heading font-bold leading-[1.05] tracking-tight text-3xl md:text-5xl max-w-3xl" style={{ color: NAVY }}>
-        Les outils gratuits pour le bâtiment
-      </h2>
-      <p className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
-        Les calculs qu'on refait sans arrêt au bureau, avec l'explication de chaque formule. Pas d'inscription.
-      </p>
-      <ul className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10">
-        {tools.map((t) => (
-          <li key={t.slug} className="border-t" style={{ borderColor: RULE }}>
-            <Link href={`/outils/${t.slug}/`} className="group block py-6">
-              <span className="block font-semibold text-lg leading-snug group-hover:underline underline-offset-4" style={{ color: NAVY }}>
-                {t.title}
-              </span>
-              <span className="block mt-2 text-sm text-gray-600 leading-relaxed">{t.description}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+/** Four figures on the sector, each with its source. */
+const STATS = [
+  {
+    figure: '440 000',
+    text: "entreprises dans le bâtiment en France, dont 94 % d'artisans. Chacune gère ses outils dans son coin.",
+    source: 'Fédération Française du Bâtiment, 2024',
+  },
+  {
+    figure: '1 sur 3',
+    text: 'entreprise du BTP est sous-équipée en numérique, selon une étude menée auprès de 300 entreprises.',
+    source: 'Vertuoza, 2024',
+  },
+  {
+    figure: '88 %',
+    text: "des entreprises du BTP n'envisagent pas d'utiliser l'IA, contre 77 % tous secteurs confondus.",
+    source: 'Baromètre France Num, 2024',
+  },
+  {
+    figure: '1 % par an',
+    text: "de gain de productivité dans la construction, contre 3,6 % dans l'industrie manufacturière.",
+    source: 'Journal du Net',
+  },
+];
 
-      <h3 className="mt-20 font-heading font-bold leading-tight text-2xl md:text-3xl" style={{ color: NAVY }}>
-        À lire pour le second œuvre
-      </h3>
-      <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-10">
-        {BTP_ARTICLES.map((slug) => getAllArticles().find((a) => a.slug === slug))
-          .filter((a) => a !== undefined)
-          .map((a) => (
-            <li key={a.slug} className="border-t" style={{ borderColor: RULE }}>
-              <Link href={`/articles/${a.slug}/`} className="group block py-6">
-                <span className="block font-semibold text-lg leading-snug group-hover:underline underline-offset-4" style={{ color: NAVY }}>
-                  {a.title}
-                </span>
-                <span className="block mt-2 text-sm text-gray-600 leading-relaxed">{a.description}</span>
-              </Link>
-            </li>
-          ))}
-      </ul>
-      <div className="mt-10 flex flex-col sm:flex-row gap-5 sm:gap-10">
-        <Link href="/articles" className="group inline-flex items-center gap-2 font-semibold text-base" style={{ color: NAVY }}>
-          Tous les articles pour le BTP
-          <ArrowRight size={18} style={{ color: GOLD_INK }} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
-        <Link href="/consultant-rennes" className="group inline-flex items-center gap-2 font-semibold text-base" style={{ color: NAVY }}>
-          Nos interventions autour de Rennes
-          <ArrowRight size={18} style={{ color: GOLD_INK }} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
-      </div>
-    </div>
-  </section>
-);
+/** What the visitor may recognise in their week; ticking them changes the message below. */
+const PAINS = [
+  {
+    title: '10-15 h/semaine sur la paperasse',
+    desc: "Vous faites vos devis le soir. Les relances le weekend. La compta quand vous pouvez. Votre vrai métier, c'est pas ça.",
+  },
+  {
+    title: 'Impayés qui plombent la trésorerie',
+    desc: "1 patron sur 3 subit des retards de paiement. Moyenne d'un impayé BTP : 3 000 €. Quand on oublie de relancer, le cash dort.",
+  },
+  {
+    title: 'Marge chantier jamais claire',
+    desc: 'Votre dernier job, rentable ou pas ? Vous sauriez pas dire. Les heures réelles, les achats hors devis, les reprises : tout se perd entre Batappli, Excel et les tickets de caisse dans le camion.',
+  },
+  {
+    title: 'Suivi chantier dans WhatsApp',
+    desc: "Les photos, les imprévus, les demandes de devis complémentaires… tout remonte dans des boucles WhatsApp perdues. Un employé part, l'info part avec.",
+  },
+  {
+    title: 'Planning équipes en Excel',
+    desc: "Qui est où demain ? Vous, votre conjoint(e) et la cheffe d'équipe avez chacun votre version du planning. Quelqu'un se trompe. C'est le chantier qui en pâtit.",
+  },
+  {
+    title: 'Leads entrants qui fuient',
+    desc: 'Un appel raté, un formulaire du site pas traité, un devis demandé jamais envoyé. Chaque lead perdu = 2 à 10 k€ qui partent ailleurs.',
+  },
+];
 
+// Message selon le nombre de cases cochées (l'index = le nombre de cases).
+// Le message à 0 est aussi celui que lisent les visiteurs et les robots sans JavaScript.
+const MESSAGES = [
+  "Vous cochez 3 cases sur 6 ? On a exactement ce qu'il faut.",
+  'Ça arrive à toutes les boîtes. On peut en parler au pré-audit.',
+  'Ça arrive à toutes les boîtes. On peut en parler au pré-audit.',
+  "3 cases ou plus : c'est exactement ce qu'on règle. Le pré-audit est fait pour vous.",
+  "3 cases ou plus : c'est exactement ce qu'on règle. Le pré-audit est fait pour vous.",
+  'Votre boîte perd des heures chaque semaine. 30 minutes suffisent pour les chiffrer.',
+  'Votre boîte perd des heures chaque semaine. 30 minutes suffisent pour les chiffrer.',
+];
+
+/** What the visitor already has, and what we make of it. */
+const PILLARS = [
+  {
+    what: 'Votre logiciel de devis et factures',
+    tools: 'Batappli, Tolteck, Obat, EBP',
+    desc: "On corrige le paramétrage et on s'en sert jusqu'au bout : devis, acomptes, situations. Si vous n'en avez pas encore, on le choisit avec vous.",
+  },
+  {
+    what: "L'application centrale des chantiers",
+    tools: 'Airtable, Notion ou un outil développé pour vous, relié à WhatsApp',
+    desc: 'Photos, imprévus et SAV arrivent au même endroit. Le bureau voit ce que voit le chef de chantier.',
+  },
+  {
+    what: 'Les liaisons entre vos outils',
+    tools: 'Make ou n8n',
+    desc: 'Votre logiciel échange avec la banque et la compta. Les relances partent seules, et vous recevez un point chaque semaine.',
+  },
+];
+
+// Pas encore de client à montrer : on présente des objectifs, jamais des résultats.
+const BUILDS = [
+  {
+    profile: 'Plombier-chauffagiste, 8 à 20 personnes',
+    title: "Dossiers MaPrimeRénov' automatisés",
+    desc: "Objectif : passer de 6 heures à 90 minutes par dossier. Les pièces sont vérifiées avant l'envoi, ce qui évite les refus.",
+  },
+  {
+    profile: 'Électricien, 8 à 15 personnes',
+    title: 'Devis le jour même, relances automatiques',
+    desc: 'Objectif : un devis envoyé le jour de la visite, au lieu de 2 à 3 semaines. Les situations oubliées sont relancées toutes seules.',
+  },
+  {
+    profile: 'Multi-technique, 30 à 60+ personnes, plusieurs agences',
+    title: 'Marge et trésorerie de toutes les agences',
+    desc: 'Objectif : un tableau de bord commun, à jour en continu, et plusieurs jours de travail rendus chaque mois à la personne qui tient les comptes.',
+  },
+];
+
+/** BTP page: the sector's own hero and sections, in the site's daylight sections, then the close at dusk. */
 export default function BtpPage() {
+  const articles = BTP_ARTICLES.map((slug) => getAllArticles().find((a) => a.slug === slug)).filter((a) => a !== undefined);
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(faqsBtp)) }} />
       <Header />
       <main id="contenu" className="flex-grow">
-        {/* Fonds alternés : crème, blanc, crème, blanc… */}
-        <HeroBTP />
-        <ContextSection />
-        <PainSection />
-        <BtpResources />
-        <SystemSection />
-        <FAQSection items={faqsBtp} />
-        <CaseTeasersSection />
-        <FinalCTASection />
+        <PageHero
+          titleId="btp-title"
+          back={{ href: '/secteurs/', label: 'Tous les secteurs' }}
+          chips={[
+            { label: 'Électricité' },
+            { label: 'Plomberie' },
+            { label: 'Chauffage-clim' },
+            { label: 'De 8 à 60+ collaborateurs' },
+          ]}
+          title="Objectif : rendre 10 heures par semaine aux patrons du second œuvre."
+          lede="Le devis part le jour de la visite, et la relance s'envoie toute seule quand le client tarde à payer. On construit le système qu'il vous faut, à partir de vos outils ou de zéro."
+          aside={<AutomationDemo keys={['btp']} />}
+        >
+          <HeroActions secondary={{ href: '/outils', label: 'Les outils gratuits' }} />
+          <p className={inner.heroNote}>
+            30 minutes en visio, gratuites et sans engagement · Opus Advisor, à Rennes, intervient partout en France.
+          </p>
+        </PageHero>
+
+        <Section id="contexte" tone="ground" labelledBy="context-title">
+          <SectionHead id="context-title" title="Le bâtiment a pris du retard sur ses outils." lede="Quatre chiffres, avec leurs sources." />
+          <Figures items={STATS} />
+        </Section>
+
+        <Section tone="white" labelledBy="pain-title">
+          <SectionHead
+            id="pain-title"
+            title="Votre boîte tourne sur 6 outils qui ne se parlent pas."
+            lede={
+              <>
+                Devis dans Batappli, chantiers dans WhatsApp, factures dans Excel, relances que vous portez seul, photos
+                dispersées, SAV oubliés six mois plus tard. <strong className="font-semibold text-[#13213D]">C'est le quotidien de la plupart des boîtes du second œuvre.</strong>
+              </>
+            }
+          />
+          <Checklist prompt="Cochez ce que vous vivez en ce moment." items={PAINS} messages={MESSAGES} threshold={3} />
+        </Section>
+
+        <Section tone="ground" labelledBy="btp-resources-title">
+          <SectionHead
+            id="btp-resources-title"
+            title="Les outils gratuits pour le bâtiment"
+            lede="Les calculs qu'on refait sans arrêt au bureau, avec l'explication de chaque formule. Pas d'inscription."
+          />
+          <LinkCards three items={tools.map((t) => ({ href: `/outils/${t.slug}/`, title: t.title, text: t.description }))} />
+
+          <h3 className={`${sections.subtitle} ${inner.subhead}`}>À lire pour le second œuvre</h3>
+          <LinkCards items={articles.map((a) => ({ href: `/articles/${a.slug}/`, title: a.title, text: a.description }))} />
+          <p className={inner.headLink}>
+            <Link href="/articles" className={sections.more}>
+              Tous les articles pour le BTP
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+            <Link href="/consultant-rennes" className={sections.more}>
+              Nos interventions autour de Rennes
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </p>
+        </Section>
+
+        <SetupWindow
+          id="system-title"
+          title="Vous gardez Batappli. On le branche sur le reste."
+          lede="Chaque boîte a déjà un logiciel de devis, un drive et un groupe WhatsApp. Ce qui manque, c'est un endroit où tout se retrouve, et les liens entre ces outils."
+          windowTitle="Votre système"
+          items={PILLARS}
+          tone="white"
+        />
+
+        <HomeFaq items={faqsBtp} tone="ground" />
+
+        <Section tone="white" labelledBy="builds-title">
+          <SectionHead
+            id="builds-title"
+            title="Trois systèmes qu'on sait monter"
+            lede="Pas encore de client du bâtiment à vous présenter. Voici trois systèmes typiques, qu'on documentera avec nos premiers clients pilotes."
+          />
+          <WindowCards items={BUILDS.map((b) => ({ key: b.title, label: b.profile, title: b.title, text: b.desc }))} />
+          <p className={inner.headLink}>
+            <Link href="/cas-clients#programme-pilote" className={sections.more}>
+              Le programme Opus Pilotes
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </p>
+        </Section>
+
+        <HomeClose />
       </main>
       <Footer />
     </div>

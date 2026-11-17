@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { track } from '@/lib/analytics';
 import { Window } from './Window';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /** Weeks worked in a year, once holidays and bank holidays are taken out. */
 const WEEKS = 45;

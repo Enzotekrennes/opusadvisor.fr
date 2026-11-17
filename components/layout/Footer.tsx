@@ -6,8 +6,8 @@ import { Instagram, Linkedin } from 'lucide-react';
 import type { FooterSection } from '@/types';
 import { MobileCTABar } from '@/components/layout/MobileCTABar';
 
-const GOLD = '#C9A84C';
-const FOOTER_BG = '#11161F';
+/** Night blue of the rooftops at dusk, so the close of each page runs into the footer. */
+const FOOTER_BG = '#070E22';
 
 export const Footer: React.FC = () => {
   const footerSections: FooterSection[] = [
@@ -43,23 +43,20 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer
-      className="text-white"
-      style={{ background: FOOTER_BG, borderTop: '1px solid rgba(255,255,255,0.10)' }}
-    >
+    <footer className="text-white font-[family-name:var(--font-inter)]" style={{ background: FOOTER_BG }}>
       <div className="container mx-auto px-6 max-w-6xl pt-16 md:pt-20 pb-28 xl:pb-20">
         {/* Haut : marque (gauche) + colonnes de liens (droite) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pb-12 border-b border-white/10">
           <div className="md:col-span-5">
             <img
-              src="/images/opus-logo-white.webp"
+              src="/images/opus-logo-white-trim.webp"
               alt="Opus Advisor"
-              width={192}
-              height={48}
+              width={168}
+              height={26}
               loading="lazy"
-              className="h-11 w-auto md:h-12 object-contain"
+              className="block h-[26px] w-[168px]"
             />
-            <p className="mt-5 text-sm md:text-[15px] text-white/55 leading-relaxed max-w-xs">
+            <p className="mt-5 text-sm md:text-[15px] text-white/65 leading-relaxed max-w-xs">
               Organisation et automatisation de la gestion des petites entreprises : formation,
               immobilier, BTP. Objectif : 10 h par semaine rendues à votre entreprise.
             </p>
@@ -68,15 +65,13 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-7 grid grid-cols-2 gap-8">
             {footerSections.map((section) => (
               <div key={section.title}>
-                <h4 className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: GOLD }}>
-                  {section.title}
-                </h4>
+                <h4 className="mb-4 text-[13px] font-semibold text-white/50">{section.title}</h4>
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm md:text-[15px] text-white/60 hover:text-white transition-colors duration-200"
+                        className="text-sm md:text-[15px] text-white/75 hover:text-white transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
@@ -101,7 +96,7 @@ export const Footer: React.FC = () => {
               <a
                 key={social.label}
                 href={social.href}
-                className="text-white/45 hover:text-[#C9A84C] transition-colors duration-200"
+                className="text-white/60 hover:text-white transition-colors duration-200"
                 aria-label={`Opus Advisor sur ${social.label}`}
                 title={`Opus Advisor sur ${social.label}`}
                 target="_blank"

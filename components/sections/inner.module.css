@@ -1,0 +1,783 @@
+/*
+ * Inner pages in the home page's world: a page hero under the same dawn sky and town, then sections in
+ * daylight (panels of points, rows in a window, link cards, sourced figures, a checklist, case stories).
+ * Colours come from the custom properties set by `.section` in sections.module.css.
+ */
+
+/* ---------- Page hero: the dawn sky and the town of the home page, still ---------- */
+.pageHero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 104px 20px 300px;
+  color: #fff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  /* The stops near the bottom meet the horizon of the 560 px town band (whose own sky is not drawn). */
+  background: linear-gradient(
+    180deg,
+    #04091a 0,
+    #0a1733 30%,
+    #15305e 55%,
+    #2a4a80 calc(100% - 200px),
+    #4d6a9e calc(100% - 158px),
+    #8696c0 calc(100% - 127px),
+    #c9b6c2 calc(100% - 102px),
+    #f1c3a2 calc(100% - 76px)
+  );
+}
+
+@media (min-width: 768px) {
+  .pageHero {
+    padding: 136px 40px 320px;
+  }
+}
+
+.pageHero ::selection {
+  background: rgba(243, 196, 123, 0.45);
+  color: #fff;
+}
+
+.pageHero a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.town {
+  position: absolute;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  height: 560px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.town img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 100%;
+}
+
+.heroGrid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 1100px) {
+  .heroWithAside {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 56px;
+  }
+}
+
+.heroCopy {
+  max-width: 720px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .back:hover {
+    color: #fff;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  list-style: none;
+}
+
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 13px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.heroTitle {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2.125rem, 1.4rem + 2.8vw, 3.375rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+  text-shadow: 0 2px 30px rgba(3, 8, 22, 0.35);
+}
+
+.heroLede {
+  margin-top: 20px;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  .heroLede {
+    font-size: 1.1875rem;
+    line-height: 1.5;
+  }
+}
+
+.heroActions {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 26px;
+}
+
+.heroNote {
+  margin-top: 22px;
+  max-width: 640px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+/* White pill on the dark sky, as in the home hero. */
+.lightButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 22px 15px 26px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1e3a66;
+  font-size: 16.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 30px rgba(3, 8, 22, 0.35), 0 2px 6px rgba(3, 8, 22, 0.25);
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .lightButton:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.lightButton:active {
+  transform: scale(0.97);
+  transition-duration: 0.08s;
+}
+
+.lightLink {
+  color: #fff;
+  font-size: 16.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+@media (hover: hover) {
+  .lightLink:hover {
+    text-decoration-color: #fff;
+  }
+}
+
+.heroAside {
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
+}
+
+/* ---------- Section heading ---------- */
+.head {
+  max-width: 760px;
+}
+
+.headLink {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+}
+
+/* ---------- Points in a panel: pains, criteria ---------- */
+.panel {
+  margin-top: 44px;
+  display: grid;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  list-style: none;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 14px 32px rgba(19, 33, 61, 0.06);
+}
+
+.panelItem {
+  padding: 22px 26px;
+  border-top: 1px solid var(--rule);
+}
+
+.panelItem:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 900px) {
+  .panelTwo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panelTwo .panelItem:nth-child(2) {
+    border-top: 0;
+  }
+
+  .panelTwo .panelItem:nth-child(even) {
+    border-left: 1px solid var(--rule);
+  }
+}
+
+.panelItem h3 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.panelItem p {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ---------- What we set up: rows in a window ---------- */
+.setup {
+  margin-top: 44px;
+}
+
+.setupRow {
+  display: grid;
+  gap: 6px 32px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.setupRow:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 800px) {
+  .setupRow {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    padding: 22px 28px;
+  }
+}
+
+.setupRow dt b {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.setupRow dt span {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef2f8;
+  color: #3c4866;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.setupRow dd {
+  color: #3c4866;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- Link cards: articles, tools ---------- */
+.links {
+  margin-top: 40px;
+  display: grid;
+  gap: 16px;
+  list-style: none;
+}
+
+@media (min-width: 760px) {
+  .links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .linksThree {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.linkCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 8px 20px rgba(19, 33, 61, 0.05);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.linkCard:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .linkCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.09), 0 16px 32px rgba(19, 33, 61, 0.09);
+  }
+
+  .linkCard:hover b {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+.linkCard b {
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.linkCard span {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.subhead {
+  margin-top: 72px;
+}
+
+/* ---------- Figures with their sources ---------- */
+.figures {
+  margin-top: 44px;
+  display: grid;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 14px 32px rgba(19, 33, 61, 0.06);
+}
+
+.figure {
+  padding: 24px 24px 22px;
+  border-top: 1px solid var(--rule);
+}
+
+.figure:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 640px) {
+  .figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .figure:nth-child(2) {
+    border-top: 0;
+  }
+
+  .figure:nth-child(even) {
+    border-left: 1px solid var(--rule);
+  }
+}
+
+@media (min-width: 1100px) {
+  .figures {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .figure {
+    border-top: 0;
+  }
+
+  .figure + .figure {
+    border-left: 1px solid var(--rule);
+  }
+}
+
+.figure dt {
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.figure dd {
+  margin-top: 12px;
+  color: #3c4866;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.figure dd + dd {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+/* ---------- Checklist: the pains the visitor recognises ---------- */
+.prompt {
+  margin-top: 36px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.checklist {
+  list-style: none;
+}
+
+.checkItem {
+  border-top: 1px solid var(--rule);
+}
+
+.checkItem:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 900px) {
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .checkItem:nth-child(2) {
+    border-top: 0;
+  }
+
+  .checkItem:nth-child(even) {
+    border-left: 1px solid var(--rule);
+  }
+}
+
+.checkItem label {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 14px;
+  padding: 20px 24px;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .checkItem label:hover {
+    background: #fafbfd;
+  }
+}
+
+.checkItem input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+
+.checkTitle {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.checkText {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.score {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 24px;
+  border-top: 1px solid var(--rule);
+  background: #f7f9fc;
+}
+
+@media (min-width: 760px) {
+  .score {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 24px;
+  }
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.count small {
+  color: var(--ink-soft);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.message {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.outlineButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px 13px 22px;
+  border: 1.5px solid var(--navy);
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: 15.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.18s, color 0.18s;
+}
+
+@media (hover: hover) {
+  .outlineButton:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+}
+
+/* ---------- Case stories ---------- */
+.stories {
+  margin-top: 48px;
+  display: grid;
+  gap: 28px;
+  list-style: none;
+}
+
+.story {
+  scroll-margin-top: 80px;
+}
+
+.storyBody {
+  display: grid;
+  gap: 24px 48px;
+  padding: 26px 26px 28px;
+}
+
+@media (min-width: 1000px) {
+  .storyBody {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    padding: 32px 34px 34px;
+  }
+}
+
+.storyClient {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.storyTitle {
+  margin-top: 8px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+.storyLevel {
+  margin-top: 14px;
+}
+
+.storyRows {
+  display: grid;
+  gap: 18px;
+}
+
+.storyRow {
+  display: grid;
+  gap: 4px;
+}
+
+@media (min-width: 700px) {
+  .storyRow {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+
+.storyRow dt {
+  padding-top: 2px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.storyRow dd {
+  color: #3c4866;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.storyVisual {
+  margin: 0 26px 26px;
+}
+
+@media (min-width: 1000px) {
+  .storyVisual {
+    margin: 0 34px 34px;
+  }
+}
+
+.storyVisual > div {
+  padding: 10px;
+  border-radius: 14px;
+  background: #13213d;
+}
+
+@media (min-width: 768px) {
+  .storyVisual > div {
+    padding: 16px;
+  }
+}
+
+.storyVisual figcaption {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- Two windows side by side (what we give, what we ask) ---------- */
+.pair {
+  margin-top: 44px;
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+
+.pairBody {
+  padding: 22px 24px 24px;
+}
+
+.pairBody h3 {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.ticks {
+  margin-top: 16px;
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.ticks li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  color: #3c4866;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+.ticks li svg {
+  margin-top: 4px;
+  color: var(--ok);
+}
+
+/* ---------- An announcement in a window: the BTP pilot programme ---------- */
+.announce {
+  display: grid;
+  gap: 18px;
+  padding: 28px 26px;
+}
+
+@media (min-width: 900px) {
+  .announce {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 28px;
+    padding: 34px 36px;
+  }
+}
+
+.announceIcon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(180deg, #2c4e85, #1a3360);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 14px rgba(26, 51, 96, 0.25);
+}
+
+.announceText {
+  margin-top: 12px;
+  color: #3c4866;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkCard,
+  .lightButton {
+    transition: none;
+  }
+
+  .linkCard:hover,
+  .lightButton:hover {
+    transform: none;
+  }
+}

@@ -2,17 +2,25 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Check, Clock, Video } from 'lucide-react';
 import { Window } from './Window';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /** Planes of the town drawn for the hero, reused still: the same town at the end of the day. */
 const TOWN_PLANES = [5, 4, 3, 2, 1];
 
 /**
- * Home page close, back outside at dusk over the same town as the morning hero: one way in, the free
+ * Page close, back outside at dusk over the same town as the morning hero: one way in, the free
  * pre-audit, shown as an invitation with what the visitor leaves with, and the paid Audit Stack as a
  * quiet link. Still: nothing moves here. Its id `contact` also tells the mobile booking bar to step aside.
+ *
+ * @param title heading of the close; the home page's by default.
+ * @param lede sentence under the heading; the home page's by default.
+ * @param auditStack show the Audit Stack line (off where the page already presents it).
  */
-export const HomeClose: React.FC = () => (
+export const HomeClose: React.FC<{ title?: string; lede?: React.ReactNode; auditStack?: boolean }> = ({
+  title = 'Commencez par le pré-audit',
+  lede = '30 minutes en visio, gratuites et sans engagement. Vous partagez votre écran, et on regarde vos outils ensemble.',
+  auditStack = true,
+}) => (
   <section id="contact" className={`${styles.section} ${styles.dusk}`} aria-labelledby="cta-title" data-surface="dark">
     <div className={styles.duskTown} aria-hidden="true">
       {TOWN_PLANES.map((n) => (
@@ -23,15 +31,15 @@ export const HomeClose: React.FC = () => (
     <div className={`${styles.inner} ${styles.closeGrid}`}>
       <div data-reveal>
         <h2 id="cta-title" className={styles.closeTitle}>
-          Commencez par le pré-audit
+          {title}
         </h2>
-        <p className={styles.closeLede}>
-          30 minutes en visio, gratuites et sans engagement. Vous partagez votre écran, et on regarde vos outils ensemble.
-        </p>
-        <p className={styles.closeAside}>
-          Vous voulez seulement un avis écrit et chiffré sur vos outils&#8239;?{' '}
-          <Link href="/services#audit-stack">L’Audit Stack</Link> coûte 990&nbsp;€ et se livre en 10 jours ouvrés.
-        </p>
+        <p className={styles.closeLede}>{lede}</p>
+        {auditStack && (
+          <p className={styles.closeAside}>
+            Vous voulez seulement un avis écrit et chiffré sur vos outils&#8239;?{' '}
+            <Link href="/services#audit-stack">L’Audit Stack</Link> coûte 990&nbsp;€ et se livre en 10 jours ouvrés.
+          </p>
+        )}
       </div>
 
       <div data-reveal data-reveal-delay="2">

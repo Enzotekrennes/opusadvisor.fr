@@ -1,18 +1,17 @@
+import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { Check, HardHat } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { SectionKicker } from '@/components/ui/SectionKicker';
-import { CasesSection } from '@/components/home/CasesSection';
+import { PageHero } from '@/components/sections/PageHero';
+import { CaseStories } from '@/components/sections/CaseStories';
+import { PointsPanel } from '@/components/sections/PointsPanel';
+import { Section, SectionHead } from '@/components/sections/Section';
+import { Window } from '@/components/sections/Window';
+import { HomeClose } from '@/components/sections/HomeClose';
+import sections from '@/components/sections/sections.module.css';
+import inner from '@/components/sections/inner.module.css';
 import { cases } from '@/lib/cases';
-import { ArrowRight, Check } from 'lucide-react';
-
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
-// Or foncé pour le texte et les icônes sur fond clair : l'or d'origine y tombe à 2,1:1 de contraste.
-const GOLD_INK = '#8A6A1C';
-const PAPER = '#FAF7F0';
-const RULE = 'rgba(26,35,50,0.16)';
 
 const PAGE_URL = 'https://opusadvisor.fr/cas-clients';
 const PAGE_TITLE = 'Cas clients : formation, conciergerie, immobilier';
@@ -38,25 +37,22 @@ export const metadata: Metadata = {
   },
 };
 
+/** Who the BTP pilot programme is for. */
 const profilCriteria = [
   {
-    n: '01',
-    label: 'Métier second œuvre',
+    title: 'Métier second œuvre',
     desc: "Électricité, plomberie, chauffage-clim, ou multi-corps d'état.",
   },
   {
-    n: '02',
-    label: '8 à 60+ collaborateurs',
+    title: '8 à 60+ collaborateurs',
     desc: 'Des artisans structurés aux PME multi-agences. Assez de volume pour que le système ait un impact mesurable.',
   },
   {
-    n: '03',
-    label: 'Bretagne ou Pays-de-la-Loire',
+    title: 'Bretagne ou Pays-de-la-Loire',
     desc: 'À moins de 2h de Rennes. On vient sur site au moins 2 fois pendant la mission.',
   },
   {
-    n: '04',
-    label: 'Patron disponible',
+    title: 'Patron disponible',
     desc: "Deux demi-journées sur 6 semaines, bloquées à l'avance. Pas de \"quand j'aurai le temps\".",
   },
 ];
@@ -76,121 +72,74 @@ const dealTake = [
   'Votre patience : on construit la première version de la méthode Opus avec vous',
 ];
 
+/** One column of the pilot deal: a window with a ticked list. */
+const DealList: React.FC<{ title: string; items: string[] }> = ({ title, items }) => (
+  <Window>
+    <div className={inner.pairBody}>
+      <h3>{title}</h3>
+      <ul className={inner.ticks}>
+        {items.map((d) => (
+          <li key={d}>
+            <Check size={16} strokeWidth={2.6} aria-hidden="true" />
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Window>
+);
+
+/** Cases page: the three real missions told in full, then the BTP pilot programme, then the close. */
 export default function CasClientsPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main id="contenu" className="flex-grow">
-        {/* Hero */}
-        <section className="pt-36 pb-20 md:pt-44 md:pb-24" style={{ background: NAVY }}>
-          <div className="container mx-auto px-6 max-w-5xl">
-            <SectionKicker label="Cas clients" tone="dark" className="mb-8" />
-            <h1 className="font-heading font-bold leading-[1.0] tracking-tight text-5xl md:text-6xl lg:text-7xl text-white">
-              Ce qu'on a mis en place chez nos clients.
-            </h1>
-            <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-              Trois missions récentes, dans la formation et l'immobilier. Les noms des clients restent
-              confidentiels ; on peut entrer dans le détail pendant le pré-audit.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          titleId="cases-page-title"
+          title="Ce qu'on a mis en place chez nos clients."
+          lede="Trois missions récentes, dans la formation et l'immobilier. Les noms des clients restent confidentiels ; on peut entrer dans le détail pendant le pré-audit."
+        />
 
-        <CasesSection cases={cases} title="Trois missions, trois problèmes concrets" showVisuals />
+        <CaseStories id="stories-title" title="Trois missions, trois problèmes concrets" cases={cases} tone="ground" />
 
-        {/* Programme pilote BTP */}
-        <section id="programme-pilote" className="py-20 md:py-28 scroll-mt-20" style={{ background: NAVY }}>
-          <div className="container mx-auto px-6 max-w-5xl">
-            <SectionKicker label="Opus Pilotes · BTP" tone="dark" className="mb-8" />
-            <h2 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-5xl text-white max-w-3xl">
-              3 places pour les entreprises du bâtiment.
-            </h2>
-            <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-              On n'a pas encore de mission dans le BTP à vous montrer. Plutôt que d'en inventer une, on
-              ouvre 3 places pilotes pour des entreprises du second œuvre en Bretagne et Pays-de-la-Loire :
-              système complet à tarif pilote, et le cas publié après 6 mois.
-            </p>
-          </div>
-        </section>
-
-        {/* Profil recherché */}
-        <section className="py-20 md:py-28" style={{ background: PAPER }}>
-          <div className="container mx-auto px-6 max-w-5xl">
-            <h2 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-5xl mb-12" style={{ color: NAVY }}>
-              Le programme est pour vous si…
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-              {profilCriteria.map((item) => (
-                <div key={item.n} className="py-7 border-t" style={{ borderColor: RULE }}>
-                  <h3 className="font-semibold text-lg md:text-xl leading-snug mb-2" style={{ color: NAVY }}>
-                    {item.label}
-                  </h3>
-                  <p className="text-sm md:text-[15px] text-gray-600 leading-relaxed">{item.desc}</p>
+        <Section id="programme-pilote" tone="white" labelledBy="pilot-title">
+          <div data-reveal>
+            <Window title="Opus Pilotes · BTP">
+              <div className={inner.announce}>
+                <span className={inner.announceIcon} aria-hidden="true">
+                  <HardHat size={26} strokeWidth={1.8} />
+                </span>
+                <div>
+                  <h2 id="pilot-title" className={sections.subtitle}>
+                    3 places pour les entreprises du bâtiment.
+                  </h2>
+                  <p className={inner.announceText}>
+                    On n'a pas encore de mission dans le BTP à vous montrer. Plutôt que d'en inventer une, on ouvre 3 places
+                    pilotes pour des entreprises du second œuvre en Bretagne et Pays-de-la-Loire : système complet à tarif
+                    pilote, et le cas publié après 6 mois.
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Le deal */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <h2 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-5xl mb-12" style={{ color: NAVY }}>
-              Ce qu'on échange.
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
-              <div className="border-t pt-7" style={{ borderColor: NAVY }}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-5" style={{ color: GOLD_INK }}>
-                  Ce qu'on vous donne
-                </p>
-                <ul className="space-y-3.5">
-                  {dealGive.map((d) => (
-                    <li key={d} className="flex items-start gap-3 text-sm md:text-[15px] text-gray-700 leading-relaxed">
-                      <Check size={15} strokeWidth={3} className="mt-1 shrink-0" style={{ color: GOLD_INK }} />
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-
-              <div className="border-t pt-7" style={{ borderColor: RULE }}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] mb-5" style={{ color: 'rgba(26,35,50,0.65)' }}>
-                  Ce qu'on vous demande
-                </p>
-                <ul className="space-y-3.5">
-                  {dealTake.map((d) => (
-                    <li key={d} className="flex items-start gap-3 text-sm md:text-[15px] text-gray-700 leading-relaxed">
-                      <Check size={15} strokeWidth={3} className="mt-1 shrink-0" style={{ color: GOLD_INK }} />
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            </Window>
           </div>
-        </section>
+        </Section>
 
-        {/* CTA final */}
-        <section className="py-20 md:py-28" style={{ background: NAVY }}>
-          <div className="container mx-auto px-6 max-w-5xl">
-            <h2 className="font-heading font-bold leading-[1.02] tracking-tight text-4xl md:text-5xl text-white max-w-3xl">
-              Un projet ? Tout commence par le pré-audit.
-            </h2>
-            <p className="mt-6 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl">
-              30 minutes en visio. Vous nous montrez vos outils et votre contexte. Pour une entreprise du
-              bâtiment qui correspond au programme pilote, on vous envoie une proposition chiffrée sous 72 h.
-            </p>
-            <Link
-              href="/contact"
-              className="group mt-9 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm md:text-base transition-all duration-200 hover:scale-[1.02]"
-              style={{ background: GOLD, color: NAVY }}
-            >
-              Réserver le pré-audit gratuit
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+        <PointsPanel id="profile-title" title="Le programme est pour vous si…" items={profilCriteria} tone="ground" />
+
+        <Section tone="white" labelledBy="deal-title">
+          <SectionHead id="deal-title" title="Ce qu'on échange." />
+          <div className={inner.pair}>
+            <DealList title="Ce qu'on vous donne" items={dealGive} />
+            <DealList title="Ce qu'on vous demande" items={dealTake} />
           </div>
-        </section>
+        </Section>
+
+        <HomeClose
+          title="Un projet ? Tout commence par le pré-audit."
+          lede="30 minutes en visio. Vous nous montrez vos outils et votre contexte. Pour une entreprise du bâtiment qui correspond au programme pilote, on vous envoie une proposition chiffrée sous 72 h."
+          auditStack={false}
+        />
       </main>
       <Footer />
     </div>

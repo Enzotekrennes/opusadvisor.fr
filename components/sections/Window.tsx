@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './day.module.css';
+import styles from './sections.module.css';
 
 /**
  * A light application window, the frame of the home page sections below the desktop hero: a title bar

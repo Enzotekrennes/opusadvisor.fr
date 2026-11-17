@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const NAVY = '#1A2332';
-const GOLD = '#C9A84C';
+/** Night blue of the menu bar, so both bars of the page match. */
+const NIGHT = '#08112A';
 
 /**
  * Barre de réservation fixée en bas de l'écran, sur mobile et tablette uniquement.
@@ -40,7 +40,7 @@ export const MobileCTABar: React.FC = () => {
       className={`xl:hidden fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
-      style={{ background: NAVY, paddingBottom: 'env(safe-area-inset-bottom)' }}
+      style={{ background: NIGHT, paddingBottom: 'env(safe-area-inset-bottom)' }}
       aria-hidden={!visible}
     >
       <div className="flex items-center justify-between gap-4 px-5 py-3">
@@ -52,8 +52,7 @@ export const MobileCTABar: React.FC = () => {
         <Link
           href="/contact"
           tabIndex={visible ? 0 : -1}
-          className="shrink-0 px-5 py-2.5 rounded-md text-sm font-semibold"
-          style={{ background: GOLD, color: NAVY }}
+          className="shrink-0 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#1E3A66]"
         >
           Réserver
         </Link>
