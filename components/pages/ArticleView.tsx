@@ -10,6 +10,7 @@ import { TableOfContents } from '@/components/ui/TableOfContents';
 import { PageHero } from '@/components/sections/PageHero';
 import { InvoiceSheet } from '@/components/pages/InvoiceSheet';
 import sections from '@/components/sections/sections.module.css';
+import { frenchText, rehypeFrenchSpacing } from '@/lib/typo';
 
 const INK = '#13213D';
 const INK_SOFT = '#56627E';
@@ -48,6 +49,7 @@ function splitBeforeThirdH2(md: string): [string, string] {
 }
 
 /**
+ * The text gets the French non-breaking spaces (lib/typo.ts), so no guillemet or colon is left alone at a line's edge.
  * Each table gets a wrapper: below 640 px, CSS (globals.css, .article-table) stacks its rows instead of squeezing two columns.
  * A code block tagged `facture` is an invoice example, laid out as a document (InvoiceSheet); other blocks stay preformatted.
  */
@@ -67,7 +69,7 @@ const markdownComponents: Components = {
 };
 
 const Markdown: React.FC<{ children: string }> = ({ children }) => (
-  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]} components={markdownComponents}>
+  <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeFrenchSpacing]} components={markdownComponents}>
     {children}
   </ReactMarkdown>
 );
@@ -151,7 +153,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
                 {essentiel.map((item) => (
                   <li key={item} className="flex gap-3 text-base leading-relaxed md:text-lg" style={{ color: '#3C4866' }}>
                     <Check size={18} strokeWidth={2.6} aria-hidden="true" className="mt-1 shrink-0" style={{ color: '#1E7B43' }} />
-                    <span>{item}</span>
+                    <span>{frenchText(item)}</span>
                   </li>
                 ))}
               </ul>
@@ -177,7 +179,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
             {after && (
               <aside className="not-prose my-10 flex flex-col gap-5 rounded-2xl px-6 py-6 sm:flex-row sm:items-center sm:gap-8" style={{ background: GROUND }}>
                 <div className="flex-1 text-base leading-relaxed md:text-lg" style={{ color: INK }}>
-                  {cta.text}
+                  {frenchText(cta.text)}
                 </div>
                 <Link href={cta.href} data-plain className={`${sections.button} self-start sm:self-auto`}>
                   {cta.label}
@@ -197,11 +199,11 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
                 {faq.map((item, i) => (
                   <details key={item.q} open={i === 0} className={sections.question}>
                     <summary>
-                      <span>{item.q}</span>
+                      <span>{frenchText(item.q)}</span>
                       <ChevronDown size={20} strokeWidth={2} aria-hidden="true" />
                     </summary>
                     <div className={sections.answer}>
-                      <p>{item.a}</p>
+                      <p>{frenchText(item.a)}</p>
                     </div>
                   </details>
                 ))}
