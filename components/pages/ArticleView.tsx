@@ -19,7 +19,7 @@ const RULE = '#E6EAF1';
 
 const DEFAULT_CTA = {
   text: 'Vous voulez savoir où part le temps dans votre entreprise ? On regarde vos outils ensemble pendant 30 minutes, en visio. C’est gratuit.',
-  label: 'Réserver le pré-audit',
+  label: 'Réserver le pré-audit gratuit',
   href: '/contact/',
 };
 

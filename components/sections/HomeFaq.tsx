@@ -13,7 +13,7 @@ import styles from './sections.module.css';
  */
 export const HomeFaq: React.FC<{ items: Faq[]; title?: string; tone?: 'ground' | 'white' }> = ({
   items,
-  title = 'Vos questions',
+  title = 'Questions fréquentes',
   tone = 'ground',
 }) => (
   <Section tone={tone} labelledBy="faq-title" narrow>

@@ -12,6 +12,7 @@ import { LinkCards } from '@/components/sections/LinkCards';
 import { SetupWindow } from '@/components/sections/SetupWindow';
 import { HomeFaq } from '@/components/sections/HomeFaq';
 import { WindowCards } from '@/components/sections/WindowCards';
+import { HomeMethod } from '@/components/sections/HomeMethod';
 import { HomeClose } from '@/components/sections/HomeClose';
 import sections from '@/components/sections/sections.module.css';
 import inner from '@/components/sections/inner.module.css';
@@ -107,7 +108,7 @@ const PAINS = [
 // Message selon le nombre de cases cochées (l'index = le nombre de cases).
 // Le message à 0 est aussi celui que lisent les visiteurs et les robots sans JavaScript.
 const MESSAGES = [
-  "Vous cochez 3 cases sur 6 ? On a exactement ce qu'il faut.",
+  'Cochez ce que vous vivez : à partir de 3 cases, le pré-audit est fait pour vous.',
   'Ça arrive à toutes les boîtes. On peut en parler au pré-audit.',
   'Ça arrive à toutes les boîtes. On peut en parler au pré-audit.',
   "3 cases ou plus : c'est exactement ce qu'on règle. Le pré-audit est fait pour vous.",
@@ -202,38 +203,14 @@ export default function BtpPage() {
           <Checklist prompt="Cochez ce que vous vivez en ce moment." items={PAINS} messages={MESSAGES} threshold={3} />
         </Section>
 
-        <Section tone="ground" labelledBy="btp-resources-title">
-          <SectionHead
-            id="btp-resources-title"
-            title="Les outils gratuits pour le bâtiment"
-            lede="Les calculs qu'on refait sans arrêt au bureau, avec l'explication de chaque formule. Pas d'inscription."
-          />
-          <LinkCards three items={tools.map((t) => ({ href: `/outils/${t.slug}/`, title: t.title, text: t.description }))} />
-
-          <h3 className={`${sections.subtitle} ${inner.subhead}`}>À lire pour le second œuvre</h3>
-          <LinkCards items={articles.map((a) => ({ href: `/articles/${a.slug}/`, title: a.title, text: a.description }))} />
-          <p className={inner.headLink}>
-            <Link href="/articles" className={sections.more}>
-              Tous les articles pour le BTP
-              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-            </Link>
-            <Link href="/consultant-rennes" className={sections.more}>
-              Nos interventions autour de Rennes
-              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-            </Link>
-          </p>
-        </Section>
-
         <SetupWindow
           id="system-title"
           title="Vous gardez Batappli. On le branche sur le reste."
           lede="Chaque boîte a déjà un logiciel de devis, un drive et un groupe WhatsApp. Ce qui manque, c'est un endroit où tout se retrouve, et les liens entre ces outils."
           windowTitle="Votre système"
           items={PILLARS}
-          tone="white"
+          tone="ground"
         />
-
-        <HomeFaq items={faqsBtp} tone="ground" />
 
         <Section tone="white" labelledBy="builds-title">
           <SectionHead
@@ -250,7 +227,33 @@ export default function BtpPage() {
           </p>
         </Section>
 
-        <HomeClose />
+        <HomeMethod tone="ground" />
+
+        <HomeFaq items={faqsBtp} tone="white" />
+
+        <Section tone="ground" labelledBy="btp-resources-title">
+          <SectionHead
+            id="btp-resources-title"
+            title="Les outils gratuits pour le bâtiment"
+            lede="Les calculs qu'on refait sans arrêt au bureau, avec l'explication de chaque formule. Pas d'inscription."
+          />
+          <LinkCards three items={tools.map((t) => ({ href: `/outils/${t.slug}/`, title: t.title, text: t.description }))} />
+
+          <h3 className={`${sections.subtitle} ${inner.subhead}`}>À lire pour le second œuvre</h3>
+          <LinkCards items={articles.map((a) => ({ href: `/articles/${a.slug}/`, title: a.title, text: a.description }))} />
+          <p className={inner.headLink}>
+            <Link href="/articles" className={sections.more}>
+              Tous les articles
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+            <Link href="/consultant-rennes" className={sections.more}>
+              Nos interventions autour de Rennes
+              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          </p>
+        </Section>
+
+        <HomeClose auditStack={false} />
       </main>
       <Footer />
     </div>

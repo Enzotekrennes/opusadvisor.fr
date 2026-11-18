@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
       links: [
         { label: 'Pré-audit gratuit', href: '/services#pre-audit' },
         { label: 'Audit Stack', href: '/services#audit-stack' },
-        { label: 'Diagnostic', href: '/services#diagnostic' },
+        { label: 'Diagnostic opérationnel', href: '/services#diagnostic' },
         { label: 'Mise en œuvre', href: '/services#implementation' },
         { label: 'Gardien du système', href: '/services#suivi' },
         { label: 'Programme pilote BTP', href: '/cas-clients#programme-pilote' },

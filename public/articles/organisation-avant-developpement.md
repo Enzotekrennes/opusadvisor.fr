@@ -85,7 +85,7 @@ Trois actions à mener dans les 30 jours, avant de signer.
 
 **Vous voulez voir où vous laissez vraiment du temps chaque semaine ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me montrez votre logiciel actuel, je vous dis en direct ce que vous payez sans utiliser et combien ça vous coûte.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

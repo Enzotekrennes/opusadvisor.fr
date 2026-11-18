@@ -61,7 +61,7 @@ C'est exactement ce qu'on met en place au pré-audit : [un suivi de marge chanti
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde comment suivre la marge réelle de vos chantiers, à partir de ce que vous avez déjà.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

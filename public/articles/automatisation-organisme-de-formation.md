@@ -162,7 +162,7 @@ Cette semaine, suivez une session de l'inscription à la facture et notez chaque
 
 **Votre relevé est fait et vous hésitez sur la première automatisation ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde vos outils et on identifie trois points de friction.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

@@ -77,7 +77,7 @@ Si après ces 3 exercices vous voulez aller plus loin sans tâtonner, c'est exac
 
 **Pré-audit gratuit en visio**, 30 minutes, sans engagement. Vous me montrez vos outils et vos 3 questions terrain, je vous dis en direct si un diagnostic complet a du sens chez vous, et combien vous laissez sur la table chaque semaine.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

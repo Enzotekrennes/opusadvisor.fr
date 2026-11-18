@@ -6,7 +6,7 @@ import { ServicesView } from '@/components/pages/ServicesView';
 const PAGE_URL = 'https://opusadvisor.fr/services';
 const PAGE_TITLE = 'Services et tarifs : audit et mise en œuvre';
 const PAGE_DESCRIPTION =
-  'Pré-audit gratuit, Audit Stack 990 €, Diagnostic 2 500 €, Mise en œuvre dès 5 500 €, Gardien dès 400 €/mois. Cinq étapes chiffrées, sans surprise.';
+  'Pré-audit gratuit, diagnostic 2 500 €, mise en œuvre à partir de 5 500 €, Gardien dès 400 €/mois. Quatre étapes chiffrées, et l’Audit Stack à 990 € à part.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -50,7 +50,7 @@ const offersJsonLd = {
     offer('Pré-audit gratuit', '30 minutes en visio pour repérer 3 points de friction dans vos outils. Sans engagement.', '/contact/', { price: '0' }),
     offer('Audit Stack', 'Cartographie de vos outils et recommandation pour chacun, livrée en 10 jours ouvrés.', '/services/#audit-stack', { price: '990' }),
     offer('Diagnostic opérationnel', 'Plan chiffré en 2 à 3 semaines, avec le gain attendu.', '/services/#diagnostic', { price: '2500' }),
-    offer('Mise en œuvre système', 'Construction du système défini au diagnostic, formation de l’équipe et documentation, en 4 à 10 semaines.', '/services/#implementation', {
+    offer('Mise en œuvre', 'Construction du système défini au diagnostic, formation de l’équipe et documentation, en 4 à 10 semaines.', '/services/#implementation', {
       priceSpecification: { '@type': 'PriceSpecification', minPrice: 5500, priceCurrency: 'EUR' },
     }),
     offer('Gardien du système', 'Surveillance, point mensuel et évolutions du système, sans engagement.', '/services/#suivi', {

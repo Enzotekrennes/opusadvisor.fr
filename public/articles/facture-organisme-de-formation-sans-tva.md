@@ -161,7 +161,7 @@ Dans le réseau d'organismes que nous avons équipé d'un CRM, les documents ré
 
 **Vos factures se retapent à la main ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde comment les générer depuis le dossier.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

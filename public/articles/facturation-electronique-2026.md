@@ -81,7 +81,7 @@ Si après ces 3 étapes vous voyez que c'est plus compliqué que prévu, c'est l
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me montrez vos outils, je vous montre en direct où vous en êtes sur la facturation électronique et les 2 ou 3 autres points qui vous coûtent du temps chaque semaine.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

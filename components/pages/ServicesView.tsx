@@ -41,7 +41,7 @@ const services: ServiceData[] = [
     ],
     price: 'Gratuit',
     duration: '30 min · Visio',
-    cta: 'Réserver mon créneau',
+    cta: 'Réserver le pré-audit gratuit',
   },
   {
     id: 'audit-stack',
@@ -82,7 +82,7 @@ const services: ServiceData[] = [
   {
     id: 'implementation',
     tag: 'Un système qui tourne',
-    title: 'Mise en œuvre système',
+    title: 'Mise en œuvre',
     hook: 'On installe le système, puis on forme vos équipes dessus.',
     description:
       "On construit le système défini au diagnostic, à votre image : selon les cas, les automatisations seules (Make ou n8n), une application centrale qui réunit vos logiciels (base Airtable ou outil développé pour vous), ou tout le système de A à Z. On teste sur vos vrais dossiers, on forme l'équipe et on vous laisse une documentation écrite.",
@@ -146,14 +146,18 @@ const summary = [
   'Les automatisations tournent chez vous dès la mise en œuvre',
 ];
 
+/** The four steps of a mission, in order; the Audit Stack is a standalone written review beside them. */
+const STEPS = services.filter((s) => s.id !== 'audit-stack');
+const ALTERNATIVE = services.find((s) => s.id === 'audit-stack') as ServiceData;
+
 /** Height to leave above a section reached by its anchor, for the fixed menu bar. */
 const BAR_OFFSET = 80;
 
-/** The five offers and their prices, linking to each offer below: shown beside the hero. */
+/** The four steps and the Audit Stack with their prices, linking to each offer below: shown beside the hero. */
 const PriceList: React.FC = () => (
   <Window title="Tarifs">
     <ul className={inner.priceList}>
-      {services.map((s) => (
+      {[...STEPS, ALTERNATIVE].map((s) => (
         <li key={s.id}>
           <a href={`#${s.id}`}>
             <b>{s.title}</b>
@@ -166,8 +170,44 @@ const PriceList: React.FC = () => (
   </Window>
 );
 
+/** One offer in its window: tag, name, promise and price on the left, what it is and what you receive on the right. */
+const OfferBody: React.FC<{ s: ServiceData }> = ({ s }) => (
+  <div className={inner.offerBody}>
+    <div>
+      <span className={sections.pill}>{s.tag}</span>
+      <h3 className={inner.offerTitle}>{s.title}</h3>
+      <p className={inner.offerHook}>{s.hook}</p>
+      <p className={inner.offerPrice}>
+        <small>{s.duration}</small>
+        <b>{s.price}</b>
+        {s.priceNote && <span>{s.priceNote}</span>}
+      </p>
+    </div>
+    <div>
+      <p className={inner.offerText}>{s.description}</p>
+      <p className={inner.offerListTitle}>Ce que vous recevez</p>
+      <ul className={inner.ticks}>
+        {s.deliverables.map((d) => (
+          <li key={d}>
+            <Check size={16} strokeWidth={2.6} aria-hidden="true" />
+            <span>{d}</span>
+          </li>
+        ))}
+      </ul>
+      {s.cta && (
+        <p className={inner.offerCta}>
+          <Link href="/contact" className={sections.button}>
+            {s.cta}
+            <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
+          </Link>
+        </p>
+      )}
+    </div>
+  </div>
+);
+
 /**
- * Services page: the five offers with their prices, how they compare with the other options, a short
+ * Services page: the four steps with their prices and the Audit Stack apart, how they compare with the other options, a short
  * summary, two links to go further, and the close. An anchor in the address (#diagnostic…) scrolls to
  * its offer once the page is loaded.
  */
@@ -186,55 +226,30 @@ export const ServicesView: React.FC = () => {
     <main id="contenu" className="flex-grow">
       <PageHero
         titleId="services-title"
-        title="Cinq étapes, avec leur prix."
+        title="Quatre étapes, avec leur prix."
         lede="Vous connaissez le prix de chaque étape avant de signer, et vous pouvez vous arrêter à la fin de chacune."
         aside={<PriceList />}
       />
 
       <Section tone="ground" labelledBy="offers-title">
         <h2 id="offers-title" className="sr-only">
-          Les cinq étapes
+          Les quatre étapes
         </h2>
         <ol className={inner.offers}>
-          {services.map((s, i) => (
+          {STEPS.map((s, i) => (
             <li key={s.id} id={s.id} className={inner.offer} data-reveal>
-              <Window title={`Étape ${i + 1} sur ${services.length}`}>
-                <div className={inner.offerBody}>
-                  <div>
-                    <span className={sections.pill}>{s.tag}</span>
-                    <h3 className={inner.offerTitle}>{s.title}</h3>
-                    <p className={inner.offerHook}>{s.hook}</p>
-                    <p className={inner.offerPrice}>
-                      <small>{s.duration}</small>
-                      <b>{s.price}</b>
-                      {s.priceNote && <span>{s.priceNote}</span>}
-                    </p>
-                  </div>
-                  <div>
-                    <p className={inner.offerText}>{s.description}</p>
-                    <p className={inner.offerListTitle}>Ce que vous recevez</p>
-                    <ul className={inner.ticks}>
-                      {s.deliverables.map((d) => (
-                        <li key={d}>
-                          <Check size={16} strokeWidth={2.6} aria-hidden="true" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {s.cta && (
-                      <p className={inner.offerCta}>
-                        <Link href="/contact" className={sections.button}>
-                          {s.cta}
-                          <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-                        </Link>
-                      </p>
-                    )}
-                  </div>
-                </div>
+              <Window title={`Étape ${i + 1} sur ${STEPS.length}`}>
+                <OfferBody s={s} />
               </Window>
             </li>
           ))}
         </ol>
+        {/* Not a step: a written review on its own, for those who only want an outside opinion on their tools. */}
+        <div id={ALTERNATIVE.id} className={`${inner.offer} mt-7`} data-reveal>
+          <Window title="En alternative">
+            <OfferBody s={ALTERNATIVE} />
+          </Window>
+        </div>
       </Section>
 
       <PointsPanel

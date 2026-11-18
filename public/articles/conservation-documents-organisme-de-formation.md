@@ -20,7 +20,7 @@ faq:
     a: "Supprimez les données dont la dernière durée applicable a expiré. Ce qui reste lié à un contrôle ou à un litige en cours se garde à part, en accès restreint, jusqu'à la fin de la procédure. Avant cette échéance, la CNIL décrit un archivage intermédiaire séparé de la base active, consulté par des personnes spécifiquement habilitées."
 ctaMid:
   text: "On regarde ensemble où vivent vos preuves et comment calculer, pour chaque session, sa date de fin de conservation."
-  label: "Réserver un pré-audit"
+  label: "Réserver le pré-audit gratuit"
   href: "/contact/"
 ---
 
@@ -117,7 +117,7 @@ Cette semaine, relevez la clause de conservation de chacun de vos OPCO, puis ajo
 
 **Vos preuves sont réparties entre plusieurs outils et boîtes mail ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On repère où vivent vos preuves et comment calculer leur date de fin de conservation.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

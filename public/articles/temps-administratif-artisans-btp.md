@@ -63,7 +63,7 @@ C'est exactement [le point de départ du pré-audit](/services/) : on regarde vo
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous nous montrez votre semaine type, on vous montre en direct les heures récupérables.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

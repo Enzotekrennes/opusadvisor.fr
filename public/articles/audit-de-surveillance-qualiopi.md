@@ -128,7 +128,7 @@ Faites enfin le test du tirage au sort sur deux ou trois sessions, dont une anim
 
 **Le test du tirage au sort a pris plus d'une heure ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde où vivent vos preuves et on identifie trois points de friction.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

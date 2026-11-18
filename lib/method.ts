@@ -11,7 +11,7 @@ export interface MethodStep {
 
 export const methodSteps: MethodStep[] = [
   { name: 'Pré-audit', price: 'Gratuit', line: '30 minutes en visio pour repérer 3 points de friction dans vos outils.' },
-  { name: 'Diagnostic', price: '2 500 €', line: '2 à 3 semaines. Un plan chiffré, avec le gain attendu.' },
-  { name: 'Mise en œuvre', price: 'Dès 5 500 €', line: '4 à 10 semaines pour installer le système et former votre équipe.' },
+  { name: 'Diagnostic opérationnel', price: '2 500 €', line: '2 à 3 semaines. Un plan chiffré, avec le gain attendu.' },
+  { name: 'Mise en œuvre', price: 'À partir de 5 500 €', line: '4 à 10 semaines pour installer le système et former votre équipe.' },
   { name: 'Gardien du système', price: '400 à 1 500 €/mois', line: "On surveille le système et on l'adapte quand votre boîte change." },
 ];

@@ -100,7 +100,7 @@ En cas de litige, vérifiez votre contrat et faites-vous conseiller.
 
 **Vos retenues de garantie suivies avec le reste de vos chantiers ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous nous montrez comment vous suivez vos chantiers, on vous montre ce qui vous coûte du temps et de la trésorerie.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 
