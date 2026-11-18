@@ -78,7 +78,7 @@ Un rappel peut aussi servir de preuve. Les conditions particulières citent, par
 
 ### Les décisions que demande le référentiel
 
-Le [référentiel qualité en vigueur depuis le 1er novembre 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054608509) attend du prestataire qu'il analyse le besoin du bénéficiaire (indicateur 4), qu'il adapte la prestation aux publics (10) et qu'il vérifie « l'effectivité » du suivi des modules à distance (19). Il vise aussi le traitement des difficultés et des réclamations (31), puis une démarche d'amélioration continue à partir de l'analyse des appréciations et des réclamations (32). Un formulaire recueille la réclamation d'une stagiaire mécontente de la salle. Il faut quelqu'un pour lui répondre et décider de ce qui change à la session suivante.
+Le [référentiel qualité en vigueur depuis le 1er novembre 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054608509) attend du prestataire qu'il analyse le besoin du bénéficiaire (indicateur 4), qu'il adapte la prestation aux publics (10) et qu'il vérifie « l'effectivité » du suivi des modules à distance (19). Il vise aussi le traitement des difficultés et des réclamations (31), puis une démarche d'amélioration continue à partir de l'analyse des appréciations et des réclamations (32). Un formulaire recueille la réclamation d'une stagiaire mécontente de la salle. Il faut quelqu'un pour lui répondre et décider de ce qui change à la session suivante. L'accusé de réception et la réponse apportée figurent d'ailleurs parmi les [exemples de preuves du critère 7 dans le guide de lecture Qualiopi](/articles/documents-obligatoires-qualiopi/).
 
 ### Les déclarations sur les portails
 

@@ -267,9 +267,9 @@
       "gsc": null,
       "serp": "Certiforma occupe le terrain avec plusieurs pages (documents obligatoires, indicateurs, guide de lecture) ; le reste mêle annonces Comeup, pages de formateurs et une fiche Agefiph. Aucune liste officielle figée n'existe : on raisonne par preuve. Les extraits consultés citent encore 32 indicateurs et la V9 du guide de lecture, alors que le référentiel a changé au 1er novembre 2026."
     },
-    "status": "validated",
+    "status": "published",
     "reason": "Lecteur exact, mais souvent en quête d'un kit gratuit pour une première certification : moins proche de l'achat que l'audit de surveillance, dont l'article doit rester distinct.",
-    "updatedAt": "2026-11-05"
+    "updatedAt": "2026-11-18"
   },
   {
     "id": "formation-facture-sans-tva",
