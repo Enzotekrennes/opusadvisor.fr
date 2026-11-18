@@ -86,7 +86,7 @@ L'indicateur 33, nouveau, porte sur l'évaluation des contenus et des enseigneme
 
 ## Où se jouent les non-conformités majeures
 
-Le préambule du guide liste les indicateurs qui peuvent donner lieu à une non-conformité mineure ou majeure : 1, 2, 3, 8, 9, 12, 13, 17, 18, 19, 23, 24, 25, 28, 30 et 33. Les autres ne donnent que des majeures. Un écart sur l'analyse du besoin (indicateur 4) ou sur le traitement des réclamations (indicateur 31) est donc forcément majeure.
+Le préambule du guide liste les indicateurs qui peuvent donner lieu à une non-conformité mineure ou majeure : 1, 2, 3, 8, 9, 12, 13, 17, 18, 19, 23, 24, 25, 28, 30 et 33. Les autres ne donnent que des majeures. Un écart sur l'analyse du besoin (indicateur 4) ou sur le traitement des réclamations (indicateur 31) donne donc forcément une non-conformité majeure.
 
 L'arrêté (article 1 bis-V) ajoute deux règles. Au moins cinq non-conformités mineures non levées au moment de la décision valent une non-conformité majeure. Et aucune certification n'est délivrée tant qu'une majeure reste non levée. Nous ne traitons pas ici les délais de levée. Demandez-les à votre certificateur.
 
