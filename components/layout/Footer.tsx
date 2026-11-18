@@ -65,13 +65,13 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-7 grid grid-cols-2 gap-8">
             {footerSections.map((section) => (
               <div key={section.title}>
-                <h4 className="mb-4 text-[13px] font-semibold text-white/50">{section.title}</h4>
-                <ul className="space-y-3">
+                <h2 className="mb-3 text-[13px] font-semibold text-white/60">{section.title}</h2>
+                <ul className="space-y-1">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm md:text-[15px] text-white/75 hover:text-white transition-colors duration-200"
+                        className="inline-block py-1.5 text-sm md:text-[15px] text-white/75 hover:text-white transition-colors duration-200"
                       >
                         {link.label}
                       </Link>
@@ -91,12 +91,12 @@ export const Footer: React.FC = () => {
               Mentions légales
             </Link>
           </p>
-          <div className="flex items-center gap-6">
+          <div className="-mx-3 flex items-center gap-1">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
-                className="text-white/60 hover:text-white transition-colors duration-200"
+                className="grid h-11 w-11 place-items-center text-white/60 hover:text-white transition-colors duration-200"
                 aria-label={`Opus Advisor sur ${social.label}`}
                 title={`Opus Advisor sur ${social.label}`}
                 target="_blank"

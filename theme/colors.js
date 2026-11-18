@@ -1,6 +1,4 @@
 const colors = {
-  navy: '#1A2332',
-  gold: '#C9A84C',
   white: '#ffffff',
   black: '#000000',
   transparent: 'transparent',

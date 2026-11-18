@@ -1,4 +1,5 @@
 import React from 'react';
+import { frenchSpacing } from '@/lib/typo';
 import styles from './sections.module.css';
 
 /**
@@ -38,8 +39,8 @@ export const SectionHead: React.FC<{ id: string; title: React.ReactNode; lede?: 
 }) => (
   <div className={`${styles.head} ${centered ? styles.centered : ''}`} data-reveal>
     <h2 id={id} className={styles.title}>
-      {title}
+      {frenchSpacing(title)}
     </h2>
-    {lede && <p className={styles.lede}>{lede}</p>}
+    {lede && <p className={styles.lede}>{frenchSpacing(lede)}</p>}
   </div>
 );

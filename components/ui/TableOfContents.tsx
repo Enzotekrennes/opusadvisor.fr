@@ -73,7 +73,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
   return (
     <nav
       aria-label="Sommaire"
-      className="w-full rounded-2xl bg-white p-5 font-[family-name:var(--font-inter)] shadow-[0_0_0_1px_rgba(19,33,61,0.07),0_10px_24px_rgba(19,33,61,0.05)]"
+      className="w-full rounded-[var(--radius-card)] bg-white p-5 font-[family-name:var(--font-inter)] shadow-[var(--shadow-card)]"
     >
       <p className="mb-3 px-2 text-[13px] font-semibold text-[#56627E]">Sommaire</p>
       <ul className="space-y-0.5">

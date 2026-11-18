@@ -65,7 +65,7 @@
 
 .title {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: clamp(2rem, 1.35rem + 2.6vw, 3.5rem);
+  font-size: clamp(2rem, 1.35rem + 2.2vw, 3rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -142,6 +142,17 @@
   }
 }
 
+/* The arrow of a button leans toward where it leads, as on the home hero. */
+.button svg {
+  transition: transform 0.18s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .button:hover svg {
+    transform: translateX(3px);
+  }
+}
+
 .button:active {
   transform: scale(0.97);
   transition-duration: 0.08s;
@@ -164,9 +175,9 @@
 /* ---------- Light window (Window.tsx) ---------- */
 .window {
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: var(--radius-card);
   background: #fff;
-  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 24px 48px rgba(19, 33, 61, 0.08), 0 4px 10px rgba(19, 33, 61, 0.04);
+  box-shadow: var(--shadow-window);
 }
 
 .windowBar {
@@ -236,6 +247,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* The focus ring follows the window's corners. */
+  border-radius: var(--radius-card);
   color: inherit;
   text-decoration: none;
   transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
@@ -259,7 +272,7 @@
   }
 
   .caseLink:hover > .window {
-    box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.09), 0 30px 60px rgba(19, 33, 61, 0.12), 0 6px 14px rgba(19, 33, 61, 0.05);
+    box-shadow: var(--shadow-window-hover);
   }
 }
 
@@ -590,9 +603,9 @@
 .sector {
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: var(--radius-card);
   background: #fff;
-  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 12px 28px rgba(19, 33, 61, 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 .sectorLink {
@@ -679,9 +692,9 @@
   gap: 24px;
   align-items: center;
   padding: 26px 24px;
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   background: #fff;
-  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 18px 40px rgba(19, 33, 61, 0.08);
+  box-shadow: var(--shadow-card);
 }
 
 @media (min-width: 640px) {
@@ -709,7 +722,7 @@
 .calendarMonth {
   display: block;
   padding: 5px 0 4px;
-  background: #e5484d;
+  background: #d1343a;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -888,9 +901,9 @@
 .faq {
   margin-top: 40px;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--radius-card);
   background: #fff;
-  box-shadow: 0 0 0 1px rgba(19, 33, 61, 0.07), 0 12px 28px rgba(19, 33, 61, 0.05);
+  box-shadow: var(--shadow-card);
 }
 
 .question {
@@ -961,11 +974,20 @@
   font-weight: 600;
 }
 
-.answer a {
+.answer a,
+.inviteNote a {
   color: var(--navy);
   font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-color: rgba(30, 58, 102, 0.35);
+  text-underline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .answer a:hover,
+  .inviteNote a:hover {
+    text-decoration-color: var(--navy);
+  }
 }
 
 /* ---------- The close, at dusk ---------- */
@@ -1037,7 +1059,7 @@
 
 .closeTitle {
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: clamp(2.25rem, 1.4rem + 3.2vw, 4rem);
+  font-size: clamp(2.25rem, 1.4rem + 2.8vw, 3.5rem);
   font-weight: 700;
   line-height: 1.03;
   letter-spacing: -0.032em;
@@ -1046,7 +1068,7 @@
 }
 
 .closeTitleLong {
-  font-size: clamp(2rem, 1.3rem + 2.2vw, 3rem);
+  font-size: clamp(2rem, 1.3rem + 1.8vw, 2.75rem);
   line-height: 1.08;
 }
 
@@ -1179,11 +1201,7 @@
 }
 
 .inviteNote a {
-  color: var(--navy);
-  font-weight: 600;
   white-space: nowrap;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

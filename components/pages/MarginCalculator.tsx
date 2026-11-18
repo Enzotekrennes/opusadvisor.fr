@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
-const NAVY = '#13213D';
-const GOLD_INK = '#1E3A66';
+const INK = '#13213D';
+const ACCENT = '#1E3A66';
 
 const eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
 const pct = (v: number) => `${(Math.round(v * 10) / 10).toLocaleString('fr-FR')} %`;
@@ -86,7 +86,7 @@ export const MarginCalculator: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
           {FIELDS.map((f) => (
             <label key={f.key} className="block">
-              <span className="block text-sm font-semibold" style={{ color: NAVY }}>
+              <span className="block text-sm font-semibold" style={{ color: INK }}>
                 {f.label}
               </span>
               {f.hint && <span className="block text-[13px] text-[#56627E] mt-0.5">{f.hint}</span>}
@@ -99,9 +99,9 @@ export const MarginCalculator: React.FC = () => {
                   value={v[f.key]}
                   onChange={(e) => update(f.key, e.target.value)}
                   className="w-full bg-transparent px-4 py-3 text-base focus:outline-none"
-                  style={{ color: NAVY }}
+                  style={{ color: INK }}
                 />
-                <span className="pr-4 text-sm text-gray-500 whitespace-nowrap">{f.unit}</span>
+                <span className="pr-4 text-sm text-[#56627E] whitespace-nowrap">{f.unit}</span>
               </span>
             </label>
           ))}
@@ -109,8 +109,8 @@ export const MarginCalculator: React.FC = () => {
         <button
           type="button"
           onClick={() => setV(DEFAULTS)}
-          className="mt-6 text-sm font-semibold border-b pb-0.5 hover:opacity-70 transition-opacity"
-          style={{ color: GOLD_INK, borderColor: GOLD_INK }}
+          className="mt-6 py-2.5 text-sm font-semibold underline decoration-[#1E3A66]/35 underline-offset-4 transition-colors hover:decoration-[#1E3A66]"
+          style={{ color: ACCENT }}
         >
           Revenir à l'exemple
         </button>
@@ -118,27 +118,27 @@ export const MarginCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <div className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
-          <p className="text-sm font-semibold" style={{ color: NAVY }}>
+          <p className="text-sm font-semibold" style={{ color: INK }}>
             Résultat
           </p>
           <dl className="mt-1">
             {results.map((r) => (
               <div key={r.label} className="py-4 border-b last:border-b-0" style={{ borderColor: '#E6EAF1' }}>
                 <dt className="text-sm text-[#56627E]">{r.label}</dt>
-                <dd className="mt-1 text-2xl font-bold tracking-tight tabular-nums md:text-3xl" style={{ color: NAVY }}>
+                <dd className="mt-1 text-2xl font-bold tracking-tight tabular-nums md:text-3xl" style={{ color: INK }}>
                   {r.value}
                 </dd>
                 <dd className="text-sm text-[#56627E]">{r.note}</dd>
               </div>
             ))}
           </dl>
-          <div className="mt-4 p-5 rounded-xl bg-white shadow-[inset_0_0_0_1px_#E6EAF1]">
+          <div className="mt-2 border-t-2 pt-4" style={{ borderColor: '#DDE3EC' }}>
             <p className="text-sm text-[#56627E]">Prix de vente pour {pct(v.targetRate)} de bénéfice</p>
-            <p className="mt-1 text-2xl font-bold tracking-tight tabular-nums" style={{ color: NAVY }}>
+            <p className="mt-1 text-2xl font-bold tracking-tight tabular-nums" style={{ color: INK }}>
               {advisedPrice > 0 ? `${eur.format(advisedPrice)} HT` : '—'}
             </p>
             {grossMargin < 0 && (
-              <p className="mt-2 text-sm font-semibold text-[#9B2C2C]">
+              <p className="mt-2 text-sm font-semibold text-[var(--danger)]">
                 Votre prix ne couvre même pas le déboursé sec : ce chantier vous coûte de l'argent.
               </p>
             )}

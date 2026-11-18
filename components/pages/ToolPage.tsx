@@ -51,7 +51,8 @@ export const ToolPage: React.FC<ToolPageProps> = ({ url, breadcrumbName, title, 
           <ToolWindow name={breadcrumbName}>{calculator}</ToolWindow>
         </Section>
         <Section tone="white" narrow>
-          <div className="font-[family-name:var(--font-inter)]">{children}</div>
+          {/* About 70 characters a line, as in the articles. */}
+          <div className="mx-auto max-w-[44rem] font-[family-name:var(--font-inter)]">{children}</div>
         </Section>
         <HomeClose title={ctaTitle} lede={ctaText} auditStack={false} />
       </main>

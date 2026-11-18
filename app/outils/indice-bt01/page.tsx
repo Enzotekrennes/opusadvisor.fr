@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ToolPage, ToolH2, ToolP, Formula, ToolLink, ToolTable } from '@/components/pages/ToolPage';
 import { BtRevisionCalculator } from '@/components/pages/calc/BtRevisionCalculator';
-import { NAVY, GOLD_INK, RULE } from '@/components/pages/calc/CalcUI';
+import { INK, RULE } from '@/components/pages/calc/CalcUI';
 import { btSeries, getBt, monthLabel, ofMonth, dayLabel, indexOfPeriod, periodAt, change, fmtIndex, fmtChange } from '@/lib/indices-bt';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/indice-bt01/';
@@ -34,11 +34,11 @@ const LatestFigures = () => {
     { label: `Sur un an (${monthLabel(yearBefore)})`, value: fmtChange(change(valueAtPeriod(bt01, yearBefore), latestValue)) },
   ];
   return (
-    <dl className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 mb-12 md:mb-16 border-t" style={{ borderColor: RULE }}>
-      {figures.map((f) => (
-        <div key={f.label} className="py-5 border-b" style={{ borderColor: RULE }}>
-          <dt className="text-sm text-gray-600">{f.label}</dt>
-          <dd className="mt-1 font-heading font-bold text-3xl md:text-4xl" style={{ color: NAVY }}>
+    <dl className="mb-10 grid grid-cols-1 border-b sm:grid-cols-3 md:mb-12" style={{ borderColor: RULE }}>
+      {figures.map((f, i) => (
+        <div key={f.label} className={`py-5 sm:px-6 ${i > 0 ? 'border-t sm:border-l sm:border-t-0' : 'sm:pl-0'}`} style={{ borderColor: RULE }}>
+          <dt className="text-sm text-[#56627E]">{f.label}</dt>
+          <dd className="mt-1 text-3xl font-bold tracking-tight tabular-nums md:text-4xl" style={{ color: INK }}>
             {f.value}
           </dd>
         </div>
@@ -138,7 +138,7 @@ export default function IndiceBt01Page() {
 
         <ToolH2>Tous les index BT</ToolH2>
         <ToolTable head={['Index', 'Intitulé', 'Dernière valeur', 'Sur un an']} rows={btSeries.map((s) => row(s.code))} />
-        <p className="mt-2 text-sm" style={{ color: GOLD_INK }}>
+        <p className="mt-2 text-sm text-[#56627E]">
           Source : INSEE, index du bâtiment base 100 en 2010.
         </p>
       </ToolPage>

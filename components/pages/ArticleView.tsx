@@ -140,8 +140,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
           <TableOfContents content={content} />
         </div>
 
-        {/* From xl the fixed table of contents takes 288 px on the left: the text moves aside while the screen cannot centre it. */}
-        <div className="container mx-auto px-6 max-w-4xl xl:mr-auto xl:ml-[max(19rem,calc((100%_-_56rem)/2))]">
+        {/* About 68 characters a line. From xl the fixed table of contents takes 288 px on the left: the text moves aside while the screen cannot centre it. */}
+        <div className="container mx-auto px-6 max-w-[46rem] xl:mr-auto xl:ml-[max(19rem,calc((100%_-_46rem)/2))]">
           {essentiel && essentiel.length > 0 && (
             <aside aria-labelledby="essentiel-titre" className="mb-10 rounded-2xl px-6 py-6" style={{ background: GROUND }}>
               <p id="essentiel-titre" className="text-[15px] font-semibold" style={{ color: INK }}>
@@ -169,7 +169,6 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
               prose-ol:my-6 prose-ol:list-decimal prose-ol:pl-6 prose-ol:space-y-2
               prose-li:text-lg prose-li:leading-relaxed
               prose-strong:font-semibold
-              prose-a:no-underline hover:prose-a:underline
               prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-medium
               prose-hr:my-8
             "
@@ -195,8 +194,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
                 Questions fréquentes
               </h2>
               <div className={sections.faq}>
-                {faq.map((item) => (
-                  <details key={item.q} className={sections.question}>
+                {faq.map((item, i) => (
+                  <details key={item.q} open={i === 0} className={sections.question}>
                     <summary>
                       <span>{item.q}</span>
                       <ChevronDown size={20} strokeWidth={2} aria-hidden="true" />

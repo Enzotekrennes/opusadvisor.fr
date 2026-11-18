@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { frenchSpacing } from '@/lib/typo';
 import sections from '@/components/sections/sections.module.css';
 
 const INK = '#13213D';
@@ -53,7 +54,7 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
 
   return (
     <div className="font-[family-name:var(--font-inter)]">
-      <div className="mb-10 inline-flex flex-wrap gap-1 rounded-xl p-1" style={{ background: '#E6EAF1' }} role="group" aria-label="Filtrer par sujet">
+      <div className="mb-10 flex max-w-full gap-1 overflow-x-auto rounded-xl p-1 [scrollbar-width:none] sm:inline-flex sm:flex-wrap" style={{ background: '#E6EAF1' }} role="group" aria-label="Filtrer par sujet">
         {categories.map((cat) => {
           const isActive = cat === active;
           return (
@@ -62,7 +63,7 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
               type="button"
               onClick={() => setActive(cat)}
               aria-pressed={isActive}
-              className="rounded-lg px-4 py-2 text-[14px] font-semibold transition-colors [@media(pointer:coarse)]:min-h-11"
+              className="shrink-0 whitespace-nowrap rounded-lg px-4 py-2 text-[14px] font-semibold transition-colors [@media(pointer:coarse)]:min-h-11"
               style={isActive ? { background: '#FFFFFF', color: INK, boxShadow: '0 1px 2px rgba(19,33,61,0.12)' } : { color: INK_SOFT }}
             >
               {cat}
@@ -76,17 +77,17 @@ export const ArticlesGrid: React.FC<{ articles: ArticleMetadata[] }> = ({ articl
           <li key={article.id}>
             <Link
               href={`/articles/${article.slug}`}
-              className="group flex h-full flex-col rounded-2xl bg-white p-6 shadow-[0_0_0_1px_rgba(19,33,61,0.07),0_10px_24px_rgba(19,33,61,0.05)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(19,33,61,0.09),0_18px_36px_rgba(19,33,61,0.09)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className="group flex h-full flex-col rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-card-hover)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <span className="flex flex-wrap items-center gap-2 text-[13px]" style={{ color: INK_SOFT }}>
                 {article.publishedAt && <span>{formatDate(article.publishedAt)}</span>}
                 {article.category && <span className={sections.pill}>{article.category}</span>}
               </span>
               <h2 className="mt-3 text-xl font-bold leading-snug tracking-tight group-hover:underline group-hover:underline-offset-4" style={{ color: INK }}>
-                {article.title}
+                {frenchSpacing(article.title)}
               </h2>
               <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed" style={{ color: INK_SOFT }}>
-                {article.description}
+                {frenchSpacing(article.description)}
               </p>
               <span className="mt-auto inline-flex items-center gap-2 pt-4 text-[14.5px] font-semibold" style={{ color: '#1E3A66' }}>
                 Lire l'article

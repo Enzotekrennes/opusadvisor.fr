@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import type { DesktopIcon } from '@/lib/homeDesktop';
 import { DesktopGlyph } from '@/components/home/desktop/DesktopGlyph';
+import { frenchSpacing } from '@/lib/typo';
 import styles from './inner.module.css';
 
 /** Planes of the town drawn for the home page, from the farthest to the rooftop in front. */
@@ -55,9 +56,9 @@ export const PageHero: React.FC<{
           </ul>
         )}
         <h1 id={titleId} className={styles.heroTitle}>
-          {title}
+          {frenchSpacing(title)}
         </h1>
-        {lede && <p className={styles.heroLede}>{lede}</p>}
+        {lede && <p className={styles.heroLede}>{frenchSpacing(lede)}</p>}
         {children}
       </div>
       {aside && <div className={styles.heroAside}>{aside}</div>}
