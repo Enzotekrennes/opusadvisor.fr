@@ -100,7 +100,7 @@ La différence la plus lourde porte sur la conservation. Le modèle du ministèr
 
 ## Ce que Qualiopi demande, et ce qu'il ne demande pas
 
-Le référentiel en vigueur depuis le 1er novembre 2026, fixé par [le décret n° 2026-728 du 1er août 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054608509), ne mentionne ni le certificat de réalisation ni les émargements. Le plus proche est l'indicateur 19. « Lorsque des modules pédagogiques sont réalisés à distance, le prestataire vérifie l'effectivité de leur suivi par les apprenants. » Vos traces de suivi à distance servent donc aussi lors de [l'audit de surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/).
+Le référentiel en vigueur depuis le 1er novembre 2026, fixé par [le décret n° 2026-728 du 1er août 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054608509), ne mentionne ni le certificat de réalisation ni les émargements. Nous ne les avons pas trouvés non plus dans la copie du guide de lecture V10 que nous avons lue, et que nous reprenons dans notre article sur [les documents obligatoires Qualiopi](/articles/documents-obligatoires-qualiopi/). Le plus proche est l'indicateur 19. « Lorsque des modules pédagogiques sont réalisés à distance, le prestataire vérifie l'effectivité de leur suivi par les apprenants. » Vos traces de suivi à distance servent donc aussi lors de [l'audit de surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/).
 
 ## Avant l'envoi, quatre contrôles et le bon destinataire
 

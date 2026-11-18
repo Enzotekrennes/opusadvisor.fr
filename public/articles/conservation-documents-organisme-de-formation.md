@@ -70,7 +70,7 @@ La forme des factures change aussi, comme l'explique notre article sur [la factu
 
 ## Qualiopi ne fixe aucune durée
 
-Ni le décret n° 2026-728, qui porte le référentiel à 33 indicateurs, ni l'arrêté du 28 octobre 2026 sur les audits ne contiennent de durée de conservation. Mais en audit de surveillance, l'auditeur analyse « une ou plusieurs actions conduites depuis le précédent audit », et « l'absence de preuve le jour de l'audit fait l'objet d'une non-conformité ». Tout ce qui touche une action postérieure au dernier audit reste donc à portée de main. Nous détaillons le choix des sessions dans notre article sur [l'échantillonnage de l'audit de surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/).
+Ni le décret n° 2026-728, qui porte le référentiel à 33 indicateurs, ni l'arrêté du 28 octobre 2026 sur les audits ne contiennent de durée de conservation. Mais en audit de surveillance, l'auditeur analyse « une ou plusieurs actions conduites depuis le précédent audit », et « l'absence de preuve le jour de l'audit fait l'objet d'une non-conformité ». Tout ce qui touche une action postérieure au dernier audit reste donc à portée de main. Pour savoir quelles pièces garder, critère par critère, voyez [les preuves que l'auditeur Qualiopi peut demander](/articles/documents-obligatoires-qualiopi/). Nous détaillons le choix des sessions dans notre article sur [l'échantillonnage de l'audit de surveillance Qualiopi](/articles/audit-de-surveillance-qualiopi/).
 
 ## Une session type, quatre échéances
 

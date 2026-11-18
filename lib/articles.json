@@ -1,5 +1,22 @@
 [
     {
+        "id": 27,
+        "slug": "documents-obligatoires-qualiopi",
+        "title": "Documents obligatoires Qualiopi : les preuves par critère",
+        "description": "Documents obligatoires Qualiopi : le dossier transmis au certificateur, les preuves de chaque critère depuis novembre 2026 et comment les ranger par session.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-18",
+        "category": "Réglementation",
+        "seoTitle": "Documents obligatoires Qualiopi : les preuves par critère",
+        "related": [
+            "audit-de-surveillance-qualiopi",
+            "certificat-de-realisation-formation",
+            "automatisation-organisme-de-formation"
+        ],
+        "tools": []
+    },
+    {
         "id": 26,
         "slug": "facture-organisme-de-formation-sans-tva",
         "title": "Facture d'un organisme de formation sans TVA : modèle commenté",
@@ -67,7 +84,7 @@
         "related": [
             "audit-de-surveillance-qualiopi",
             "automatisation-organisme-de-formation",
-            "facturation-electronique-organisme-formation"
+            "documents-obligatoires-qualiopi"
         ]
     },
     {
@@ -82,7 +99,7 @@
         "seoTitle": "Audit de surveillance Qualiopi : règles 2026 et préparation",
         "related": [
             "automatisation-organisme-de-formation",
-            "fin-subrogation-opco-organisme-formation",
+            "documents-obligatoires-qualiopi",
             "conservation-documents-organisme-de-formation"
         ]
     },
