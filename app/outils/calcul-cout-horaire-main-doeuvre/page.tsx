@@ -4,9 +4,9 @@ import { LaborCostCalculator } from '@/components/pages/calc/LaborCostCalculator
 import { DEFAULT_LABOR, laborCost } from '@/lib/labor-cost';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/calcul-cout-horaire-main-doeuvre/';
-const PAGE_TITLE = "Coût horaire de main-d'œuvre : prix de revient et taux horaire";
+const PAGE_TITLE = 'Coût horaire de revient et taux horaire : le calcul';
 const PAGE_DESCRIPTION =
-  "Calculez le prix de revient horaire réel d'un compagnon (salaire chargé, indemnités, véhicule, heures facturées) et le taux horaire à mettre dans vos devis pour dégager une marge.";
+  'Calculez votre coût horaire de revient (salaire chargé, indemnités, véhicule, heures facturées) et le taux horaire à mettre dans vos devis. Sans inscription.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -43,7 +43,7 @@ export default function LaborCostPage() {
         Mettre l'un à la place de l'autre dans un devis, c'est travailler à prix coûtant.
       </ToolP>
 
-      <ToolH2>La formule</ToolH2>
+      <ToolH2>Calculer son coût horaire de revient : la formule</ToolH2>
       <Formula>coût horaire = coût annuel du compagnon ÷ heures réellement facturées</Formula>
       <ToolP>
         Le coût annuel comprend le salaire brut, les charges patronales (caisse de congés payés comprise dans le BTP), les
@@ -71,22 +71,22 @@ export default function LaborCostPage() {
         <ToolLink href="/articles/marge-chantier-suivi-reel/">marge prévue contre la marge réelle</ToolLink>.
       </ToolP>
 
-      <ToolH2>Du coût horaire au taux de vente</ToolH2>
+      <ToolH2>Combien facturer une heure : du coût horaire au prix de vente</ToolH2>
       <Formula>taux de vente HT = coût par heure facturée × (1 + frais généraux) ÷ (1 − marge visée)</Formula>
       <ToolP>
-        Les frais généraux couvrent ce qui ne se rattache à aucun chantier : loyer, bureau, assurances, expert-comptable,
-        temps passé aux devis. La marge se calcule ici sur le prix de vente, comme dans notre{' '}
+        Les frais généraux couvrent ce qui ne se rattache à aucun chantier : loyer, bureau, assurances, expert-comptable,{' '}
+        <ToolLink href="/articles/temps-administratif-artisans-btp/">temps passé aux devis</ToolLink>. La marge se calcule ici sur le prix de vente, comme dans notre{' '}
         <ToolLink href="/outils/calcul-marge-chantier/">calculateur de marge chantier</ToolLink>. Dans l'exemple :{' '}
         {h(base.perBillableHour)} × {(1 + d.overheadRate / 100).toLocaleString('fr-FR')} ÷{' '}
         {(1 - d.marginRate / 100).toLocaleString('fr-FR')} = {h(base.sellingRate)} HT de l'heure.
       </ToolP>
 
-      <ToolH2>Chiffrer un chantier au taux horaire</ToolH2>
+      <ToolH2>Devis au taux horaire : chiffrer un chantier à l'heure</ToolH2>
       <ToolP>
         Pour évaluer un chantier à l'heure, estimez les heures poste par poste, multipliez-les par le taux de vente, puis
         ajoutez les fournitures avec leur propre coefficient. Une fois le chantier terminé, comparez les heures prévues aux
-        heures pointées : l'écart dit si votre taux et les temps de vos devis sont justes. Notre{' '}
-        <ToolLink href="/outils/calcul-marge-chantier/">calculateur de marge chantier</ToolLink> fait ce bilan.
+        heures pointées : l'écart dit si votre taux et les temps de vos devis sont justes. Notre calculateur de marge
+        chantier fait ce bilan.
       </ToolP>
 
       <ToolH2>Électricien, plombier, chauffagiste : ce qui change</ToolH2>

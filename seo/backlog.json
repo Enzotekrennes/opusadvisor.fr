@@ -318,7 +318,11 @@
       "exemple situation de travaux",
       "situation de travaux modèle",
       "facture de situation ou facture d acompte",
-      "facture situation de travaux excel"
+      "facture situation de travaux excel",
+      "facture avancement travaux",
+      "facture d'avancement",
+      "facturation à l'avancement",
+      "facture d'avancement et retenue de garantie"
     ],
     "sector": "btp",
     "intent": "modèle",
@@ -349,7 +353,31 @@
       "serp": "Première page tenue par des éditeurs de logiciels et des néobanques (Obat, Abby, Shine, Sellsy, Appvizer, Legalnest, Independant.io) avec définitions, modèles téléchargeables et exemples chiffrés (Abby, Keobiz). Angle à confirmer par l'analyse de SERP : une situation complète qui enchaîne acompte, avancement, retenue de garantie et révision BT01, appuyée sur le calculateur gratuit du site, dont la page a fait 715 impressions en 3 mois."
     },
     "status": "validated",
-    "reason": "Plus forte demande relevée dans la Search Console sans article qui la vise (13 requêtes, 646 impressions en 3 mois, position moyenne 76,7) ; le lecteur est un patron de second œuvre qui facture à l'avancement, et l'article renforce le calculateur déjà en ligne. Validé par Enzo le 2026-11-18.",
+    "reason": "Plus forte demande relevée dans la Search Console sans article qui la vise (13 requêtes, 646 impressions en 3 mois, position moyenne 76,7) ; le lecteur est un patron de second œuvre qui facture à l'avancement, et l'article renforce le calculateur déjà en ligne. Validé par Enzo le 2026-11-18. Variantes « facture d'avancement » ajoutées le 2026-11-18 (39 impressions, dont 38 apparues depuis le 5 novembre).",
+    "updatedAt": "2026-11-18"
+  },
+  {
+    "id": "immobilier-automatiser-conciergerie",
+    "keyword": "automatiser sa conciergerie",
+    "variants": [
+      "automatisation facturation conciergerie"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [],
+      "gsc": {
+        "impressions": 20,
+        "position": 38.5
+      },
+      "serp": "Non analysée : à faire par le stratège avant validation. Le secteur immobilier n'a aucun article, et /secteurs/immobilier/ (28 impressions, position 35,8) ne reçoit aucun lien d'article."
+    },
+    "status": "idea",
+    "reason": "Requêtes réelles vues dans la Search Console (export du 2026-11-18 : « automatiser sa conciergerie » 11 impressions en position 37,2 ; « automatisation facturation conciergerie » 9 en position 40). Preuve publiable : la conciergerie dont tout le système a été repris et qui est suivie chaque mois, à ne pas résumer à l'automatisation de la facturation.",
     "updatedAt": "2026-11-18"
   }
 ]

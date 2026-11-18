@@ -5,7 +5,7 @@ import { RetentionCalculator } from '@/components/pages/calc/RetentionCalculator
 const PAGE_URL = 'https://opusadvisor.fr/outils/calcul-retenue-de-garantie/';
 const PAGE_TITLE = 'Calcul de la retenue de garantie : HT ou TTC ?';
 const PAGE_DESCRIPTION =
-  "Calculez la retenue de garantie de 5 % d'un marché de travaux : sur le HT ou le TTC, exemple sur une facture, consignation ou caution, et libération un an après la réception.";
+  "Retenue de garantie sur le HT ou le TTC : c'est le marché qui fixe la base. Calculez les 5 %, le net versé et la date de libération.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -32,10 +32,11 @@ export default function RetentionPage() {
       </ToolP>
       <Formula>retenue = montant des travaux × taux (5 % au maximum)</Formula>
 
-      <ToolH2>Sur le HT ou sur le TTC ?</ToolH2>
+      <ToolH2>Retenue de garantie : HT ou TTC ?</ToolH2>
       <ToolP>
-        La loi ne le précise pas : c'est votre marché qui fixe la base. En pratique, le TTC est le plus courant, parce que
-        c'est le montant réellement payé. Le plus sûr est de l'écrire noir sur blanc dans le contrat.
+        La loi ne le précise pas : celle du 16 juillet 1971 parle d'une retenue de 5 % au plus du « montant » des acomptes,
+        sans dire HT ou TTC. C'est votre marché qui fixe la base. En pratique, le TTC est le plus courant, parce que c'est
+        le montant réellement payé. Le plus sûr est de l'écrire noir sur blanc dans le contrat.
       </ToolP>
       <ToolTable
         head={['Marché de 48 000 € HT, TVA 10 %', 'Base TTC', 'Base HT']}
@@ -74,14 +75,19 @@ export default function RetentionPage() {
       <ToolH2>Quand la récupérer</ToolH2>
       <ToolP>
         Un an après la réception des travaux, même sans accord écrit du client, sauf s'il a notifié une opposition motivée
-        par lettre recommandée. Notez la date dès la réception : une retenue que personne ne réclame finit souvent par être
-        oubliée.
+        par lettre recommandée. Notez la date dès la réception :{' '}
+        <ToolLink href="/articles/suivi-retenue-de-garantie/">une retenue que personne ne réclame</ToolLink> finit souvent
+        par être oubliée.
       </ToolP>
 
       <ToolH2>Et sur les marchés publics ?</ToolH2>
       <ToolP>
-        Ils suivent le Code de la commande publique, avec un plafond de 5 % lui aussi. Pour calculer la retenue sur une
-        situation de travaux, utilisez notre{' '}
+        Ils suivent le Code de la commande publique : la retenue ne peut dépasser 5 % du montant initial du marché,
+        augmenté des modifications en cours d'exécution (article R2191-33). Le plafond descend à 3 % quand vous êtes une
+        PME et que le marché est passé par l'État, par un établissement public administratif de l'État, ou par une
+        collectivité ou un groupement dont les dépenses de fonctionnement dépassent 60 millions d'euros. La retenue vous
+        est remboursée dans les trente jours qui suivent la fin du délai de garantie (article R2191-35). Pour calculer la
+        retenue sur une situation de travaux, utilisez notre{' '}
         <ToolLink href="/outils/calcul-situation-de-travaux/">calculateur de facture de situation</ToolLink>.
       </ToolP>
     </ToolPage>

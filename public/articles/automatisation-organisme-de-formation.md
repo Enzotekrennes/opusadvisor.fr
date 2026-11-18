@@ -1,6 +1,6 @@
 ---
 title: "Automatisation d'un organisme de formation : par où commencer"
-metaDescription: "Automatisation d'un organisme de formation : ce que fait déjà votre logiciel, ce qui reste à la main et par quoi commencer, session par session."
+metaDescription: "Automatiser les rappels de session, les convocations et les documents d'un organisme de formation : ce que fait déjà votre logiciel et par quoi commencer."
 date: "2026-11-05"
 keywords: ["automatisation organisme de formation", "gestion administrative organisme de formation", "gestion administrative centre de formation", "logiciel gestion administrative organisme de formation"]
 essentiel:

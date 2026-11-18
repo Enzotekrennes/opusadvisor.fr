@@ -40,7 +40,7 @@ export const RetentionCalculator: React.FC = () => {
               { value: 'ht', label: 'Sur le montant HT' },
             ]}
           />
-          <NumberField label="Taux de la retenue" hint="5 % au maximum" unit="%" step={0.5} value={rate} onChange={setRate} />
+          <NumberField label="Taux de la retenue" hint="5 % au maximum, 3 % pour une PME sur certains marchés publics" unit="%" step={0.5} value={rate} onChange={setRate} />
           <DateField label="Date de réception des travaux" hint="Point de départ du délai d'un an" value={reception} onChange={setReception} />
         </div>
       </form>

@@ -29,7 +29,7 @@ C'est tentant, et c'est rassurant. Sauf que dans presque tous les cas, ce n'est 
 
 Quatre raisons reviennent en boucle dans les boîtes BTP qui ont basculé sur ces logiciels.
 
-**Le logiciel ne colle pas à la réalité du chantier.** La facturation BTP suit rarement une ligne droite. Vous gérez des acomptes, des situations mensuelles, des [retenues de garantie de 5 %](/outils/calcul-retenue-de-garantie/), de l'autoliquidation TVA pour la sous-traitance, des avenants, des moins-values. Un logiciel généraliste plié à votre métier coûte 6 mois de paramétrage. Le vrai logiciel BTP métier, vous l'avez peut-être déjà.
+**Le logiciel ne colle pas à la réalité du chantier.** La facturation BTP suit rarement une ligne droite. Vous gérez des acomptes, des situations mensuelles, des [retenues de garantie de 5 %](/outils/calcul-retenue-de-garantie/), de [l'autoliquidation TVA](/articles/sous-traitance-btp-paiement-direct/) pour la sous-traitance, des avenants, des moins-values. Un logiciel généraliste plié à votre métier coûte 6 mois de paramétrage. Le vrai logiciel BTP métier, vous l'avez peut-être déjà.
 
 **L'équipe terrain ne l'utilise pas.** Vos chefs de chantier ouvrent WhatsApp 80 fois par jour. Le grand logiciel sur tablette qui demande un login, 4 clics et une connexion correcte, ils l'ouvrent 3 fois la première semaine puis plus jamais. Au final, le bureau passe son temps à ressaisir ce que les chefs de chantier disent par messagerie.
 

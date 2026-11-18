@@ -32,9 +32,9 @@ const BTP_ARTICLES = [
   'maprimerenov-2026',
   'facturation-electronique-2026',
 ];
-const PAGE_TITLE = 'BTP second œuvre : logiciel de gestion, devis et relances';
+const PAGE_TITLE = 'Logiciel second œuvre : devis, chantiers et relances reliés';
 const PAGE_DESCRIPTION =
-  'Devis, chantiers et relances reliés, avec ou sans changer de logiciel. Objectif : 10 h par semaine rendues aux patrons du second œuvre. Pré-audit gratuit.';
+  'Quel logiciel pour une entreprise du second œuvre ? Batappli, Obat, Tolteck ou EBP : on vérifie si le vôtre suffit, puis on le relie à vos chantiers.';
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -205,7 +205,7 @@ export default function BtpPage() {
 
         <SetupWindow
           id="system-title"
-          title="Vous gardez Batappli. On le branche sur le reste."
+          title="Vous gardez votre logiciel, Batappli ou un autre. On le branche sur le reste."
           lede="Chaque boîte a déjà un logiciel de devis, un drive et un groupe WhatsApp. Ce qui manque, c'est un endroit où tout se retrouve, et les liens entre ces outils."
           windowTitle="Votre système"
           items={PILLARS}
