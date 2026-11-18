@@ -53,7 +53,8 @@
         "tools": [
             "calcul-retenue-de-garantie",
             "calcul-situation-de-travaux"
-        ]
+        ],
+        "updatedAt": "2026-11-18"
     },
     {
         "id": 24,
@@ -123,12 +124,12 @@
         "id": 20,
         "slug": "automatisation-organisme-de-formation",
         "title": "Automatisation d'un organisme de formation : par où commencer",
-        "description": "Automatisation d'un organisme de formation : ce que fait déjà votre logiciel, ce qui reste à la main et par quoi commencer, session par session.",
+        "description": "Automatiser les rappels de session, les convocations et les documents d'un organisme de formation : ce que fait déjà votre logiciel et par quoi commencer.",
         "imageSrc": "/images/Logo_1200x630.png",
         "icon": "workflow",
         "publishedAt": "2026-11-05",
         "category": "Méthode",
-        "seoTitle": "Automatisation organisme de formation : par où commencer",
+        "seoTitle": "Automatisation organisme de formation : rappels et documents",
         "related": [
             "fin-subrogation-opco-organisme-formation",
             "facturation-electronique-2026",

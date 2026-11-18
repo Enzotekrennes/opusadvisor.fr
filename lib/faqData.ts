@@ -81,6 +81,14 @@ On se partage le travail : votre expert-comptable garde la comptabilité et le p
 // FAQ de la page Secteurs > BTP.
 export const faqsBtp: Faq[] = [
   {
+    question: 'Quel logiciel de gestion choisir pour une entreprise du second œuvre ?',
+    answer: `Celui qui supprime vos ressaisies, quel que soit son nom. Batappli, Tolteck, Obat, EBP Bâtiment, Onaya ou Sage Batigest font des devis et des factures. Pour vous, la différence se joue sur le reste : suivi de chantier, planning, pointage des heures, lien avec la comptabilité.
+
+Avant de choisir, listez ce que votre équipe refait à la main chaque semaine : situations, relances, marge réelle par chantier, heures. Le bon outil fait disparaître ces tâches, seul ou relié aux autres.
+
+On ne touche aucune commission sur les logiciels. Pendant le pré-audit, on regarde avec vous si le vôtre suffit ou s'il faut en changer.`,
+  },
+  {
     question: 'Vous travaillez avec des boîtes comme la mienne ?',
     answer: `Oui. Dans le BTP, on travaille avec le second œuvre : électricité, plomberie, chauffage-clim et multi-technique, de 8 à 60+ collaborateurs. Ça va de l'artisan bien organisé à la PME qui a plusieurs agences.
 
@@ -95,14 +103,6 @@ Si votre boîte ne correspond pas à ce profil, on vous le dit dès le premier a
 S'il est inadapté, ou si vous partez de zéro, on construit le système complet avec vous.
 
 On ne revend aucun logiciel. Si on vous conseille d'en changer, on n'y gagne rien.`,
-  },
-  {
-    question: 'Quel logiciel de gestion choisir pour une entreprise du second œuvre ?',
-    answer: `Celui qui supprime vos ressaisies, quel que soit son nom. Batappli, Tolteck, Obat, EBP Bâtiment, Onaya ou Sage Batigest font des devis et des factures. Pour vous, la différence se joue sur le reste : suivi de chantier, planning, pointage des heures, lien avec la comptabilité.
-
-Avant de choisir, listez ce que votre équipe refait à la main chaque semaine : situations, relances, marge réelle par chantier, heures. Le bon outil fait disparaître ces tâches, seul ou relié aux autres.
-
-On ne touche aucune commission sur les logiciels. Pendant le pré-audit, on regarde avec vous si le vôtre suffit ou s'il faut en changer.`,
   },
   {
     question: 'Combien ça coûte, au total, de refaire mon système ?',

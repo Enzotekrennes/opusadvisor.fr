@@ -35,7 +35,7 @@ Une étude BCG de 2024 le formule autrement : 73 % des organisations sont incapa
 
 **Semaine 2 : audit des outils.** Inventaire complet de tout ce que la boîte utilise : le logiciel BTP (Batappli, Obat, Tolteck, EBP), le drive, les groupes WhatsApp, les Excel parallèles, la banque, l'export comptable. Pour chaque outil, on regarde ce qui est utilisé, [ce qui est sous-utilisé, ce qui est payé pour rien](/articles/organisation-avant-developpement/). On teste le paramétrage du logiciel BTP en direct avec l'assistante. Livrable : une carte des outils existants avec un score d'exploitation par outil.
 
-**Semaine 2-3 : chiffrage des gains.** On reprend chaque friction repérée et on la chiffre en heures par semaine puis en euros par mois. Combien d'heures à ressaisir des données. Combien d'euros bloqués dans des situations non facturées à temps. Combien de devis perdus parce que le modèle traîne. Livrable : un tableau ROI chantier par chantier d'amélioration, avec un effort estimé en jours.
+**Semaine 2-3 : chiffrage des gains.** On reprend chaque friction repérée et on la chiffre en heures par semaine puis en euros par mois. Combien d'[heures à ressaisir des données](/articles/temps-administratif-artisans-btp/). Combien d'euros bloqués dans des situations non facturées à temps. Combien de devis perdus parce que le modèle traîne. Livrable : un tableau ROI chantier par chantier d'amélioration, avec un effort estimé en jours.
 
 **Semaine 3 : plan d'exécution.** Priorisation des actions par ratio impact / effort. Phasage sur 4 à 10 semaines selon ce qui sort. Pour chaque action retenue, un devis fixe, pas de TJM ouvert ni de "ça dépendra du temps passé". Livrable : une feuille de route chiffrée prête à être signée si vous décidez d'avancer.
 
@@ -57,7 +57,7 @@ Le diagnostic court ne tiendrait pas dans tous les secteurs. Dans le second œuv
 
 Le métier est concret. Un chantier, c'est un point de départ et un point d'arrivée. Les frictions sont visibles à l'œil nu, elles ne se cachent pas derrière des dashboards à 8 KPI.
 
-Les outils standards du marché sont peu nombreux. Quatre à cinq logiciels BTP couvrent 90 % des boîtes du second œuvre en France. Pas besoin de cartographier 30 outils maison. [On connaît Batappli, Obat, Tolteck, EBP](/secteurs/btp/), et leurs principales limites.
+Les outils standards du marché sont peu nombreux. Quatre à cinq logiciels BTP couvrent 90 % des boîtes du second œuvre en France. Pas besoin de cartographier 30 outils maison. On connaît [les logiciels du second œuvre, Batappli, Obat, Tolteck, EBP](/secteurs/btp/), et leurs principales limites.
 
 Les chantiers servent d'unités de mesure naturelles pour quantifier les gains. "Faire gagner 4 heures par chantier sur 80 chantiers par an", voilà un chiffre qui parle à un patron, bien plus qu'une "amélioration de 12 % de la productivité opérationnelle".
 
@@ -67,7 +67,7 @@ Avant même de prendre rendez-vous, vous pouvez faire 3 choses chez vous cette s
 
 **Posez ces 3 questions à votre équipe terrain, en tête-à-tête de 10 minutes.** "Quelle info te manque le plus souvent quand tu démarres un chantier ?" "Qu'est-ce que tu fais à la main qui pourrait être automatique ?" "Qu'est-ce qui te fait perdre 30 minutes par jour pour rien ?" Notez les réponses. Vous tenez là 80 % du diagnostic terrain.
 
-**Exportez ces 5 éléments de votre logiciel BTP.** La liste des chantiers ouverts depuis 12 mois avec marges. Le ratio devis émis sur devis signés. Les délais moyens d'encaissement par client. L'état des retenues de garantie en cours. Le rapport [situations facturées vs avancement réel](/outils/calcul-situation-de-travaux/). Si certains de ces exports n'existent pas dans votre formule, c'est déjà une information.
+**Exportez ces 5 éléments de votre logiciel BTP.** La liste des chantiers ouverts depuis 12 mois avec marges. Le ratio devis émis sur devis signés. Les délais moyens d'encaissement par client. L'état des [retenues de garantie en cours](/articles/suivi-retenue-de-garantie/). Le rapport [situations facturées vs avancement réel](/outils/calcul-situation-de-travaux/). Si certains de ces exports n'existent pas dans votre formule, c'est déjà une information.
 
 **Suivez un chantier de bout en bout pendant 1 semaine.** Notez chaque fois qu'une info repasse au bureau, chaque fois qu'une même donnée est saisie dans 2 outils différents, chaque fois que quelqu'un cherche un document plus de 30 secondes. À la fin de la semaine, vous avez votre vraie liste de frictions.
 

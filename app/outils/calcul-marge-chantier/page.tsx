@@ -25,7 +25,13 @@ const formulas = [
   {
     name: 'Déboursé sec',
     formula: "main-d'œuvre + matériaux + sous-traitance + matériel + petites dépenses",
-    text: "Tout ce que le chantier vous coûte directement. La main-d'œuvre se calcule en multipliant les heures par le coût horaire chargé (salaire et charges), pas par le salaire net.",
+    text: (
+      <>
+        Tout ce que le chantier vous coûte directement. La main-d'œuvre se calcule en multipliant les heures par le{' '}
+        <ToolLink href="/outils/calcul-cout-horaire-main-doeuvre/">coût horaire chargé</ToolLink> (salaire et charges), pas
+        par le salaire net.
+      </>
+    ),
   },
   {
     name: 'Prix de revient',

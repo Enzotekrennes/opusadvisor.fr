@@ -48,6 +48,8 @@ Prenez un chantier de cloisons et doublages réceptionné le 14 mars 2025 avec d
 
 Sur un marché public, le texte change. L'article R2191-35 du Code de la commande publique prévoit que la retenue, quand le marché en comporte une, est remboursée dans les trente jours qui suivent l'expiration du délai de garantie.
 
+Le montant retenu ne peut dépasser 5 % du montant initial du marché, augmenté des modifications en cours d'exécution. Ce plafond descend à 3 % quand vous êtes une PME et que le marché est passé par l'État, par un établissement public administratif de l'État, ou par une collectivité ou un groupement dont les dépenses de fonctionnement dépassent 60 millions d'euros (article R2191-33).
+
 Deux points sont à vérifier dans les pièces de votre marché. D'abord, la durée du délai de garantie : c'est elle qui fixe l'échéance. Ensuite, les réserves. Si l'acheteur vous a notifié des réserves pendant le délai de garantie et qu'elles ne sont pas levées à son expiration, le remboursement intervient trente jours après leur levée. Une reprise qui traîne repousse donc d'autant le retour de votre argent.
 
 ## Pourquoi la retenue se perd entre deux chantiers
@@ -104,4 +106,4 @@ En cas de litige, vérifiez votre contrat et faites-vous conseiller.
 
 ---
 
-*Sources : [Légifrance, loi n° 71-584 du 16 juillet 1971, articles 1er et 2](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000687670/), [Légifrance, Code de la commande publique, article R2191-35](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037729807)*
+*Sources : [Légifrance, loi n° 71-584 du 16 juillet 1971, articles 1er et 2](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000687670/), [Légifrance, Code de la commande publique, article R2191-35](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000037729807), [Légifrance, décret n° 2024-1251 du 30 décembre 2024](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050872401)*

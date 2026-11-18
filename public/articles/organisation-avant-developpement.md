@@ -77,7 +77,7 @@ Trois actions à mener dans les 30 jours, avant de signer.
 
 **1. Faites un audit honnête de l'usage actuel sur 1 mois.** Pour chaque module de votre logiciel, regardez qui s'en sert, à quelle fréquence, et pour quoi faire. La méthode la plus simple : 4 entretiens de 20 minutes (patron, assistante, chef de chantier, comptable). À la fin, vous avez [votre score d'exploitation](/articles/diagnostic-operationnel-pme/), module par module.
 
-**2. Listez vos 5 vraies frictions, hors outil.** "Mon devis met 5 jours à sortir parce que personne ne sait quel modèle utiliser." "On rate des [relances de retenue de garantie](/outils/calcul-retenue-de-garantie/) parce qu'aucune alerte n'est posée." "Les photos chantier ne sont jamais retrouvées quand le client réclame." Ces frictions relèvent de l'organisation. Aucun nouveau logiciel ne les résout tout seul.
+**2. Listez vos 5 vraies frictions, hors outil.** "Mon devis met 5 jours à sortir parce que personne ne sait quel modèle utiliser." "On rate des [relances de retenue de garantie](/articles/suivi-retenue-de-garantie/) parce qu'aucune alerte n'est posée." "Les photos chantier ne sont jamais retrouvées quand le client réclame." Ces frictions relèvent de l'organisation. Aucun nouveau logiciel ne les résout tout seul.
 
 **3. Testez 30 jours une fonction que vous n'utilisez pas encore.** Avant de remplacer, exploitez. Activez le module situation, le suivi de chantier mobile ou l'export comptable que vous payez déjà sans utiliser. Si au bout de 30 jours vous avez réglé 2 de vos 5 frictions, vous le saviez déjà. Si vous n'avez rien bougé, l'outil n'était pas en cause.
 
