@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { TrackFirstUse } from '@/components/analytics/TrackFirstUse';
+import { CalcFrame } from '@/components/pages/calc/CalcFrame';
 import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/sections/Section';
 import { Window } from '@/components/sections/Window';
@@ -61,11 +62,16 @@ export const ToolPage: React.FC<ToolPageProps> = ({ url, breadcrumbName, title, 
   );
 };
 
-/** A calculator in its window, counted once in the audience statistics when first used. */
+/**
+ * A calculator in its window, counted once in the audience statistics when first used, in the calculator
+ * frame (results kept in view on a phone, « Revenir à l'exemple » underneath).
+ */
 export const ToolWindow: React.FC<{ name: string; children: React.ReactNode }> = ({ name, children }) => (
   <Window title={name}>
     <div className="p-5 md:p-8">
-      <TrackFirstUse tool={name}>{children}</TrackFirstUse>
+      <TrackFirstUse tool={name}>
+        <CalcFrame>{children}</CalcFrame>
+      </TrackFirstUse>
     </div>
   </Window>
 );

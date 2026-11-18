@@ -175,6 +175,8 @@
 /* ---------- Light window (Window.tsx) ---------- */
 .window {
   overflow: hidden;
+  /* clip, unlike hidden, leaves sticky content inside the window free to stick to the screen. */
+  overflow: clip;
   border-radius: var(--radius-card);
   background: #fff;
   box-shadow: var(--shadow-window);

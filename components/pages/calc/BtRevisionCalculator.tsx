@@ -46,6 +46,7 @@ export const BtRevisionCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <ResultPanel
+          peek={[1, 2]}
           results={[
             {
               label: `${series.code} au mois zéro → au mois de révision`,

@@ -1,9 +1,12 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
+import { useResultsPeek } from './CalcFrame';
+import { INK, ACCENT, RULE } from './palette';
+
+export { INK, ACCENT, RULE };
 
 // Briques communes aux calculateurs de /outils/ (même style que le calculateur de marge).
-export const INK = '#13213D';
-export const ACCENT = '#1E3A66';
-export const RULE = '#DDE3EC';
 
 export const eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 });
 export const eur0 = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
@@ -119,12 +122,21 @@ export interface Result {
 
 interface ResultPanelProps {
   results: Result[];
+  /** Positions of the results repeated in the phone strip of the calculator frame; the last one by default. */
+  peek?: number[];
   children?: React.ReactNode;
 }
 
-/** Colonne de résultats : annoncée aux lecteurs d'écran à chaque recalcul. */
-export const ResultPanel: React.FC<ResultPanelProps> = ({ results, children }) => (
-  <div className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
+/**
+ * Colonne de résultats : annoncée aux lecteurs d'écran à chaque recalcul. Sur téléphone, les résultats
+ * désignés par `peek` restent visibles en haut de l'écran pendant la saisie (CalcFrame).
+ */
+export const ResultPanel: React.FC<ResultPanelProps> = ({ results, peek, children }) => {
+  const panel = useRef<HTMLDivElement>(null);
+  const shown = (peek ?? [results.length - 1]).map((i) => results[i]).filter((r): r is Result => r !== undefined);
+  useResultsPeek(shown.map((r) => ({ label: r.label, value: r.value })), panel);
+  return (
+  <div ref={panel} className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
     <p className="text-sm font-semibold" style={{ color: INK }}>
       Résultat
     </p>
@@ -141,7 +153,8 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ results, children }) =
     </dl>
     {children}
   </div>
-);
+  );
+};
 
 export const Warning: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <p className="mt-4 text-sm font-semibold text-[var(--danger)] leading-relaxed">{children}</p>

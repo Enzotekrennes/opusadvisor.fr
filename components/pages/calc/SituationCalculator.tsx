@@ -42,6 +42,7 @@ export const SituationCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <ResultPanel
+          peek={[1, 3]}
           results={[
             { label: 'Travaux réalisés (cumul)', value: eur.format(doneHT), note: `${progress.toLocaleString('fr-FR')} % du marché, HT` },
             { label: 'Montant de cette situation', value: `${eur.format(situationHT)} HT`, note: 'cumul − déjà facturé' },

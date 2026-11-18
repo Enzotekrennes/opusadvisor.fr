@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { useResultsPeek } from './calc/CalcFrame';
 
 const INK = '#13213D';
 const ACCENT = '#1E3A66';
@@ -72,6 +73,7 @@ export const MarginCalculator: React.FC = () => {
     setV((prev) => ({ ...prev, [key]: Number.isFinite(n) && n >= 0 ? n : 0 }));
   };
 
+  const panel = useRef<HTMLDivElement>(null);
   const results = [
     { label: 'Déboursé sec', value: eur.format(directCost), note: `dont main-d'œuvre ${eur.format(labour)}` },
     { label: 'Prix de revient', value: eur.format(costPrice), note: `frais généraux compris (${eur.format(overhead)})` },
@@ -79,6 +81,8 @@ export const MarginCalculator: React.FC = () => {
     { label: 'Bénéfice net', value: eur.format(netProfit), note: `${pct(netRate)} du prix de vente` },
     { label: 'Coefficient de vente', value: coefficient.toLocaleString('fr-FR', { maximumFractionDigits: 2 }), note: 'prix de vente ÷ déboursé sec' },
   ];
+
+  useResultsPeek([results[2], results[3]].map((r) => ({ label: r.label, value: r.value })), panel);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
@@ -106,18 +110,10 @@ export const MarginCalculator: React.FC = () => {
             </label>
           ))}
         </div>
-        <button
-          type="button"
-          onClick={() => setV(DEFAULTS)}
-          className="mt-6 py-2.5 text-sm font-semibold underline decoration-[#1E3A66]/35 underline-offset-4 transition-colors hover:decoration-[#1E3A66]"
-          style={{ color: ACCENT }}
-        >
-          Revenir à l'exemple
-        </button>
       </form>
 
       <div className="lg:col-span-5">
-        <div className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
+        <div ref={panel} className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
           <p className="text-sm font-semibold" style={{ color: INK }}>
             Résultat
           </p>

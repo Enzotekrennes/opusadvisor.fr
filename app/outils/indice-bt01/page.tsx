@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ToolPage, ToolH2, ToolP, Formula, ToolLink, ToolTable } from '@/components/pages/ToolPage';
 import { BtRevisionCalculator } from '@/components/pages/calc/BtRevisionCalculator';
-import { INK, RULE } from '@/components/pages/calc/CalcUI';
+import { INK, RULE } from '@/components/pages/calc/palette';
 import { btSeries, getBt, monthLabel, ofMonth, dayLabel, indexOfPeriod, periodAt, change, fmtIndex, fmtChange } from '@/lib/indices-bt';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/indice-bt01/';
