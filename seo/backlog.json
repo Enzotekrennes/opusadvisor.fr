@@ -304,5 +304,52 @@
     "status": "published",
     "reason": "Besoin réel des organismes, mais lectorat large (formateurs indépendants hors cible) et sujet fiscal : on explique la règle, on cite le texte et on renvoie au comptable.",
     "updatedAt": "2026-11-16"
+  },
+  {
+    "id": "btp-facture-situation-travaux",
+    "keyword": "facture de situation de travaux",
+    "variants": [
+      "situation de travaux",
+      "facture de situation",
+      "situations de travaux",
+      "situation de chantier",
+      "facture situation de travaux",
+      "facture de situation de chantier",
+      "exemple situation de travaux",
+      "situation de travaux modèle",
+      "facture de situation ou facture d acompte",
+      "facture situation de travaux excel"
+    ],
+    "sector": "btp",
+    "intent": "modèle",
+    "format": "modèle commenté",
+    "difficulty": "forte",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "facture de situation c est quoi",
+        "facture de situation ou facture d acompte",
+        "facture de situation exemple",
+        "facture situation de travaux modèle",
+        "facture situation de travaux excel",
+        "comment faire une facture de situation",
+        "comptabilisation facture situation de travaux",
+        "facture de situation btp",
+        "situation de travaux exemple",
+        "situation de travaux marché public",
+        "mention obligatoire situation de travaux",
+        "comment faire une facture de situation sur batigest",
+        "comment faire une facture de situation sur ebp"
+      ],
+      "gsc": {
+        "impressions": 646,
+        "position": 76.7
+      },
+      "serp": "Première page tenue par des éditeurs de logiciels et des néobanques (Obat, Abby, Shine, Sellsy, Appvizer, Legalnest, Independant.io) avec définitions, modèles téléchargeables et exemples chiffrés (Abby, Keobiz). Angle à confirmer par l'analyse de SERP : une situation complète qui enchaîne acompte, avancement, retenue de garantie et révision BT01, appuyée sur le calculateur gratuit du site, dont la page a fait 715 impressions en 3 mois."
+    },
+    "status": "validated",
+    "reason": "Plus forte demande relevée dans la Search Console sans article qui la vise (13 requêtes, 646 impressions en 3 mois, position moyenne 76,7) ; le lecteur est un patron de second œuvre qui facture à l'avancement, et l'article renforce le calculateur déjà en ligne. Validé par Enzo le 2026-11-18.",
+    "updatedAt": "2026-11-18"
   }
 ]
