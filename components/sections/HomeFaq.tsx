@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import { ChevronDown } from 'lucide-react';
 import type { Faq } from '@/lib/faqData';
 import { Section } from './Section';
+import { frenchSpacing } from '@/lib/typo';
 import styles from './sections.module.css';
 
 /**
@@ -23,7 +24,7 @@ export const HomeFaq: React.FC<{ items: Faq[]; title?: string; tone?: 'ground' |
       {items.map((faq, index) => (
         <details key={faq.question} open={index === 0} className={styles.question}>
           <summary>
-            <span>{faq.question}</span>
+            <span>{frenchSpacing(faq.question)}</span>
             <ChevronDown size={20} strokeWidth={2} aria-hidden="true" />
           </summary>
           <div className={styles.answer}>

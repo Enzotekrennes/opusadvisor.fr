@@ -10,6 +10,8 @@ import inner from '@/components/sections/inner.module.css';
 import { track } from '@/lib/analytics';
 
 const CAL_URL = 'https://cal.com/enzo-monnier-qc1nqv/30min';
+/** The calendar follows the visitor's system theme by default: forced light, it matches the white window around it. */
+const CAL_EMBED_URL = `${CAL_URL}?theme=light`;
 
 // Clé Web3Forms (publique, prévue pour le code côté client). Les demandes arrivent sur enzo@opusadvisor.fr.
 // Tant qu'elle est vide, le formulaire renvoie proprement vers l'email.
@@ -70,16 +72,31 @@ export const ContactView: React.FC = () => {
             comment les régler. <strong className="font-semibold text-white">C'est gratuit et sans engagement.</strong>
           </>
         }
-      />
+      >
+        {/* The phone number within reach from the first screen, on a phone above all. */}
+        <div className={inner.heroActions}>
+          <a href="tel:+33615756549" className={`${inner.lightLink} inline-flex items-center gap-2`}>
+            <Phone size={18} strokeWidth={2} aria-hidden="true" />
+            06 15 75 65 49
+          </a>
+        </div>
+      </PageHero>
 
       <Section tone="ground">
         <div className={inner.contactGrid}>
           <Window title="Réserver un créneau">
             <div className={inner.paneBody}>
               <h2 className={inner.paneTitle}>Choisissez votre horaire.</h2>
+              {/* The person behind the calendar, as in the invitation at the end of every page. */}
+              <p className={sections.inviteWith}>
+                <img src="/images/enzo-avatar.webp" alt="" width={36} height={36} />
+                <span>
+                  Avec <b>Enzo Monnier</b>, le fondateur
+                </span>
+              </p>
               <div className={inner.calendarFrame}>
                 <iframe
-                  src={CAL_URL}
+                  src={CAL_EMBED_URL}
                   title="Réserver un créneau de pré-audit avec Opus Advisor"
                   loading="lazy"
                   allow="camera; microphone; fullscreen; payment"

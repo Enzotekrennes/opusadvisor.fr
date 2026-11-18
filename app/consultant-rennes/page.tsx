@@ -128,9 +128,9 @@ export default function ConsultantRennesPage() {
           <HeroActions />
         </PageHero>
 
-        <PointsPanel id="zone-titre" title="Où on intervient" items={zones.map((z) => ({ title: z.label, desc: z.text }))} tone="white" />
+        <PointsPanel id="zone-titre" title="Où on intervient" items={zones.map((z) => ({ title: z.label, desc: z.text }))} tone="ground" />
 
-        <Section tone="ground" labelledBy="sujets-titre">
+        <Section tone="white" labelledBy="sujets-titre">
           <SectionHead
             id="sujets-titre"
             title="Ce qu'on règle le plus souvent"
@@ -139,7 +139,7 @@ export default function ConsultantRennesPage() {
           <WindowCards items={topics.map((t) => ({ key: t.title, label: t.link, title: t.title, text: t.text, href: t.href }))} />
         </Section>
 
-        <Section tone="white" labelledBy="pilotes-titre">
+        <Section tone="ground" labelledBy="pilotes-titre">
           <div data-reveal>
             <Window title="Opus Pilotes">
               <div className={inner.announce}>
@@ -165,7 +165,7 @@ export default function ConsultantRennesPage() {
           </div>
         </Section>
 
-        <HomeFaq items={faq.map((item) => ({ question: item.q, answer: item.a }))} title="Questions fréquentes" tone="ground" />
+        <HomeFaq items={faq.map((item) => ({ question: item.q, answer: item.a }))} title="Questions fréquentes" tone="white" />
 
         <HomeClose
           title="30 minutes en visio, sur vos propres outils"

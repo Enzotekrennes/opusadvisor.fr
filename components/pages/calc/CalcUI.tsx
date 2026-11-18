@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Briques communes aux calculateurs de /outils/ (même style que le calculateur de marge).
-export const NAVY = '#13213D';
-export const GOLD_INK = '#1E3A66';
+export const INK = '#13213D';
+export const ACCENT = '#1E3A66';
 export const RULE = '#DDE3EC';
 
 export const eur = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 });
@@ -28,7 +28,7 @@ interface FieldShellProps {
 
 const FieldShell: React.FC<FieldShellProps> = ({ label, hint, children }) => (
   <label className="block">
-    <span className="block text-sm font-semibold" style={{ color: NAVY }}>
+    <span className="block text-sm font-semibold" style={{ color: INK }}>
       {label}
     </span>
     {hint && <span className="block text-[13px] text-[#56627E] mt-0.5">{hint}</span>}
@@ -56,9 +56,9 @@ export const NumberField: React.FC<NumberFieldProps> = ({ label, hint, unit, val
         value={value}
         onChange={(e) => onChange(toNumber(e.target.value))}
         className="w-full bg-transparent px-4 py-3 text-base focus:outline-none"
-        style={{ color: NAVY }}
+        style={{ color: INK }}
       />
-      <span className="pr-4 text-sm text-gray-500 whitespace-nowrap">{unit}</span>
+      <span className="pr-4 text-sm text-[#56627E] whitespace-nowrap">{unit}</span>
     </span>
   </FieldShell>
 );
@@ -78,7 +78,7 @@ export const DateField: React.FC<DateFieldProps> = ({ label, hint, value, onChan
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full bg-transparent px-4 py-3 text-base focus:outline-none"
-        style={{ color: NAVY }}
+        style={{ color: INK }}
       />
     </span>
   </FieldShell>
@@ -99,7 +99,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({ label, hint, value, op
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full bg-transparent px-4 py-3 text-base focus:outline-none"
-        style={{ color: NAVY }}
+        style={{ color: INK }}
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -125,14 +125,14 @@ interface ResultPanelProps {
 /** Colonne de résultats : annoncée aux lecteurs d'écran à chaque recalcul. */
 export const ResultPanel: React.FC<ResultPanelProps> = ({ results, children }) => (
   <div className="lg:sticky lg:top-24 rounded-2xl bg-[#F7F9FC] p-5 md:p-6 shadow-[inset_0_0_0_1px_#E6EAF1]" aria-live="polite">
-    <p className="text-sm font-semibold" style={{ color: NAVY }}>
+    <p className="text-sm font-semibold" style={{ color: INK }}>
       Résultat
     </p>
     <dl className="mt-1">
       {results.map((r) => (
         <div key={r.label} className="py-4 border-b last:border-b-0" style={{ borderColor: '#E6EAF1' }}>
           <dt className="text-sm text-[#56627E]">{r.label}</dt>
-          <dd className="mt-1 text-2xl font-bold tracking-tight tabular-nums md:text-3xl" style={{ color: NAVY }}>
+          <dd className="mt-1 text-2xl font-bold tracking-tight tabular-nums md:text-3xl" style={{ color: INK }}>
             {r.value}
           </dd>
           {r.note && <dd className="text-sm text-[#56627E]">{r.note}</dd>}
@@ -144,11 +144,11 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ results, children }) =
 );
 
 export const Warning: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <p className="mt-4 text-sm font-semibold text-[#9B2C2C] leading-relaxed">{children}</p>
+  <p className="mt-4 text-sm font-semibold text-[var(--danger)] leading-relaxed">{children}</p>
 );
 
 export const Note: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <p className="mt-4 p-4 rounded-xl text-sm text-[#3C4866] leading-relaxed" style={{ background: '#EEF2F8' }}>
+  <p className="mt-4 border-t pt-4 text-sm text-[#3C4866] leading-relaxed" style={{ borderColor: '#E6EAF1' }}>
     {children}
   </p>
 );

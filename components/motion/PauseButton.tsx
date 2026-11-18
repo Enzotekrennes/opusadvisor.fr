@@ -16,8 +16,8 @@ export const PauseButton: React.FC<{ paused: boolean; onToggle: () => void; clas
     type="button"
     onClick={onToggle}
     aria-label={paused ? "Relancer l'animation" : "Mettre l'animation en pause"}
-    className={`inline-flex items-center gap-1.5 rounded-full border bg-white px-2.5 py-1 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:px-3.5 ${className}`}
-    style={{ borderColor: 'rgba(26,35,50,0.2)' }}
+    className={`inline-flex items-center gap-1.5 rounded-full border bg-white px-2.5 py-1 text-xs font-semibold text-[#3C4866] transition-colors hover:bg-[#F3F5F9] [@media(pointer:coarse)]:min-h-11 [@media(pointer:coarse)]:px-3.5 ${className}`}
+    style={{ borderColor: '#DDE3EC' }}
   >
     {paused ? <Play size={12} aria-hidden="true" /> : <Pause size={12} aria-hidden="true" />}
     {paused ? 'Lecture' : 'Pause'}

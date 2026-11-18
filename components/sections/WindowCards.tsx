@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Window } from './Window';
+import { frenchSpacing } from '@/lib/typo';
 import styles from './sections.module.css';
 
 /** One card: a small label on top, a title, a sentence, an optional pill, an optional link. */
@@ -26,8 +27,8 @@ export const WindowCards: React.FC<{ items: WindowCard[] }> = ({ items }) => (
         <Window>
           <div className={styles.caseBody}>
             <p className={styles.caseClient}>{item.label}</p>
-            <h3 className={styles.caseTitle}>{item.title}</h3>
-            <p className={styles.caseSummary}>{item.text}</p>
+            <h3 className={styles.caseTitle}>{frenchSpacing(item.title)}</h3>
+            <p className={styles.caseSummary}>{frenchSpacing(item.text)}</p>
             {(item.pill || item.href) && (
               <div className={styles.caseFoot}>
                 {item.pill ? <span className={styles.pill}>{item.pill}</span> : <span />}

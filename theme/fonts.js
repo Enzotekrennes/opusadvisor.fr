@@ -1,7 +1,6 @@
 const fonts = {
   sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'],
   heading: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
-  subtitle: ['var(--font-lexend)', 'ui-sans-serif', 'system-ui'],
 };
 
 const fontSizes = {

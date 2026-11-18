@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, Wifi, X } from 'lucide-react';
+import { Menu, Wifi, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { NavLink } from '@/types';
@@ -246,7 +246,7 @@ export const Header: React.FC = () => {
             ref={closeRef}
             type="button"
             onClick={closeMenu}
-            className="-mr-2 p-2 text-white/80 transition-colors hover:text-white"
+            className="-mr-2.5 p-2.5 text-white/80 transition-colors hover:text-white"
             aria-label="Fermer le menu"
           >
             <X size={28} aria-hidden="true" />
@@ -260,8 +260,8 @@ export const Header: React.FC = () => {
               href={link.href}
               onClick={handleNavClick}
               aria-current={isActive(link.href) && (link.href !== '/' || pathname === '/') ? 'page' : undefined}
-              className={`text-4xl font-bold tracking-tight text-white/80 transition-all duration-300 hover:text-white ${
-                isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              className={`py-1 text-4xl font-bold tracking-tight text-white/80 underline-offset-[10px] transition-all duration-300 hover:text-white aria-[current=page]:text-white aria-[current=page]:underline aria-[current=page]:decoration-2 aria-[current=page]:decoration-white/60 motion-reduce:transition-opacity ${
+                isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 motion-reduce:translate-y-0'
               }`}
               style={{ transitionDelay: `${index * 80 + 100}ms` }}
             >
@@ -271,12 +271,13 @@ export const Header: React.FC = () => {
           <Link
             href="/contact"
             onClick={handleNavClick}
-            className={`mt-4 inline-flex items-center rounded-full bg-white px-7 py-4 text-lg font-semibold text-[#1E3A66] transition-all duration-300 ${
-              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            className={`mt-4 inline-flex items-center gap-2.5 rounded-full bg-white py-4 pl-7 pr-6 text-lg font-semibold text-[#1E3A66] transition-all duration-300 motion-reduce:transition-opacity ${
+              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 motion-reduce:translate-y-0'
             }`}
             style={{ transitionDelay: `${mobileLinks.length * 80 + 100}ms` }}
           >
             Réserver le pré-audit gratuit
+            <ArrowRight size={20} strokeWidth={2} aria-hidden="true" />
           </Link>
         </div>
 

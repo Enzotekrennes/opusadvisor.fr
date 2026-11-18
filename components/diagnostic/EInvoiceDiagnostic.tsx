@@ -1,23 +1,23 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, CalendarCheck, Check, ExternalLink, RotateCcw } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, ExternalLink, RotateCcw } from 'lucide-react';
 import { QUESTIONS, type Answers, type QuestionId } from '@/lib/einvoice/questions';
 import { computeDiagnostic, type Diagnostic, type Verdict } from '@/lib/einvoice/diagnostic';
 import { DATES, DISCLAIMER, OFFICIAL_LINKS, dateFr, typo } from '@/lib/einvoice/rules';
 import { BOOKING_URL, LEAD_API_URL, OFFER_PRICE, PRIVACY_URL } from '@/lib/einvoice/config';
 import { track } from '@/lib/analytics';
 import { Window } from '@/components/sections/Window';
+import sections from '@/components/sections/sections.module.css';
 
 // Palette of the site since the redesign: ink, navy accent, cool grey ground.
 const NAVY = '#13213D';
-const GOLD = '#1E3A66';
-const GOLD_INK = '#1E3A66';
+const ACCENT = '#1E3A66';
 const PAPER = '#F3F5F9';
 const RULE = '#DDE3EC';
 
 const VERDICT_STYLE: Record<Verdict, { bg: string; ink: string; border: string }> = {
-  EN_RETARD: { bg: '#FBEAEA', ink: '#8B1D1D', border: '#E5B3B3' },
+  EN_RETARD: { bg: '#FBEAEA', ink: '#B42318', border: '#F2C4C0' },
   A_PREPARER: { bg: '#FFF2D4', ink: '#8A5A00', border: '#F1D9A0' },
   EN_REGLE: { bg: '#E7F2EA', ink: '#1E5E3A', border: '#A7CDB3' },
 };
@@ -54,8 +54,7 @@ const ERRORS: Record<SendError, string> = {
   invalid: 'Un champ ne semble pas valide. Vérifiez votre email et réessayez.',
 };
 
-const primaryBtn =
-  'inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-base bg-[#1E3A66] text-white hover:bg-[#234575] transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]';
+const primaryBtn = `${sections.button} disabled:cursor-not-allowed disabled:opacity-60`;
 const ghostBtn =
   'inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-semibold text-base text-[#1E3A66] hover:bg-[#1E3A66]/5 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]';
 const fieldCls =
@@ -130,7 +129,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
     });
 
   return (
-    <section className="px-5 py-16 font-[family-name:var(--font-inter)] md:px-10 md:py-20" style={{ background: PAPER }} aria-label="Diagnostic">
+    <section className="px-5 py-[88px] font-[family-name:var(--font-inter)] md:px-10 md:py-[120px]" style={{ background: PAPER }} aria-label="Diagnostic">
       <div className="mx-auto max-w-3xl">
         {stage === 'intro' && (
           <Window title="Diagnostic facture électronique">
@@ -170,7 +169,7 @@ export const EInvoiceDiagnostic: React.FC = () => {
               aria-valuemax={total}
               aria-valuenow={index + 1}
             >
-              <div className="h-full rounded-full transition-[width] duration-300" style={{ width: `${((index + 1) / total) * 100}%`, background: GOLD }} />
+              <div className="h-full rounded-full transition-[width] duration-300" style={{ width: `${((index + 1) / total) * 100}%`, background: ACCENT }} />
             </div>
 
             <fieldset className="mt-7">
@@ -323,10 +322,11 @@ const Result: React.FC<{
   ];
 
   return (
-    <div className="mt-8">
-      <div className="rounded-2xl border bg-white p-5 md:p-8" style={{ borderColor: RULE }}>
+    <div>
+      <Window title="Diagnostic facture électronique">
+      <div className="p-5 md:p-8">
         <p
-          className="inline-block rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.16em]"
+          className="inline-block rounded-full border px-3 py-1 text-[13px] font-semibold"
           style={{ background: style.bg, color: style.ink, borderColor: style.border }}
         >
           Verdict : {d.verdictLabel}
@@ -348,7 +348,7 @@ const Result: React.FC<{
                 <span className="block font-semibold" style={{ color: NAVY }}>
                   {r.label}
                 </span>
-                <span className="block text-sm font-semibold" style={{ color: GOLD_INK }}>
+                <span className="block text-sm font-semibold" style={{ color: ACCENT }}>
                   {r.status}
                 </span>
                 {r.date && <span className="block text-sm text-[#56627E]">{r.date}</span>}
@@ -400,10 +400,11 @@ const Result: React.FC<{
           </button>
         </div>
       </div>
+      </Window>
 
       <LeadForm d={d} answers={answers} tracking={tracking} />
 
-      <div className="mt-6 rounded-2xl p-5 md:p-8" style={{ background: NAVY }}>
+      <div className="mt-6 rounded-[var(--radius-card)] p-5 md:p-8" style={{ background: NAVY }}>
         <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight text-white">Vous préférez qu'on s'en occupe ?</h2>
         <p className="mt-3 text-base text-white/80 leading-relaxed">
           En 20 minutes, on regarde votre situation et ce qu'il reste à faire, sans engagement.
@@ -413,11 +414,10 @@ const Result: React.FC<{
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => track('booking_click', { position: 'appel', verdict: d.verdict, src: tracking.src })}
-          className="mt-6 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-base focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          style={{ background: '#FFFFFF', color: '#1E3A66' }}
+          className="group mt-6 inline-flex items-center justify-center gap-2.5 rounded-full bg-white py-3.5 pl-6 pr-5 text-base font-semibold text-[#1E3A66] shadow-[0_12px_30px_rgba(3,8,22,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          <CalendarCheck size={18} aria-hidden="true" />
           Réserver un appel de 20 min
+          <ArrowRight size={18} aria-hidden="true" className="transition-transform group-hover:translate-x-[3px] motion-reduce:transition-none" />
         </a>
 
         <div className="mt-8 border-t border-white/15 pt-6">
@@ -479,7 +479,9 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
 
   if (state === 'done') {
     return (
-      <div className="mt-6 rounded-2xl border bg-white p-5 md:p-8" style={{ borderColor: RULE }}>
+      <div className="mt-6">
+      <Window>
+      <div className="p-5 md:p-8">
         <h2 ref={doneRef} tabIndex={-1} className="font-heading font-bold text-2xl md:text-3xl leading-tight focus:outline-none" style={{ color: NAVY }}>
           Votre plan d'action
         </h2>
@@ -491,7 +493,7 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
         <ol className="mt-6">
           {d.plan.map((s, i) => (
             <li key={s.date + s.titre} className="grid gap-x-6 gap-y-1 border-t py-5 md:grid-cols-[11rem_1fr]" style={{ borderColor: RULE }}>
-              <span className="text-sm font-semibold" style={{ color: GOLD_INK }}>
+              <span className="text-sm font-semibold" style={{ color: ACCENT }}>
                 Étape {i + 1} · {s.echeance ? 'le' : 'avant le'} {dateFr(s.date)}
               </span>
               <span>
@@ -503,6 +505,8 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
             </li>
           ))}
         </ol>
+      </div>
+      </Window>
       </div>
     );
   }
@@ -558,7 +562,7 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
           required
           checked={form.consent}
           onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-          className="mt-1 h-5 w-5 shrink-0 rounded border-gray-400 accent-[#1E3A66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]"
+          className="mt-1 h-5 w-5 shrink-0 rounded border-[#B5BDCC] accent-[#1E3A66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3A66]"
         />
         <label htmlFor="lead-consent" className="text-sm text-[#3C4866] leading-relaxed">
           J'accepte de recevoir mon plan d'action et d'être recontacté par Opus Advisor au sujet de la facturation électronique.
@@ -572,11 +576,11 @@ const LeadForm: React.FC<{ d: Diagnostic; answers: Answers; tracking: { src: str
 
       {state === 'error' && error && (
         <div className="mt-5 rounded-lg border px-4 py-3" style={{ borderColor: '#E5B3B3', background: '#FBEAEA' }} role="alert">
-          <p className="text-sm" style={{ color: '#8B1D1D' }}>
+          <p className="text-sm text-[var(--danger)]">
             {ERRORS[error]}
           </p>
           {(error === 'network' || error === 'server') && (
-            <button type="button" onClick={send} className="mt-2 inline-flex items-center gap-2 text-sm font-semibold underline underline-offset-2" style={{ color: '#8B1D1D' }}>
+            <button type="button" onClick={send} className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[var(--danger)] underline underline-offset-4">
               <RotateCcw size={14} aria-hidden="true" />
               Réessayer
             </button>

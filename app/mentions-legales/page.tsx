@@ -38,7 +38,7 @@ const blocks: Block[] = [
       {
         label: 'E-mail',
         value: (
-          <a href="mailto:enzo@opusadvisor.fr" className={inner.legalLink}>
+          <a href="mailto:enzo@opusadvisor.fr" className={sections.textLink}>
             enzo@opusadvisor.fr
           </a>
         ),
@@ -66,7 +66,7 @@ const blocks: Block[] = [
             href="https://www.ovhcloud.com/fr/"
             target="_blank"
             rel="noopener noreferrer"
-            className={inner.legalLink}
+            className={sections.textLink}
           >
             ovhcloud.com
           </a>
@@ -165,7 +165,7 @@ export default function MentionsLegalesPage() {
                 <p>
                   Conformément au RGPD, vous disposez d'un droit d'accès, de rectification,
                   d'opposition et de suppression de vos données. Pour l'exercer, écrivez à{' '}
-                  <a href="mailto:enzo@opusadvisor.fr" className={inner.legalLink}>
+                  <a href="mailto:enzo@opusadvisor.fr" className={sections.textLink}>
                     enzo@opusadvisor.fr
                   </a>
                   . Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).
