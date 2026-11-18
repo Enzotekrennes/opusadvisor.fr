@@ -1,18 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { MarginCalculator } from '@/components/pages/MarginCalculator';
-import { ToolWindow } from '@/components/pages/ToolPage';
-import { PageHero } from '@/components/sections/PageHero';
-import { Section, SectionHead } from '@/components/sections/Section';
-import { SetupWindow } from '@/components/sections/SetupWindow';
-import { PointsPanel } from '@/components/sections/PointsPanel';
-import { HomeClose } from '@/components/sections/HomeClose';
-import sections from '@/components/sections/sections.module.css';
-import inner from '@/components/sections/inner.module.css';
-
+import { ToolPage, ToolH2, ToolP, Formula, ToolLink } from '@/components/pages/ToolPage';
 
 const PAGE_URL = 'https://opusadvisor.fr/outils/calcul-marge-chantier/';
 const PAGE_TITLE = 'Calcul de marge chantier BTP : calculateur gratuit';
@@ -30,16 +18,6 @@ export const metadata: Metadata = {
     type: 'website',
     images: [{ url: 'https://opusadvisor.fr/images/Logo_1200x630.png' }],
   },
-};
-
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://opusadvisor.fr/' },
-    { '@type': 'ListItem', position: 2, name: 'Outils', item: 'https://opusadvisor.fr/outils/' },
-    { '@type': 'ListItem', position: 3, name: 'Calcul de marge chantier', item: PAGE_URL },
-  ],
 };
 
 // Formules, dans l'ordre où on les calcule. Le texte reste dans le HTML pour Google et sans JavaScript.
@@ -87,70 +65,55 @@ const LEAKS = [
   },
 ];
 
-/** Margin calculator page: the calculator in a window, the formulas, a worked example, the usual leaks, the close. */
+/**
+ * Margin calculator page, on the template of every tool: the calculator in a window under the hero, then
+ * the formulas, a worked example and the usual leaks in a reading column, then the close.
+ */
 export default function MarginCalculatorPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Header />
-      <main id="contenu" className="flex-grow">
-        <PageHero
-          titleId="tool-title"
-          back={{ href: '/outils/', label: 'Tous les outils' }}
-          title="Calcul de la marge d'un chantier"
-          lede="Entrez les chiffres de votre devis : vous obtenez le déboursé sec, la marge brute, le bénéfice net et le prix à pratiquer pour gagner ce que vous visez. Rien n'est enregistré."
-        />
+    <ToolPage
+      url={PAGE_URL}
+      breadcrumbName="Calcul de marge chantier"
+      title="Calcul de la marge d'un chantier"
+      intro="Entrez les chiffres de votre devis : vous obtenez le déboursé sec, la marge brute, le bénéfice net et le prix à pratiquer pour gagner ce que vous visez. Rien n'est enregistré."
+      calculator={<MarginCalculator />}
+      ctaTitle="Vous voulez connaître la marge réelle de vos chantiers, sans tout recalculer à la main ?"
+      ctaText="On met en place un suivi qui remonte les heures, les achats et les avenants chantier par chantier. On en parle pendant le pré-audit : 30 minutes en visio, gratuites."
+    >
+      <ToolH2>Comment calculer la marge d'un chantier</ToolH2>
+      {formulas.map((f) => (
+        <div key={f.name}>
+          <Formula>
+            {f.name} = {f.formula}
+          </Formula>
+          <ToolP>{f.text}</ToolP>
+        </div>
+      ))}
 
-        <Section tone="ground">
-          <ToolWindow name="Calcul de marge chantier">
-            <MarginCalculator />
-          </ToolWindow>
-        </Section>
+      <ToolH2>L'exemple du calculateur, ligne par ligne</ToolH2>
+      <ToolP>
+        Un chantier fictif vendu 18 000 € HT. La main-d'œuvre représente 120 heures à 45 € de l'heure chargée, soit 5 400 €.
+        On ajoute 6 200 € de matériaux, 1 500 € de sous-traitance, 400 € de location et 600 € de petites dépenses : le
+        déboursé sec monte à 14 100 €.
+      </ToolP>
+      <ToolP>
+        La marge brute est de 3 900 €, soit 21,7 % du prix de vente, avec un coefficient de 1,28. Avec 15 % de frais généraux
+        sur le déboursé sec (2 115 €), le prix de revient atteint 16 215 €, et le bénéfice net tombe à 1 785 €, soit 9,9 %.
+      </ToolP>
+      <ToolP>
+        Il suffit d'environ 1 800 € de dépenses imprévues pour effacer le bénéfice de ce chantier. C'est pour ça qu'une marge
+        calculée au devis ne suffit pas : il faut la suivre pendant le chantier.
+      </ToolP>
 
-        <SetupWindow
-          id="formules-title"
-          title="Comment calculer la marge d'un chantier"
-          windowTitle="Formules"
-          items={formulas.map((f) => ({ what: f.name, tools: `= ${f.formula}`, desc: f.text }))}
-          tone="white"
-        />
-
-        <Section tone="ground" labelledBy="exemple-title" narrow>
-          <SectionHead id="exemple-title" title="L'exemple du calculateur, ligne par ligne" />
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-[#3C4866]">
-            <p>
-              Un chantier fictif vendu 18 000 € HT. La main-d'œuvre représente 120 heures à 45 € de l'heure chargée, soit
-              5 400 €. On ajoute 6 200 € de matériaux, 1 500 € de sous-traitance, 400 € de location et 600 € de petites
-              dépenses : le déboursé sec monte à 14 100 €.
-            </p>
-            <p>
-              La marge brute est de 3 900 €, soit 21,7 % du prix de vente, avec un coefficient de 1,28. Avec 15 % de frais
-              généraux sur le déboursé sec (2 115 €), le prix de revient atteint 16 215 €, et le bénéfice net tombe à 1 785 €,
-              soit 9,9 %.
-            </p>
-            <p>
-              Il suffit d'environ 1 800 € de dépenses imprévues pour effacer le bénéfice de ce chantier. C'est pour ça qu'une
-              marge calculée au devis ne suffit pas : il faut la suivre pendant le chantier.
-            </p>
-          </div>
-        </Section>
-
-        <PointsPanel id="fuites-title" title="Pourquoi la marge réelle est souvent plus basse que prévu" items={LEAKS} tone="white">
-          <p className={inner.headLink}>
-            <Link href="/articles/marge-chantier-suivi-reel/" className={sections.more}>
-              Lire notre article sur la marge réelle des chantiers
-              <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
-            </Link>
-          </p>
-        </PointsPanel>
-
-        <HomeClose
-          title="Vous voulez connaître la marge réelle de vos chantiers, sans tout recalculer à la main ?"
-          lede="On met en place un suivi qui remonte les heures, les achats et les avenants chantier par chantier. On en parle pendant le pré-audit : 30 minutes en visio, gratuites."
-          auditStack={false}
-        />
-      </main>
-      <Footer />
-    </div>
+      <ToolH2>Pourquoi la marge réelle est souvent plus basse que prévu</ToolH2>
+      {LEAKS.map((l) => (
+        <ToolP key={l.title}>
+          <strong className="font-semibold text-[#13213D]">{l.title}.</strong> {l.desc}
+        </ToolP>
+      ))}
+      <ToolP>
+        <ToolLink href="/articles/marge-chantier-suivi-reel/">Lire notre article sur la marge réelle des chantiers</ToolLink>
+      </ToolP>
+    </ToolPage>
   );
 }

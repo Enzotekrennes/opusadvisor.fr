@@ -35,6 +35,7 @@ export const LaborCostCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <ResultPanel
+          peek={[2, 3]}
           results={[
             { label: 'Coût annuel du compagnon', value: eur0.format(r.yearlyCost), note: 'salaire chargé + indemnités + frais du poste' },
             { label: 'Coût par heure de présence', value: perHour(r.perPresenceHour), note: `sur ${v.presenceHours.toLocaleString('fr-FR')} h par an` },

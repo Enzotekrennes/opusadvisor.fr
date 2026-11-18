@@ -86,6 +86,7 @@ export const PenaltyCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <ResultPanel
+          peek={[2, 3]}
           results={[
             { label: 'Jours de retard', value: `${daysLate} jour${daysLate > 1 ? 's' : ''}` },
             {

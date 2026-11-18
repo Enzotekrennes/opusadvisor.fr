@@ -47,6 +47,7 @@ export const RetentionCalculator: React.FC = () => {
 
       <div className="lg:col-span-5">
         <ResultPanel
+          peek={[1, 3]}
           results={[
             { label: 'Montant TTC des travaux', value: eur.format(amountTTC) },
             { label: 'Retenue de garantie', value: eur.format(retention), note: `${rate.toLocaleString('fr-FR')} % du montant ${base === 'ttc' ? 'TTC' : 'HT'}` },
