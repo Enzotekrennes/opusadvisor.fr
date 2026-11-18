@@ -61,7 +61,7 @@ export const Checklist: React.FC<{
               {messages[count]}
             </p>
             <Link href="/contact" className={hot ? sections.button : styles.outlineButton}>
-              {hot ? 'Réserver mon pré-audit gratuit' : 'Faire le pré-audit'}
+              Réserver le pré-audit gratuit
               <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
             </Link>
           </div>

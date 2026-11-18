@@ -68,7 +68,7 @@ C'est exactement ce qu'on regarde au pré-audit : on part de vos chantiers réel
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous nous montrez comment tournent vos chantiers, on vous montre en direct les points qui vous coûtent du temps et des équipes.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

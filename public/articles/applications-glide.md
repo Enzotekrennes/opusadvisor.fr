@@ -83,7 +83,7 @@ Trois étapes à respecter dans l'ordre.
 
 **Vous hésitez entre activer un module de votre logiciel actuel et lancer une app sur mesure ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me racontez le besoin, je vous dis en direct si Batappli, un Make, ou une app no-code maison est la bonne réponse pour votre cas.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

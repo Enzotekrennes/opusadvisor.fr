@@ -180,7 +180,7 @@ Avant de lancer le vôtre, voici ce qui plante régulièrement.
 
 **Vous voulez chiffrer ce que les retards de paiement coûtent vraiment à votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me montrez votre logiciel BTP et 3 ou 4 factures récentes, je vous donne en direct votre DSO réel et l'ordre de grandeur de trésorerie qu'une séquence de relance automatique peut débloquer.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

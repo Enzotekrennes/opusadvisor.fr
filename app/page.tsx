@@ -109,7 +109,7 @@ export default function HomePage() {
         <HomeDeadline />
         <HomeMethod />
         <HomeFaq items={faqs} />
-        <HomeClose />
+        <HomeClose auditStack={false} />
       </main>
       <Footer />
     </div>

@@ -207,7 +207,7 @@ export const ContactView: React.FC = () => {
                 </a>
                 <a href="tel:+33615756549">
                   <Phone size={18} aria-hidden="true" />
-                  +33 6 15 75 65 49
+                  06 15 75 65 49
                 </a>
                 <a href="https://www.linkedin.com/in/enzo-monnier/" target="_blank" rel="noopener noreferrer">
                   <Linkedin size={18} aria-hidden="true" />

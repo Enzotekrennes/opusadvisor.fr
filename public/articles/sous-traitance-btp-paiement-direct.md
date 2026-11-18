@@ -70,7 +70,7 @@ Sur un chantier en sous-traitance, ce n'est pas le travail qui vous met en dange
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous nous montrez comment vous gérez vos chantiers en sous-traitance, on vous montre les points qui vous coûtent du temps et de l'argent.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

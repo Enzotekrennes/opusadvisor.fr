@@ -94,7 +94,7 @@ Trois actions à mener dans les 30 jours, avant de signer quoi que ce soit.
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. Vous me montrez vos outils, je vous dis en direct combien vous laissez sur la table chaque semaine et où on pourrait commencer.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

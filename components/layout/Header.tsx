@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, Wifi, X, ArrowRight } from 'lucide-react';
+import { Menu, Wifi, X, ArrowRight, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import type { NavLink } from '@/types';
@@ -201,7 +201,7 @@ export const Header: React.FC = () => {
 
           <div className="site-bar-right">
             <Link href="/contact" onClick={handleNavClick} className="site-bar-cta">
-              Réserver le pré-audit
+              Réserver le pré-audit gratuit
             </Link>
             {/* Decorative status items of a desktop menu bar. */}
             <span className="site-bar-status" aria-hidden="true">
@@ -279,6 +279,16 @@ export const Header: React.FC = () => {
             Réserver le pré-audit gratuit
             <ArrowRight size={20} strokeWidth={2} aria-hidden="true" />
           </Link>
+          <a
+            href="tel:+33615756549"
+            className={`inline-flex min-h-11 items-center gap-2 text-lg font-semibold text-white/80 transition-all duration-300 hover:text-white motion-reduce:transition-opacity ${
+              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 motion-reduce:translate-y-0'
+            }`}
+            style={{ transitionDelay: `${(mobileLinks.length + 1) * 80 + 100}ms` }}
+          >
+            <Phone size={18} strokeWidth={2} aria-hidden="true" />
+            06 15 75 65 49
+          </a>
         </div>
 
         <div className="flex justify-center pb-12">

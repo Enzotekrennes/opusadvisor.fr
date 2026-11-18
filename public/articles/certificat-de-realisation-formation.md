@@ -121,7 +121,7 @@ Cette semaine, reprenez le dernier certificat envoyé et comparez sa durée à l
 
 **Vos certificats se tapent encore à la main à partir des émargements ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde comment vos certificats sont produits à partir de vos émargements, et où les écarts peuvent se glisser.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

@@ -36,7 +36,7 @@ ctaMid:
 
 **<accroche adaptée au sujet>** Pré-audit gratuit en visio, 30 minutes, sans engagement. <une phrase>
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

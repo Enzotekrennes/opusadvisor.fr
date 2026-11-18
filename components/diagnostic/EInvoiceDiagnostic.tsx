@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Check, ExternalLink, RotateCcw } from 'lucide-react';
 import { QUESTIONS, type Answers, type QuestionId } from '@/lib/einvoice/questions';
 import { computeDiagnostic, type Diagnostic, type Verdict } from '@/lib/einvoice/diagnostic';
 import { DATES, DISCLAIMER, OFFICIAL_LINKS, dateFr, typo } from '@/lib/einvoice/rules';
-import { BOOKING_URL, LEAD_API_URL, OFFER_PRICE, PRIVACY_URL } from '@/lib/einvoice/config';
+import { LEAD_API_URL, OFFER_PRICE, PRIVACY_URL } from '@/lib/einvoice/config';
 import { track } from '@/lib/analytics';
 import { Window } from '@/components/sections/Window';
 import sections from '@/components/sections/sections.module.css';
@@ -407,18 +408,16 @@ const Result: React.FC<{
       <div className="mt-6 rounded-[var(--radius-card)] p-5 md:p-8" style={{ background: NAVY }}>
         <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight text-white">Vous préférez qu'on s'en occupe ?</h2>
         <p className="mt-3 text-base text-white/80 leading-relaxed">
-          En 20 minutes, on regarde votre situation et ce qu'il reste à faire, sans engagement.
+          Pendant le pré-audit, 30 minutes en visio, on regarde votre situation et ce qu'il reste à faire, sans engagement.
         </p>
-        <a
-          href={BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/contact/"
           onClick={() => track('booking_click', { position: 'appel', verdict: d.verdict, src: tracking.src })}
           className="group mt-6 inline-flex items-center justify-center gap-2.5 rounded-full bg-white py-3.5 pl-6 pr-5 text-base font-semibold text-[#1E3A66] shadow-[0_12px_30px_rgba(3,8,22,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          Réserver un appel de 20 min
+          Réserver le pré-audit gratuit
           <ArrowRight size={18} aria-hidden="true" className="transition-transform group-hover:translate-x-[3px] motion-reduce:transition-none" />
-        </a>
+        </Link>
 
         <div className="mt-8 border-t border-white/15 pt-6">
           <h3 className="font-heading font-semibold text-xl text-white">Mise en conformité clé en main</h3>
@@ -427,16 +426,14 @@ const Result: React.FC<{
             personne qui facture.
           </p>
           {OFFER_PRICE && <p className="mt-3 font-heading font-bold text-2xl text-white">{OFFER_PRICE}</p>}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact/"
             onClick={() => track('booking_click', { position: 'offre', verdict: d.verdict, src: tracking.src })}
             className="mt-4 inline-flex items-center gap-2 font-semibold text-base underline underline-offset-4 decoration-white/50 text-white hover:decoration-white"
           >
-            En parler pendant l'appel
+            En parler pendant le pré-audit
             <ArrowRight size={18} aria-hidden="true" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

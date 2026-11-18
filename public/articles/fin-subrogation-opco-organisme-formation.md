@@ -142,7 +142,7 @@ Cette semaine, listez les dossiers engagés depuis le 1er octobre et notez leur 
 
 **Vos dossiers suivent plusieurs circuits et rien ne les distingue dans vos outils ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde où ranger le mode de paiement de chaque dossier, à partir de ce que vous avez déjà.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

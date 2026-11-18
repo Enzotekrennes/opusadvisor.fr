@@ -65,7 +65,7 @@ C'est exactement ce qu'on regarde au pré-audit : l'état réel de vos données,
 
 **Vous voulez voir ce que ça donne pour votre boîte ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde l'état de vos données et ce qu'un système propre vous ferait gagner, avant même de parler d'IA.
 
-[Réserver un créneau](/contact)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 

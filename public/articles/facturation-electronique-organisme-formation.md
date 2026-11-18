@@ -100,7 +100,7 @@ Pour la [mention d'exonération en bas de vos factures de formation](/articles/f
 
 **Votre catalogue mélange formations exonérées et prestations taxables, et rien ne les distingue dans vos outils ?** Pré-audit gratuit en visio, 30 minutes, sans engagement. On regarde ensemble où porter le régime de TVA de chaque prestation, à partir de ce que vous avez déjà.
 
-[Réserver un créneau](/contact/)
+[Réserver le pré-audit gratuit](/contact/)
 
 ---
 
