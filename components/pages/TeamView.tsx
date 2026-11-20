@@ -28,13 +28,13 @@ const team: Member[] = [
     role: 'Fondateur · Organisation et automatisation',
     photo: '/images/enzo.jpg',
     location: 'Vannes · Interventions partout en France',
-    experience: 'Epitech · 3 ans de dev avant Opus',
+    experience: "5 ans d'études à Epitech · 3 ans de dev avant Opus",
     label: 'Pourquoi Opus Advisor',
     heading: 'Je code encore ce que je déploie chez vous.',
     bullets: [
       {
         title: 'Développeur pendant 3 ans, consultant depuis',
-        desc: "J'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
+        desc: "Après 5 ans d'études à Epitech, j'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
       },
       {
         title: "Ce que j'ai compris en travaillant pour d'autres",

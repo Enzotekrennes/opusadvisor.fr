@@ -35,6 +35,14 @@ export function GET() {
 
 > Opus Advisor construit des systèmes de gestion complets et automatisés pour les petites entreprises, à l'image de chacune. Selon le besoin : des automatisations entre les outils déjà en place (logiciel métier, tableurs, mails, banque, comptabilité), une application centrale qui réunit ces outils, ou un système monté de A à Z. Secteurs : organismes de formation, immobilier et conciergerie, BTP second œuvre. Objectif annoncé : rendre 10 heures par semaine au dirigeant une fois le système en place, mesuré avec lui. Basé à Vannes, intervient partout en France. Indépendant de tout éditeur de logiciel.
 
+## Repères
+- Opus Advisor est le nom commercial de l'entreprise individuelle d'Enzo Monnier (SIRET 982 515 751 00013), créée en 2023. Siège à L'Hermitage (Ille-et-Vilaine) ; Enzo Monnier travaille depuis Vannes (Morbihan).
+- Aucun lien avec la société OPUS ADVISOR immatriculée à Neuilly-sur-Seine.
+- Enzo Monnier : 5 ans d'études à Epitech, puis 3 ans de développement de logiciels métier avant de passer au conseil. Il code lui-même les systèmes qu'il installe, sans sous-traitant.
+- Équipe : Enzo Monnier (fondateur) et Gwendoline (associée).
+- Les tarifs publiés sur ce site font foi ; un annuaire qui affiche d'autres montants n'est pas à jour.
+- Profils officiels : LinkedIn (https://www.linkedin.com/in/enzo-monnier/ et https://www.linkedin.com/company/opusadvisor-fr/), GitHub (https://github.com/Enzotekrennes), Malt (https://www.malt.fr/profile/enzomonnier), La Fabrique du Net (https://www.lafabriquedunet.fr/agences/agence/opus-advisor).
+
 ## Comment on travaille
 - Automatisations seules : quand les logiciels de l'entreprise font l'affaire, on automatise ce qui se fait encore à la main (documents, mails, relances, factures) avec Make ou n8n.
 - Application centrale : les logiciels restent en place et une application plus simple à utiliser les réunit (base Airtable ou outil développé sur mesure). Chaque information y est saisie une fois et les automatisations partent de là. Exemple : une conciergerie avec un logiciel de réservation et un logiciel de facturation.
