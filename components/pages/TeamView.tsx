@@ -34,7 +34,7 @@ const team: Member[] = [
     bullets: [
       {
         title: 'Développeur pendant 3 ans, consultant depuis',
-        desc: "Après 5 ans d'études à Epitech, j'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
+        desc: "Formé à Epitech (5 ans d'études, diplôme d'expert en nouvelles technologies), j'ai développé des logiciels métier pendant 3 ans avant de passer au conseil. Je code moi-même ce que j'installe chez vous : vous n'aurez jamais affaire à un sous-traitant.",
       },
       {
         title: "Ce que j'ai compris en travaillant pour d'autres",
@@ -51,7 +51,7 @@ const team: Member[] = [
     role: 'Associée',
     photo: '/images/gwen.jpg',
     location: 'Vannes · Interventions partout en France',
-    experience: 'Epitech · 3 ans de dev avant Opus',
+    experience: "5 ans d'études à Epitech · 3 ans de dev avant Opus",
     label: 'Pourquoi une équipe de deux',
     heading: 'Deux personnes sur votre système, un seul interlocuteur.',
     bullets: [
