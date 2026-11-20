@@ -376,8 +376,8 @@
       },
       "serp": "Non analysée : à faire par le stratège avant validation. Le secteur immobilier n'a aucun article, et /secteurs/immobilier/ (28 impressions, position 35,8) ne reçoit aucun lien d'article."
     },
-    "status": "idea",
-    "reason": "Requêtes réelles vues dans la Search Console (export du 2026-11-18 : « automatiser sa conciergerie » 11 impressions en position 37,2 ; « automatisation facturation conciergerie » 9 en position 40). Preuve publiable : la conciergerie dont tout le système a été repris et qui est suivie chaque mois, à ne pas résumer à l'automatisation de la facturation.",
-    "updatedAt": "2026-11-18"
+    "status": "validated",
+    "reason": "Requêtes réelles vues dans la Search Console (export du 2026-11-18 : « automatiser sa conciergerie » 11 impressions en position 37,2 ; « automatisation facturation conciergerie » 9 en position 40). Preuve publiable : la conciergerie dont tout le système a été repris et qui est suivie chaque mois, à ne pas résumer à l'automatisation de la facturation. Validé par Enzo le 2026-11-20. À ne pas confondre avec /secteurs/immobilier/ (« Automatisation conciergerie et agence immobilière ») : cette page présente l'offre, l'article est un guide pratique (quoi automatiser en premier dans une conciergerie, avec quels outils, ce que fait déjà le PMS) qui renvoie vers elle, alors qu'aucun article ne la relie aujourd'hui.",
+    "updatedAt": "2026-11-20"
   }
 ]
