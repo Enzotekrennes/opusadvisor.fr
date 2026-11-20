@@ -352,9 +352,9 @@
       },
       "serp": "Première page tenue par des éditeurs de logiciels et des néobanques (Obat, Abby, Shine, Sellsy, Appvizer, Legalnest, Independant.io) avec définitions, modèles téléchargeables et exemples chiffrés (Abby, Keobiz). Angle à confirmer par l'analyse de SERP : une situation complète qui enchaîne acompte, avancement, retenue de garantie et révision BT01, appuyée sur le calculateur gratuit du site, dont la page a fait 715 impressions en 3 mois."
     },
-    "status": "validated",
-    "reason": "Plus forte demande relevée dans la Search Console sans article qui la vise (13 requêtes, 646 impressions en 3 mois, position moyenne 76,7) ; le lecteur est un patron de second œuvre qui facture à l'avancement, et l'article renforce le calculateur déjà en ligne. Validé par Enzo le 2026-11-18. Variantes « facture d'avancement » ajoutées le 2026-11-18 (39 impressions, dont 38 apparues depuis le 5 novembre).",
-    "updatedAt": "2026-11-18"
+    "status": "rejected",
+    "reason": "Plus forte demande relevée dans la Search Console sans article qui la vise (13 requêtes, 646 impressions en 3 mois, position moyenne 76,7) ; le lecteur est un patron de second œuvre qui facture à l'avancement, et l'article renforce le calculateur déjà en ligne. Validé par Enzo le 2026-11-18. Variantes « facture d'avancement » ajoutées le 2026-11-18 (39 impressions, dont 38 apparues depuis le 5 novembre). Rejeté le 2026-11-20 par la vérification avant rédaction (doublon) : depuis la refonte du 11/11 (PR #47), la page outil /outils/calcul-situation-de-travaux/ est titrée « Facture de situation de travaux : calcul, exemple et mentions » et couvre définition, différence avec l’acompte, formule cumulée, exemple chiffré sur trois situations, mentions obligatoires, TVA, autoliquidation, facture électronique et erreurs fréquentes. Un article sur ce mot-clé la concurrencerait. Angles non couverts à reproposer si besoin : modèle téléchargeable ou Excel (plutôt à ajouter à la page outil), situation de travaux et facture électronique (Factur-X, statuts de cycle de vie, rejets), situation en marché public, comptabilisation.",
+    "updatedAt": "2026-11-20"
   },
   {
     "id": "immobilier-automatiser-conciergerie",
