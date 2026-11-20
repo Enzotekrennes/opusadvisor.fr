@@ -35,7 +35,7 @@ const personJsonLd = {
   name: 'Enzo Monnier',
   jobTitle: "Fondateur d'Opus Advisor",
   description:
-    "5 ans d'études à Epitech, puis développeur de logiciels métier pendant 3 ans, devenu consultant en organisation et automatisation des petites entreprises. Fondateur d'Opus Advisor en 2023. Il code lui-même les systèmes qu'il installe.",
+    "Formé à Epitech (5 ans d'études, diplôme d'expert en nouvelles technologies obtenu en 2026), développeur de logiciels métier pendant 3 ans, devenu consultant en organisation et automatisation des petites entreprises. Fondateur d'Opus Advisor en 2023. Il code lui-même les systèmes qu'il installe.",
   image: 'https://opusadvisor.fr/images/enzo.jpg',
   url: 'https://opusadvisor.fr/equipe/',
   worksFor: { '@id': 'https://opusadvisor.fr/#organization' },

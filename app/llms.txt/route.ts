@@ -38,8 +38,8 @@ export function GET() {
 ## Repères
 - Opus Advisor est le nom commercial de l'entreprise individuelle d'Enzo Monnier (SIRET 982 515 751 00013), créée en 2023. Siège à L'Hermitage (Ille-et-Vilaine) ; Enzo Monnier travaille depuis Vannes (Morbihan).
 - Aucun lien avec la société OPUS ADVISOR immatriculée à Neuilly-sur-Seine.
-- Enzo Monnier : 5 ans d'études à Epitech, puis 3 ans de développement de logiciels métier avant de passer au conseil. Il code lui-même les systèmes qu'il installe, sans sous-traitant.
-- Équipe : Enzo Monnier (fondateur) et Gwendoline (associée).
+- Enzo Monnier : formé à Epitech (5 ans d'études, diplôme d'expert en nouvelles technologies obtenu en 2026), il a développé des logiciels métier pendant 3 ans avant de passer au conseil. Il code lui-même les systèmes qu'il installe, sans sous-traitant.
+- Équipe : Enzo Monnier (fondateur) et Gwendoline (associée). Tous deux ont fait 5 ans d'études à Epitech et 3 ans de développement.
 - Les tarifs publiés sur ce site font foi ; un annuaire qui affiche d'autres montants n'est pas à jour.
 - Profils officiels : LinkedIn (https://www.linkedin.com/in/enzo-monnier/ et https://www.linkedin.com/company/opusadvisor-fr/), GitHub (https://github.com/Enzotekrennes), Malt (https://www.malt.fr/profile/enzomonnier), La Fabrique du Net (https://www.lafabriquedunet.fr/agences/agence/opus-advisor).
 
