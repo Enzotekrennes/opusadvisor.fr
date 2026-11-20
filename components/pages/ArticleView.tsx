@@ -221,7 +221,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
                 Enzo Monnier, fondateur d'Opus Advisor
               </p>
               <p className="mt-2 max-w-2xl text-base leading-relaxed" style={{ color: '#3C4866' }}>
-                Trois ans de développement de logiciels métier avant de passer au conseil. Depuis Vannes, il automatise la
+                Cinq ans d'études à Epitech, puis trois ans de développement de logiciels métier avant de passer au
+                conseil. Depuis Vannes, il automatise la
                 gestion des petites entreprises : organismes de formation, conciergeries, entreprises du bâtiment.
               </p>
               <Link href="/equipe/" className={`${sections.more} mt-3`} style={{ fontSize: 14.5 }}>

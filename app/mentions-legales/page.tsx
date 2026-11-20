@@ -34,7 +34,13 @@ const blocks: Block[] = [
       { label: 'Raison sociale', value: 'Opus Advisor — Enzo Monnier (entrepreneur individuel)' },
       { label: 'Statut', value: 'Auto-entrepreneur' },
       { label: 'SIRET', value: '982 515 751 00013' },
-      { label: 'Adresse', value: "25 allée du petit domaine, 35590 L'Hermitage, France" },
+      { label: 'Création', value: '2023' },
+      { label: 'Adresse du siège', value: "25 allée du petit domaine, 35590 L'Hermitage, France" },
+      { label: 'Lieu de travail', value: 'Vannes (Morbihan)' },
+      {
+        label: 'Homonyme',
+        value: 'Aucun lien avec la société OPUS ADVISOR immatriculée à Neuilly-sur-Seine.',
+      },
       {
         label: 'E-mail',
         value: (
@@ -86,7 +92,7 @@ export default function MentionsLegalesPage() {
           titleId="legal-title"
           chips={[{ label: 'Informations légales' }]}
           title="Mentions légales"
-          lede="Dernière mise à jour : octobre 2026."
+          lede="Dernière mise à jour : novembre 2026."
         />
 
         {/* Who publishes the site and who hosts it, each in a window. */}
@@ -160,7 +166,8 @@ export default function MentionsLegalesPage() {
                 <p>
                   Le site est hébergé sur un serveur situé au Canada, pays reconnu par la Commission
                   européenne comme assurant un niveau de protection adéquat des données personnelles
-                  (décision d'adéquation).
+                  (décision d'adéquation). Les outils que nous installons chez nos clients sont ouverts
+                  à leur nom, sur leurs propres comptes.
                 </p>
                 <p>
                   Conformément au RGPD, vous disposez d'un droit d'accès, de rectification,
