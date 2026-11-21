@@ -48,6 +48,7 @@ export function GET() {
 - Application centrale : les logiciels restent en place et une application plus simple à utiliser les réunit (base Airtable ou outil développé sur mesure). Chaque information y est saisie une fois et les automatisations partent de là. Exemple : une conciergerie avec un logiciel de réservation et un logiciel de facturation.
 - Système complet : quand rien d'adapté n'est en place, on construit tout le système, du choix des outils à la formation de l'équipe.
 - Tous les comptes et tous les outils restent au nom du client ; une documentation complète lui est remise.
+- Chaque scénario est simple, documenté et envoie une alerte quand il échoue ; avec le Gardien du système, on reçoit l'alerte et on répare.
 
 ## Diagnostic gratuit
 - [Diagnostic facture électronique](${SITE_URL}/diagnostic-facture-electronique/): 7 questions, 2 minutes. Réception, émission, e-reporting : où en est l'entreprise, les dates qui la concernent et ce qu'il reste à faire. Verdict sans email ; plan d'action daté envoyé sur demande.
