@@ -63,7 +63,8 @@ La veille réglementaire de votre secteur est comprise dans le Gardien du systè
   },
   {
     question: "Qu'est-ce qui se passe si vous disparaissez dans 2 ans ?",
-    answer: `Votre système continue de tourner sans nous. Pour que ce soit vrai, on prend trois engagements :
+    answer: `Votre système continue de tourner sans nous. Pour que ce soit vrai, on prend quatre engagements :
+- des scénarios simples, nommés et documentés un par un, pour qu'un autre prestataire puisse les reprendre ;
 - une documentation complète remise à votre équipe à la fin de la mise en œuvre ;
 - la formation des personnes qui utilisent le système au quotidien ;
 - tous les comptes et tous les outils restent à votre nom, jamais au nôtre.
@@ -145,7 +146,8 @@ La veille réglementaire (RE2020, MaPrimeRénov', facturation électronique, aut
   },
   {
     question: "Qu'est-ce qui se passe si vous disparaissez dans 2 ans ?",
-    answer: `Votre système continue de tourner sans nous. Pour que ce soit vrai, on prend trois engagements :
+    answer: `Votre système continue de tourner sans nous. Pour que ce soit vrai, on prend quatre engagements :
+- des scénarios simples, nommés et documentés un par un, pour qu'un autre prestataire puisse les reprendre ;
 - une documentation complète remise à votre équipe à la fin de la mise en œuvre ;
 - la formation de vos collaborateurs (secrétaire, chefs d'équipe, chargé d'affaires) ;
 - tous les comptes et tous les outils restent à votre nom, jamais au nôtre.

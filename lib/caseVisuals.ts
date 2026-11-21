@@ -68,12 +68,12 @@ export const scenarios = {
       ],
     ],
     branches: [
-      { app: 'gmail', n: 9, sub: "Envoi à l'OPCO" },
+      { app: 'gmail', n: 9, sub: 'Envoi aux financeurs hors OPCO' },
       { app: 'gmail', n: 10, sub: 'Envoi à France Travail' },
       { app: 'gmail', n: 11, sub: "Envoi à l'entreprise" },
     ],
     description:
-      "Scénario « Dossiers de financement » : à chaque inscription complète, la convention et la convocation sont générées depuis des modèles, exportées en PDF avec le programme de la session, puis envoyées au financeur concerné : OPCO, France Travail ou entreprise.",
+      "Scénario « Dossiers de financement » : à chaque inscription complète, la convention et la convocation sont générées depuis des modèles, exportées en PDF avec le programme de la session, puis envoyées par mail au financeur concerné quand il accepte les dossiers par mail (France Travail, entreprise, autres financeurs). Les dossiers OPCO, eux, se déposent sur l'extranet de chaque OPCO.",
   },
 } satisfies Record<string, Scenario>;
 

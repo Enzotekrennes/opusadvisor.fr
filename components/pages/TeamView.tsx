@@ -57,7 +57,7 @@ const team: Member[] = [
     bullets: [
       {
         title: 'Vous gardez un seul contact',
-        desc: 'Vous choisissez qui de nous deux vous suit, et vous avez toujours la même personne au téléphone.',
+        desc: "C'est Enzo qui vous suit, du pré-audit au système qui tourne : vous avez toujours la même personne au téléphone.",
       },
       {
         title: 'On travaille à deux derrière',
@@ -80,7 +80,7 @@ export const TeamView: React.FC = () => (
     <PageHero
       titleId="team-title"
       title="Qui bosse sur votre système."
-      lede="Deux associés, anciens développeurs. Un seul interlocuteur par mission."
+      lede="Deux anciens développeurs. Enzo signe et suit chaque mission, Gwendoline l'épaule."
     />
 
     <Section tone="ground">
