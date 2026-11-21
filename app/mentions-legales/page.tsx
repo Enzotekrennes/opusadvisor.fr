@@ -38,6 +38,11 @@ const blocks: Block[] = [
       { label: 'Adresse du siège', value: "25 allée du petit domaine, 35590 L'Hermitage, France" },
       { label: 'Lieu de travail', value: 'Vannes (Morbihan)' },
       {
+        label: 'Équipe',
+        value:
+          "Enzo Monnier signe les contrats et en répond. Gwendoline travaille avec lui en soutien, avec sa propre entreprise individuelle.",
+      },
+      {
         label: 'Homonyme',
         value: 'Aucun lien avec la société OPUS ADVISOR immatriculée à Neuilly-sur-Seine.',
       },

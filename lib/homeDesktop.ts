@@ -36,7 +36,7 @@ export const desktopPanels: DesktopPanel[] = [
       ['Convocations', 'Gestion de chantier', 'Envoyées'],
       ['Émargements', 'Jour 1 et jour 2', 'Signés'],
     ],
-    sending: ['Dossier OPCO', 'Pièces jointes', 'Envoyé'],
+    sending: ['Dossier de financement', 'Pièces jointes', 'Envoyé'],
   },
   {
     icon: 'conciergerie',
@@ -64,7 +64,7 @@ export const desktopPanels: DesktopPanel[] = [
 
 /** The notification each trade receives when its last document leaves, in the same order as the panels. */
 export const desktopNotifications: { icon: DesktopIcon; app: string; title: string; body: string }[] = [
-  { icon: 'formation', app: 'Formation', title: 'Dossier OPCO envoyé', body: 'Pièces jointes comprises.' },
+  { icon: 'formation', app: 'Formation', title: 'Dossier de financement envoyé', body: 'Pièces jointes comprises.' },
   { icon: 'conciergerie', app: 'Conciergerie', title: 'Relevé propriétaire envoyé', body: 'Villa des Pins, octobre.' },
   { icon: 'btp', app: 'BTP', title: 'Relance partie', body: 'Facture 2026-0142, échue hier.' },
 ];
