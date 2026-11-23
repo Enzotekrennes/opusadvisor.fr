@@ -379,5 +379,399 @@
     "status": "published",
     "reason": "Requêtes réelles vues dans la Search Console (export du 2026-11-18 : « automatiser sa conciergerie » 11 impressions en position 37,2 ; « automatisation facturation conciergerie » 9 en position 40). Preuve publiable : la conciergerie dont tout le système a été repris et qui est suivie chaque mois, à ne pas résumer à l'automatisation de la facturation. Validé par Enzo le 2026-11-20. À ne pas confondre avec /secteurs/immobilier/ (« Automatisation conciergerie et agence immobilière ») : cette page présente l'offre, l'article est un guide pratique (quoi automatiser en premier dans une conciergerie, avec quels outils, ce que fait déjà le PMS) qui renvoie vers elle, alors qu'aucun article ne la relie aujourd'hui.",
     "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "immobilier-facture-electronique-agence",
+    "keyword": "facturation électronique agence immobilière",
+    "variants": [
+      "facturation electronique agent immobilier",
+      "facturation électronique agent commercial immobilier"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "facturation électronique agence immobilière",
+        "facturation electronique agent immobilier",
+        "facturation électronique agent commercial immobilier"
+      ],
+      "gsc": null,
+      "serp": "Première page tenue par des éditeurs et des sites spécialisés (Tiime, Extencia, Septeo, MySweetImmo, Immobil-IA, comparatif-facture-electronique, agence-immobiliere-france), sans source officielle dans les résultats. La page d'agence-immobiliere-france, lue en détail, traite la commission du mandataire en e-invoicing et l'e-reporting des honoraires facturés aux particuliers, mais pas la réception ni le rapprochement des factures de commission des agents avec les ventes. Aucune page consultée ne propose d'outil, alors que le diagnostic gratuit du site a un choix « Immobilier ou conciergerie »."
+    },
+    "status": "validated",
+    "reason": "L'agence doit pouvoir recevoir des factures électroniques depuis le 1er septembre 2026 et ses agents commerciaux lui factureront leurs commissions par plateforme au plus tard en septembre 2027 : c'est la facturation et le pilotage des agents que l'offre organise, avec le diagnostic gratuit comme porte d'entrée. Le calcul des commissions des agents tient en une section de cet article.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "immobilier-registre-des-mandats",
+    "keyword": "registre des mandats immobilier",
+    "variants": [
+      "registre des mandats immobilier excel",
+      "registre des mandats immobilier en ligne",
+      "registre des mandats dématérialisé",
+      "registre des mandats electronique",
+      "comment remplir le registre des mandats immobilier",
+      "obligation registre des mandats",
+      "registre des mandats de gestion",
+      "registre des mandats transaction",
+      "registre des mandats loi hoguet"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "comment remplir le registre des mandats immobilier",
+        "registre des mandats immobilier excel",
+        "registre des mandats exemple",
+        "registre des mandats immobilier en ligne",
+        "obligation registre des mandats",
+        "registre des mandats agent immobilier",
+        "registre des mandats de gestion immobiliere",
+        "registre des mandats transaction immobilière",
+        "registre des mandats dématérialisé",
+        "registre des mandats electronique",
+        "registre des mandats numérique",
+        "registre des mandats loi hoguet"
+      ],
+      "gsc": null,
+      "serp": "Blogs d'éditeurs (Protexa, quatre pages ; ImmoSign), WebLex, Flash-Immo, un glossaire (Malocateam) et une boutique de registres papier. Les règles (décret n° 72-678, articles 65 et 72 ; inscription chronologique ; numéro reporté sur l'exemplaire du mandant ; conservation dix ans) n'y sont rapportées que par des sources secondaires, et le texte qui autorise le registre électronique n'est cité nulle part. Aucun résultat ne relie le registre au suivi des mandats et des agents dans l'outil de l'agence."
+    },
+    "status": "validated",
+    "reason": "Obligation propre aux agences (loi Hoguet), tenue au quotidien par le responsable d'équipe, et première brique du suivi des mandats que le système centralise. Intérêt 2 seulement, parce que plusieurs éditeurs vendent déjà un registre dématérialisé (ImmoSign, Protexa). Les textes sont à lire sur Légifrance avant rédaction. Les suggestions sur les mandats de protection future et le Québec sont hors sujet.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "immobilier-carte-g-conciergerie",
+    "keyword": "carte g conciergerie",
+    "variants": [
+      "comment obtenir la carte g conciergerie",
+      "carte g conciergerie c est quoi",
+      "carte g conciergerie airbnb",
+      "conciergerie sans carte g",
+      "conciergerie avec carte g",
+      "conciergerie airbnb sans carte g",
+      "contrat de conciergerie sans carte g",
+      "carte de gestion conciergerie"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "comment obtenir la carte g conciergerie",
+        "carte g conciergerie c est quoi",
+        "carte g conciergerie airbnb",
+        "carte de gestion conciergerie",
+        "conciergerie avec carte g",
+        "conciergerie sans carte g",
+        "conciergerie airbnb sans carte g",
+        "contrat de conciergerie sans carte g"
+      ],
+      "gsc": null,
+      "serp": "Pages dédiées de PriceLabs, Orus, Lodgify (deux pages), HostLegal, Wonderguest, Le Triplex et de conciergeries locales : critères (maniement de fonds, fixation des prix, gestion des réservations), sanctions, rapport FNAIM d'avril 2026 cité par plusieurs. Les sources se contredisent sur le statut de co-hôte. Aucune ne dit ce que chaque montage (carte G, carte G sans maniement de fonds, versements directs au propriétaire) change dans les flux d'argent, la facture de commission et le compte rendu au propriétaire."
+    },
+    "status": "validated",
+    "reason": "Question de tout gérant de conciergerie, qui décide de son circuit de facturation. L'article ne tranche pas : il expose la règle et les montages, cite la loi Hoguet et renvoie à un avocat. Pour la facturation elle-même, il renvoie à automatiser-sa-conciergerie, sans la refaire. Le rapport FNAIM est à lire à la source avant d'être cité.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "immobilier-taxe-de-sejour-conciergerie",
+    "keyword": "comment declarer la taxe de sejour airbnb",
+    "variants": [
+      "déclaration taxe de séjour airbnb",
+      "qui déclare la taxe de séjour",
+      "qui reverse la taxe de séjour booking",
+      "collecte taxe de séjour booking",
+      "date limite déclaration taxe de séjour",
+      "taxe de séjour airbnb comptabilisation",
+      "déclaration taxe de séjour en ligne"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "comment declarer la taxe de sejour airbnb",
+        "déclaration taxe de séjour airbnb",
+        "qui déclare la taxe de séjour",
+        "qui reverse la taxe de séjour booking",
+        "collecte taxe de séjour booking",
+        "comment payer la taxe de séjour sur booking",
+        "date limite déclaration taxe de séjour",
+        "taxe de séjour airbnb comptabilisation",
+        "déclaration taxe de séjour en ligne"
+      ],
+      "gsc": null,
+      "serp": "Portails de télédéclaration des collectivités (taxesejour.fr), sites LMNP (lmnp.ai) et blogs de conciergeries (Welkomz, Welkeys, Sunea, Occitania). Welkomz traite déjà le rapprochement par commune, canal et statut de collecte ; les autres pages parlent au propriétaire d'un seul logement. Les sources consultées sont secondaires : le CGCT (article L. 2333-34, cité par ces pages) reste à vérifier et à citer. La graine « taxe de séjour conciergerie » ne renvoie aucune suggestion : la demande passe par les requêtes Airbnb et Booking."
+    },
+    "status": "validated",
+    "reason": "La taxe de séjour fait partie des tâches du profil : une conciergerie présente sur plusieurs communes déclare collectivité par collectivité et selon le canal de réservation, ce que la fiche logement et les réservations suffisent à préparer. Intérêt 2 parce qu'une partie des lecteurs sont des propriétaires d'un seul logement. automatiser-sa-conciergerie ne mentionne que les tarifs par commune : pas de doublon.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "immobilier-tracfin-agence",
+    "keyword": "tracfin agence immobilière",
+    "variants": [
+      "lcb ft agence immobilière",
+      "obligation tracfin agence immobilière",
+      "procédure tracfin agence immobilière",
+      "contrôle tracfin agence immobilière",
+      "fiche tracfin agence immobilière",
+      "tracfin agent immobilier",
+      "obligation tracfin agent immobilier",
+      "formation tracfin agent immobilier",
+      "tracfin mandataire immobilier"
+    ],
+    "sector": "immobilier",
+    "intent": "informationnelle",
+    "format": "checklist",
+    "difficulty": "moyenne",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "tracfin agence immobilière",
+        "lcb ft agence immobilière",
+        "obligation tracfin agence immobilière",
+        "procédure tracfin agence immobilière",
+        "contrôle tracfin agence immobilière",
+        "fiche tracfin agence immobilière",
+        "formulaire tracfin agence immobilière",
+        "obligation tracfin agent immobilier",
+        "formation tracfin agent immobilier",
+        "tracfin mandataire immobilier"
+      ],
+      "gsc": null,
+      "serp": "Organismes de formation loi Alur (Maformationimmo, Popacademy, Les formations de Louis), éditeurs (Kappn, kyc.immo, MyNotary), un cabinet d'avocat et la plaquette Tracfin de janvier 2026 sur economie.gouv.fr. Le décret n° 2026-310 du 24 avril 2026 (formation des personnes chargées des obligations, justificatifs conservés cinq ans après la fin des fonctions) est commenté partout, mais seulement par des sources secondaires dans les résultats : à vérifier sur Légifrance. Les pages vendent une formation ou un logiciel de vérification d'identité ; la tenue des preuves dossier par dossier, dans l'outil de suivi des mandats, n'y est qu'un conseil général."
+    },
+    "status": "validated",
+    "reason": "Obligation datée de 2026 et contrôlée par la DGCCRF, qui retombe sur le responsable d'équipe : classification, pièces et dates pour chaque dossier, attestations de formation pour chaque agent. Ce sont le suivi des mandats et le pilotage des agents que le système centralise. L'article explique la règle sans donner d'avis juridique.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "btp-relance-devis",
+    "keyword": "relance devis",
+    "variants": [
+      "relance devis artisan",
+      "relance devis automatique",
+      "comment relancer un devis",
+      "quand relancer un devis",
+      "exemple relance devis resté sans réponse",
+      "modèle relance devis client par mail",
+      "logiciel relance devis",
+      "tableau relance devis",
+      "tableau de suivi des devis excel",
+      "suivi des devis excel"
+    ],
+    "sector": "btp",
+    "intent": "modèle",
+    "format": "modèle commenté",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "relance devis par mail exemple",
+        "exemple relance devis resté sans réponse",
+        "relance devis automatique",
+        "relance devis client par mail",
+        "modèle relance devis client par mail",
+        "relance devis artisan",
+        "logiciel relance devis",
+        "comment relancer un devis",
+        "quand relancer un devis",
+        "tableau relance devis",
+        "tableau de suivi des devis excel",
+        "suivi des devis excel"
+      ],
+      "gsc": null,
+      "serp": "Obat, Effy Pro et Habitatpresto Pro, puis de petits sites (Nexorio, Kelyseo, Devistrack, Solho, Agence Buzzle) donnent des modèles et des délais qui divergent (de J+2 à J+7 pour la première relance), souvent sans source ; le seul chiffre de taux d'acceptation vient d'un éditeur (Devistrack). Ce qui manque : le suivi qui déclenche et arrête les relances (date de validité, devis signé, relance qui s'arrête d'elle-même), et l'actualisation par l'index BT d'un devis expiré, que l'outil indice BT01 du site calcule."
+    },
+    "status": "validated",
+    "reason": "Le devis est la première tâche du profil BTP, et une relance qui part seule et s'arrête à la signature est typiquement ce que l'offre met en place. L'article complète relances-automatiques-impayes-btp, qui traite des factures, sans le doubler. Il donne aussi un premier lien d'article à /outils/indice-bt01/, qui n'en reçoit aucun.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "btp-pointage-chantier",
+    "keyword": "application pointage chantier",
+    "variants": [
+      "logiciel pointage chantier",
+      "application pointage chantier gratuit",
+      "pointage chantier excel",
+      "feuille de pointage chantier excel",
+      "feuille pointage chantier",
+      "carnet de pointage chantier",
+      "pointage personnel chantier"
+    ],
+    "sector": "btp",
+    "intent": "comparatif",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "application pointage chantier gratuit",
+        "logiciel pointage chantier",
+        "pointage chantier excel",
+        "application pointage chantier",
+        "feuille de pointage chantier excel",
+        "feuille pointage chantier",
+        "pointage personnel chantier",
+        "carnet de pointage chantier"
+      ],
+      "gsc": {
+        "impressions": 14,
+        "position": 65.07
+      },
+      "serp": "Uniquement des pages commerciales d'éditeurs (Traxxeo, KeoBat, Skello, Tim Management, iXbat, WHY, Bonjour Patron, Weascom via Sonepar, Definima) qui décrivent leurs fonctions : saisie mobile par chantier, géolocalisation, export vers la paie. Aucun guide indépendant ni comparatif dans les résultats. Ce qui manque : ce que le pointage doit alimenter (paie, paniers et trajets, marge par chantier), les règles de décompte du temps de travail citées d'après le Code du travail, et les cas où une feuille Excel suffit."
+    },
+    "status": "validated",
+    "reason": "Requête vue dans la Search Console (export du 2026-11-18) sans page qui la vise. Les heures qui remontent au bon chantier conditionnent la marge réelle et le coût horaire, deux calculateurs du site, et c'est un des premiers circuits à automatiser chez un patron de 8 à 60 compagnons et plus. L'article ne doit pas renvoyer vers applications-glide.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "btp-logiciel-second-oeuvre",
+    "keyword": "logiciel second oeuvre",
+    "variants": [],
+    "sector": "btp",
+    "intent": "comparatif",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "/articles/automatiser-sans-erp/",
+    "evidence": {
+      "autocomplete": [],
+      "gsc": {
+        "impressions": 65,
+        "position": 16.18
+      },
+      "serp": "Pages commerciales d'éditeurs (Orisha et Onaya, Divalto, Progib-Oslo Bâtiment, Tactidevis, SQI, Bulbiz, Winstox), chacune pour un profil (ERP de PME, devis et métré, artisan seul), sans comparatif indépendant ni prix. La requête arrive aujourd'hui sur penurie-main-doeuvre-organisation, en position 16, alors que l'article qui traite le choix du logiciel est automatiser-sans-erp. L'autocomplétion ne renvoie aucune suggestion sur cette graine."
+    },
+    "status": "idea",
+    "reason": "Seule requête de la Search Console en position de gain (65 impressions, position 16, export du 2026-11-18). Plutôt qu'un nouvel article, on enrichit automatiser-sans-erp : titre et introduction sur le logiciel du second œuvre, puis une section par métier (électricité, plomberie et CVC, menuiserie, peinture). penurie-main-doeuvre-organisation lui envoie un lien avec cette ancre. Il faudra vérifier quelle page Google retient après la modification.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "btp-e-reporting-paiement",
+    "keyword": "e reporting de paiement",
+    "variants": [
+      "e reporting données de paiement",
+      "e reporting de paiement c est quoi",
+      "e reporting de paiement date",
+      "e reporting de paiement fiche 8",
+      "e reporting paiement"
+    ],
+    "sector": "btp",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "moyenne",
+    "businessFit": 3,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "e reporting de paiement c est quoi",
+        "e reporting de paiement date",
+        "e reporting de paiement fiche 8",
+        "e reporting données de paiement",
+        "e reporting paiement",
+        "e reporting transaction paiement"
+      ],
+      "gsc": null,
+      "serp": "Impots.gouv (page et fiche 8 sur les données de paiement) et le BOFiP (BOI-TVA-DECLA-20-30-60) posent la règle : prestations de services à TVA exigible à l'encaissement, en B2B comme en B2C, statut « Encaissée » pour les factures électroniques, opérations autoliquidées exclues. Sur l'angle BTP, des pages récentes existent déjà (Compta-Online, Kalceo, KellyAssist, Orgavision, Myne, Lio-app) et se contredisent sur la façon de porter la retenue de garantie dans la facture. Ce qui manque : le circuit qui rapproche chaque encaissement de sa situation, jusqu'à la retenue rendue un an après la réception."
+    },
+    "status": "idea",
+    "reason": "Une entreprise du second œuvre facture des prestations de services. Elle devra donc transmettre ses encaissements situation par situation, au plus tard en septembre 2027 pour les PME selon les sources consultées : c'est un rapprochement bancaire à automatiser, relié aux calculateurs de situation et de retenue de garantie. facturation-electronique-2026 ne parle pas de l'e-reporting. Avant rédaction, vérifier le diagnostic gratuit : il ne prévoit l'e-reporting que pour les ventes aux particuliers ou à l'étranger et contredirait l'article.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "btp-pv-reception-travaux",
+    "keyword": "pv de réception travaux",
+    "variants": [
+      "pv de reception travaux obligatoire",
+      "pv de reception travaux modele",
+      "pv de réception travaux sous traitant",
+      "pv de reception travaux marché public",
+      "proces verbal de reception travaux",
+      "pv de réception de chantier obligatoire",
+      "modèle pv de réception de travaux acceptée sans réserve"
+    ],
+    "sector": "btp",
+    "intent": "modèle",
+    "format": "modèle commenté",
+    "difficulty": "forte",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "pv de reception travaux modele",
+        "pv de reception travaux obligatoire",
+        "pv de réception travaux sous traitant",
+        "pv de reception travaux marché public",
+        "proces verbal de reception travaux",
+        "pv de réception de chantier obligatoire",
+        "modèle pv de réception de travaux acceptée sans réserve",
+        "modèle pv de réception des travaux marché privé"
+      ],
+      "gsc": null,
+      "serp": "La CAPEB et une dizaine de pages de modèles (Philtr, VoxActe, ArchiVoice, Kiolo, Techtime, Declarpro, Youtrust, Travauxsanspiège). Les sources se contredisent sur l'obligation d'un écrit (la CAPEB d'un côté, la réception tacite admise par la Cour de cassation de l'autre). Aucune page consultée n'explique la réception entre l'entreprise principale et son sous-traitant, ni ce que la date déclenche côté entreprise : libération de la retenue, garanties, solde."
+    },
+    "status": "validated",
+    "reason": "Forte demande et lecteur exact, mais la première page est très disputée. L'atout est le calculateur de retenue de garantie, qui donne la date de libération à partir de la réception, et l'article ferait l'amont de suivi-retenue-de-garantie. Intérêt 2 parce que beaucoup de particuliers cherchent un simple modèle.",
+    "updatedAt": "2026-11-23"
+  },
+  {
+    "id": "formation-bilan-pedagogique-financier",
+    "keyword": "bilan pédagogique et financier",
+    "variants": [
+      "bilan pédagogique et financier 2026",
+      "bilan pédagogique et financier 2026 date limite",
+      "comment remplir bilan pedagogique et financier",
+      "bilan pédagogique et financier exemple",
+      "bilan pédagogique et financier excel",
+      "bilan pédagogique et financier mon activité formation",
+      "bilan pédagogique et financier sous traitance",
+      "quand déclarer son bilan pédagogique et financier",
+      "bpf organisme de formation"
+    ],
+    "sector": "formation",
+    "intent": "informationnelle",
+    "format": "guide",
+    "difficulty": "forte",
+    "businessFit": 2,
+    "target": "new",
+    "evidence": {
+      "autocomplete": [
+        "bilan pédagogique et financier exemple",
+        "bilan pédagogique et financier 2026 pdf",
+        "bilan pédagogique et financier 2026",
+        "bilan pédagogique et financier 2026 date limite",
+        "bilan pédagogique et financier mon activité formation",
+        "comment remplir bilan pedagogique et financier",
+        "quand déclarer son bilan pédagogique et financier",
+        "bilan pédagogique et financier sous traitance",
+        "bilan pédagogique et financier excel",
+        "bpf organisme de formation"
+      ],
+      "gsc": null,
+      "serp": "Service-public (Cerfa 10443 et sa notice), la DREETS PACA, le guide juridique annuel de Centre Inffo et des guides complets d'éditeurs et de cabinets (Filiz, Digiforma, Copilof, Certiforma, Certifopac, Loop). Selon Certiforma et Copilof, l'échéance légale est le 30 avril 2027 (article R. 6352-23), un éventuel report restant à confirmer sur Mon Activité Formation. Form-dev note qu'aucune consigne de la DGEFP ne dit encore où ventiler au cadre C les produits payés par l'entreprise et remboursés par l'OPCO depuis le 1er octobre 2026, alors que l'exercice 2026 relève des deux régimes."
+    },
+    "status": "validated",
+    "reason": "C'est le premier BPF où la fin de la subrogation change la répartition des produits par financeur. L'organisme qui suit chaque dossier (qui a payé, quand, combien d'heures) le remplit sans rien reconstituer, et l'article prolonge fin-subrogation-opco-organisme-formation. Il faudrait le publier avant l'ouverture de la campagne, au début de 2027. Intérêt 2 parce qu'une partie des lecteurs sont des formateurs indépendants.",
+    "updatedAt": "2026-11-23"
   }
 ]
