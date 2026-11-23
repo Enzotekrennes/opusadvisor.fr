@@ -1,5 +1,22 @@
 [
     {
+        "id": 28,
+        "slug": "automatiser-sa-conciergerie",
+        "title": "Automatiser sa conciergerie : par où commencer après le PMS",
+        "description": "Automatiser sa conciergerie : ce que le PMS laisse à la main et par où commencer, de la facture prestataire au relevé du propriétaire.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-23",
+        "category": "Méthode",
+        "seoTitle": "Automatiser sa conciergerie : quoi faire après le PMS",
+        "related": [
+            "facturation-electronique-2026",
+            "automatisation-organisme-de-formation",
+            "organisation-avant-developpement"
+        ],
+        "tools": []
+    },
+    {
         "id": 27,
         "slug": "documents-obligatoires-qualiopi",
         "title": "Documents obligatoires Qualiopi : les preuves par critère",
