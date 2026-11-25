@@ -109,6 +109,46 @@ test('ventes aux seuls particuliers : pas d’émission, mais de l’e-reporting
   assert.match(d.titre, /e-reporting/);
 });
 
+test('entreprise du BTP qui ne facture que des entreprises : e-reporting des paiements par le statut « Encaissée »', () => {
+  const d = run({ q4_secteur: 'btp' });
+  assert.equal(d.ereporting.concerne, true, 'les prestations de services payées par une entreprise relèvent de l’e-reporting des paiements');
+  assert.match(d.ereporting.texte ?? '', /^Vous vendez des prestations de services/);
+  assert.match(d.ereporting.texte ?? '', /statut « Encaissée »/);
+  assert.match(d.ereporting.texte ?? '', /TVA sur les débits/);
+  assert.doesNotMatch(d.ereporting.texte ?? '', /particuliers/);
+  assert.doesNotMatch(d.emission.texte, /prestations de services/, 'pas de doublon dans le bloc émission');
+  assert.match(d.plan.at(-1)?.detail ?? '', /Encaissée/);
+  assert.doesNotMatch(d.plan.at(-1)?.detail ?? '', /autres ventes/);
+});
+
+test('conciergerie qui facture des particuliers : ventes et paiements dans le même e-reporting', () => {
+  const d = run({ q4_secteur: 'immobilier', q3_clients: ['particuliers'] });
+  assert.equal(d.emission.concerne, 'non');
+  assert.match(d.ereporting.texte ?? '', /^Vous facturez des particuliers/);
+  assert.match(d.ereporting.texte ?? '', /total encaissé par jour/);
+  assert.doesNotMatch(d.ereporting.texte ?? '', /Encaissée/);
+  assert.match(d.plan.at(-1)?.detail ?? '', /paiements reçus/);
+});
+
+test('secteur « Autre » qui ne facture que des entreprises : phrase au conditionnel, sous l’émission', () => {
+  const d = run({});
+  assert.equal(d.ereporting.concerne, false);
+  assert.match(d.emission.texte, /Si vous vendez des prestations de services, vous devrez aussi déclarer les paiements reçus/);
+  assert.equal(d.plan.at(-1)?.detail, 'Toutes vos factures aux entreprises françaises partent par la plateforme.');
+});
+
+test('grande entreprise du BTP : les paiements sont déjà à déclarer', () => {
+  const d = run({ q1_taille: 'grande', q4_secteur: 'btp' });
+  assert.match(d.ereporting.texte ?? '', /vous devez aussi déclarer les paiements reçus depuis le 1er\sseptembre 2026/);
+  assert.ok(d.plan.some((s) => /doit déjà passer au statut/.test(s.detail)));
+});
+
+test('formation exonérée : ni émission ni paiements à déclarer, même en secteur de services', () => {
+  const d = run({ q2_tva: 'exoneree', q4_secteur: 'formation', q3_clients: ['entreprises', 'particuliers'] });
+  assert.equal(d.ereporting.concerne, false);
+  assert.doesNotMatch(d.emission.texte, /paiements/);
+});
+
 test('logiciel de facturation nommé : le nom apparaît dans la recommandation', () => {
   const d = run({ q5_outil: 'logiciel', q5_outil_nom: 'Facturo' });
   assert.match(d.recommandation, /votre logiciel \(Facturo\)/);
@@ -121,19 +161,21 @@ test('toutes les combinaisons : plan de 3 à 5 étapes, datées, futures et dans
   for (const q1 of opts('q1_taille'))
     for (const q2 of opts('q2_tva'))
       for (const q3 of clientSets)
-        for (const q5 of opts('q5_outil'))
-          for (const q6 of opts('q6_pa'))
-            for (const q7 of opts('q7_volume')) {
-              const answers = parseAnswers({ ...base, q1_taille: q1, q2_tva: q2, q3_clients: q3, q5_outil: q5, q6_pa: q6, q7_volume: q7 });
-              assert.ok(answers);
-              const d = computeDiagnostic(answers, TODAY);
-              const ctx = JSON.stringify({ q1, q2, q3, q5, q6, q7 });
-              assert.ok(d.plan.length >= 3 && d.plan.length <= 5, `${d.plan.length} étapes pour ${ctx}`);
-              assert.ok(d.plan.every((s, i) => s.date > '2026-10-31' && (i === 0 || s.date > d.plan[i - 1].date)), `dates du plan pour ${ctx}`);
-              assert.ok(!/—/.test(JSON.stringify(d)), `tiret cadratin pour ${ctx}`);
-              if (q6 !== 'oui') assert.equal(d.verdict, 'EN_RETARD', ctx);
-              n++;
-            }
+        for (const q4 of opts('q4_secteur'))
+          for (const q5 of opts('q5_outil'))
+            for (const q6 of opts('q6_pa'))
+              for (const q7 of opts('q7_volume')) {
+                const answers = parseAnswers({ ...base, q1_taille: q1, q2_tva: q2, q3_clients: q3, q4_secteur: q4, q5_outil: q5, q6_pa: q6, q7_volume: q7 });
+                assert.ok(answers);
+                const d = computeDiagnostic(answers, TODAY);
+                const ctx = JSON.stringify({ q1, q2, q3, q4, q5, q6, q7 });
+                assert.equal(d.ereporting.concerne, d.ereporting.texte !== null, `texte d'e-reporting pour ${ctx}`);
+                assert.ok(d.plan.length >= 3 && d.plan.length <= 5, `${d.plan.length} étapes pour ${ctx}`);
+                assert.ok(d.plan.every((s, i) => s.date > '2026-10-31' && (i === 0 || s.date > d.plan[i - 1].date)), `dates du plan pour ${ctx}`);
+                assert.ok(!/—/.test(JSON.stringify(d)), `tiret cadratin pour ${ctx}`);
+                if (q6 !== 'oui') assert.equal(d.verdict, 'EN_RETARD', ctx);
+                n++;
+              }
   assert.ok(n > 1000);
 });
 
