@@ -1,5 +1,22 @@
 [
     {
+        "id": 29,
+        "slug": "facturation-electronique-agence-immobiliere",
+        "title": "Facturation électronique en agence immobilière : vos agents aussi",
+        "description": "Facturation électronique en agence immobilière : recevoir les factures des agents, les rapprocher des ventes, déclarer les honoraires des particuliers.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-25",
+        "category": "Réglementation",
+        "seoTitle": "Facturation électronique agence immobilière : les agents",
+        "related": [
+            "automatiser-sa-conciergerie",
+            "facturation-electronique-2026",
+            "facturation-electronique-organisme-formation"
+        ],
+        "tools": []
+    },
+    {
         "id": 28,
         "slug": "automatiser-sa-conciergerie",
         "title": "Automatiser sa conciergerie : par où commencer après le PMS",
@@ -11,7 +28,7 @@
         "seoTitle": "Automatiser sa conciergerie : quoi faire après le PMS",
         "related": [
             "facturation-electronique-2026",
-            "automatisation-organisme-de-formation",
+            "facturation-electronique-agence-immobiliere",
             "organisation-avant-developpement"
         ],
         "tools": []

@@ -402,9 +402,9 @@
       "gsc": null,
       "serp": "Première page tenue par des éditeurs et des sites spécialisés (Tiime, Extencia, Septeo, MySweetImmo, Immobil-IA, comparatif-facture-electronique, agence-immobiliere-france), sans source officielle dans les résultats. La page d'agence-immobiliere-france, lue en détail, traite la commission du mandataire en e-invoicing et l'e-reporting des honoraires facturés aux particuliers, mais pas la réception ni le rapprochement des factures de commission des agents avec les ventes. Aucune page consultée ne propose d'outil, alors que le diagnostic gratuit du site a un choix « Immobilier ou conciergerie »."
     },
-    "status": "validated",
+    "status": "published",
     "reason": "L'agence doit pouvoir recevoir des factures électroniques depuis le 1er septembre 2026 et ses agents commerciaux lui factureront leurs commissions par plateforme au plus tard en septembre 2027 : c'est la facturation et le pilotage des agents que l'offre organise, avec le diagnostic gratuit comme porte d'entrée. Le calcul des commissions des agents tient en une section de cet article.",
-    "updatedAt": "2026-11-23"
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "immobilier-registre-des-mandats",

@@ -72,7 +72,7 @@ export default function ImmobilierPage() {
       ]}
       demo={['conciergerie', 'agence']}
       cases={casesFor('immobilier')}
-      reading={{ title: 'À lire pour les conciergeries', slugs: ['automatiser-sa-conciergerie'] }}
+      reading={{ title: 'À lire pour les conciergeries et les agences', slugs: ['automatiser-sa-conciergerie', 'facturation-electronique-agence-immobiliere'] }}
       ctaTitle="Combien de temps vous prend la fin de mois ?"
       ctaText="On regarde ensemble votre facturation des propriétaires ou le suivi de votre équipe, et ce qui peut se faire tout seul. 30 minutes en visio, gratuites."
     />

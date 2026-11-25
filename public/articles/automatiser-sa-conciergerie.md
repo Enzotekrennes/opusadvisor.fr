@@ -106,7 +106,7 @@ TVA : traitement de chaque ligne à valider avec votre expert-comptable
 
 Chaque ligne renvoie à sa source. Une ligne sans pièce doit être signalée par le traitement, jamais complétée par lui. C'est le type de système que [nous mettons en place pour les conciergeries](/secteurs/immobilier/), relié au PMS en place quand il fait l'affaire.
 
-Petite ou micro-entreprise, votre conciergerie devra émettre ses factures de commission par une plateforme agréée au plus tard le 1er septembre 2027, avec un e-reporting au même calendrier, selon [la même page d'impots.gouv.fr](https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique). Le statut du propriétaire (particulier, SCI, loueur en meublé) décide si sa facture relève de l'une ou de l'autre. Votre comptable tranche, et notre [diagnostic facture électronique](/diagnostic-facture-electronique/), gratuit, vous situe en quelques questions.
+Petite ou micro-entreprise, votre conciergerie devra émettre ses factures de commission par une plateforme agréée au plus tard le 1er septembre 2027, avec un e-reporting au même calendrier, selon [la même page d'impots.gouv.fr](https://www.impots.gouv.fr/professionnel/je-decouvre-la-facturation-electronique). Le statut du propriétaire (particulier, SCI, loueur en meublé) décide si sa facture relève de l'une ou de l'autre. Votre comptable tranche, et notre [diagnostic facture électronique](/diagnostic-facture-electronique/), gratuit, vous situe en quelques questions. Si vous dirigez une agence de transaction, la réception des factures de vos agents commerciaux est traitée dans notre article sur [la facturation électronique en agence immobilière](/articles/facturation-electronique-agence-immobiliere/).
 
 ## Ce qui reste à une personne
 
