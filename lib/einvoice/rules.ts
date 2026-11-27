@@ -5,10 +5,19 @@
 // entreprendre.service-public.gouv.fr (F39785), CGI art. 289 bis, 1737 et 1788 D.
 // Montants des amendes vérifiés le 31/10/2026 sur Légifrance : CGI art. 1737, III, IV bis et V, dans sa version
 // en vigueur depuis le 21/02/2026 (loi n° 2026-103 du 19 février 2026, art. 123).
+// Données de paiement vérifiées le 25/11/2026 : FAQ « J'approfondis la facturation électronique » (impots.gouv,
+// version du 01/09/2026, question 4.1) et fiche « Données de paiement à transmettre » (impots.gouv, août 2026,
+// CGI art. 290 A) : prestations de services, entre entreprises comme avec des particuliers, sauf autoliquidation
+// et option pour la TVA sur les débits ; entre entreprises, elles passent par le statut « Encaissée » de la facture.
 
-import type { Volume } from './questions.ts';
+import type { Secteur, Volume } from './questions.ts';
 
-export const RULES_UPDATED_AT = '2026-10-31';
+export const RULES_UPDATED_AT = '2026-11-25';
+
+/** Secteurs du diagnostic qui vendent des prestations de services (travaux, formations, honoraires, conciergerie). */
+export const SECTEURS_SERVICES: readonly Secteur[] = ['btp', 'formation', 'immobilier'];
+
+const ENCAISSEE = '« Encaissée »';
 
 export const DATES = {
   /** Réception obligatoire pour toutes les entreprises établies en France. */
@@ -111,6 +120,19 @@ export const TEXTS = {
     aVenir: (qui: string, date: string) => `Vous facturez ${qui}. À partir du ${date}, vous devrez transmettre les données de ces ventes à l'administration par votre plateforme : c'est l'e-reporting.`,
     enVigueur: (qui: string, date: string) => `Vous facturez ${qui}. Depuis le ${date}, vous devez transmettre les données de ces ventes à l'administration par votre plateforme : c'est l'e-reporting.`,
     qui: { particuliers: 'des particuliers', etranger: "des clients à l'étranger", lesDeux: "des particuliers et des clients à l'étranger" },
+    /**
+     * Données de paiement des prestations de services. `certain` : le secteur ne vend que des prestations de services
+     * (sinon la phrase reste au conditionnel). `entreprises` / `particuliers` : qui paie ces prestations.
+     */
+    paiements: (o: { certain: boolean; entreprises: boolean; particuliers: boolean; enVigueur: boolean; date: string }) =>
+      [
+        `${o.certain ? 'Vous vendez des prestations de services :' : 'Si vous vendez des prestations de services,'} vous ${o.enVigueur ? 'devez' : 'devrez'} aussi déclarer les paiements reçus ${o.enVigueur ? 'depuis le' : 'à partir du'} ${o.date}.`,
+        o.entreprises ? `Pour une facture payée par une entreprise, vous la passez au statut ${ENCAISSEE} sur votre plateforme, avec la date et le montant reçus.` : '',
+        o.particuliers ? 'Pour vos clients particuliers, votre plateforme transmet le total encaissé par jour.' : '',
+        "Une exception : l'option pour le paiement de la TVA sur les débits. Votre comptable sait si vous l'avez prise.",
+      ]
+        .filter(Boolean)
+        .join(' '),
   },
   amende: (montant: string) => `Ordre de grandeur, si vos factures aux entreprises ne passaient pas au format électronique : jusqu'à ${montant} d'amende par an (${euros(AMENDES.parFacture)} par facture, dans la limite de ${euros(AMENDES.plafondAnnuel)} par an). Une première infraction réparée dans les ${AMENDES.delaiReparationJours} jours après une demande de l'administration n'est pas sanctionnée. C'est une estimation à partir de vos réponses, pas un montant certain.`,
   recommandation: {
@@ -146,10 +168,13 @@ export const TEXTS = {
       titre: 'Émission obligatoire',
       detail: 'Toutes vos factures aux entreprises françaises partent par la plateforme.',
       detailEreporting: 'Toutes vos factures aux entreprises françaises partent par la plateforme, et les données de vos autres ventes aussi (e-reporting).',
+      detailPaiements: `Toutes vos factures aux entreprises françaises partent par la plateforme, et chacune passe au statut ${ENCAISSEE} quand le client paie (e-reporting).`,
+      detailEreportingPaiements: 'Toutes vos factures aux entreprises françaises partent par la plateforme, avec les données de vos autres ventes et de vos paiements reçus (e-reporting).',
     },
     echeanceEreporting: {
       titre: 'E-reporting obligatoire',
       detail: 'Les données de vos ventes aux particuliers ou à l’étranger partent par votre plateforme.',
+      detailPaiements: 'Les données de vos ventes aux particuliers ou à l’étranger partent par votre plateforme, avec les paiements reçus pour vos prestations.',
     },
     controler: {
       titre: 'Contrôler que vos factures passent par la plateforme',
@@ -158,6 +183,8 @@ export const TEXTS = {
     ereportingEnVigueur: {
       titre: 'Transmettre vos données de ventes (e-reporting)',
       detail: "Vos ventes aux particuliers ou à l'étranger doivent déjà être déclarées par votre plateforme. Vérifiez que c'est le cas.",
+      detailPaiements: `Chaque facture payée par une entreprise doit déjà passer au statut ${ENCAISSEE} sur votre plateforme. Vérifiez que c'est le cas.`,
+      detailEreportingPaiements: "Vos ventes aux particuliers ou à l'étranger et vos paiements reçus doivent déjà être déclarés par votre plateforme. Vérifiez que c'est le cas.",
     },
     documenter: {
       titre: 'Garder une trace de vos démarches',

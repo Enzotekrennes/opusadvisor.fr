@@ -2,7 +2,7 @@
 // (la date du jour est passée en paramètre). Testée dans diagnostic.test.ts.
 
 import type { Answers } from './questions.ts';
-import { AMENDES, DATES, TEXTS, VERDICT_LABELS, VOLUME_MILIEU, dateFr, euros } from './rules.ts';
+import { AMENDES, DATES, SECTEURS_SERVICES, TEXTS, VERDICT_LABELS, VOLUME_MILIEU, dateFr, euros } from './rules.ts';
 
 export type Verdict = keyof typeof VERDICT_LABELS;
 export type Concerne = 'oui' | 'partiel' | 'a_verifier' | 'non';
@@ -76,19 +76,38 @@ export function computeDiagnostic(answers: Answers, today: Date = new Date()): D
     if (tva === 'inconnu') emissionTexte += ` ${TEXTS.emission.inconnu}`;
   }
 
-  // E-reporting : ventes aux particuliers ou à l'étranger, sauf activité entièrement exonérée.
+  // E-reporting des ventes : ventes aux particuliers ou à l'étranger, sauf activité entièrement exonérée.
   const particuliers = clients.includes('particuliers');
   const etranger = clients.includes('etranger');
-  const ereportingConcerne = (particuliers || etranger) && !exoneree;
+  const ereportingVentes = (particuliers || etranger) && !exoneree;
+  // E-reporting des paiements : prestations de services payées par une entreprise française ou un particulier
+  // (les ventes à l'étranger entre entreprises sont autoliquidées). Certain pour les secteurs de services ;
+  // pour « Autre », la phrase reste au conditionnel et ne suffit pas à rendre l'e-reporting « concerné ».
+  const paiements = (b2b || particuliers) && !exoneree;
+  const servicesCertains = SECTEURS_SERVICES.includes(answers.q4_secteur);
+  const ereportingPaiements = paiements && servicesCertains;
+  const paiementsTexte = paiements
+    ? TEXTS.ereporting.paiements({
+        certain: servicesCertains,
+        entreprises: b2b,
+        particuliers,
+        enVigueur: emissionEnVigueur,
+        date: dateFr(dateEmission),
+      })
+    : null;
+  const ereportingConcerne = ereportingVentes || ereportingPaiements;
   const qui = particuliers && etranger ? TEXTS.ereporting.qui.lesDeux : particuliers ? TEXTS.ereporting.qui.particuliers : TEXTS.ereporting.qui.etranger;
+  const ventesTexte = ereportingVentes
+    ? (emissionEnVigueur ? TEXTS.ereporting.enVigueur : TEXTS.ereporting.aVenir)(qui, dateFr(dateEmission))
+    : null;
   const ereporting = {
     concerne: ereportingConcerne,
     date: dateEmission,
     enVigueur: emissionEnVigueur,
-    texte: ereportingConcerne
-      ? (emissionEnVigueur ? TEXTS.ereporting.enVigueur : TEXTS.ereporting.aVenir)(qui, dateFr(dateEmission))
-      : null,
+    texte: ereportingConcerne ? [ventesTexte, paiementsTexte].filter(Boolean).join(' ') : null,
   };
+  // Secteur « Autre » qui ne vend qu'à des entreprises : la phrase conditionnelle sur les paiements suit l'émission.
+  if (paiementsTexte && !ereportingConcerne) emissionTexte += ` ${paiementsTexte}`;
 
   // Amende d'émission indicative : milieu de la tranche × 12 mois × montant par facture, plafonné.
   const montant = Math.min(VOLUME_MILIEU[answers.q7_volume] * 12 * AMENDES.parFacture, AMENDES.plafondAnnuel);
@@ -132,7 +151,17 @@ export function computeDiagnostic(answers: Answers, today: Date = new Date()): D
     ereporting,
     amende,
     recommandation,
-    plan: buildPlan({ now, enRetard, concerne, ereportingConcerne, emissionEnVigueur, dateEmission, tvaInconnue: tva === 'inconnu', recommandation }),
+    plan: buildPlan({
+      now,
+      enRetard,
+      concerne,
+      ereportingVentes,
+      ereportingPaiements,
+      emissionEnVigueur,
+      dateEmission,
+      tvaInconnue: tva === 'inconnu',
+      recommandation,
+    }),
   };
 }
 
@@ -140,7 +169,10 @@ interface PlanInput {
   now: string;
   enRetard: boolean;
   concerne: Concerne;
-  ereportingConcerne: boolean;
+  /** E-reporting des ventes aux particuliers ou à l'étranger. */
+  ereportingVentes: boolean;
+  /** E-reporting des paiements reçus pour des prestations de services (secteurs de services seulement). */
+  ereportingPaiements: boolean;
   emissionEnVigueur: boolean;
   dateEmission: string;
   tvaInconnue: boolean;
@@ -164,7 +196,11 @@ function buildPlan(p: PlanInput): PlanStep[] {
   if (p.tvaInconnue) soon(P.tva);
 
   const emettre = p.concerne !== 'non';
-  if (!emettre && !p.ereportingConcerne) {
+  const ereporting = p.ereportingVentes || p.ereportingPaiements;
+  // Texte qui couvre exactement les e-reportings en jeu : ventes, paiements ou les deux.
+  const selon = <T>(t: { ventes: T; paiements: T; lesDeux: T }) =>
+    p.ereportingVentes && p.ereportingPaiements ? t.lesDeux : p.ereportingPaiements ? t.paiements : t.ventes;
+  if (!emettre && !ereporting) {
     // Activité exonérée : la réception, puis l'arrivée des factures électroniques de vos fournisseurs.
     if (!p.enRetard) soon(P.annuaire);
     soon(P.exoneration);
@@ -173,14 +209,26 @@ function buildPlan(p: PlanInput): PlanStep[] {
     // Grandes entreprises : l'émission et l'e-reporting s'appliquent déjà.
     if (!p.enRetard) soon(P.annuaire);
     if (emettre) soon(P.controler);
-    if (p.ereportingConcerne) soon(P.ereportingEnVigueur);
+    if (ereporting) {
+      const E = P.ereportingEnVigueur;
+      soon({ titre: E.titre, detail: selon({ ventes: E.detail, paiements: E.detailPaiements, lesDeux: E.detailEreportingPaiements }) });
+    }
     soon(P.documenter);
   } else {
     // PME et micro-entreprises : on prépare l'échéance à rebours.
     const choisir = emettre ? P.choisir : P.choisirEreporting;
+    const E = P.echeance;
     const echeance = emettre
-      ? { titre: P.echeance.titre, detail: p.ereportingConcerne ? P.echeance.detailEreporting : P.echeance.detail, echeance: true }
-      : { ...P.echeanceEreporting, echeance: true };
+      ? {
+          titre: E.titre,
+          detail: ereporting ? selon({ ventes: E.detailEreporting, paiements: E.detailPaiements, lesDeux: E.detailEreportingPaiements }) : E.detail,
+          echeance: true,
+        }
+      : {
+          titre: P.echeanceEreporting.titre,
+          detail: p.ereportingPaiements ? P.echeanceEreporting.detailPaiements : P.echeanceEreporting.detail,
+          echeance: true,
+        };
     if (steps.length < 2) {
       soon({ titre: P.outil.titre, detail: p.recommandation });
       push(addMonths(p.dateEmission, -6), choisir);
