@@ -48,7 +48,7 @@ On ne vise pas zéro heure d'administratif, ce serait mentir. On vise la moitié
 
 - **Les relances qui partent toutes seules.** [Une facture émise déclenche ses relances](/articles/relances-automatiques-impayes-btp/) sans que vous y pensiez : un rappel trois jours avant l'échéance, une relance écrite le lendemain, un appel à J+8. Fini les deux heures du dimanche.
 - **Les justificatifs classés à la source.** La photo d'un ticket ou la pièce d'un dossier atterrit dans le bon dossier au moment où elle arrive, pas trois mois plus tard quand le comptable réclame.
-- **Les devis types prêts à dégainer.** Un modèle [calé sur vos prix](/outils/calcul-cout-horaire-main-doeuvre/) et vos mentions obligatoires, au lieu de repartir d'une page blanche à chaque chantier.
+- **Les devis types prêts à dégainer.** Un modèle [calé sur vos prix](/outils/calcul-cout-horaire-main-doeuvre/) et vos mentions obligatoires, au lieu de repartir d'une page blanche à chaque chantier. Une fois envoyés, les devis sans réponse [sont relancés à des dates calées sur leur validité](/articles/relance-devis-btp/).
 - **Le lien direct avec le comptable.** Un export propre remplace la ressaisie mensuelle.
 
 Ce travail tient en 3 à 5 semaines. L'objectif : faire tomber l'administratif de 13 heures à 6 ou 7 heures par semaine. C'est l'engagement Opus : [10 heures par semaine rendues à votre entreprise](/secteurs/btp/) dès le deuxième mois.

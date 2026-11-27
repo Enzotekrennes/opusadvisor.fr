@@ -60,7 +60,7 @@ Vous n'êtes pas obligé d'appliquer tout ça à un client historique sur un ret
 
 ## La séquence de relance qui marche
 
-La séquence type qui marche dans cette niche tient en 5 étapes. Elle commence avant l'échéance et se termine en pré-contentieux.
+La séquence type qui marche dans cette niche tient en 5 étapes. Elle commence avant l'échéance et se termine en pré-contentieux. Elle vaut pour les factures. Un devis resté sans réponse se relance autrement, [en calant les relances sur sa date de validité](/articles/relance-devis-btp/).
 
 **J-3 (avant l'échéance) : rappel courtois automatique.** Mail envoyé 3 jours avant la date d'échéance. Tonalité informative : "votre facture n°2026-0142 d'un montant de 4 280 € arrive à échéance le 15 mai". Aucun reproche, aucune pression. Il suffit à régler les simples oublis, sans effort côté patron.
 
