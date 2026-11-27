@@ -601,9 +601,10 @@
       "gsc": null,
       "serp": "Obat, Effy Pro et Habitatpresto Pro, puis de petits sites (Nexorio, Kelyseo, Devistrack, Solho, Agence Buzzle) donnent des modèles et des délais qui divergent (de J+2 à J+7 pour la première relance), souvent sans source ; le seul chiffre de taux d'acceptation vient d'un éditeur (Devistrack). Ce qui manque : le suivi qui déclenche et arrête les relances (date de validité, devis signé, relance qui s'arrête d'elle-même), et l'actualisation par l'index BT d'un devis expiré, que l'outil indice BT01 du site calcule."
     },
-    "status": "validated",
+    "status": "published",
     "reason": "Le devis est la première tâche du profil BTP, et une relance qui part seule et s'arrête à la signature est typiquement ce que l'offre met en place. L'article complète relances-automatiques-impayes-btp, qui traite des factures, sans le doubler. Il donne aussi un premier lien d'article à /outils/indice-bt01/, qui n'en reçoit aucun.",
-    "updatedAt": "2026-11-23"
+    "updatedAt": "2026-11-27",
+    "slug": "relance-devis-btp"
   },
   {
     "id": "btp-pointage-chantier",

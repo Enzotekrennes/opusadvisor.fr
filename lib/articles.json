@@ -1,5 +1,24 @@
 [
     {
+        "id": 30,
+        "slug": "relance-devis-btp",
+        "title": "Relance devis : modèles, délais et devis expiré dans le BTP",
+        "description": "Relance de devis sans réponse : modèles de mail, SMS et appel, quand relancer, quand s'arrêter et comment refaire le prix d'un devis expiré.",
+        "imageSrc": "/images/Logo_1200x630.png",
+        "icon": "file-text",
+        "publishedAt": "2026-11-27",
+        "category": "Méthode",
+        "seoTitle": "Relance devis : modèles, délais et devis expiré dans le BTP",
+        "related": [
+            "relances-automatiques-impayes-btp",
+            "automatiser-sans-erp",
+            "temps-administratif-artisans-btp"
+        ],
+        "tools": [
+            "indice-bt01"
+        ]
+    },
+    {
         "id": 29,
         "slug": "facturation-electronique-agence-immobiliere",
         "title": "Facturation électronique en agence immobilière : vos agents aussi",
@@ -341,7 +360,7 @@
         "seoTitle": "Facture impayée BTP : modèles de relance et séquence",
         "related": [
             "sous-traitance-btp-paiement-direct",
-            "facturation-electronique-2026",
+            "relance-devis-btp",
             "temps-administratif-artisans-btp"
         ],
         "tools": [
